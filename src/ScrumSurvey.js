@@ -1,5 +1,5 @@
 import React from "react";
-import {Model, StylesManager} from "survey-core";
+import {Model} from "survey-core";
 import "survey-core/defaultV2.min.css";
 import "./index.css";
 import {jsPDF} from "jspdf";
