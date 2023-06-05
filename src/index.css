@@ -46,7 +46,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    right: -22px;
+    left: -1242px;
     height: 45px;
     z-index: 40;
     rotate: -45deg;
@@ -56,7 +56,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    right: -45px;
+    left: -1220px;
     height: 45px;
     z-index: 30;
     rotate: -45deg;
@@ -66,7 +66,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    right: -67px;
+    left: -1197px;
     height: 45px;
     z-index: 20;
     rotate: -45deg;
@@ -84,7 +84,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    left: -22px;
+    right: -1242px;
     height: 45px;
     z-index: 40;
     rotate: 45deg;
@@ -94,7 +94,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    left: -45px;
+    right: -1220px;
     height: 45px;
     z-index: 30;
     rotate: 45deg;
@@ -104,7 +104,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     top: 0;
-    left: -67px;
+    right: -1197px;
     height: 45px;
     z-index: 20;
     rotate: 45deg;
@@ -123,7 +123,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    right: -22px;
+    left: -1242px;
     height: 45px;
     z-index: 40;
     rotate: 45deg;
@@ -133,7 +133,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    right: -45px;
+    left: -1220px;
     height: 45px;
     z-index: 30;
     rotate: 45deg;
@@ -143,7 +143,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    right: -67px;
+    left: -1197px;
     height: 45px;
     z-index: 20;
     rotate: 45deg;
@@ -161,7 +161,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    left: -22px;
+    right: -1242px;
     height: 45px;
     z-index: 40;
     rotate: -45deg;
@@ -171,7 +171,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    left: -45px;
+    right: -1220px;
     height: 45px;
     z-index: 30;
     rotate: -45deg;
@@ -181,7 +181,7 @@ body {
     border-bottom: 1px solid #fbbffa;
     border-top: 1px solid #fbbffa;
     bottom: 0;
-    left: -67px;
+    right: -1197px;
     height: 45px;
     z-index: 20;
     rotate: -45deg;
