@@ -13,7 +13,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .home-image {
-    animation: home-image-spin infinite 200s linear;
+    animation: home-image-spin infinite 500s linear;
   }
 }
 
