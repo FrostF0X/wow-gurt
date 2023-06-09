@@ -3,6 +3,7 @@ import Answer from "./Answer";
 import "./Summary.css";
 import {jsPDF} from "jspdf";
 import html2canvas from "html2canvas";
+import {nanoid} from 'nanoid';
 
 function analyseAnswers(answers){
     let summary = {};
@@ -12,32 +13,32 @@ function analyseAnswers(answers){
 
     let threeWorst = []
     let comfortAnswers = [];
-    for (const question in answers){
+    for (const answer of answers){
         //average
         count++;
-        sum += answers[question];
+        sum += answer.mark;
 
         //three worst
         if (threeWorst.length < 3){
-            threeWorst.push({question: question, mark: answers[question]});
+            threeWorst.push({name: answer.name, title: answer.title, mark: answer.mark});
         }
         else{
-            console.log(question);
+
             for (const oneWorst of threeWorst){
-                if (oneWorst.mark > answers[question]){
-                    threeWorst[threeWorst.indexOf(oneWorst)] = {question: question, mark: answers[question]};
+                if (oneWorst.mark > answer.mark){
+                    threeWorst[threeWorst.indexOf(oneWorst)] = {name: answer.name, title: answer.title, mark: answer.mark};
                     break;
                 }
             }
         }
 
         //answers in comfortable way
-        comfortAnswers.push({question: question, mark: answers[question]});
+        comfortAnswers.push({name: answer.name, title: answer.title, mark: answer.mark});
 
     }
     threeWorst = threeWorst.sort((a, b) => a.mark - b.mark);
 
-    summary.avg = sum/count;
+    summary.avg = (sum/count).toFixed(2);
     summary.threeWorst = threeWorst;
     summary.answers = comfortAnswers;
 
@@ -78,14 +79,18 @@ function Summary (props){
                     <div className={"average-item"}>{summary.avg}</div>
                 </div>
                 <div className={"worst"}>
-                    <h3>Three Least Marked Questions</h3>
-                    {summary.threeWorst.map(answer => <Answer question={answer.question} mark={answer.mark} />) }
+                    <h3 className={"title"}>Three Least Marked Questions</h3>
+                    {summary.threeWorst.map(answer => <Answer name={answer.name} title={answer.title} mark={answer.mark} key={nanoid()}/>) }
                 </div>
                 <div className={"overall"}>
-                    <h3>Overall results:</h3>
-                    {summary.answers.map(answer => <Answer question={answer.question} mark={answer.mark} />) }
+                    <h3 className={"title"}>Overall results:</h3>
+                    {summary.answers.map(answer => <Answer name={answer.name} title={answer.title} mark={answer.mark} key={nanoid()} />) }
                 </div>
-                <button onClick={createPDF}>Save PDF</button>
+                <div className="box-3">
+                    <div className="btn btn-three" onClick={createPDF}>
+                        <span>Save PDF</span>
+                    </div>
+                </div>
             </div>
 
         </div>
