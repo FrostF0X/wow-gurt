@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Answer from "./Answer";
-import "./Summary.css";
+import "./styles/Summary.css";
 import {jsPDF} from "jspdf";
 import html2canvas from "html2canvas";
 import {nanoid} from 'nanoid';

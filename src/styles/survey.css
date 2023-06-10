@@ -1,0 +1,41 @@
+.sd-root-modern{
+    background-color: rgb(254, 252, 254) !important;
+    display: flex !important;
+    justify-content: center !important;
+    /*align-items: center !important;*/
+}
+.sd-container-modern{
+    background-color: #fbbffa !important;
+}
+
+.sd-row__question{
+    background-color: rgb(254, 252, 254) !important;
+}
+
+.sd-rating__item{
+    background-color: #fcebfa !important;
+    border: none !important;
+}
+
+.sd-rating__item--selected{
+    background-color: #fddcfd !important;
+}
+
+.sd-rating__item--allowhover:hover{
+    border: #fddcfd 1px solid !important;
+}
+.sd-action-bar{
+    justify-content: space-between;
+}
+.sd-btn{
+    color: #d556c5 !important;
+}
+
+.sd-navigation__complete-btn{
+    background-color: #ff8bfc !important;
+    color: white !important;
+}
+
+.sd-rating__item{
+    border-radius: 5px !important;
+}
