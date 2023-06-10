@@ -7,9 +7,27 @@ import {getAnswersWithTitle} from "./getAnswersData";
 import {questions} from "./questions";
 
 function ScrumSurvey() {
-        const survey = new Model(questions);
+    const survey = new Model(questions);
     const [displaySummary, changeDisplaySummary] = useState(false);
     const [answersData, updateAnswersData] = useState({});
+
+    survey.onErrorCustomText.add(function (sender, options) {
+        if (options.name === "required") {
+            options.text = "Field is required!";
+        }
+    });
+
+    if (survey.currentPageNo === 0){
+        survey.showNavigationButtons = false;
+    }
+
+    survey.onCurrentPageChanged.add(() => {
+
+        if (survey.currentPageNo > 0){
+            survey.showNavigationButtons = true;
+        }
+    })
+
     survey.firstPageIsStarted = true;
     survey.start();
     let currentPage = 1;
@@ -25,6 +43,7 @@ function ScrumSurvey() {
     let storageName = "scrum_survey";
 
     function saveSurveyData(survey) {
+        console.log("i");
         let data = survey.data;
         window.localStorage.setItem(storageName, JSON.stringify(data));
     }
