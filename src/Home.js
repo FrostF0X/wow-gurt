@@ -11,8 +11,8 @@ class Home extends React.Component {
         }
         new Typed('.home-link>a', {
             strings: [
-                'Survey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                'Business Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                'Survey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                'Business Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
             ],
             typeSpeed: 50,
             cursorChar: '█'
@@ -24,7 +24,7 @@ class Home extends React.Component {
         return (
             <div className={"home"}>
                 <div className="home-link">
-                    <a href="/survey"></a>
+                    <a href="/survey">&nbsp;</a>
                 </div>
                 <div className={"home-image-container"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
