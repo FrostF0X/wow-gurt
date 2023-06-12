@@ -11,10 +11,11 @@ class Home extends React.Component {
         }
         new Typed('.home-link>a', {
             strings: [
-                'Survey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                'Business Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                'Survey&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                'Business Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
             ],
             typeSpeed: 50,
+            backSpeed: 15,
             cursorChar: '█'
         });
         this.loaded = true;
@@ -26,7 +27,7 @@ class Home extends React.Component {
                 <div className="home-link">
                     <a href="/survey">&nbsp;</a>
                 </div>
-                <div className={"home-image-container"}>
+                <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
                 </div>
             </div>
