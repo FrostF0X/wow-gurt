@@ -4,6 +4,7 @@ import "./styles/Summary.css";
 import {jsPDF} from "jspdf";
 import html2canvas from "html2canvas";
 import {nanoid} from 'nanoid';
+import html2pdf from "html2pdf.js/src";
 
 function analyseAnswers(answers){
     let summary = {};
@@ -56,15 +57,16 @@ function Summary (props){
 
     console.log(summary.threeWorst);
     const createPDF = async () => {
-        const pdf = new jsPDF("portrait", "pt", "a4");
-        const data = await html2canvas(document.querySelector("#summary"));
-        document.body.appendChild(data);
-        const img = data.toDataURL("image/png");
-        const imgProperties = pdf.getImageProperties(img);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-        pdf.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight);
-        pdf.save("result.pdf");
+        const element = document.getElementById('summary');
+        const opt = {
+            margin: 1,
+            filename: 'open-scrum-summary.pdf',
+            image: {type: 'jpeg', quality: 0.98},
+            html2canvas: {scale: 2},
+            jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
+        };
+
+        html2pdf().set(opt).from(element).save();
     };
 
 

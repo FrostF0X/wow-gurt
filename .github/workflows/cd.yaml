@@ -21,4 +21,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: bb0d3886dd19a135629b19ad98ec61ed
           projectName: open-scrum
+          branch: main
           directory: ${{ github.workspace }}/build

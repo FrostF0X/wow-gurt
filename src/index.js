@@ -25,39 +25,44 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <div className="App">
             <header className="App-header">
-                <img src="/open-scrum-banner-big.png" alt="" className={"body-frame-banner body-frame-banner-top"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-left-corner-0"}/>
+                     className={"body-frame-banner body-frame-banner-border body-frame-banner-top"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-left-corner-1"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-left-corner-0"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-left-corner-2"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-left-corner-1"}/>
+                <img src="/open-scrum-banner-big.png" alt=""
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-left-corner-2"}/>
                 <img src="/open-scrum-banner-big-left.png" alt=""
-                     className={"body-frame-banner body-frame-banner-left"}/>
+                     className={"body-frame-banner body-frame-banner-border body-frame-banner-left"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-right-corner-0"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-right-corner-0"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-right-corner-1"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-right-corner-1"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-top-right-corner-2"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-top-right-corner-2"}/>
                 <img src="/open-scrum-banner-big-right.png" alt=""
-                     className={"body-frame-banner body-frame-banner-right"}/>
+                     className={"body-frame-banner body-frame-banner-border body-frame-banner-right"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-left-corner-0"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-left-corner-0"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-left-corner-1"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-left-corner-1"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-left-corner-2"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-left-corner-2"}/>
                 <img src="/open-scrum-banner-big-bottom.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom"}/>
+                     className={"body-frame-banner body-frame-banner-border body-frame-banner-bottom"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-right-corner-0"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-right-corner-0"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-right-corner-1"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-right-corner-1"}/>
                 <img src="/open-scrum-banner-big.png" alt=""
-                     className={"body-frame-banner body-frame-banner-bottom-right-corner-2"}/>
+                     className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-right-corner-2"}/>
                 <div className={"container"}>
-                    <RouterProvider router={router}/>
+                    <div className="container-shadow-outset">
+                        <div className="container-shadow-inset">
+                            <RouterProvider router={router}/>
+                        </div>
+                    </div>
                 </div>
             </header>
         </div>
