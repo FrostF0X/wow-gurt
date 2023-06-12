@@ -17,6 +17,8 @@
     "survey-core": "^1.9.91",
     "survey-pdf": "^1.9.90",
     "survey-react-ui": "^1.9.90",
+    "typed.js": "^2.0.16",
+    "types.js": "^1.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

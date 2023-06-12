@@ -17,12 +17,26 @@
   z-index: 10;
   padding: 2px 2px 2px 5px;
   width: 200px;
+  color: white;
+  font-family: "Horizon Outline";
 }
+
+.home-link .typed-cursor {
+  position: relative;
+  font-size: 0.75rem;
+}
+
+.home-link .typed-cursor.typed-cursor--blink {
+  display: none;
+}
+
 
 .home-link a {
   font-family: 'Horizon';
   text-decoration: none;
   color: white;
+  top: 1px;
+  position: relative;
 }
 
 .home-image {
