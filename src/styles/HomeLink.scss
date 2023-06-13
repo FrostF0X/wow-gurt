@@ -1,0 +1,39 @@
+.home-link a {
+  color: white;
+}
+
+.home-link-header {
+  background-color: magenta;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(1rem + 6px);
+  max-height: calc(1rem + 6px);
+  text-decoration: underline;
+  margin-top: 2px;
+}
+
+.home-link-explanation {
+  background-color: magenta;
+  border: black solid 3px;
+  font-size: 0.875rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-style: italic;
+  text-align: justify;
+  text-decoration: none;
+}
+
+.home-link-header .typed-cursor {
+  position: relative;
+  font-size: 0.75rem;
+  top: -1px;
+  border-bottom: white solid 2px;
+}
+
+.home-link-header .typed-cursor.typed-cursor--blink {
+  position: relative;
+  font-size: 0.75rem;
+  top: -1px;
+  opacity: 1 !important;
+}

@@ -3,24 +3,20 @@ import React from "react";
 import {createRef} from "react";
 
 import Typed from "typed.js";
+import HomeLink from "./home/HomeLink";
 
 class Home extends React.Component {
     loaded = false;
 
     constructor(props) {
         super(props);
-        this.link1HeaderRef = createRef();
-        this.link1ExplanationRef = createRef();
         this.greetingsRef = createRef();
     }
 
-    header = (el, text) => {
-        return new Typed(el, {
-            strings: text,
-            typeSpeed: 50,
-            backSpeed: 15,
-            cursorChar: '█',
-        });
+    componentDidMount() {
+        this.greatings(this.greetingsRef.current, [
+            "Hellow it's nice to meet YOU!!!"
+        ])
     }
 
     greatings = (el, text) => {
@@ -32,70 +28,48 @@ class Home extends React.Component {
         });
     }
 
-    explanation = (el, text) => {
-        return new Typed(el, {
-            strings: text,
-            typeSpeed: 5,
-            backSpeed: 5,
-            cursorChar: '▌',
-        });
-    }
-
-
-    componentDidMount = () => {
-        if (this.loaded) {
-            return;
-        }
-        this.loaded = true;
-
-
-        this.header(this.link1HeaderRef.current, [
-            'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-            'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-        ]);
-        this.greatings(this.greetingsRef.current, [
-            "Hellow it's nice to meet YOU!!!"
-        ])
-    }
-
-    showExplanation = () => {
-        if (!this.link1Explanation) {
-            this.link1Explanation = this.explanation(this.link1ExplanationRef.current, [
-                `Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.`
-            ]);
-        } else {
-            this.link1Explanation.toggle();
-        }
-
-    }
-
-    hideExplanation = () => {
-        this.link1Explanation.destroy();
-        this.link1Explanation = null;
-    }
-
 
     render() {
         return (
             <div className={"home"}>
-                <div className="home-link" onMouseEnter={this.showExplanation} onMouseLeave={this.hideExplanation}>
-                    <div className={"home-link-header"}>
-                        <div className={"home-link-header-text"}><a ref={this.link1HeaderRef} href="/survey">&nbsp;</a>
-                        </div>
-                    </div>
-                    <div className={"home-link-explanation"}>
-                        <span ref={this.link1ExplanationRef}
-                              className={"home-link-explanation-text"}>
-                        </span>
-
-                    </div>
-                </div>
+                <HomeLink
+                    title={[
+                        'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    ]}
+                    explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
+                    position={1}
+                />
+                <HomeLink
+                    title={[
+                        'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    ]}
+                    explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
+                    position={2}
+                />
+                <HomeLink
+                    title={[
+                        'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    ]}
+                    explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
+                    position={3}
+                />
+                <HomeLink
+                    title={[
+                        'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    ]}
+                    explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
+                    position={4}
+                />
                 <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
                 </div>
                 <h1 className="home-title">OPEN SCRUM</h1>
                 <div className={"greetings"}>
-                    <a ref={this.greetingsRef} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a>
+                    <h2><a ref={this.greetingsRef} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a></h2>
                 </div>
             </div>
         );

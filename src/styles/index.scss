@@ -7,8 +7,32 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Horizon Outline', 'Roboto', sans-serif;
+}
+
+h3, h4 {
+    font-family: 'Horizon', 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+div, span {
+    font-size: 0.875rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 code {
@@ -27,173 +51,6 @@ body {
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
-}
-
-.body-frame-banner {
-    position: absolute;
-    animation: 4s glitch-image infinite;
-}
-
-.body-frame-banner-top {
-    border-bottom: 1px solid #fbbffa;
-    top: 0;
-    left: 0;
-    height: 45px;
-    z-index: 2;
-}
-
-.body-frame-banner-top-left-corner-0 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    left: -1183px;
-    height: 45px;
-    z-index: 40;
-    rotate: -45deg;
-}
-
-.body-frame-banner-top-left-corner-1 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    left: -1155px;
-    height: 45px;
-    z-index: 30;
-    rotate: -45deg;
-}
-
-.body-frame-banner-top-left-corner-2 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    left: -1126px;
-    height: 45px;
-    z-index: 20;
-    rotate: -45deg;
-}
-
-.body-frame-banner-right {
-    border-left: 1px solid #fbbffa;
-    bottom: 0;
-    right: 0;
-    width: 45px;
-    z-index: 1;
-}
-
-.body-frame-banner-top-right-corner-0 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    right: -1183px;
-    height: 45px;
-    z-index: 40;
-    rotate: 45deg;
-}
-
-.body-frame-banner-top-right-corner-1 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    right: -1155px;
-    height: 45px;
-    z-index: 30;
-    rotate: 45deg;
-}
-
-.body-frame-banner-top-right-corner-2 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    top: 0;
-    right: -1126px;
-    height: 45px;
-    z-index: 20;
-    rotate: 45deg;
-}
-
-
-.body-frame-banner-bottom {
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    left: 0;
-    height: 45px;
-    z-index: 2;
-}
-
-.body-frame-banner-bottom-left-corner-0 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    left: -1183px;
-    height: 45px;
-    z-index: 40;
-    rotate: 45deg;
-}
-
-.body-frame-banner-bottom-left-corner-1 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    left: -1155px;
-    height: 45px;
-    z-index: 30;
-    rotate: 45deg;
-}
-
-.body-frame-banner-bottom-left-corner-2 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    left: -1126px;
-    height: 45px;
-    z-index: 20;
-    rotate: 45deg;
-}
-
-.body-frame-banner-left {
-    border-right: 1px solid #fbbffa;
-    bottom: 0;
-    left: 0;
-    width: 45px;
-    z-index: 1;
-}
-
-.body-frame-banner-bottom-right-corner-0 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    right: -1183px;
-    height: 45px;
-    z-index: 40;
-    rotate: -45deg;
-}
-
-.body-frame-banner-bottom-right-corner-1 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    right: -1155px;
-    height: 45px;
-    z-index: 30;
-    rotate: -45deg;
-
-}
-
-.body-frame-banner-bottom-right-corner-2 {
-    border-bottom: 1px solid #fbbffa;
-    border-top: 1px solid #fbbffa;
-    bottom: 0;
-    right: -1126px;
-    height: 45px;
-    z-index: 20;
-    rotate: -45deg;
-}
-
-.body-frame-banner-corner {
-    box-shadow: 0 0 20px #fbbffa;
-}
-
-.body-frame-banner-border {
-    box-shadow: inset 0 0 20px #fbbffa;
 }
 
 .frame-shadow {
@@ -231,20 +88,6 @@ body {
     align-items: center !important;
     background-color: rgba(175, 226, 238, 0);
     border: magenta 5px solid;
-}
-
-a {
-    font-family: 'Horizon', serif;
-}
-
-.container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center !important;
-    background-color: rgba(175, 226, 238, 0);
-    border: magenta 1px solid;
 }
 
 .select-disable {
