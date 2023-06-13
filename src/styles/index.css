@@ -187,11 +187,137 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-BoldItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Air';
+    src: url('/public/fonts/aeonic/Aeonik-Air.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Air.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Air';
+    src: url('/public/fonts/aeonic/Aeonik-AirItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-AirItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Black.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Medium.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Light.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-BlackItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Bold.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-RegularItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-MediumItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Regular.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-ThinItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-Thin.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/public/fonts/aeonic/Aeonik-LightItalic.woff2') format('woff2'),
+    url('/public/fonts/aeonic/Aeonik-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
 body {
     margin: 0;
-    --sjs-font-questiontitle-family: 'Roboto Thin', 'Roboto Light', 'Roboto' sans-serif;
-    --font-family: 'Roboto Thin', 'Roboto Light', 'Roboto', sans-serif;
-    font-family: 'Roboto Thin', 'Roboto Light', 'Roboto', sans-serif;
+    --sjs-font-questiontitle-family: 'Aeonik Medium', 'Roboto Light', 'Roboto' sans-serif;
+    --font-family: 'Aeonik Medium', 'Roboto Light', 'Roboto', sans-serif;
+    font-family: 'Aeonik Medium', 'Roboto Light', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

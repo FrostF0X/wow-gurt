@@ -13,33 +13,52 @@
   position: absolute;
   top: 20%;
   left: 25%;
-  background-color: magenta;
   z-index: 10;
-  padding: 2px 2px 2px 5px;
   width: 250px;
   color: white;
-  font-family: "Horizon Outline";
-  height: calc(1rem + 1px);
 }
 
-.home-link .typed-cursor {
-  position: relative;
-  font-size: 0.75rem;
-  top: -2px;
+.home-link-header {
+  background-color: magenta;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(1rem + 7px);
+  max-height: calc(1rem + 7px);
 }
 
-.home-link .typed-cursor.typed-cursor--blink {
-  position: relative;
-  font-size: 0.75rem;
-  top: -2px;
-  display: none;
+.home-link-header-text {
+  margin-top: -2px;
 }
 
-
-.home-link a {
+.home-link-header-text a {
   font-family: 'Horizon';
-  text-decoration: none;
+  text-decoration: underline;
   color: white;
+}
+
+.home-link-explanation {
+  background-color: magenta;
+  border: black solid 3px;
+  font-size: 0.875rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-style: italic;
+  text-align: justify;
+}
+
+.home-link-header .typed-cursor {
+  position: relative;
+  font-size: 0.75rem;
+  top: -2px;
+  border-bottom: white solid 2px;
+}
+
+.home-link-header .typed-cursor.typed-cursor--blink {
+  position: relative;
+  font-size: 0.75rem;
+  top: -2px;
+  opacity: 1 !important;
 }
 
 .home-image {
