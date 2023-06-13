@@ -25,9 +25,9 @@ class Home extends React.Component {
     explanation = (el, text) => {
         return new Typed(el, {
             strings: text,
-            typeSpeed: 3,
-            backSpeed: 3,
-            cursorChar: '',
+            typeSpeed: 5,
+            backSpeed: 5,
+            cursorChar: '▌',
         });
     }
 
@@ -48,7 +48,7 @@ class Home extends React.Component {
     showExplanation = () => {
         if (!this.link1Explanation) {
             this.link1Explanation = this.explanation(this.link1ExplanationRef.current, [
-                `Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team`
+                `Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.`
             ]);
         } else {
             this.link1Explanation.toggle();
