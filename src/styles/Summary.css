@@ -77,9 +77,13 @@
     height: 50px;
     text-align: center;
     width: 250px;
-    background-color: #fbbffa;
     cursor: pointer;
     font-size: 25px;
+    text-decoration: underline;
+}
+
+.btn:hover {
+    background-color: #fbbffa;
 }
 
 .btn-three {
@@ -87,6 +91,7 @@
     transition: all 0.5s;
     position: relative;
 }
+
 .btn-three::before {
     content: '';
     position: absolute;

@@ -58,8 +58,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <img src="/open-scrum-banner-big.png" alt=""
                      className={"body-frame-banner body-frame-banner-corner body-frame-banner-bottom-right-corner-2"}/>
                 <div className={"container"}>
-                    <div className="container-shadow-outset">
-                        <div className="container-shadow-inset">
+                    <div className="container-shadow">
+                        <div className="container-border">
                             <RouterProvider router={router}/>
                         </div>
                     </div>

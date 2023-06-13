@@ -57,7 +57,7 @@ function Summary (props){
     const createPDF = async () => {
         const element = document.getElementById('summary');
         const opt = {
-            margin: 1,
+            margin: 0,
             filename: 'open-scrum-summary.pdf',
             image: {type: 'jpeg', quality: 0.98},
             html2canvas: {scale: 2},

@@ -1,13 +1,24 @@
 .sd-root-modern {
-    background-color: white !important;
+    background-color: transparent !important;
     display: flex !important;
     justify-content: center !important;
     /*align-items: center !important;*/
 }
 
+.sd-title .sv-string-viewer {
+    font-size: 1.25rem;
+    color: #dd1add;
+    max-width: 80vw;
+}
+
+.sd-question__content {
+    padding: 2px;
+}
+
 .sv-components-column {
     align-items: center;
 }
+
 .sd-root-modern {
     width: initial !important;
 }
@@ -36,7 +47,7 @@
 
 
 .sd-row__question {
-    background-color: white !important;
+    background-color: transparent !important;
     box-shadow: 0 0 10px #fbbffa;
     text-align: center;
 }
@@ -45,10 +56,16 @@
     display: none;
 }
 
+.sd-scrollable-container {
+    padding: 3px;
+}
+
 .sd-rating__item {
     background-color: transparent !important;
     border: #FF8BFCFF solid 1px !important;
-    border-radius: 0;
+    box-shadow: 0 0 3px magenta !important;
+    border-radius: 0 !important;
+    cursor: pointer;
 }
 
 .sd-rating__item--selected {
@@ -77,25 +94,27 @@
     visibility: hidden;
 }
 
-.sd-rating__item {
-    border-radius: 5px !important;
-}
-
 .sd-rating__item-text.sd-rating__item-text {
-    font-family: 'Horizon Outline' !important;
+    font-family: 'Horizon Outline', serif !important;
 }
 
-.sd-body__navigation{
+.sd-body__navigation {
     height: 0;
     padding: 0 !important;
     width: 70vw;
 }
 
+.sd-question__content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 .sd-body__navigation .sd-btn {
-    font-family: 'Horizon' !important;
+    font-family: 'Horizon', serif !important;
     color: #d556c5;
     box-shadow: none;
-    border-radius: 0px;
+    border-radius: 0;
     position: relative;
 }
 
@@ -108,11 +127,10 @@
 }
 
 .sd-body__navigation .sd-btn:hover {
-    font-family: 'Horizon' !important;
+    font-family: 'Horizon', serif !important;
     color: white;
     background-color: magenta;
 }
-
 .sd-question__erbox {
     color: #d55656 !important;
     background-color: #ffe0e0 !important;

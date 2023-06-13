@@ -11,6 +11,7 @@ class Home extends React.Component {
         super(props);
         this.link1HeaderRef = createRef();
         this.link1ExplanationRef = createRef();
+        this.greetingsRef = createRef();
     }
 
     header = (el, text) => {
@@ -19,6 +20,15 @@ class Home extends React.Component {
             typeSpeed: 50,
             backSpeed: 15,
             cursorChar: '█',
+        });
+    }
+
+    greatings = (el, text) => {
+        return new Typed(el, {
+            strings: text,
+            typeSpeed: 50,
+            backSpeed: 15,
+            cursorChar: '',
         });
     }
 
@@ -43,6 +53,9 @@ class Home extends React.Component {
             'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
             'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
         ]);
+        this.greatings(this.greetingsRef.current, [
+            "Hellow it's nice to meet YOU!!!"
+        ])
     }
 
     showExplanation = () => {
@@ -78,6 +91,9 @@ class Home extends React.Component {
                 </div>
                 <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
+                </div>
+                <div className={"greetings"}>
+                    <a ref={this.greetingsRef} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a>
                 </div>
             </div>
         );
