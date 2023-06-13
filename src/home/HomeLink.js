@@ -51,7 +51,7 @@ class HomeLink extends React.Component {
                     onMouseLeave={this.hideExplanation}>
             <a href="/survey">
                 <div className={"home-link-header"}>
-                    <h3 ref={this.linkHeaderRef} className={"home-link-header-text"}></h3>
+                    <h3 ref={this.linkHeaderRef} className={"home-link-header-text"}>&nbsp;fi</h3>
                 </div>
                 <div className={"home-link-explanation"}>
                         <span ref={this.linkExplanationRef}
