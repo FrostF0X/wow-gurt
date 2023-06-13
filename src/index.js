@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/index.css';
+import './styles/index.scss';
+import './styles/Fonts.css';
 import './styles/survey.css';
 import Home from './Home';
 import reportWebVitals from './reportWebVitals';
@@ -24,6 +25,21 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <div className="App">
+            <filter id="filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
+                    primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                <feMorphology operator="dilate" radius="10 0" x="0%" y="0%" width="100%" height="100%"
+                              in="SourceGraphic" result="morphology1"></feMorphology>
+            </filter>
+            <filter id="filter-2" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
+                    primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                <feMorphology operator="dilate" radius="10 2" x="0%" y="0%" width="100%" height="100%"
+                              in="SourceGraphic" result="morphology1"></feMorphology>
+            </filter>
+            <filter id="filter-3" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
+                    primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+                <feMorphology operator="dilate" radius="15 0" x="0%" y="0%" width="100%" height="100%"
+                              in="SourceGraphic" result="morphology1"></feMorphology>
+            </filter>
             <header className="App-header">
                 <img src="/open-scrum-banner-big.png" alt=""
                      className={"body-frame-banner body-frame-banner-border body-frame-banner-top"}/>

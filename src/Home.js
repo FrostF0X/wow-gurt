@@ -1,4 +1,4 @@
-import './styles/Home.css';
+import './styles/Home.scss';
 import React from "react";
 import {createRef} from "react";
 
@@ -87,11 +87,13 @@ class Home extends React.Component {
                         <span ref={this.link1ExplanationRef}
                               className={"home-link-explanation-text"}>
                         </span>
+
                     </div>
                 </div>
                 <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
                 </div>
+                <h1 className="home-title">OPEN SCRUM</h1>
                 <div className={"greetings"}>
                     <a ref={this.greetingsRef} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a>
                 </div>
