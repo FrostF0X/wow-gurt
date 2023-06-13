@@ -43,7 +43,7 @@ class Home extends React.Component {
                 <HomeLink
                     title={[
                         'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                        'Scrum Meetings &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
                     ]}
                     explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
                     position={2}
@@ -51,7 +51,7 @@ class Home extends React.Component {
                 <HomeLink
                     title={[
                         'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                        'Product Ownership &nbsp;&nbsp;&nbsp;&nbsp;'
                     ]}
                     explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
                     position={3}
@@ -59,10 +59,18 @@ class Home extends React.Component {
                 <HomeLink
                     title={[
                         'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                        'Business Agility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                        'Team Values &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
                     ]}
                     explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
                     position={4}
+                />
+                <HomeLink
+                    title={[
+                        'Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                        'Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    ]}
+                    explanation={['Discover you business agility weak and strong point, perfect for opening dialogue between your business and delivery team.']}
+                    position={5}
                 />
                 <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
