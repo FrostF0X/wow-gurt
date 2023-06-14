@@ -75,9 +75,10 @@ class Home extends React.Component {
                 <div className={"home-image-container select-disable"}>
                     <img className={"home-image"} src="/ccchaos.svg" alt="ccchaos"/>
                 </div>
-                <h1 className="home-title">OPEN SCRUM</h1>
+                <h1 className="home-title box box-shadow">OPEN SCRUM</h1>
                 <div className={"greetings"}>
-                    <h2><a ref={this.greetingsRef} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a></h2>
+                    <h2><a className={"box"} ref={this.greetingsRef}
+                           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">&nbsp;</a></h2>
                 </div>
             </div>
         );

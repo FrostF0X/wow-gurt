@@ -1,7 +1,9 @@
 $animation-length: 4s;
+
 .home {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .home-image-container {
@@ -11,40 +13,40 @@ $animation-length: 4s;
 }
 
 .home-link-1 {
-  top: 20%;
-  left: 25%;
+  top: 25%;
+  left: 35%;
+  z-index: 20;
 }
 
 .home-link-2 {
   top: 30%;
-  left: 20%;
+  left: 15%;
+  z-index: 19;
 }
 
 .home-link-3 {
-  top: 45%;
-  left: 15%;
+  top: 40%;
+  left: 30%;
+  z-index: 18;
 }
 
 .home-link-4 {
-  top: 55%;
-  left: 25%;
+  top: 50%;
+  left: 15%;
+  z-index: 17;
 }
 
 .home-link-5 {
+  top: 63%;
+  left: 20%;
+  z-index: 16;
+}
+
+.home-link-6 {
   top: 70%;
   left: 40%;
+  z-index: 16;
 }
-
-.home-link {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 250px;
-  color: white;
-  animation: float 30s ease-in-out infinite;
-  box-shadow: 0 25px 15px 0 rgba(0, 0, 0, 0.2);
-}
-
 
 .home-image {
   width: 100%;
@@ -52,16 +54,11 @@ $animation-length: 4s;
 }
 
 .greetings {
-  position: relative;
-  bottom: calc(1rem + 9px);
-  right: 3px;
+  position: absolute;
+  width: 24.5rem;
+  bottom: 3px;
+  right: 2px;
   text-align: right;
-}
-
-.greetings a {
-  text-decoration: underline;
-  color: black;
-  border: solid;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -93,24 +90,6 @@ $animation-length: 4s;
   }
   to {
     transform: rotate(0deg);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-20px, -30px);
-  }
-  50% {
-    transform: translate(20px, 10px);
-  }
-  75% {
-    transform: translate(40px, -10px);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }
 
