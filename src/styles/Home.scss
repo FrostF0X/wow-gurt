@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .home-exposition-art {
@@ -29,9 +30,17 @@
 }
 
 .home-exposition-note {
+  font-family: 'Horizon Elements', serif;
   color: black;
   background-color: white;
   box-shadow: 2px 2px 2px 2px;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(100%, 0);
+  padding: 10px;
+  margin: -10px -10px 10px 10px;
 }
 
 .home-row-1 {
