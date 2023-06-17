@@ -4,7 +4,6 @@ import React from "react";
 import {createRef} from "react";
 import Typed from "typed.js";
 import HomeRow from "./home/HomeRow";
-import homeExpositionArt from "./assets/1_512.gif";
 
 class Home extends React.Component {
     loaded = false;
@@ -84,7 +83,8 @@ class Home extends React.Component {
                                 <span className={"home-title-s home-title-s2"}>⟁</span>
                                 <span className={"home-title-s home-title-s3"}>M</span>
                             </div>
-                            <img className={"home-exposition-art"} src={homeExpositionArt} alt="fast_1_1024"/>
+                            <img className={"home-exposition-art"}
+                                 src="https://pub-c3e3f5794f94421cbcc2d73487f39267.r2.dev/1_512.gif" alt="fast_1_512"/>
                         </div>
                     </div>
                 </div>
