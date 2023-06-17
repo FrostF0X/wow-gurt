@@ -1,0 +1,144 @@
+$glitch-length: 5s;
+$glitch-rare-length: 20s;
+
+$steps: 33;
+$weight: (
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+);
+$style: (
+        normal,
+        italic,
+        normal,
+        normal
+);
+$decor: (
+        line-through,
+        none,
+        none,
+        underline,
+        none,
+        none,
+        none,
+        none
+);
+$fonts: (
+        'Horizon Outline',
+        'Horizon Outline',
+        'Horizon Outline',
+        'Horizon Outline',
+        'Horizon',
+        'Horizon',
+        'Horizon Lines',
+        'Horizon Lines',
+        'Horizon Elements',
+        'Horizon Elements',
+        'Horizon Elements',
+        'Horizon Elements',
+        'Horizon Elementsthree',
+        'Horizon Elementsthree',
+        'Horizon Elementsthree',
+        'Horizon Elementsthree',
+        'Horizon Elementsfour',
+        'Horizon Elementsfour',
+        'Horizon Elementsfour',
+        'Horizon Elementsfour',
+);
+$colors: (
+        'magenta',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'black',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+);
+$backgrounds: (
+        '#7cffda',
+        'black',
+        'black',
+        'black',
+        'black',
+        'black',
+        'black',
+        'black',
+        'black',
+        'black',
+        'magenta',
+        'black',
+        'black',
+        'black',
+);
+
+
+.glitch-text {
+  animation: glitch-text $glitch-length infinite steps($steps);
+}
+
+.glitch-text-rare {
+  animation: glitch-text-rare $glitch-rare-length infinite;
+}
+
+@keyframes glitch-text {
+  @for $i from 1 to $steps {
+    $per: calc(100% / $steps * $i);
+
+    $arrayF: random(20);
+    $arrayW: random(7);
+    $arrayS: random(4);
+    $arrayD: random(8);
+    $arrayC: random(14);
+    $arrayB: random(14);
+
+    #{$per} {
+      font-family: nth($fonts, $arrayF);
+      font-weight: nth($weight, $arrayW);
+      font-style: nth($style, $arrayS);
+      text-decoration: nth($decor, $arrayD);
+      color: nth($colors, $arrayC);
+      background-color: nth($backgrounds, $arrayB);
+    }
+  }
+}
+
+@keyframes glitch-text-rare {
+  @for $i from 1 to 1000 {
+    $per: calc(100% / 1000 * $i);
+
+    $arrayF: random(20);
+    $arrayW: random(7);
+    $arrayS: random(4);
+    $arrayD: random(8);
+    $arrayC: random(14);
+    $arrayB: random(14);
+
+
+    #{$per} {
+      @if random(1000) < 20 {
+        font-family: nth($fonts, $arrayF);
+        font-weight: nth($weight, $arrayW);
+        font-style: nth($style, $arrayS);
+        text-decoration: nth($decor, $arrayD);
+      } @else {
+        font-family: "Horizon Outline", serif;
+        font-weight: unset;
+        font-style: unset;
+        text-decoration: unset;
+      }
+    }
+  }
+}
+
+
