@@ -4,8 +4,6 @@ import React from "react";
 import {createRef} from "react";
 import Typed from "typed.js";
 import HomeRow from "./home/HomeRow";
-import html2canvas from "html2canvas";
-import {saveAs} from "file-saver";
 
 
 class Home extends React.Component {
