@@ -1,0 +1,78 @@
+.just-random-frame {
+    width: 100%;
+    height: 100%;
+    border: white 1px solid;
+    overflow: hidden;
+    position: relative;
+    background: black;
+    box-shadow: 1px 1px black, 2px 2px white, 3px 3px black, 4px 4px white, 5px 5px black, 6px 6px white;
+}
+
+.just-random-frame-toolbar {
+    height: 12px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    border-bottom: 1px solid white;
+    z-index: 10;
+    background: black;
+}
+
+.just-random-frame-toolbar-item {
+    border-left: 1px solid white;
+    position: relative;
+    height: 12px;
+    width: 12px;
+}
+
+.just-random-frame-toolbar-close-1 {
+    width: 12px;
+    height: 1px;
+    display: block;
+    background: #ffffff;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 0;
+    bottom: 5.6px;
+}
+
+.just-random-frame-toolbar-close-2 {
+    width: 12px;
+    height: 1px;
+    display: block;
+    background: #ffffff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 0;
+    bottom: 5.6px;
+}
+
+.just-random-frame-toolbar-expand-1 {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #ffffff;
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+}
+
+.just-random-frame-toolbar-expand-2 {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #ffffff;
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+}
+
+.just-random-frame-toolbar-minimize-1 {
+    display: block;
+    width: 8px;
+    height: 1px;
+    background: #ffffff;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+}

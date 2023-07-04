@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init render project">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/wow-gurt.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/04-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/05-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/06-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/07-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/08-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/09-trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/public/09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/AreaDivision.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Common/Primitives.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Common/Primitives.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/GlitchImage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Just.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/JustFrame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/JustRandomWindow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/Bounce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/Chess.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/ImageGrid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindows.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/Wave.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/ZoomInOut.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Bounce.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Chess.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/ImageGrid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Wave.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Window.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Windows.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/home/RowSpoiled.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Basics.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch1.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch2.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch3.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Just.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/JustFrame.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/JustGrid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/render/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/wow/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ccchaos.svg" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/ccchaos.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Air.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Air.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Air.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Air.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-AirItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-AirItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-AirItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-AirItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Black.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Black.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Black.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Black.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BlackItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BlackItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BlackItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BlackItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BoldItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Light.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Light.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Light.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Light.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-LightItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-LightItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-LightItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-LightItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Medium.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Medium.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Medium.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-MediumItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-MediumItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-MediumItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-RegularItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-RegularItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-RegularItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-RegularItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Thin.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Thin.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Thin.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Thin.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-ThinItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-ThinItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-ThinItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-ThinItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElements.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElements.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElements.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElements.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsfour.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsfour.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsfour.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsfour.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsthree.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsthree.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsthree.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsthree.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementstwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementstwo.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementstwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementstwo.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLines.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLines.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLines.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLines.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLinestwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLinestwo.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLinestwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLinestwo.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutline.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutline.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutline.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutline.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutlinetwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutlinetwo.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutlinetwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutlinetwo.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonRegular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonRegular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonRegular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonRegular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Black.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Black.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Black.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Black.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BlackItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BlackItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BlackItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BlackItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Bold.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Bold.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BoldItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BoldItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Light.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Light.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Light.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Light.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-LightItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-LightItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-LightItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-LightItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Medium.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Medium.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Medium.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-MediumItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-MediumItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-MediumItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Thin.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Thin.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Thin.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Thin.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-ThinItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-ThinItalic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-ThinItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-ThinItalic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/logo192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/logo512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-bottom.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-left.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Answer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScrumSurvey.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/ScrumSurvey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Summary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Typed.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Typed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/getAnswersData.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/getAnswersData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/HomeRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/home/HomeRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/questions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Frame.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/HomeLink.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/HomeRow.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Summary.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/TextGlitch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/TextGlitch.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Typed.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Typed.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/survey.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QkrnPksh8PDo21Gm9n1aBSIL9M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JSInitializeFieldsIntentionBase.visibility": "private",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "idea.background.editor": "/Users/dims/PhpstormProjects/wow-gurt/public/05.png,5,scale,middle_left,flipHV",
+    "javascript.nodejs.core.library.configured.version": "18.14.0",
+    "javascript.nodejs.core.library.typings.version": "18.14.0",
+    "last_opened_file_path": "/Users/dims/PhpstormProjects/wow-gurt/render",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "ts.external.directory.path": "/Users/dims/PhpstormProjects/wow-gurt/wow/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/render" />
+      <recent name="$PROJECT_DIR$/src/styles/Glitch" />
+      <recent name="$PROJECT_DIR$/src/Randoms/styles" />
+      <recent name="$PROJECT_DIR$/src/Randoms" />
+      <recent name="$PROJECT_DIR$/src/styles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/render/src" />
+      <recent name="$PROJECT_DIR$/wow" />
+      <recent name="$PROJECT_DIR$/src/styles" />
+      <recent name="$PROJECT_DIR$/src/Randoms/styles" />
+      <recent name="$PROJECT_DIR$/src/Randoms" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/JustGlitchImage.js" />
+      <recent name="$PROJECT_DIR$/src/Randoms/JustRandomWindow.js" />
+      <recent name="$PROJECT_DIR$/src/styles/JustRandomWindow.js" />
+      <recent name="$PROJECT_DIR$/src/Randoms/JustRandomWindows.js" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="" />
+      <created>1685908587387</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685908587387</updated>
+      <workItem from="1685908588749" duration="6433000" />
+      <workItem from="1685986317835" duration="14668000" />
+      <workItem from="1686074153954" duration="6509000" />
+      <workItem from="1686243538065" duration="799000" />
+      <workItem from="1686333804233" duration="1203000" />
+      <workItem from="1686404067800" duration="3288000" />
+      <workItem from="1686496249057" duration="18770000" />
+      <workItem from="1686585752066" duration="2223000" />
+      <workItem from="1686604962927" duration="5000" />
+      <workItem from="1686651670387" duration="27464000" />
+      <workItem from="1686768833873" duration="2741000" />
+      <workItem from="1686854140840" duration="373000" />
+      <workItem from="1686854522278" duration="8199000" />
+      <workItem from="1686863569675" duration="36882000" />
+      <workItem from="1687120135220" duration="345000" />
+      <workItem from="1687128320302" duration="20230000" />
+      <workItem from="1687304022978" duration="3772000" />
+      <workItem from="1687519507962" duration="24000" />
+      <workItem from="1687519535885" duration="62105000" />
+      <workItem from="1687730228057" duration="5448000" />
+      <workItem from="1687898981981" duration="4976000" />
+      <workItem from="1688175699263" duration="3594000" />
+      <workItem from="1688416362868" duration="6834000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1685987977476</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685987977476</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial home screen and deployment">
+      <created>1686004633830</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686004633830</updated>
+    </task>
+    <task id="LOCAL-00003" summary="initial home screen and deployment">
+      <created>1686004644139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686004644139</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix corner borders">
+      <created>1686005377936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686005377936</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix build">
+      <created>1686005774074</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686005774074</updated>
+    </task>
+    <task id="LOCAL-00006" summary="make it sping slower">
+      <created>1686074287149</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686074287149</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Ļ">
+      <created>1686243626492</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686243626492</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix corner">
+      <created>1686428345875</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686428345875</updated>
+    </task>
+    <task id="LOCAL-00009" summary="first release">
+      <created>1686584975957</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686584975957</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix release">
+      <created>1686585125030</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686585125030</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add typing">
+      <created>1686586601907</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686586601907</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix deployment">
+      <created>1686586861531</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686586861531</updated>
+    </task>
+    <task id="LOCAL-00013" summary="minor fixes">
+      <created>1686587746407</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686587746407</updated>
+    </task>
+    <task id="LOCAL-00014" summary="perfecto">
+      <created>1686656562931</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686656562931</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add floating">
+      <created>1686657351791</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686657351791</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add hellow">
+      <created>1686663089850</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686663089850</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add home title">
+      <created>1686680162294</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686680162294</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add multiple home links">
+      <created>1686684273341</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686684273341</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add multiple home links">
+      <created>1686684688008</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686684688008</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix">
+      <created>1686684911188</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686684911188</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor">
+      <created>1686741134055</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686741134055</updated>
+    </task>
+    <task id="LOCAL-00022" summary="initial commit">
+      <created>1687017242463</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687017242463</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix home deployment">
+      <created>1687017459608</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687017459608</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add fast and gif to sources">
+      <created>1687018876202</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687018876202</updated>
+    </task>
+    <task id="LOCAL-00025" summary="deploy gif to cloudflare cdn">
+      <created>1687019469683</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687019469683</updated>
+    </task>
+    <task id="LOCAL-00026" summary="remove big gif">
+      <created>1687019624805</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687019624805</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix corner borders" />
+    <MESSAGE value="fix build" />
+    <MESSAGE value="make it sping slower" />
+    <MESSAGE value="Ļ" />
+    <MESSAGE value="fix corner" />
+    <MESSAGE value="first release" />
+    <MESSAGE value="fix release" />
+    <MESSAGE value="add typing" />
+    <MESSAGE value="fix deployment" />
+    <MESSAGE value="minor fixes" />
+    <MESSAGE value="perfecto" />
+    <MESSAGE value="add float" />
+    <MESSAGE value="add floating" />
+    <MESSAGE value="Add hellow" />
+    <MESSAGE value="add home title" />
+    <MESSAGE value="add multiple home links" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="fix home deployment" />
+    <MESSAGE value="add fast and gif to sources" />
+    <MESSAGE value="deploy gif to cloudflare cdn" />
+    <MESSAGE value="remove big gif" />
+    <MESSAGE value="gallery" />
+    <MESSAGE value="init render project" />
+    <option name="LAST_COMMIT_MESSAGE" value="init render project" />
+  </component>
+</project>

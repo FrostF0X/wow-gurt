@@ -1,0 +1,56 @@
+.just-random-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.just-random-window-image {
+  max-width: 70%;
+  max-height: 70%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    filter: none;
+    opacity: 1;
+  }
+  49% {
+    filter: none;
+  }
+  50% {
+    filter: invert(1);
+  }
+  55% {
+    filter: none;
+    opacity: 1;
+
+  }
+  60% {
+    filter: none;
+    opacity: 0;
+  }
+  80% {
+    filter: none;
+    opacity: 0;
+  }
+  85% {
+    filter: none;
+    opacity: 1;
+  }
+  90% {
+    filter: invert(1);
+  }
+  95% {
+    filter: none;
+  }
+  100% {
+    filter: invert(1);
+  }
+}
