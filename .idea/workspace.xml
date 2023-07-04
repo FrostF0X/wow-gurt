@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init render project" />
+    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init git project">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +128,7 @@
       <workItem from="1687730228057" duration="5448000" />
       <workItem from="1687898981981" duration="4976000" />
       <workItem from="1688175699263" duration="3594000" />
-      <workItem from="1688416362868" duration="7490000" />
+      <workItem from="1688416362868" duration="9568000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -316,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688493327960</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="init git project">
+      <created>1688494845163</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1688494845163</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +351,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix corner borders" />
     <MESSAGE value="fix build" />
     <MESSAGE value="make it sping slower" />
     <MESSAGE value="Ļ" />
@@ -359,6 +375,11 @@
     <MESSAGE value="remove big gif" />
     <MESSAGE value="gallery" />
     <MESSAGE value="init render project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init render project" />
+    <MESSAGE value="init git project" />
+    <option name="LAST_COMMIT_MESSAGE" value="init git project" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
