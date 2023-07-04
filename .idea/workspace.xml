@@ -4,176 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init render project">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/wow-gurt.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/render/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/04-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/05-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/06-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/07-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/08-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/09-trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/public/09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/AreaDivision.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Common/Primitives.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Common/Primitives.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/GlitchImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Grid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Just.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/JustFrame.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/JustRandomWindow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/Bounce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/Chess.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/ImageGrid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/Wave.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/ZoomInOut.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Bounce.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Chess.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/ImageGrid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Wave.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Window.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Random/styles/Windows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/home/RowSpoiled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Basics.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch1.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch2.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Glitch/Glitch3.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/Just.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/JustFrame.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/styles/JustGrid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/render/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/wow/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ccchaos.svg" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/ccchaos.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Air.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Air.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Air.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Air.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-AirItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-AirItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-AirItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-AirItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Black.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Black.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Black.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Black.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BlackItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BlackItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BlackItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BlackItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Bold.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Bold.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BoldItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-BoldItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Light.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Light.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Light.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Light.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-LightItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-LightItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-LightItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-LightItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Medium.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Medium.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Medium.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-MediumItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-MediumItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-MediumItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-RegularItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-RegularItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-RegularItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-RegularItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Thin.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Thin.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-Thin.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-Thin.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-ThinItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-ThinItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/Aeonik-ThinItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/Aeonik-ThinItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/aeonic/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/aeonic/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElements.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElements.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElements.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElements.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsfour.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsfour.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsfour.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsfour.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsthree.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsthree.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementsthree.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementsthree.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementstwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementstwo.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonElementstwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonElementstwo.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLines.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLines.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLines.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLines.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLinestwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLinestwo.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonLinestwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonLinestwo.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutline.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutline.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutline.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutline.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutlinetwo.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutlinetwo.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonOutlinetwo.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonOutlinetwo.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonRegular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonRegular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/HorizonRegular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/HorizonRegular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/horizon/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/horizon/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Black.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Black.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Black.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Black.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BlackItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BlackItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BlackItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BlackItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Bold.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Bold.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Bold.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Bold.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BoldItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BoldItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-BoldItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-BoldItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Italic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Italic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Light.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Light.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Light.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Light.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-LightItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-LightItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-LightItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-LightItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Medium.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Medium.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Medium.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Medium.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-MediumItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-MediumItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-MediumItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-MediumItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Thin.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Thin.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-Thin.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-Thin.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-ThinItalic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-ThinItalic.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/roboto/Roboto-ThinItalic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/fonts/roboto/Roboto-ThinItalic.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/logo512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-bottom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-left.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner-big.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner-big.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/open-scrum-banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/open-scrum-banner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wow/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScrumSurvey.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/ScrumSurvey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Summary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Typed.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Typed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/getAnswersData.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/getAnswersData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/HomeRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/home/HomeRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/reportWebVitals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Frame.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/HomeLink.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/HomeRow.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Summary.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/TextGlitch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/TextGlitch.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Typed.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Typed.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/survey.css" beforeDir="false" />
-    </list>
+    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init render project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +118,7 @@
       <workItem from="1687730228057" duration="5448000" />
       <workItem from="1687898981981" duration="4976000" />
       <workItem from="1688175699263" duration="3594000" />
-      <workItem from="1688416362868" duration="6834000" />
+      <workItem from="1688416362868" duration="7490000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -471,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687019624805</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="init render project">
+      <created>1688493320135</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1688493320135</updated>
+    </task>
+    <task id="LOCAL-00028" summary="init render project">
+      <created>1688493327960</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1688493327960</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
