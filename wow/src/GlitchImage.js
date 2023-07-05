@@ -9,7 +9,7 @@ class GlitchImage extends React.Component {
         this.item = createRef();
         console.log(this.props.preset);
         this.additionalClass = this.props.preset.randomAnimationStart ? `animation-random-start-${Number.random(1, 1000)}` : ``;
-        this.additionalImage = Random.image();
+        this.additionalImage = Random.get().image();
     }
 
     render() {

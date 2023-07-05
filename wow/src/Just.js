@@ -8,6 +8,10 @@ import {AreaDivider} from "./AreaDivision";
 import JustRandomChess from "./Random/Chess";
 import Random from "./Random";
 
+function query() {
+    return new URLSearchParams(document.location.search);
+}
+
 class Just extends React.Component {
     levelConfig = [2, 3, 3];
     static started = [];
@@ -15,6 +19,7 @@ class Just extends React.Component {
     constructor(props) {
         super(props);
         this.cells = [];
+        Random.init(query().get('seed') ?? Number.random(0, Number.MAX_VALUE));
     }
 
     componentDidMount() {
@@ -39,17 +44,23 @@ class Just extends React.Component {
             <div className={"just"}>
                 <JustFrame>
                     <div className={"just-scene-grid"} style={{"width": "100%", "height": "100%"}}>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.image()}/></div>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid img={Random.image()}/>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.get().image()}/>
+                        </div>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid
+                            img={Random.get().image()}/>
                         </div>
                         <div ref={this.addCellRef} className={"just-scene-grid-cell"}><JustRandomChess/></div>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.image()}/></div>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid img={Random.image()}/>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.get().image()}/>
+                        </div>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid
+                            img={Random.get().image()}/>
                         </div>
                         <div ref={this.addCellRef} className={"just-scene-grid-cell"}><JustRandomChess/></div>
                         <div ref={this.addCellRef} className={"just-scene-grid-cell"}></div>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.image()}/></div>
-                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid img={Random.image()}/>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><Wave img={Random.get().image()}/>
+                        </div>
+                        <div ref={this.addCellRef} className={"just-scene-grid-cell"}><ImageGrid
+                            img={Random.get().image()}/>
                         </div>
                         <div ref={this.addCellRef} className={"just-scene-grid-cell"}><JustRandomChess/></div>
                         <div ref={this.addCellRef} className={"just-scene-grid-cell"}></div>

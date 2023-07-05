@@ -1,4 +1,5 @@
 import "./Common/Primitives";
+import Random from "./Random";
 
 enum Direction {
     COL, ROW
@@ -25,13 +26,13 @@ export class AreaDivider {
         if (level > this.levelsConfig.length) {
             return [];
         }
-        const direction = Number.random(1, 2) === 1 ? Direction.COL : Direction.ROW;
+        const direction = Random.get().number(1, 2) === 1 ? Direction.COL : Direction.ROW;
         if (direction === Direction.ROW) {
             const colSpan = endCol - startCol + 1;
             let chunkDivision = [startCol, endCol];
-            const chunkCount = Number.random(2, this.levelsConfig[level]);
+            const chunkCount = Random.get().number(2, this.levelsConfig[level]);
             if (colSpan > 2) {
-                chunkDivision = [startCol, ...Array.range(startCol + 1, endCol - 1).randoms(chunkCount - 1).sort(), endCol];
+                chunkDivision = [startCol, ...Random.get().randomItems(Array.range(startCol + 1, endCol - 1), chunkCount - 1).sort(), endCol];
             }
             const chunks = [];
             for (let i = 0; i < chunkDivision.length - 1; i++) {
@@ -48,9 +49,9 @@ export class AreaDivider {
         } else {
             const rowSpan = endRow - startRow + 1;
             let chunkDivision = [startRow, endRow];
-            const chunkCount = Number.random(2, this.levelsConfig[level]);
+            const chunkCount = Random.get().number(2, this.levelsConfig[level]);
             if (rowSpan > 2) {
-                chunkDivision = [startRow, ...Array.range(startRow + 1, endRow - 1).randoms(chunkCount - 1).sort(), endRow];
+                chunkDivision = [startRow, ...Random.get().randomItems(Array.range(startRow + 1, endRow - 1), chunkCount - 1).sort(), endRow];
             }
             const chunks = [];
             for (let i = 0; i < chunkDivision.length - 1; i++) {

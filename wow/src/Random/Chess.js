@@ -43,7 +43,7 @@ class Chess extends React.Component {
                  className={"just-random-chess-grid just-grid just-random-chess-grid-pieces"}>
                 {Array.range(10, 100).map(() =>
                     <div className={"just-random-chess-piece"} ref={this.addPieceRef}>
-                        <GlitchImage img={Random.image()} preset={this.preset}/>
+                        <GlitchImage img={Random.get().image()} preset={this.preset}/>
                     </div>
                 )}
             </div>

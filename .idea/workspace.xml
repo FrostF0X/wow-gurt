@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="init git project">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yaml" afterDir="false" />
+    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="fix CD">
+      <change afterPath="$PROJECT_DIR$/render/src/PuppeteerMassScreenshots.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/gifGenerator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/paramsCalculator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Random.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-bottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner-big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/public/open-scrum-banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/AreaDivision.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/AreaDivision.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Common/Primitives.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Common/Primitives.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/GlitchImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/GlitchImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Just.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Just.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/Chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/Chess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,31 +57,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JSInitializeFieldsIntentionBase.visibility": "private",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "idea.background.editor": "/Users/dims/PhpstormProjects/wow-gurt/public/05.png,5,scale,middle_left,flipHV",
-    "javascript.nodejs.core.library.configured.version": "18.14.0",
-    "javascript.nodejs.core.library.typings.version": "18.14.0",
-    "last_opened_file_path": "/Users/dims/PhpstormProjects/wow-gurt/render",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "/Users/dims/PhpstormProjects/wow-gurt/wow/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JSInitializeFieldsIntentionBase.visibility&quot;: &quot;private&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;idea.background.editor&quot;: &quot;/Users/dims/PhpstormProjects/wow-gurt/public/05.png,5,scale,middle_left,flipHV&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.14.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.14.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dims/PhpstormProjects/wow-gurt/render&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.dataViews&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dims/PhpstormProjects/wow-gurt/render/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "HTML"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;HTML&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/render" />
@@ -97,6 +103,26 @@
       <recent name="$PROJECT_DIR$/src/styles/JustRandomWindow.js" />
       <recent name="$PROJECT_DIR$/src/Randoms/JustRandomWindows.js" />
     </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="Dbg" type="JavascriptDebugType" uri="http://localhost:3000">
+      <mapping url="http://localhost:3000" local-file="$PROJECT_DIR$/wow" />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/wow/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Dbg" />
+      <item itemvalue="npm.start" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -128,7 +154,8 @@
       <workItem from="1687730228057" duration="5448000" />
       <workItem from="1687898981981" duration="4976000" />
       <workItem from="1688175699263" duration="3594000" />
-      <workItem from="1688416362868" duration="9568000" />
+      <workItem from="1688416362868" duration="13831000" />
+      <workItem from="1688513164101" duration="11926000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -333,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688494845163</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix CD">
+      <created>1688495934250</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1688495934250</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +385,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix build" />
     <MESSAGE value="make it sping slower" />
     <MESSAGE value="Ļ" />
     <MESSAGE value="fix corner" />
@@ -376,7 +409,32 @@
     <MESSAGE value="gallery" />
     <MESSAGE value="init render project" />
     <MESSAGE value="init git project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init git project" />
+    <MESSAGE value="fix CD" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix CD" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/wow/src/Random.ts</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/wow/src/Random.ts</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/wow/src/Just.js</url>
+          <line>19</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
