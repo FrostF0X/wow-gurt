@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/getHttpsConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/jest/babelTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/jest/cssTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/jest/fileTransform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/modules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/paths.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/webpack/persistentCache/createEnvironmentHash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/config/webpackDevServer.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/scripts/build.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/scripts/start.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/scripts/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +156,7 @@
       <workItem from="1688175699263" duration="3594000" />
       <workItem from="1688416362868" duration="13831000" />
       <workItem from="1688513164101" duration="11926000" />
-      <workItem from="1688563855789" duration="150000" />
+      <workItem from="1688563855789" duration="245000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -375,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688563970268</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary=".">
+      <created>1688564010713</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1688564010713</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
