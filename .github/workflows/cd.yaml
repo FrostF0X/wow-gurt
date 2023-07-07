@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           sparse-checkout: wow
-      - run: cp -r wow . && rm -rf wow
+      - run: cp -r wow/. . && rm -rf wow
       - uses: actions/setup-node@v3
         with:
           node-version: 18
