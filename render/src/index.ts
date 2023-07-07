@@ -30,7 +30,7 @@ const ipfs = ipfsClient.create({
 
 app.use(express.json()); // for parsing application/json
 app.use(cors({
-    origin: '*'
+    origin: () => true
 }));
 
 const Config = {
