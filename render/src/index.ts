@@ -1,5 +1,5 @@
 import * as express from 'express';
-import puppeteer, {Page} from 'puppeteer';
+import puppeteer, {Browser, Page} from 'puppeteer';
 import {PuppeteerScreenRecorder} from 'puppeteer-screen-recorder';
 import * as tmp from 'tmp-promise';
 import * as ffmpeg from 'fluent-ffmpeg';
@@ -48,7 +48,7 @@ const Config = {
     quality: 100
 };
 let page: Page;
-
+let browser: Browser;
 app.post('/', async (req, res) => {
     try {
         const seed = req.body.seed;
@@ -92,16 +92,25 @@ app.post('/', async (req, res) => {
     }
 });
 
-new Promise(async (resolve) => {
+async function startBrowser() {
     console.log("Staring browser");
-    const browser = await puppeteer.launch({
+    browser = await puppeteer.launch({
         "headless": true, args: [`--window-size=${WIDTH},${HEIGHT}`], defaultViewport: {
             width: WIDTH,
             height: HEIGHT
         }
     });
+}
+
+async function startPage() {
     page = await browser.newPage();
     await page.setViewport({width: WIDTH, height: HEIGHT});
+}
+
+new Promise(async (resolve) => {
+    await startBrowser();
+    await startPage();
+    page.on('close', startPage);
     resolve(true);
 }).then(() => {
     app.listen(PORT, () => {
