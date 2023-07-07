@@ -12,9 +12,9 @@ jobs:
       contents: read
       deployments: write
     steps:
-      - uses: Bhacaz/checkout-files@v2
+      - uses: actions/checkout@v3
         with:
-          files: wow
+          sparse-checkout: wow
       - run: cp -r wow/* . && rm -rf wow
       - uses: actions/setup-node@v3
         with:
