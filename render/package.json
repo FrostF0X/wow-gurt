@@ -11,7 +11,8 @@
     "start": "pkill -9 -f puppeteer || true && env-cmd -f .env ts-node src/index.ts",
     "start-test": "pkill -9 -f puppeteer || true && env-cmd -f .env ts-node src/test.ts",
     "watch-test": "nodemon --watch 'src/**/*.ts' --ext ts,js --exec npm run start-test",
-    "prod": "pkill -9 -f puppeteer || true && env-cmd -f .env.production ts-node src/index.ts"
+    "prod-goerli": "env-cmd -f .env-goerli npm run prod",
+    "prod": "env-cmd -f .env.production ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",
