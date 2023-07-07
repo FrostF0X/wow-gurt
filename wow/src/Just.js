@@ -46,6 +46,8 @@ class Just extends React.Component {
                 return <JustRandomChess division={this.divisions[i]}/>
             case 4:
                 return <RandomWindows/>
+            default:
+                return <div/>
         }
     }
 

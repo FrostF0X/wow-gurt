@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/install.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/wow-gurt.service" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Just.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Just.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +169,7 @@
       <workItem from="1688582663617" duration="598000" />
       <workItem from="1688641725088" duration="41378000" />
       <workItem from="1688736185051" duration="6459000" />
-      <workItem from="1688742669790" duration="14622000" />
+      <workItem from="1688742669790" duration="15046000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -470,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688758349446</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary=".">
+      <option name="closed" value="true" />
+      <created>1688758673041</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1688758673041</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

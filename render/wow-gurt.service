@@ -1,0 +1,14 @@
+[Unit]
+Description=wow-gurt
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=wow-gurt
+ExecStart=/usr/bin/npm --prefix /home/wow-gurt/wow-gurt/render run prod-goerli
+
+[Install]
+WantedBy=multi-user.target
