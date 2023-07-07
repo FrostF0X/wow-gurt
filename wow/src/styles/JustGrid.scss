@@ -1,7 +1,7 @@
 @use "sass:math";
 @import "./Basics";
 
-$cellCount: 16;
+$cellCount: 8;
 .just-grid {
   display: grid;
   grid-template-columns:
@@ -12,15 +12,7 @@ $cellCount: 16;
           [cell-5] math.percentage(1 / $cellCount)
           [cell-6] math.percentage(1 / $cellCount)
           [cell-7] math.percentage(1 / $cellCount)
-          [cell-8] math.percentage(1 / $cellCount)
-          [cell-9] math.percentage(1 / $cellCount)
-          [cell-10] math.percentage(1 / $cellCount)
-          [cell-11] math.percentage(1 / $cellCount)
-          [cell-12] math.percentage(1 / $cellCount)
-          [cell-13] math.percentage(1 / $cellCount)
-          [cell-14] math.percentage(1 / $cellCount)
-          [cell-15] math.percentage(1 / $cellCount)
-          [cell-16] math.percentage(1 / $cellCount);
+          [cell-8] math.percentage(1 / $cellCount);
   grid-template-rows:
           [cell-1] math.percentage(1 / $cellCount)
           [cell-2] math.percentage(1 / $cellCount)
@@ -29,15 +21,7 @@ $cellCount: 16;
           [cell-5] math.percentage(1 / $cellCount)
           [cell-6] math.percentage(1 / $cellCount)
           [cell-7] math.percentage(1 / $cellCount)
-          [cell-8] math.percentage(1 / $cellCount)
-          [cell-9] math.percentage(1 / $cellCount)
-          [cell-10] math.percentage(1 / $cellCount)
-          [cell-11] math.percentage(1 / $cellCount)
-          [cell-12] math.percentage(1 / $cellCount)
-          [cell-13] math.percentage(1 / $cellCount)
-          [cell-14] math.percentage(1 / $cellCount)
-          [cell-15] math.percentage(1 / $cellCount)
-          [cell-16] math.percentage(1 / $cellCount);
+          [cell-8] math.percentage(1 / $cellCount);
 }
 
 .just-grid-cell {
@@ -48,8 +32,8 @@ $cellCount: 16;
 @for $i from 1 to $cellCount + 1 {
   @for $j from 1 to $cellCount + 1 {
     .just-grid-cell-#{($i - 1) * $cellCount + $j} {
-      grid-column: cell-#{$i};
-      grid-row: cell-#{$j};
+      grid-row: cell-#{$i};
+      grid-column: cell-#{$j};
     }
   }
 }

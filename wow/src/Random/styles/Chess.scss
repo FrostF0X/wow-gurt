@@ -3,22 +3,22 @@
 @import "../../styles/JustGrid";
 
 .just-random-chess {
+  top: 0;
+  left: 0;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+
+.just-random-chess-invert {
+
 }
 
 .just-random-chess-grid {
   position: absolute;
-  width: 150vw;
-  height: 150vw;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: $sceneWithoutMargins;
+  height: $sceneWithoutMargins;
 }
 
 .just-random-chess-grid-cell {
@@ -33,6 +33,15 @@
         background-color: $yellow;
       } @else {
         background-color: $pink;
+      }
+    }
+    .just-random-chess-invert {
+      .just-random-chess-grid-cell-#{($i - 1) * $cellCount + $j} {
+        @if (($i+$j) % 2 == 0) {
+          background-color: $pink;
+        } @else {
+          background-color: $yellow;
+        }
       }
     }
   }

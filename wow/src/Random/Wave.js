@@ -20,7 +20,6 @@ class Wave extends React.Component {
 
     componentDidMount = () => {
         this.imgs = Array.from(this.wave.current.children);
-        console.log(this.imgs);
         this.transform = 0;
         this.refCounter = 0;
         this.timeCounter = 0;
@@ -73,16 +72,6 @@ class Wave extends React.Component {
                 <img className={"just-random-wave-item-18"} src={this.props.img} alt=""/>
                 <img className={"just-random-wave-item-19"} src={this.props.img} alt=""/>
                 <img className={"just-random-wave-item-20"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-21"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-22"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-23"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-24"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-25"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-26"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-27"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-28"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-29"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-30"} src={this.props.img} alt=""/>
             </div>
         </div>;
     }

@@ -11,7 +11,6 @@ class ZoomInOut extends React.Component {
 
     componentDidMount = () => {
         this.imgs = Array.from(this.bounce.current.children);
-        console.log(this.imgs);
         this.transform = 0;
         this.refCounter = 0;
         this.timeCounter = 0;

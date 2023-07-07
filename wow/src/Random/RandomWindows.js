@@ -13,6 +13,20 @@ export default class RandomWindows extends React.Component {
             <RandomWindow/>
             <RandomWindow/>
             <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
+            <RandomWindow/>
         </div>
     }
 }

@@ -1,13 +1,20 @@
 @use "sass:math";
+@import "../../styles/Basics";
 
 .just-random-wave-container {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &-vertical {
-    transform: rotate(90deg);
-    top: -50%;
+    .just-random-wave {
+      flex-direction: column;
+      position: absolute;
+      rotate: 90deg;
+    }
   }
 
   &-horizontal {
@@ -16,12 +23,9 @@
 
 .just-random-wave {
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100vw;
-  height: 200px;
-  transform: skew(-20deg) rotateY(180deg) translateY(-50px);
-  animation: slide 3s;
+  width: $sceneWidth;
+  height: 0;
+  transform: skew(-20deg) rotateY(180deg);
   z-index: 20;
 }
 
@@ -30,16 +34,17 @@
     left: -100%;
   }
   100% {
-    left: 0;
+    left: 200%;
   }
 }
 
-@for $i from 1 to 31 {
+@for $i from 1 to 21 {
   .just-random-wave-item-#{$i} {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: math.percentage(math.div($i - 1, 30));
+    top: -62px;
+    width: $imageSize;
+    height: $imageSize;
+    left: math.percentage(math.div($i - 1, 20));
     z-index: 161 - $i;
   }
 }

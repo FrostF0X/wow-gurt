@@ -16,8 +16,11 @@ jobs:
         with:
           files: wow
       - run: cp -r wow/* . && rm -rf wow
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - run: npm ci
-      - run: npm run build
+      - run: npm run build-goerli
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:

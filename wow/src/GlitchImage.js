@@ -6,21 +6,22 @@ class GlitchImage extends React.Component {
 
     constructor(props, context) {
         super(props, context);
+        this.preset = this.props.preset ?? GlitchImagePreset.random();
+        this.img = this.props.img ?? Random.get().image();
         this.item = createRef();
-        console.log(this.props.preset);
-        this.additionalClass = this.props.preset.randomAnimationStart ? `animation-random-start-${Number.random(1, 1000)}` : ``;
+        this.additionalClass = this.props.animationDelayedStart ? `animation-delayed-start-${this.props.animationDelayedStart}` : ``;
         this.additionalImage = Random.get().image();
     }
 
     render() {
-        return <div className={`just-glitch-img-container just-glitch-preset-${this.props.preset.index}`}>
+        return <div className={`just-glitch-img-container just-glitch-preset-${this.preset.index}`}>
             <img className={`just-glitch-img just-glitch-img-1 ${this.additionalClass}`}
-                 src={this.props.img} alt={"img"}/>
+                 src={this.img} alt={"img"}/>
             <img className={`just-glitch-img just-glitch-img-2 ${this.additionalClass}`}
-                 src={this.props.img} alt={"img"}/>
+                 src={this.img} alt={"img"}/>
             <img className={`just-glitch-img just-glitch-img-3 ${this.additionalClass}`} alt={"img"}
-                 src={this.props.img}/>
-            {this.props.preset.duplicateImage &&
+                 src={this.img}/>
+            {this.preset.duplicateImage &&
                 <React.Fragment>
                     <img className={`just-glitch-img just-glitch-img-1 ${this.additionalClass}`} alt={"img"}
                          src={this.additionalImage}/>
@@ -49,18 +50,18 @@ export class GlitchImagePreset {
         new GlitchImagePreset(true, 3, true),
     ];
 
-    randomAnimationStart;
+    animationDelay;
     index;
     doubleImage;
 
-    constructor(randomAnimationStart, index, duplicateImage) {
-        this.randomAnimationStart = randomAnimationStart;
+    constructor(animationDelay, index, duplicateImage) {
+        this.animationDelay = animationDelay;
         this.index = index;
         this.doubleImage = duplicateImage;
     }
 
     static random() {
-        return GlitchImagePreset.presets[Number.random(0, GlitchImagePreset.presets.length - 1)];
+        return GlitchImagePreset.presets[Random.get().number(0, GlitchImagePreset.presets.length - 1)];
     }
 }
 

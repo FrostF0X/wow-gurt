@@ -5,21 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/wow/config/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/getHttpsConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/jest/babelTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/jest/cssTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/jest/fileTransform.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/modules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/paths.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/webpack/persistentCache/createEnvironmentHash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/config/webpackDevServer.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/scripts/build.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/scripts/start.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/scripts/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/.env-development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/ChromeSettings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/.openzeppelin/goerli.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/.openzeppelin/unknown-1337.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/contracts/WowGurt.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/migrations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/migrations/1_deploy_contract.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/test/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/test/WowGurt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart/truffle-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.env-development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.env-goerli" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.env-mainnet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Mint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/Render.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/WowGurt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wow/src/styles/Mint.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/cd.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/cd.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/render/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/render/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/gifGenerator.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/src/paramsCalculator.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/config/jest/babelTransform.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/config/jest/babelTransform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/config/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wow/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/scripts/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/AreaDivision.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/AreaDivision.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/GlitchImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/GlitchImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Just.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Just.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/JustRandomWindow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/Bounce.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/Bounce.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/Chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/Chess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/ImageGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/ImageGrid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/RandomWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/RandomWindows.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/RandomWindows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/Wave.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/Wave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/ZoomInOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/ZoomInOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/styles/Chess.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/styles/Chess.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/styles/ImageGrid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/styles/ImageGrid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Random/styles/Wave.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Random/styles/Wave.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/ScrumSurvey.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Summary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/styles/Basics.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Basics.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/styles/Glitch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Glitch.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/styles/Just.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Just.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/styles/JustGrid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/JustGrid.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +86,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Solidity Contract" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -49,9 +99,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/wow/node_modules/@types/seedrandom/index.d.ts" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2" />
   <component name="ProjectId" id="2QkrnPksh8PDo21Gm9n1aBSIL9M" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,16 +118,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "idea.background.editor": "/Users/dims/PhpstormProjects/wow-gurt/public/05.png,5,scale,middle_left,flipHV",
+    "git-widget-placeholder": "master",
+    "idea.background.editor": "/Users/dims/PhpstormProjects/wow-gurt/wow/public/05-trans.png,5,scale,top_left",
     "javascript.nodejs.core.library.configured.version": "18.14.0",
     "javascript.nodejs.core.library.typings.version": "18.14.0",
-    "last_opened_file_path": "/Users/dims/PhpstormProjects/wow-gurt",
+    "last_opened_file_path": "/Users/dims/PhpstormProjects/wow-gurt/render",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "debugger.dataViews",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
     "ts.external.directory.path": "/Users/dims/PhpstormProjects/wow-gurt/render/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -85,10 +143,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/render" />
+      <recent name="$PROJECT_DIR$/wow" />
+      <recent name="$PROJECT_DIR$/render/src" />
+      <recent name="$PROJECT_DIR$/wow/src" />
       <recent name="$PROJECT_DIR$/src/styles/Glitch" />
-      <recent name="$PROJECT_DIR$/src/Randoms/styles" />
-      <recent name="$PROJECT_DIR$/src/Randoms" />
-      <recent name="$PROJECT_DIR$/src/styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/render/src" />
@@ -104,8 +162,11 @@
       <recent name="$PROJECT_DIR$/src/Randoms/JustRandomWindows.js" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="Dbg" type="JavascriptDebugType" uri="http://localhost:3000">
+  <component name="RunManager" selected="JavaScript Debug.dbg">
+    <configuration name="dbg" type="JavascriptDebugType" uri="http://localhost:3000/" useFirstLineBreakpoints="true">
+      <mapping url="http://localhost:3000/public" local-file="$PROJECT_DIR$/wow/public" />
+      <mapping url="http://localhost:3000" local-file="$PROJECT_DIR$/wow/src" />
+      <mapping url="http://localhost:3000" local-file="$PROJECT_DIR$/wow/scripts" />
       <mapping url="http://localhost:3000" local-file="$PROJECT_DIR$/wow" />
       <method v="2" />
     </configuration>
@@ -120,7 +181,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.Dbg" />
+      <item itemvalue="JavaScript Debug.dbg" />
       <item itemvalue="npm.start" />
     </list>
   </component>
@@ -156,7 +217,19 @@
       <workItem from="1688175699263" duration="3594000" />
       <workItem from="1688416362868" duration="13831000" />
       <workItem from="1688513164101" duration="11926000" />
-      <workItem from="1688563855789" duration="245000" />
+      <workItem from="1688563855789" duration="609000" />
+      <workItem from="1688564480123" duration="2047000" />
+      <workItem from="1688566627751" duration="362000" />
+      <workItem from="1688567000477" duration="30000" />
+      <workItem from="1688567079535" duration="1277000" />
+      <workItem from="1688568421789" duration="2072000" />
+      <workItem from="1688573805974" duration="2483000" />
+      <workItem from="1688577857124" duration="580000" />
+      <workItem from="1688582435573" duration="9000" />
+      <workItem from="1688582663617" duration="598000" />
+      <workItem from="1688641725088" duration="41378000" />
+      <workItem from="1688736185051" duration="6459000" />
+      <workItem from="1688742669790" duration="11727000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -396,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688564010713</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="eject">
+      <created>1688564149665</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1688564149665</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ļ" />
     <MESSAGE value="fix corner" />
     <MESSAGE value="first release" />
     <MESSAGE value="fix release" />
@@ -438,29 +517,9 @@
     <MESSAGE value="init render project" />
     <MESSAGE value="init git project" />
     <MESSAGE value="fix CD" />
+    <MESSAGE value="eject" />
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/wow/src/Random.ts</url>
-          <line>20</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/wow/src/Random.ts</url>
-          <line>8</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/wow/src/Just.js</url>
-          <line>19</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

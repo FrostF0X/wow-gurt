@@ -4,3 +4,8 @@ $pink: #EA42A7;
 $green: #5AC45F;
 $yellow: #9DD544;
 $red: #DE5148;
+
+$sceneWidth: 1024px;
+$margins: 13px;
+$sceneWithoutMargins: $sceneWidth - $margins*2;
+$imageSize: 128px;

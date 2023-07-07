@@ -2,7 +2,7 @@
 @import "./Glitch/Glitch1";
 @import "./Glitch/Glitch2";
 @import "./Glitch/Glitch3";
-
+@import "Basics";
 .just-glitch-img-container {
   position: relative;
   width: 100%;
@@ -14,8 +14,8 @@
 
 .just-glitch-img {
   position: absolute;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: $imageSize;
+  max-width: $imageSize;
 }
 
 @for $i from 1 to 1000 {
@@ -24,3 +24,10 @@
     animation-delay: #{$r}ms !important;
   }
 }
+
+@for $i from 1 to 8 {
+  .animation-delayed-start-#{$i} {
+    animation-delay: #{$i/8*200}ms !important;
+  }
+}
+

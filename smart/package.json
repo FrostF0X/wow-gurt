@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.2",
+    "@openzeppelin/contracts-upgradeable": "^4.9.2",
+    "@openzeppelin/truffle-upgrades": "^1.19.0",
+    "@truffle/hdwallet-provider": "^2.1.12",
+    "dotenv": "^16.3.1",
+    "env-cmd": "^10.1.0",
+    "web3": "^4.0.2"
+  },
+  "scripts": {
+    "compile": "arch -arm64 /bin/bash -c 'truffle compile'",
+    "migrate": "arch -arm64 /bin/bash -c 'truffle migrate --network development'"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "hardhat": "^2.16.1"
+  }
+}
