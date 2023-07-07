@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="." />
+    <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/render/src/ChromeSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/render/src/ChromeSettings.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +166,7 @@
       <workItem from="1688582663617" duration="598000" />
       <workItem from="1688641725088" duration="41378000" />
       <workItem from="1688736185051" duration="6459000" />
-      <workItem from="1688742669790" duration="12412000" />
+      <workItem from="1688742669790" duration="12709000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -419,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688754846977</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary=".">
+      <option name="closed" value="true" />
+      <created>1688756234174</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1688756234174</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
