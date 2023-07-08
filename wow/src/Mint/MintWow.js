@@ -10,8 +10,8 @@ export function MintWow(props) {
     const {address} = useAccount();
     const {
         config,
-        prepareError: prepareError,
-        isPrepareError: isPrepareError,
+        prepareError,
+        isPrepareError,
     } = usePrepareContractWrite({
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
         abi: WowGurt.abi,

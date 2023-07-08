@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="add renderer deployment">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/render.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/render.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow/src/Mint/MintWow.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Mint/MintWow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,7 @@
       <workItem from="1688582663617" duration="598000" />
       <workItem from="1688641725088" duration="41378000" />
       <workItem from="1688736185051" duration="6459000" />
-      <workItem from="1688742669790" duration="37140000" />
+      <workItem from="1688742669790" duration="37274000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -414,14 +413,6 @@
       <option name="project" value="LOCAL" />
       <updated>1688564149665</updated>
     </task>
-    <task id="LOCAL-00039" summary=".">
-      <option name="closed" value="true" />
-      <created>1688756723550</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1688756723550</updated>
-    </task>
     <task id="LOCAL-00040" summary=".">
       <option name="closed" value="true" />
       <created>1688756927795</created>
@@ -526,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688826744788</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="add renderer deployment">
+      <option name="closed" value="true" />
+      <created>1688827899822</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1688827899823</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
