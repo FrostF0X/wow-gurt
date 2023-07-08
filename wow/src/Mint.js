@@ -1,9 +1,29 @@
-import './styles/Mint.scss';
-import React from "react";
-import Web3 from 'web3';
+import React, {Fragment} from "react";
 import Just from "./Just";
 import Random from "./Random";
-import WowGurt from "./WowGurt.json";
+import "@rainbow-me/rainbowkit/styles.css";
+import {ConnectButton, darkTheme, getDefaultWallets, RainbowKitProvider} from '@rainbow-me/rainbowkit';
+import {configureChains, createConfig, WagmiConfig} from 'wagmi';
+import {
+    mainnet, goerli,
+} from 'wagmi/chains';
+import {infuraProvider} from 'wagmi/providers/infura';
+import {MintWow} from "./Mint/MintWow";
+
+
+const {
+    chains,
+    publicClient,
+    webSocketPublicClient
+} = configureChains([...(process.env.REACT_APP_ENABLE_GOERLI === 'true' ? [goerli] : []), ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [mainnet] : []),], [infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})]);
+
+const {connectors} = getDefaultWallets({
+    appName: 'RainbowKit demo', projectId: 'd3a216c52b2adac62ac723b339a7b3c7', chains,
+});
+
+const wagmiConfig = createConfig({
+    autoConnect: true, connectors, publicClient, webSocketPublicClient,
+});
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -11,17 +31,18 @@ function query() {
 
 class Mint extends React.Component {
     loaded = false;
+    provider = null;
+
     constructor(props) {
         super(props);
         this.state = {
-            btnText: "▲ Mint ▲",
+            btnText: "▲ Get WoW ▲"
         };
         this.account = null;
         this.contract = null;
         this.seed = query().get('seed') ?? String(Number.random(0, 10000));
         Random.init(this.seed);
-        this.web3 = new Web3(window.ethereum);
-        this.mint = this.mint.bind(this);
+        this.generate = this.generate.bind(this);
     }
 
     async componentDidMount() {
@@ -29,32 +50,23 @@ class Mint extends React.Component {
             return false;
         }
         this.loaded = true;
-        await window.ethereum.enable();
-        const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
-        this.account = (await this.web3.eth.getAccounts())[0];
-        this.contract = new this.web3.eth.Contract(WowGurt.abi, contractAddress);
     }
 
-    async mint() {
+    async generate() {
         this.startLoader();
 
         const response = await fetch(process.env.REACT_APP_RENDERER_ADDRESS, {
-            method: 'POST',
-            headers: {
+            method: 'POST', headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+            }, body: JSON.stringify({
                 seed: this.seed
             })
         });
 
-        const data = await response.json();
-
+        const url = (await response.json()).url;
+        this.setState((state) => ({...state, url}));
         this.stopLoader();
-        const tx = await this.contract.methods.mintNFT(this.account, data.url).send({from: this.account});
-        console.log(tx);
     }
-
     startLoader() {
         this.loaderInterval = setInterval(() => {
             if (this.state.btnText.length >= 5) {
@@ -68,16 +80,31 @@ class Mint extends React.Component {
     stopLoader() {
         clearInterval(this.loaderInterval);
         Random.init(this.seed);
-        this.setState({btnText: "▲ Mint ▲"});
+        this.setState({btnText: "▲ Get WoW ▲"});
     }
 
     render() {
-        return (
-            <div className={"mint"}>
-                <div className="just-preview"><Just/></div>
-                <button className="mint-btn" onClick={this.mint}>{this.state.btnText}</button>
-            </div>
-        );
+        return (<Fragment>
+                <WagmiConfig config={wagmiConfig}>
+                    <div className={"rk"}>
+                        <RainbowKitProvider chains={chains} theme={darkTheme({
+                            accentColor: '#EA42A7',
+                            accentColorForeground: 'white',
+                            borderRadius: 'none',
+                            fontStack: 'system',
+                            overlayBlur: 'large',
+                        })} coolMode={true}
+                                            modalSize={"compact"}>
+                            <div className={"mint"}>
+                                <div className="just-preview"><Just/></div>
+                                {this.state.url ? <MintWow url={this.state.url}/> : <button className="generate-btn"
+                                                                                            onClick={this.generate}>{this.state.btnText}</button>}
+                                <ConnectButton accountStatus={"address"} showBalance={false} label={"CONNECT"}/>
+                            </div>
+                        </RainbowKitProvider>
+                    </div>
+                </WagmiConfig>
+            </Fragment>);
     }
 }
 

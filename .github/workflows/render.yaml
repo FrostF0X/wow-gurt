@@ -1,0 +1,30 @@
+name: render
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: pull code
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: '159.89.213.104'
+          username: 'wow-gurt'
+          key: ${{ secrets.KEY }}
+          script: cd ~/wow-gurt/ && git pull
+      - name: restart server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: '159.89.213.104'
+          username: 'root'
+          key: ${{ secrets.KEY }}
+          script: systemctl restart wow-gurt.service
+
+

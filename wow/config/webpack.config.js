@@ -288,13 +288,24 @@ module.exports = function (webpackEnv) {
         new CssMinimizerPlugin(),
       ],
     },
+    ignoreWarnings: [/Failed to parse source map/],
     resolve: {
+      fallback: {
+        crypto: false, // require.resolve("crypto-browserify") can be polyfilled here if needed
+        stream: false, // require.resolve("stream-browserify") can be polyfilled here if needed
+        assert: false, // require.resolve("assert") can be polyfilled here if needed
+        http: false, // require.resolve("stream-http") can be polyfilled here if needed
+        https: false, // require.resolve("https-browserify") can be polyfilled here if needed
+        os: false, // require.resolve("os-browserify") can be polyfilled here if needed
+        url: false, // require.resolve("url") can be polyfilled here if needed
+        zlib: false, // require.resolve("browserify-zlib") can be polyfilled here if needed
+      },
       // This allows you to set a fallback for where webpack should look for modules.
       // We placed these paths second because we want `node_modules` to "win"
       // if there are any conflicts. This matches Node resolution mechanism.
       // https://github.com/facebook/create-react-app/issues/253
       modules: ['node_modules', paths.appNodeModules].concat(
-        modules.additionalModulePaths || []
+          modules.additionalModulePaths || []
       ),
       // These are the reasonable defaults supported by the Node ecosystem.
       // We also include JSX as a common component filename extension to support
@@ -558,6 +569,10 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      new webpack.ProvidePlugin({
+        process: "process/browser",
+        Buffer: ["buffer", "Buffer"],
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
