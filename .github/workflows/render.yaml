@@ -18,7 +18,7 @@ jobs:
           host: '159.89.213.104'
           username: 'root'
           key: ${{ secrets.KEY }}
-          script: su 'wow-gurt' -c 'cd ~/wow-gurt/ && git pull && npm install'
+          script: su 'wow-gurt' -c 'cd ~/wow-gurt/render && git pull && npm install'
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
