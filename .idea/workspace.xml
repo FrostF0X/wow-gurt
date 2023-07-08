@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e2ab6ac-e367-4ae4-9fb0-ca460f9f73e4" name="Changes" comment="add renderer deployment">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/render.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Mint/MintWow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wow/src/Theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/.env-development" beforeDir="false" afterPath="$PROJECT_DIR$/wow/.env-development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/.env-goerli" beforeDir="false" afterPath="$PROJECT_DIR$/wow/.env-goerli" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/.env-mainnet" beforeDir="false" afterPath="$PROJECT_DIR$/wow/.env-mainnet" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/config/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/src/Mint.js" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Mint.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/src/WowGurt.json" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/Mint/WowGurt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/src/styles/Mint.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/Mint.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wow/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wow/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/render.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/render.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +166,7 @@
       <workItem from="1688582663617" duration="598000" />
       <workItem from="1688641725088" duration="41378000" />
       <workItem from="1688736185051" duration="6459000" />
-      <workItem from="1688742669790" duration="36039000" />
+      <workItem from="1688742669790" duration="36055000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1685987977476</created>
@@ -426,14 +413,6 @@
       <option name="project" value="LOCAL" />
       <updated>1688564149665</updated>
     </task>
-    <task id="LOCAL-00037" summary=".">
-      <option name="closed" value="true" />
-      <created>1688756234174</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1688756234174</updated>
-    </task>
     <task id="LOCAL-00038" summary=".">
       <option name="closed" value="true" />
       <created>1688756369142</created>
@@ -538,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688767152989</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="add renderer deployment">
+      <option name="closed" value="true" />
+      <created>1688826729745</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1688826729745</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
