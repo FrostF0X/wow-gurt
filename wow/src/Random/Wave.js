@@ -38,7 +38,6 @@ class Wave extends React.Component {
 
     animate = () => {
         var fps = 30;
-        setInterval(() => console.log(this.refCounter), 2000);
         setInterval(() => {
             this.imgs.forEach((d, i) => {
                 let rad = 57.2958;
