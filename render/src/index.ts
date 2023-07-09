@@ -94,7 +94,7 @@ app.get('/', async (req, res) => {
 async function startBrowser() {
     console.log("Staring browser");
     browser = await launch({
-        "executablePath": 'chromium',
+        "executablePath": 'chromium-browser',
         args: [
             `--ozone-platform=wayland`,
             `--content-shell-host-window-size=${SIZE},${SIZE}`,
