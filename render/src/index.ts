@@ -41,15 +41,15 @@ app.post('/', async (req, res) => {
         const seed = req.body.seed;
         const URL = `${BASE_URL}?size=${SIZE}&seed=${seed}`;
 
-        await page.goto(URL);
-        await page.waitForSelector('.just');
 
         const tmpVideoFile = await tmp.file({postfix: '.webm'});
         const cutTmpVideoFile = await tmp.file({postfix: '.webm'});
-
-
+        console.log("Video: " + tmpVideoFile.path);
         const stream = await getStream(page, {video: true, audio: false, videoBitsPerSecond: 200000000});
         stream.pipe(fs.createWriteStream(tmpVideoFile.path));
+        await page.goto(URL);
+        await page.waitForSelector('.just');
+
         await new Promise((resolve) => setTimeout(resolve, 21000));
         console.log("Stopping recording");
         await stream.destroy();
@@ -62,7 +62,6 @@ app.post('/', async (req, res) => {
                 .on('end', resolve)
                 .run()
         );
-        console.log("Video: " + tmpVideoFile.path);
         const tmpGifFile = await tmp.file({postfix: '.gif'});
         ffmpeg(cutTmpVideoFile.path)
             .outputOptions(['-vf', `setpts=0.1*PTS,fps=${FPS * 5},scale=1024:1024:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`])
