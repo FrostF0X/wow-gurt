@@ -36,7 +36,7 @@ app.use(cors({
 
 let page: Page;
 let browser: Browser;
-app.get('/', async (req, res) => {
+app.post('/', async (req, res) => {
     try {
         const seed = req.body.seed;
         const URL = `${BASE_URL}?size=${SIZE}&seed=${seed}`;
