@@ -47,7 +47,7 @@ app.post('/', async (req, res) => {
         console.log("Video: " + tmpVideoFile.path);
         const stream = await getStream(page, {video: true, audio: false, videoBitsPerSecond: 200000000});
         stream.pipe(fs.createWriteStream(tmpVideoFile.path));
-        await page.goto(URL);
+        page.goto(URL);
         await new Promise((resolve) => setTimeout(resolve, 21000));
         console.log("Stopping recording");
         await stream.destroy();
