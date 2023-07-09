@@ -1,5 +1,9 @@
 export default [
+    "--media-cache-size=0",
+    "--disk-cache-size=0",
+    '--headless=new',
     '--no-sandbox',
+    '--disable-setuid-sandbox',
     '--disable-gpu',
     '--disable-dev-shm-usage',
     '--disable-software-rasterizer',

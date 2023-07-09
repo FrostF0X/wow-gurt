@@ -2,9 +2,14 @@ import React from "react";
 import './styles/JustFrame.scss';
 
 export class JustFrame extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.class = this.props.plain ? 'just-random-frame-plain' : '';
+    }
+
     render() {
         return (
-            <div className={"just-random-frame"}>
+            <div className={"just-random-frame " + this.class}>
                 <div className={"just-random-frame-toolbar"}>
                     <div className={"just-random-frame-toolbar-item just-random-frame-toolbar-minimize"}>
                         <span className={"just-random-frame-toolbar-minimize-1"}></span>

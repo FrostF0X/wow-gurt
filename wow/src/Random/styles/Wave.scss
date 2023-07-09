@@ -23,7 +23,7 @@
 
 .just-random-wave {
   position: absolute;
-  width: $sceneWidth;
+  width: var(--scene-size);
   height: 0;
   transform: skew(-20deg) rotateY(180deg);
   z-index: 20;
@@ -38,12 +38,12 @@
   }
 }
 
-@for $i from 1 to 21 {
+@for $i from 1 to 61 {
   .just-random-wave-item-#{$i} {
     position: absolute;
-    top: -62px;
-    width: $imageSize;
-    height: $imageSize;
+    top: calc(var(--image-size)/-2);
+    width: var(--image-size);
+    height: var(--image-size);
     left: math.percentage(math.div($i - 1, 20));
     z-index: 161 - $i;
   }

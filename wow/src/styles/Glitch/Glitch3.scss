@@ -1,3 +1,4 @@
+@import "../../styles/Basics";
 .just-glitch-preset-3 {
   .just-glitch-img-1 {
     margin: 0;
@@ -9,7 +10,7 @@
     margin-top: -5px;
     margin-left: -7px;
     filter: invert(0.8);
-    animation: glitch-preset-3-1 3s infinite;
+    animation: glitch-preset-3-1 var(--animation-length) infinite;
     z-index: 10;
   }
 
@@ -17,7 +18,7 @@
     margin-top: 5px;
     margin-left: 7px;
     filter: invert(0.8);
-    animation: glitch-preset-3-2 3s infinite;
+    animation: glitch-preset-3-2 var(--animation-length) infinite;
     z-index: 10;
   }
 }

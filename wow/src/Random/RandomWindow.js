@@ -26,7 +26,7 @@ class RandomWindow extends React.Component {
 
     render() {
         return <div ref={this.randomItem} className={"just-random-window"}>
-            <JustFrame><GlitchImage/></JustFrame>
+            <JustFrame plain={true}><GlitchImage/></JustFrame>
         </div>;
     }
 }

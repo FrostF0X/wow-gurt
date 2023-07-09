@@ -23,17 +23,20 @@ $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
 }
 
 .just-preview {
-  width: 512px;
-  height: 512px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  .just {
-    position: absolute;
-    transform: scale(0.5);
-  }
+.just-preview .just {
+  width: 512px;
+  height: 512px;
+}
+
+.just-container {
+  width: 512px;
+  height: 512px;
 }
 
 @include media("<=tablet") {
@@ -43,10 +46,6 @@ $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
   .just-preview {
     width: min(90vh, 90vw);
     height: min(90vh, 90vw);
-
-    .just {
-      transform: scale(0.3);
-    }
   }
 }
 

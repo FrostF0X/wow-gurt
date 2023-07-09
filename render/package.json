@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "kill-chromes": "pkill -9 -f puppeteer || true && pkill -9 -f Chrome || true && pkill -9 -f Chromium || true",
     "watch-development": "env-cmd -f .env-development npm run watch",
     "watch-goerli": "env-cmd -f .env-goerli npm run watch",
     "watch-mainnet": "env-cmd -f .env-mainnet npm run watch",
     "watch": "nodemon --watch 'src/**/*.ts' --ext ts,js --exec npm run start",
-    "start": "pkill -9 -f puppeteer || true && env-cmd -f .env ts-node src/index.ts",
-    "start-test": "pkill -9 -f puppeteer || true && env-cmd -f .env ts-node src/test.ts",
+    "start": "npm run kill-chromes && env-cmd -f .env ts-node src/index.ts",
+    "start-test": "npm run kill-chromes && env-cmd -f .env ts-node src/test.ts",
     "watch-test": "nodemon --watch 'src/**/*.ts' --ext ts,js --exec npm run start-test",
     "prod-goerli": "env-cmd -f .env-goerli npm run prod",
     "prod": "env-cmd -f .env.production ts-node src/index.ts"
@@ -29,6 +30,7 @@
     "puppeteer": "^20.7.4",
     "puppeteer-mass-screenshots": "^1.0.15",
     "puppeteer-screen-recorder": "^2.1.2",
+    "puppeteer-stream": "^3.0.5",
     "tmp-promise": "^3.0.3",
     "typescript": "^5.1.6"
   },

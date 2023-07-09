@@ -2,11 +2,10 @@
 @import "Basics";
 
 .just {
-  padding: 10px 16px 16px 10px;
   pointer-events: none;
   position: relative;
-  width: $sceneWidth;
-  height: $sceneWidth;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -36,4 +35,9 @@ $cellCount: 8;
 .just-scene-grid-cell {
   border: 1px solid white;
   overflow: hidden;
+  box-sizing: border-box;
+  display: none;
+}
+.just-scene-grid-cell-active {
+  display: block;
 }

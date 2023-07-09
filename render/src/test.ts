@@ -1,10 +1,12 @@
 import * as express from 'express';
-import puppeteer, {Page} from 'puppeteer';
-import {PuppeteerScreenRecorder} from 'puppeteer-screen-recorder';
+import {launch, getStream} from "puppeteer-stream";
+
 import * as tmp from 'tmp-promise';
 import * as ffmpeg from 'fluent-ffmpeg';
 import * as cors from 'cors';
 import chromeSettings from "./ChromeSettings";
+import {Page} from "puppeteer-core";
+import * as fs from "fs";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -13,52 +15,45 @@ function throwExpression(errorMessage: string): never {
 const BASE_URL: string = process.env.URL ?? throwExpression("Please define URL");
 const PORT = process.env.PORT ?? throwExpression("Please define PORT");
 const app: express.Express = express();
-const WIDTH: number = 1024;
-const HEIGHT: number = 1024;
+const SIZE: number = 2048;
+const FPS = 10;
 
 app.use(express.json()); // for parsing application/json
 app.use(cors({
     origin: '*'
 }));
 
-const FPS = 25;
-
-const Config = {
-    followNewTab: false,
-    fps: FPS,
-    ffmpeg_Path: '/usr/local/bin/ffmpeg' || null,
-    videoFrame: {
-        width: WIDTH,
-        height: HEIGHT,
-    },
-    videoCrf: 0,
-    videoPreset: 'ultrafast',
-    videoBitsPerSecond: 256000,
-    quality: 100
-};
 let page: Page;
 
 app.get('/', async (req, res) => {
     try {
-        const URL = `${BASE_URL}`;
+        const URL = `${BASE_URL}?size=${SIZE}`;
 
-        const screenRecorder = new PuppeteerScreenRecorder(page, Config);
         await page.goto(URL);
         await page.waitForSelector('.just');
 
-        const tmpVideoFile = await tmp.file({postfix: '.mp4'});
+        const tmpVideoFile = await tmp.file({postfix: '.webm'});
+        const cutTmpVideoFile = await tmp.file({postfix: '.webm'});
 
-        await screenRecorder.start(tmpVideoFile.path);
-        await new Promise((resolve) => setTimeout(resolve, 10000));
+
+        const stream = await getStream(page, {video: true, audio: false, videoBitsPerSecond: 200000000});
+        stream.pipe(fs.createWriteStream(tmpVideoFile.path));
+        await new Promise((resolve) => setTimeout(resolve, 21000));
         console.log("Stopping recording");
-        await screenRecorder.stop();
+        await stream.destroy();
         console.log("Stopped");
 
-        const tmpGifFile = await tmp.file({postfix: '.gif'});
-
+        await new Promise(resolve =>
+            ffmpeg(tmpVideoFile.path)
+                .outputOptions(['-t', '20'])
+                .output(cutTmpVideoFile.path)
+                .on('end', resolve)
+                .run()
+        );
         console.log("Video: " + tmpVideoFile.path);
-        ffmpeg(tmpVideoFile.path)
-            .outputOptions(['-vf', `fps=${FPS},scale=1024:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`])
+        const tmpGifFile = await tmp.file({postfix: '.gif'});
+        ffmpeg(cutTmpVideoFile.path)
+            .outputOptions(['-vf', `setpts=0.1*PTS,fps=${FPS * 5},scale=1024:1024:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`])
             .output(tmpGifFile.path)
             .on('end', async () => {
                     res.sendFile(tmpGifFile.path, function (err) {
@@ -67,8 +62,6 @@ app.get('/', async (req, res) => {
                             res.status(500).end();
                         } else {
                             console.log("Gif: " + tmpGifFile.path);
-                            // tmpVideoFile.cleanup();
-                            // tmpGifFile.cleanup();
                         }
                     })
                 }
@@ -81,14 +74,18 @@ app.get('/', async (req, res) => {
 
 new Promise(async (resolve) => {
     console.log("Staring browser");
-    const browser = await puppeteer.launch({
-        "headless": true, args: [`--window-size=${WIDTH},${HEIGHT}`, ...chromeSettings], defaultViewport: {
-            width: WIDTH,
-            height: HEIGHT
-        }
+    const browser = await launch({
+        "executablePath": 'chromium',
+        args: [
+            `--ozone-platform=wayland`,
+            `--content-shell-host-window-size=${SIZE},${SIZE}`,
+            `--app-shell-host-window-size=${SIZE},${SIZE}`,
+            `--window-size=${SIZE},${SIZE}`,
+            `--ozone-override-screen-size=${SIZE},${SIZE}`,
+            ...chromeSettings],
     });
     page = await browser.newPage();
-    await page.setViewport({width: WIDTH, height: HEIGHT});
+    await page.setViewport({width: SIZE, height: SIZE, deviceScaleFactor: 1});
     resolve(true);
 }).then(() => {
     app.listen(PORT, () => {

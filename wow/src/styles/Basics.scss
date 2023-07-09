@@ -5,7 +5,10 @@ $green: #5AC45F;
 $yellow: #9DD544;
 $red: #DE5148;
 
-$sceneWidth: 1024px;
-$margins: 13px;
-$sceneWithoutMargins: $sceneWidth - $margins*2;
-$imageSize: 128px;
+body {
+  --animation-length: 2000ms;
+  --animation-phase: calc(var(--animation-length) / 4);
+  --animation-delay-multiplier: 5;
+  --image-size: calc(var(--scene-size) / 8);
+}
+

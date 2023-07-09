@@ -1,0 +1,12 @@
+@import "Basics";
+@import "include-media/dist/_include-media";
+
+.just-render {
+  background: black;
+  width: var(--scene-size);
+  height: var(--scene-size);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

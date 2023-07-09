@@ -35,5 +35,9 @@ export default class Random {
 
         return shuffled.slice(0, count);
     }
+
+    public randomItem<T>(array: T[]): T {
+        return this.randomItems(array, 1)[0];
+    }
 }
 

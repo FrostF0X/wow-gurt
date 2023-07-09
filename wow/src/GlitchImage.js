@@ -9,7 +9,7 @@ class GlitchImage extends React.Component {
         this.preset = this.props.preset ?? GlitchImagePreset.random();
         this.img = this.props.img ?? Random.get().image();
         this.item = createRef();
-        this.additionalClass = this.props.animationDelayedStart ? `animation-delayed-start-${this.props.animationDelayedStart}` : ``;
+        this.additionalClass = `animation-delayed-start-${this.props.animationDelayedStart}`;
         this.additionalImage = Random.get().image();
     }
 

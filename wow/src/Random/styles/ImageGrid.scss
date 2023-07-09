@@ -11,6 +11,6 @@
 
 .just-random-image-glitch-grid-grid {
   position: absolute;
-  width: $sceneWithoutMargins;
-  height: $sceneWithoutMargins;
+  width: var(--scene-size);
+  height: var(--scene-size);
 }

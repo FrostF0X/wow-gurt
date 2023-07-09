@@ -9,7 +9,9 @@ import {
 } from 'wagmi/chains';
 import {infuraProvider} from 'wagmi/providers/infura';
 import {MintWow} from "./Mint/MintWow";
-
+import {JustFrame} from "./JustFrame";
+import "./styles/Mint.scss";
+import Size from "./Animation/Size";
 
 const {
     chains,
@@ -42,6 +44,7 @@ class Mint extends React.Component {
         this.contract = null;
         this.seed = query().get('seed') ?? String(Number.random(0, 10000));
         Random.init(this.seed);
+        Size.set(512);
         this.generate = this.generate.bind(this);
     }
 
@@ -96,7 +99,7 @@ class Mint extends React.Component {
                         })} coolMode={true}
                                             modalSize={"compact"}>
                             <div className={"mint"}>
-                                <div className="just-preview"><Just/></div>
+                                <div className="just-preview"><JustFrame><Just/></JustFrame></div>
                                 {this.state.url ? <MintWow url={this.state.url}/> : <button className="generate-btn"
                                                                                             onClick={this.generate}>{this.state.btnText}</button>}
                                 <ConnectButton accountStatus={"address"} showBalance={false} label={"CONNECT"}/>
