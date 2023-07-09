@@ -48,7 +48,7 @@ app.post('/', async (req, res) => {
         const stream = await getStream(page, {video: true, audio: false, videoBitsPerSecond: 200000000});
         stream.pipe(fs.createWriteStream(tmpVideoFile.path));
         page.goto(URL);
-        await new Promise((resolve) => setTimeout(resolve, 21000));
+        await new Promise((resolve) => setTimeout(resolve, 10000));
         console.log("Stopping recording");
         await stream.destroy();
         console.log("Stopped");
@@ -93,6 +93,7 @@ async function startBrowser() {
     browser = await launch({
         "executablePath": 'chromium-browser',
         args: [
+            `--headless=new`,
             `--ozone-platform=wayland`,
             `--content-shell-host-window-size=${SIZE},${SIZE}`,
             `--app-shell-host-window-size=${SIZE},${SIZE}`,
