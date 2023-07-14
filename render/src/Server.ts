@@ -42,6 +42,7 @@ export default class Server {
         } else {
             app.post('/', listener);
         }
+        app.get('/ping', (req, res) => res.json({"pong": true}));
         app.listen(port, () => {
             clog(`Server is listening on port ${port}`);
         });
