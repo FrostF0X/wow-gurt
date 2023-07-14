@@ -24,7 +24,7 @@ export default class Server {
         }));
         app.use(express.json()); // for parsing application/json
         app.use(cors({
-            origin: '*'
+            origin: (origin, callback) => callback(null,true)
         }));
 
         if (type === "get") {
