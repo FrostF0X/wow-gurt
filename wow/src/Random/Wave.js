@@ -16,9 +16,11 @@ class Wave extends React.Component {
 
     constructor(props, context) {
         super(props, context);
+        this.img = this.props.random.img().rand();
         this.randomItem = createRef();
         this.wave = createRef();
         this.waveContainer = createRef();
+        this.preset = this.props.random.number(1, 3);
     }
 
     componentDidMount = () => {
@@ -26,8 +28,8 @@ class Wave extends React.Component {
         this.transform = 0;
         this.refCounter = 0;
         this.timeCounter = 0;
-        this.animate();
         Just.onStart(() => {
+            this.animate();
             if (this.waveContainer.current.clientWidth > this.waveContainer.current.clientHeight) {
                 this.waveContainer.current.classList.add('just-random-wave-container-horizontal');
             } else {
@@ -51,67 +53,67 @@ class Wave extends React.Component {
 
     render() {
         return <div ref={this.waveContainer} className={"just-random-wave-container"}>
-            <div ref={this.wave} className={"just-random-wave"}>
-                <img className={"just-random-wave-item-1"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-2"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-3"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-4"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-5"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-6"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-7"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-8"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-9"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-10"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-11"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-12"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-13"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-14"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-15"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-16"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-17"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-18"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-19"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-20"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-21"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-22"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-23"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-24"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-25"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-26"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-27"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-28"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-29"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-30"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-31"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-32"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-33"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-34"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-35"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-36"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-37"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-38"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-39"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-40"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-41"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-42"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-43"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-44"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-45"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-46"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-47"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-48"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-49"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-50"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-51"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-52"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-53"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-54"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-55"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-56"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-57"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-58"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-59"} src={this.props.img} alt=""/>
-                <img className={"just-random-wave-item-60"} src={this.props.img} alt=""/>
+            <div ref={this.wave} className={`just-random-wave just-random-wave-preset-${this.preset}`}>
+                <img className={"just-random-wave-item-1"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-2"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-3"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-4"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-5"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-6"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-7"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-8"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-9"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-10"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-11"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-12"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-13"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-14"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-15"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-16"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-17"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-18"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-19"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-20"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-21"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-22"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-23"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-24"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-25"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-26"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-27"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-28"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-29"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-30"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-31"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-32"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-33"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-34"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-35"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-36"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-37"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-38"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-39"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-40"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-41"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-42"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-43"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-44"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-45"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-46"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-47"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-48"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-49"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-50"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-51"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-52"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-53"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-54"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-55"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-56"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-57"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-58"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-59"} src={this.img} alt=""/>
+                <img className={"just-random-wave-item-60"} src={this.img} alt=""/>
             </div>
         </div>;
     }

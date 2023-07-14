@@ -1,0 +1,84 @@
+.just-grid-cell-borders-preset-1 {
+  border-left: var(--chess-color-1) solid 1px;
+}
+
+.just-grid-cell-borders-preset-2 {
+  border-top: var(--chess-color-1) solid 1px;
+}
+
+.just-grid-cell-borders-preset-3 {
+  border-left: var(--chess-color-1) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-4 {
+  border-top: var(--chess-color-1) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-5 {
+  border-left: var(--chess-color-1) solid 1px;
+}
+
+.just-grid-cell-borders-preset-6 {
+  border-top: var(--chess-color-1) solid 1px;
+}
+
+.just-grid-cell-borders-preset-7 {
+  border-left: var(--chess-color-1) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-8 {
+  border-top: var(--chess-color-1) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-9 {
+  border-top: var(--chess-color-1) solid 1px;
+  border-left: var(--chess-color-2) solid 1px;
+}
+
+.just-grid-cell-borders-preset-9:nth-child(-n+2) {
+  border-top: 0;
+}
+
+.just-grid-cell-borders-preset-9:nth-child(odd) {
+  border-left: 0;
+}
+
+.just-grid-cell-borders-preset-10 {
+  border-top: var(--chess-color-1) solid 1px;
+  border-left: var(--chess-color-1) solid 1px;
+}
+
+.just-grid-cell-borders-preset-10:nth-child(-n+2) {
+  border-top: 0;
+}
+
+.just-grid-cell-borders-preset-10:nth-child(odd) {
+  border-left: 0;
+}
+
+.just-grid-cell-borders-preset-11 {
+  border-top: var(--chess-color-1) dashed 1px;
+  border-left: var(--chess-color-2) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-11:nth-child(-n+2) {
+  border-top: 0;
+}
+
+.just-grid-cell-borders-preset-11:nth-child(odd) {
+  border-left: 0;
+}
+
+.just-grid-cell-borders-preset-12 {
+  border-top: var(--chess-color-1) dashed 1px;
+  border-left: var(--chess-color-1) dashed 1px;
+}
+
+.just-grid-cell-borders-preset-12:nth-child(-n+2) {
+  border-top: 0;
+}
+
+.just-grid-cell-borders-preset-12:nth-child(odd) {
+  border-left: 0;
+}
+

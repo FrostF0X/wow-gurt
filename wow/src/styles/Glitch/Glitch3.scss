@@ -1,4 +1,5 @@
 @import "../../styles/Basics";
+
 .just-glitch-preset-3 {
   .just-glitch-img-1 {
     margin: 0;
@@ -7,17 +8,17 @@
   }
 
   .just-glitch-img-2 {
-    margin-top: -5px;
-    margin-left: -7px;
-    filter: invert(0.8);
+    margin-top: var(--image-pos-top-small);
+    margin-left: var(--image-pos-top-small);
+    filter: invert(1);
     animation: glitch-preset-3-1 var(--animation-length) infinite;
     z-index: 10;
   }
 
   .just-glitch-img-3 {
-    margin-top: 5px;
-    margin-left: 7px;
-    filter: invert(0.8);
+    margin-top: var(--image-pos-bottom-small);
+    margin-left: var(--image-pos-right-small);
+    filter: invert(1);
     animation: glitch-preset-3-2 var(--animation-length) infinite;
     z-index: 10;
   }

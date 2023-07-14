@@ -1,6 +1,6 @@
 export default class Size {
-    static set(scene) {
-        document.getElementsByTagName('body')[0].style.setProperty('--scene-size', scene + "px");
+    static size(scene, el) {
+        el.style.setProperty('--scene-size', scene + "px");
         Size.imageSize = (scene / 8);
     }
 

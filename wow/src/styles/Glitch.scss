@@ -2,21 +2,11 @@
 @import "./Glitch/Glitch1";
 @import "./Glitch/Glitch2";
 @import "./Glitch/Glitch3";
+@import "./Glitch/Glitch4";
+@import "./Glitch/Glitch5";
+@import "./Glitch/Glitch6";
+@import "./Glitch/Glitch7";
 @import "Basics";
-.just-glitch-img-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.just-glitch-img {
-  position: absolute;
-  max-height: var(--image-size);
-  max-width: var(--image-size);
-}
 
 @for $i from 1 to 1000 {
   $r: random(1000);
@@ -32,3 +22,54 @@
   }
 }
 
+.just-random-image-glitch-big.img-size-2 img {
+  width: var(--image-size-2);
+}
+
+.just-random-image-glitch-big.img-size-3 img {
+  width: var(--image-size-3);
+}
+
+.just-random-image-glitch-big.img-size-4 img {
+  width: var(--image-size-4);
+}
+
+.just-random-image-glitch-big.img-size-5 img {
+  width: var(--image-size-5);
+}
+
+.just-random-image-glitch-big.img-size-6 img {
+  width: var(--image-size-6);
+}
+
+.just-random-image-glitch-big.img-size-7 img {
+  width: var(--image-size-7);
+}
+
+.just-glitch-img-1 {
+  width: var(--image-size);
+}
+
+.just-glitch-img-2 {
+  width: var(--image-size);
+}
+
+.just-glitch-img-3 {
+  width: var(--image-size);
+}
+
+.just-glitch-img-4 {
+  display: none;
+}
+
+.just-glitch-img-5 {
+  display: none;
+}
+
+.just-glitch-img-6 {
+  display: none;
+}
+
+.just-glitch-img-7 {
+  display: none;
+}

@@ -4,17 +4,14 @@ import './Common/Primitives'
 import './styles/index.scss';
 import './styles/Fonts.css';
 import reportWebVitals from './reportWebVitals';
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
-import Mint from "./Mint";
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Render from "./Render";
+import {App} from "./App";
 
 const router = createBrowserRouter([
         {
             path: "/",
-            element: <Mint/>,
+            element: <App/>,
         },
         {
             path: "/render",

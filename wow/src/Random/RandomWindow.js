@@ -2,14 +2,13 @@ import React, {createRef} from "react";
 import {JustFrame} from "../JustFrame";
 import "./styles/Window.scss";
 import GlitchImage from "../GlitchImage";
-import Random from "../Random";
 
 class RandomWindow extends React.Component {
 
     constructor(props, context) {
         super(props, context);
         this.randomItem = createRef();
-        this.img = `/0${Random.get().number(4, 9)}-trans.png`;
+        this.img = this.props.random.randomItem(this.props.imgs);
     }
 
     componentDidMount = () => {
@@ -17,16 +16,16 @@ class RandomWindow extends React.Component {
     }
 
     random() {
-        let width = Random.get().number(8, 12);
-        this.randomItem.current.style.left = Random.get().number(0, 100) + '%';
-        this.randomItem.current.style.top = Random.get().number(0, 100) + '%';
-        this.randomItem.current.style.width = width + 'vh';
-        this.randomItem.current.style.height = width + 'vh';
+        let width = this.props.random.number(80, 120) / 100;
+        this.randomItem.current.style.left = this.props.random.number(0, 100) + '%';
+        this.randomItem.current.style.top = this.props.random.number(0, 100) + '%';
+        this.randomItem.current.style.width = `var(--image-size * ${width})`;
+        this.randomItem.current.style.height = `var(--image-size * ${width})`;
     }
 
     render() {
         return <div ref={this.randomItem} className={"just-random-window"}>
-            <JustFrame plain={true}><GlitchImage/></JustFrame>
+            <JustFrame plain={true}><GlitchImage img={this.img}/></JustFrame>
         </div>;
     }
 }

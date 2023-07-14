@@ -1,31 +1,32 @@
-import React, {createRef} from "react";
+import React, {createRef, Fragment} from "react";
 import "../styles/JustGrid.scss";
 import "./styles/ImageGrid.scss";
-import Grid from "../Grid";
-import GlitchImage, {GlitchImagePreset} from "../GlitchImage";
+import ImageGridBig from "./ImageGridBig";
+import ImageGridSmall from "./ImageGridSmall";
+import './styles/Image.scss';
 
 class ImageGrid extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.img = this.props.random.img().rand();
         this.item = createRef();
-        this.preset = GlitchImagePreset.random();
+        this.preset = this.props.random.img().randp();
         this.cols = this.props.division.endCol - this.props.division.startCol + 1;
         this.rows = this.props.division.endRow - this.props.division.startRow + 1;
+        console.log(this.cols % this.rows === 0 || this.cols % this.rows === 0);
+        if ((this.cols === this.rows) && (this.cols !== 1)) {
+            this.type = 'big';
+            this.size = Math.min(this.cols, this.rows);
+            this.images = this.cols % this.rows === 0 ? this.cols / this.rows : this.rows / this.cols;
+        }
     }
 
     render() {
-        return <div ref={this.item} className={"just-random-image-glitch-grid"}>
-            <div className={"just-random-image-glitch-grid-grid just-grid"}>
-                {Array.range(1, this.rows).map((i) =>
-                    Array.range(1, this.cols).map((j) =>
-                        <div key={Grid.toCellIndex(i, j)} className={"just-grid-cell-" + Grid.toCellIndex(i, j)}>
-                            <GlitchImage img={this.props.img} preset={this.preset}
-                                         animationDelayedStart={Grid.animationDelay(this.props.division.startRow + i, this.props.division.startCol + j)}/>
-                        </div>
-                    )
-                )}
-            </div>
-        </div>;
+        return <Fragment>
+            {this.type === 'big' ?
+                <ImageGridBig preset={this.preset} img={this.img} images={this.images} size={this.size}/> :
+                <ImageGridSmall preset={this.preset} img={this.img} division={this.props.division}/>}
+        </Fragment>;
     }
 }
 

@@ -1,0 +1,83 @@
+@import "../../styles/Basics";
+
+.just-glitch-preset-5 {
+  .just-glitch-img-1 {
+    opacity: 0;
+    filter: invert(1);
+    margin-top: var(--image-pos-top-small);
+    margin-left: var(--image-pos-top-small);
+    animation: glitch-preset-5 calc(var(--animation-length) / 2) infinite;
+    z-index: 10;
+  }
+
+  .just-glitch-img-2 {
+    line-height: 0;
+    animation: glitch-preset-5 calc(var(--animation-length) / 2) infinite;
+    z-index: 6;
+  }
+
+  .just-glitch-img-3 {
+    opacity: 0;
+    filter: invert(1);
+    margin-top: var(--image-pos-bottom-small);
+    margin-left: var(--image-pos-right-small);
+    animation: glitch-preset-5 calc(var(--animation-length) / 2) infinite;
+    z-index: 5;
+  }
+}
+
+$filters: (
+        saturate: (
+                units: '',
+                range: (
+                        min: 1,
+                        max: 10
+                ),
+                probability: 1/5
+        ),
+        hue-rotate: (
+                units: 'deg',
+                probability: 1,
+                range: (
+                        min: 0,
+                        max: 90
+                ),
+        ),
+        contrast: (
+                units: '',
+                probability: 1/10,
+                range: (
+                        min: 1,
+                        max: 10
+                ),
+        ),
+        brightness: (
+                units: '%',
+                probability: 1/20,
+                range: (
+                        min: 40,
+                        max: 60
+                ),
+        ),
+);
+
+
+@keyframes glitch-preset-5 {
+  @for $i from 0 through 20 {
+    @if (random(100) < 66.6) {
+      #{$i}% {
+        $filter_css_value: '';
+        @each $filter, $filter_props in $filters {
+          @if ((random(100) / 100) < map-get($filter_props, probability)) {
+            $range: map-get($filter_props, range);
+            $min: map-get($range, min);
+            $max: map-get($range, max);
+            $filter_css_value: $filter_css_value + ' #{$filter}(#{random(100) / 100 * ($max - $min) + $min}#{map-get($filter_props, units)})';
+          }
+        }
+        filter: unquote($filter_css_value);
+        transform: translate(calc(#{(random(10)-5)} * var(--image-size) / 50), calc(#{(random(10)-5)} * var(--image-size) / 50)) scale(random(20) / 100 + 1.05);
+      }
+    }
+  }
+}

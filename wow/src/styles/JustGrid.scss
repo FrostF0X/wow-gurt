@@ -1,27 +1,30 @@
 @use "sass:math";
 @import "./Basics";
+@import "JustGridBorders";
 
 $cellCount: 8;
 .just-grid {
   display: grid;
+  --cell-size: var(--image-size);
   grid-template-columns:
-          [cell-1] math.percentage(1 / $cellCount)
-          [cell-2] math.percentage(1 / $cellCount)
-          [cell-3] math.percentage(1 / $cellCount)
-          [cell-4] math.percentage(1 / $cellCount)
-          [cell-5] math.percentage(1 / $cellCount)
-          [cell-6] math.percentage(1 / $cellCount)
-          [cell-7] math.percentage(1 / $cellCount)
-          [cell-8] math.percentage(1 / $cellCount);
+          [cell-1] var(--cell-size)
+          [cell-2] var(--cell-size)
+          [cell-3] var(--cell-size)
+          [cell-4] var(--cell-size)
+          [cell-5] var(--cell-size)
+          [cell-6] var(--cell-size)
+          [cell-7] var(--cell-size)
+          [cell-8] var(--cell-size);
+
   grid-template-rows:
-          [cell-1] math.percentage(1 / $cellCount)
-          [cell-2] math.percentage(1 / $cellCount)
-          [cell-3] math.percentage(1 / $cellCount)
-          [cell-4] math.percentage(1 / $cellCount)
-          [cell-5] math.percentage(1 / $cellCount)
-          [cell-6] math.percentage(1 / $cellCount)
-          [cell-7] math.percentage(1 / $cellCount)
-          [cell-8] math.percentage(1 / $cellCount);
+          [cell-1] var(--cell-size)
+          [cell-2] var(--cell-size)
+          [cell-3] var(--cell-size)
+          [cell-4] var(--cell-size)
+          [cell-5] var(--cell-size)
+          [cell-6] var(--cell-size)
+          [cell-7] var(--cell-size)
+          [cell-8] var(--cell-size);
 }
 
 .just-grid-cell {

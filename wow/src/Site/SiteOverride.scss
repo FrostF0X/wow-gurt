@@ -1,0 +1,13 @@
+.marq {
+  animation: services 3s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes services {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-286px);
+  }
+}

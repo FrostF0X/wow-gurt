@@ -1,17 +1,13 @@
 import React, {Fragment} from "react";
-import Just from "./Just";
 import Random from "./Random";
 import "@rainbow-me/rainbowkit/styles.css";
 import {ConnectButton, darkTheme, getDefaultWallets, RainbowKitProvider} from '@rainbow-me/rainbowkit';
 import {configureChains, createConfig, WagmiConfig} from 'wagmi';
-import {
-    mainnet, goerli,
-} from 'wagmi/chains';
+import {goerli, mainnet,} from 'wagmi/chains';
 import {infuraProvider} from 'wagmi/providers/infura';
 import {MintWow} from "./Mint/MintWow";
-import {JustFrame} from "./JustFrame";
 import "./styles/Mint.scss";
-import Size from "./Animation/Size";
+import WowScroller from "./WowScroller";
 
 const {
     chains,
@@ -43,8 +39,6 @@ class Mint extends React.Component {
         this.account = null;
         this.contract = null;
         this.seed = query().get('seed') ?? String(Number.random(0, 10000));
-        Random.init(this.seed);
-        Size.set(512);
         this.generate = this.generate.bind(this);
     }
 
@@ -70,6 +64,7 @@ class Mint extends React.Component {
         this.setState((state) => ({...state, url}));
         this.stopLoader();
     }
+
     startLoader() {
         this.loaderInterval = setInterval(() => {
             if (this.state.btnText.length >= 5) {
@@ -82,32 +77,32 @@ class Mint extends React.Component {
 
     stopLoader() {
         clearInterval(this.loaderInterval);
-        Random.init(this.seed);
+        Random.fresh(this.seed);
         this.setState({btnText: "▲ Get WoW ▲"});
     }
 
     render() {
         return (<Fragment>
-                <WagmiConfig config={wagmiConfig}>
-                    <div className={"rk"}>
-                        <RainbowKitProvider chains={chains} theme={darkTheme({
-                            accentColor: '#EA42A7',
-                            accentColorForeground: 'white',
-                            borderRadius: 'none',
-                            fontStack: 'system',
-                            overlayBlur: 'large',
-                        })} coolMode={true}
-                                            modalSize={"compact"}>
-                            <div className={"mint"}>
-                                <div className="just-preview"><JustFrame><Just/></JustFrame></div>
-                                {this.state.url ? <MintWow url={this.state.url}/> : <button className="generate-btn"
-                                                                                            onClick={this.generate}>{this.state.btnText}</button>}
-                                <ConnectButton accountStatus={"address"} showBalance={false} label={"CONNECT"}/>
-                            </div>
-                        </RainbowKitProvider>
-                    </div>
-                </WagmiConfig>
-            </Fragment>);
+            <WagmiConfig config={wagmiConfig}>
+                <div className={"rk"}>
+                    <RainbowKitProvider chains={chains} theme={darkTheme({
+                        accentColor: '#EA42A7',
+                        accentColorForeground: 'white',
+                        borderRadius: 'none',
+                        fontStack: 'system',
+                        overlayBlur: 'large',
+                    })} coolMode={true}
+                                        modalSize={"compact"}>
+                        <div className={"mint"}>
+                            <WowScroller size={512} random={Random.fresh(this.seed)}></WowScroller>
+                            {this.state.url ? <MintWow url={this.state.url}/> : <button className="generate-btn"
+                                                                                        onClick={this.generate}>{this.state.btnText}</button>}
+                            <ConnectButton accountStatus={"address"} showBalance={false} label={"CONNECT"}/>
+                        </div>
+                    </RainbowKitProvider>
+                </div>
+            </WagmiConfig>
+        </Fragment>);
     }
 }
 

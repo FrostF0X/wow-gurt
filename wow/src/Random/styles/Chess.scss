@@ -8,7 +8,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .just-random-chess-invert {
@@ -24,23 +23,24 @@
 .just-random-chess-grid-cell {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
 @for $i from 1 to $cellCount + 1 {
   @for $j from 1 to $cellCount + 1 {
     .just-random-chess-grid-cell-#{($i - 1) * $cellCount + $j} {
       @if (($i+$j) % 2 == 0) {
-        background-color: $yellow;
+        background-color: var(--chess-color-1);
       } @else {
-        background-color: $pink;
+        background-color: var(--chess-color-2);
       }
     }
     .just-random-chess-invert {
       .just-random-chess-grid-cell-#{($i - 1) * $cellCount + $j} {
         @if (($i+$j) % 2 == 0) {
-          background-color: $pink;
+          background-color: var(--chess-color-2);
         } @else {
-          background-color: $yellow;
+          background-color: var(--chess-color-1);
         }
       }
     }

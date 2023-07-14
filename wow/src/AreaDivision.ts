@@ -7,10 +7,12 @@ enum Direction {
 
 export class AreaDivider {
     private readonly levelsConfig: number[];
+    private random: Random;
     private readonly cols: number;
     private readonly rows: number;
 
-    constructor(levelsConfig: number[], cols: number, rows: number) {
+    constructor(levelsConfig: number[], cols: number, rows: number, random: Random) {
+        this.random = random;
         this.levelsConfig = levelsConfig;
         this.cols = cols;
         this.rows = rows;
@@ -26,13 +28,13 @@ export class AreaDivider {
         if (level > this.levelsConfig.length) {
             return [];
         }
-        const direction = Random.get().bool() ? Direction.COL : Direction.ROW;
+        const direction = this.random.bool() ? Direction.COL : Direction.ROW;
         if (direction === Direction.ROW) {
             const colSpan = endCol - startCol + 1;
             let chunkDivision = [startCol, endCol];
-            const chunkCount = Random.get().number(2, this.levelsConfig[level - 1]);
+            const chunkCount = this.random.number(2, this.levelsConfig[level - 1]);
             if (colSpan > 2) {
-                chunkDivision = [startCol, ...Random.get().randomItems(Array.range(startCol + 1, endCol - 1), chunkCount - 1).sort(), endCol];
+                chunkDivision = [startCol, ...this.random.randomItems(Array.range(startCol + 1, endCol - 1), chunkCount - 1).sort(), endCol];
             }
             const chunks = [];
             for (let i = 0; i < chunkDivision.length - 1; i++) {
@@ -49,9 +51,9 @@ export class AreaDivider {
         } else {
             const rowSpan = endRow - startRow + 1;
             let chunkDivision = [startRow, endRow];
-            const chunkCount = Random.get().number(2, this.levelsConfig[level - 1]);
+            const chunkCount = this.random.number(2, this.levelsConfig[level - 1]);
             if (rowSpan > 2) {
-                chunkDivision = [startRow, ...Random.get().randomItems(Array.range(startRow + 1, endRow - 1), chunkCount - 1).sort(), endRow];
+                chunkDivision = [startRow, ...this.random.randomItems(Array.range(startRow + 1, endRow - 1), chunkCount - 1).sort(), endRow];
             }
             const chunks = [];
             for (let i = 0; i < chunkDivision.length - 1; i++) {

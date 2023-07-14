@@ -2,7 +2,6 @@
 @import "../../styles/Basics";
 
 .just-random-image-glitch-grid {;
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -13,4 +12,11 @@
   position: absolute;
   width: var(--scene-size);
   height: var(--scene-size);
+}
+
+.just-random-image-glitch-big {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1000;
 }

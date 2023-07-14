@@ -27,6 +27,7 @@
   height: 0;
   transform: skew(-20deg) rotateY(180deg);
   z-index: 20;
+  left: var(--image-size / -2);
 }
 
 @keyframes slide {
@@ -38,13 +39,42 @@
   }
 }
 
+
 @for $i from 1 to 61 {
   .just-random-wave-item-#{$i} {
+    display: none;
+  }
+  .just-random-wave-preset-1 .just-random-wave-item-#{$i} {
+    display: block;
     position: absolute;
-    top: calc(var(--image-size)/-2);
+    top: calc(var(--image-size) / -2);
     width: var(--image-size);
     height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 20));
-    z-index: 161 - $i;
+    left: math.percentage(math.div($i - 1, 61) - 0.05);
+    z-index: 60 - $i;
+  }
+}
+
+@for $i from 1 to 41 {
+  .just-random-wave-preset-2 .just-random-wave-item-#{$i} {
+    display: block;
+    position: absolute;
+    top: calc(var(--image-size) / -2);
+    width: var(--image-size);
+    height: var(--image-size);
+    left: math.percentage(math.div($i - 1, 41) - 0.03);
+    z-index: 60 - $i;
+  }
+}
+
+@for $i from 1 to 21 {
+  .just-random-wave-preset-3 .just-random-wave-item-#{$i} {
+    display: block;
+    position: absolute;
+    top: calc(var(--image-size) / -2);
+    width: var(--image-size);
+    height: var(--image-size);
+    left: math.percentage(math.div($i - 1, 21) - 0.01);
+    z-index: 60 - $i;
   }
 }

@@ -1,0 +1,156 @@
+@import "../../styles/Basics";
+
+.just-glitch-preset-7 {
+  .just-glitch-img-1 {
+    margin: 0;
+    line-height: 0;
+    z-index: 10;
+    filter: invert(1);
+    overflow: hidden;
+    animation: glitch-preset-7-1 calc(var(--animation-length) / 2) infinite;
+  }
+
+  .just-glitch-img-2 {
+    opacity: 1;
+    margin-top: var(--image-pos-top-small);
+    margin-left: var(--image-pos-top-small);
+    animation: glitch-preset-7-2 calc(var(--animation-length) / 2) infinite;
+    z-index: 10;
+  }
+
+  .just-glitch-img-3 {
+    opacity: 1;
+    margin-top: var(--image-pos-bottom-small);
+    margin-left: var(--image-pos-right-small);
+    animation: glitch-preset-7-3 calc(var(--animation-length) / 2) infinite;
+    z-index: 5;
+  }
+}
+
+@keyframes glitch-preset-7-1 {
+  0% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  7% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  8% {
+    transform: scale(1.2) translate(var(--image-shift-3), var(--image-shift-4)) skew(0deg);
+  }
+  11% {
+    transform: scale(1.2) translate(var(--image-shift-3), var(--image-shift-4)) skew(0deg);
+  }
+  12% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  29% {
+    transform: skew(0deg);
+  }
+  32% {
+    transform: skew(0deg);
+  }
+  41% {
+    transform: skew(0deg);
+  }
+  67% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  68% {
+    transform: scale(1.2) translate(var(--image-shift-1), var(--image-shift-2)) skew(0deg);
+  }
+  71% {
+    transform: scale(1.2) translate(var(--image-shift-1), var(--image-shift-2)) skew(0deg);
+  }
+  72% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+
+@keyframes glitch-preset-7-2 {
+  0% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  7% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  8% {
+    transform: scale(1.2) translate(var(--image-shift-4), var(--image-shift-1)) skew(0deg);
+  }
+  11% {
+    transform: scale(1.2) translate(var(--image-shift-4), var(--image-shift-1)) skew(0deg);
+  }
+  12% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  29% {
+    transform: skew(0deg);
+  }
+  32% {
+    transform: skew(0deg);
+  }
+  41% {
+    transform: skew(0deg);
+  }
+  67% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  68% {
+    transform: scale(1.2) translate(var(--image-shift-2), var(--image-shift-2)) skew(0deg);
+  }
+  71% {
+    transform: scale(1.2) translate(var(--image-shift-2), var(--image-shift-2)) skew(0deg);
+  }
+  72% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes glitch-preset-7-3 {
+  0% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  7% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  8% {
+    transform: scale(1.2) translate(var(--image-shift-3), var(--image-shift-2)) skew(0deg);
+  }
+  11% {
+    transform: scale(1.2) translate(var(--image-shift-3), var(--image-shift-2)) skew(0deg);
+  }
+  12% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  29% {
+    transform: skew(0deg);
+  }
+  32% {
+    transform: skew(0deg);
+  }
+  41% {
+    transform: skew(0deg);
+  }
+  67% {
+    transform: scale(1) translate(0, 0) skew(0deg);
+  }
+  68% {
+    transform: scale(1.2) translate(var(--image-shift-2), var(--image-shift-3)) skew(0deg);
+  }
+  71% {
+    transform: scale(1.2) translate(var(--image-shift-2), var(--image-shift-3)) skew(0deg);
+  }
+  72% {
+    transform: scale(0) translate(0, 0) skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+

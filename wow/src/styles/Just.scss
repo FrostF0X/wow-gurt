@@ -4,14 +4,44 @@
 .just {
   pointer-events: none;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: var(--scene-size);
+  height: var(--scene-size);
   box-sizing: border-box;
+  --chess-color-1: $blue;
+  --chess-color-2: $pink;
+  --animation-length: 2000ms;
+  --animation-phase: calc(var(--animation-length) / 4);
+  --animation-delay-multiplier: 5;
+  --image-size: calc(var(--scene-size) / 8);
+  --image-size-2: calc(var(--scene-size) / 8 * 2);
+  --image-size-3: calc(var(--scene-size) / 8 * 3);
+  --image-size-4: calc(var(--scene-size) / 8 * 4);
+  --image-size-5: calc(var(--scene-size) / 8 * 5);
+  --image-size-6: calc(var(--scene-size) / 8 * 6);
+  --image-size-7: calc(var(--scene-size) / 8 * 7);
+  --image-pos-left-small: calc(var(--image-size) / 18.3 * -1);
+  --image-pos-top-small: calc(var(--image-size) / 25.6 * -1);
+  --image-pos-right-small: calc(var(--image-size) / 18.3);
+  --image-pos-bottom-small: calc(var(--image-size) / 25.6);
+  --image-shift-1: calc(var(--image-size) / 7);
+  --image-shift-2: calc(var(--image-size) / 10);
+  --image-shift-3: calc(var(--image-size) / -7);
+  --image-shift-4: calc(var(--image-size) / 12);
+  --image-shift-left-small-1: calc(var(--image-size) / -30);
+  --image-shift-left-small-2: calc(var(--image-size) / -25);
+  --image-shift-right-small-1: calc(var(--image-size) / 30);
+  --image-shift-right-small-2: calc(var(--image-size) / 25);
+  --image-shift-top-small-1: calc(var(--image-size) / -60);
+  --image-shift-top-small-2: calc(var(--image-size) / -40);
+  --image-shift-bottom-small-1: calc(var(--image-size) / 60);
+  --image-shift-bottom-small-2: calc(var(--image-size) / 40);
 }
 
 $cellCount: 8;
 .just-scene-grid {
   display: grid;
+  width: var(--scene-size);
+  height: var(--scene-size);
   grid-template-columns:
           [cell-1] math.percentage(1 / $cellCount)
           [cell-2] math.percentage(1 / $cellCount)
@@ -38,6 +68,7 @@ $cellCount: 8;
   box-sizing: border-box;
   display: none;
 }
+
 .just-scene-grid-cell-active {
   display: block;
 }

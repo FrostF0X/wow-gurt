@@ -1,20 +1,21 @@
 import seedrandom from "seedrandom";
+import {GlitchImagePreset} from "./GlitchImage";
 
 export default class Random {
-    private static instance: Random;
-    private rng: () => number;
-
-    public static init(seed: number): void {
-        console.log(seed);
-        Random.instance = new Random(seed);
-    }
-
-    public static get(): Random {
-        return this.instance;
-    }
+    private readonly rng: () => number;
+    private readonly image: Img;
 
     constructor(seed: string | number) {
         this.rng = seedrandom(seed.toString());
+        this.image = new Img(this);
+    }
+
+    public static fresh(seed: number): Random {
+        return new Random(seed);
+    }
+
+    public img() {
+        return this.image;
     }
 
     public number(bottom: number, top: number): number {
@@ -24,10 +25,6 @@ export default class Random {
 
     public bool(): boolean {
         return !!this.number(0, 1);
-    }
-
-    public image() {
-        return `/0${this.number(4, 9)}-trans.png`;
     }
 
     public randomItems<T>(array: T[], count: number): T[] {
@@ -41,3 +38,27 @@ export default class Random {
     }
 }
 
+class Img {
+    constructor(private readonly random: Random) {
+    }
+
+    static all() {
+        return Array.range(1, 6).map(i => Img.img(i));
+    }
+
+    static img(x: number) {
+        return `/img-${x}.png`
+    }
+
+    rand(): string {
+        return this.random.randomItem(Img.all());
+    }
+
+    randx(x: number) {
+        return this.random.randomItems(Img.all(), x);
+    }
+
+    randp() {
+        return GlitchImagePreset.presets[this.random.number(0, GlitchImagePreset.presets.length - 1)];
+    }
+}
