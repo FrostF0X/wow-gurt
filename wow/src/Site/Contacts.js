@@ -50,7 +50,7 @@ export class Contacts extends React.Component {
                             </div>
 
                             <div className="left__txt">LET'S CREATE<br/>SOMETHING<br/>INCREDIBLE</div>
-                            <a data-fancybox="" data-src="#hidden-content" href="javascript:" className="cont__button">Amaze
+                            <a data-fancybox="" data-src="#hidden-content" href={"javascript:;"} className="cont__button">Amaze
                                 me</a>
 
                             <div className="cont__decor"><img
@@ -69,15 +69,15 @@ export class Contacts extends React.Component {
                                 <a href="tel:+380974986076" className="cont1">+38 097 498 60 76</a>
                                 <a href="mailto:gurt.contact@gmail.com" className="cont2">gurt.contact@gmail.com</a>
                                 <div className="socials">
-                                    <a href="#" className="soc1"><img
+                                    <a href={"javascript:;"} className="soc1"><img
                                         src="https://gurt.agency/wp-content/themes/gurt/assets/img/twitter.svg" alt=""/></a>
-                                    <a href="#" className="soc1"><img
+                                    <a href={"javascript:;"} className="soc1"><img
                                         src="https://gurt.agency/wp-content/themes/gurt/assets/img/in.svg"
                                         alt=""/></a>
-                                    <a href="#" className="soc1"><img
+                                    <a href={"javascript:;"} className="soc1"><img
                                         src="https://gurt.agency/wp-content/themes/gurt/assets/img/instagram.svg"
                                         alt=""/></a>
-                                    <a href="#" className="soc1"><img
+                                    <a href={"javascript:;"} className="soc1"><img
                                         src="https://gurt.agency/wp-content/themes/gurt/assets/img/telegram.svg"
                                         alt=""/></a>
                                 </div>
