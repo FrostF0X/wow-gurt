@@ -14,17 +14,3 @@ cp ~/.ssh/id_rsa /home/wow-gurt/.ssh/id_rsa
 chown wow-gurt:wow-gurt /home/wow-gurt/.ssh/id_rsa
 setcap 'cap_net_bind_service=+ep' /usr/bin/node
 sudo ufw allow 80
-echo "[Unit]
-      Description=wow-gurt
-      After=network.target
-      StartLimitIntervalSec=0
-
-      [Service]
-      Type=simple
-      Restart=always
-      RestartSec=1
-      User=wow-gurt
-      ExecStart=/usr/bin/npm --prefix /home/wow-gurt/wow-gurt/render run prod-goerli
-
-      [Install]
-      WantedBy=multi-user.target" >> /etc/systemd/system/wow-gurt.service
