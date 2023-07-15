@@ -3,6 +3,10 @@ export default class TimeConfig {
         return new TimeConfig(20, 20000, 40000 + 2000, 40);
     }
 
+    static for1024() {
+        return new TimeConfig(10, 5000, 20000 + 2000, 20);
+    }
+
     static GIF_DURATION = 2;
 
     constructor(public readonly slow: number,

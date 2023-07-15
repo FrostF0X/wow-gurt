@@ -30,7 +30,7 @@ Server.create("post", PORT, async (req, res) => {
     const seed = parseInt(req.body.seed);
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    await render.do(seed, TimeConfig.for2048(), RenderConfig.for2048(), tmp);
+    await render.do(seed, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);

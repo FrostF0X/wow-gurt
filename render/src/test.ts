@@ -14,7 +14,7 @@ Server.create("get", PORT, async (req, res) => {
     const tmp = await Tmp.init();
     const seed = req.query.seed ? parseInt(req.query.seed as string) : Math.round(Math.random() * 10000);
     const render = new Render(BASE_URL);
-    await render.do(seed, TimeConfig.for2048(), RenderConfig.for2048(), tmp);
+    await render.do(seed, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     await new Promise((resolve, reject) => {
         res.sendFile(tmp.gif.path, function (error) {

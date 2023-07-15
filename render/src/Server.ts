@@ -14,15 +14,15 @@ export default class Server {
             queuedLimit: 2,
             rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
         }));
-        // app.use(rateLimit({
-        //     windowMs: 120000,
-        //     max: 1,
-        //     message: 'Only one nft generation attempt per 2 minutes allowed',
-        //     skip: (req) => req.path === '/ping',
-        //     skipFailedRequests: true,
-        //     legacyHeaders: true,
-        //     handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 2 minutes allowed"}).end()
-        // }));
+        app.use(rateLimit({
+            windowMs: 60000,
+            max: 1,
+            message: 'Only one nft generation attempt per 2 minutes allowed',
+            skip: (req) => req.path === '/ping',
+            skipFailedRequests: true,
+            legacyHeaders: true,
+            handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 2 minutes allowed"}).end()
+        }));
         app.use(express.json()); // for parsing application/json
         app.use(cors({
             credentials: true,
