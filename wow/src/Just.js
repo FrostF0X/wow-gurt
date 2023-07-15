@@ -11,7 +11,6 @@ import Size from "./Animation/Size";
 import {JustChessConfig, JustGridConfig, JustWaveConfig} from "./AnimationConfig";
 
 class Just extends React.Component {
-    started = [];
 
     constructor(props) {
         super(props);
@@ -20,12 +19,11 @@ class Just extends React.Component {
         Slow.slow(this.props.slow ?? 1);
     }
 
-    onStart = (callback) => {
-        this.started.push(callback);
-    };
-
     componentDidMount() {
-        this.started.forEach(callback => callback());
+        Size.size(this.props.size, this.ref.current);
+        Delay.delay(this.props.config.delay, this.ref.current);
+        Color.setColors(...this.props.config.colors, this.ref.current);
+        Slow.slow2(this.ref.current);
     }
 
     justFromConfig(cell) {

@@ -1,5 +1,10 @@
 import * as ipfsClient from 'ipfs-http-client';
 import * as fs from "fs";
+import Tmp from "./Tmp";
+import TimeConfig from "./TimeConfig";
+import RenderConfig from "./RenderConfig";
+import Render from "./Render";
+import Server from "./Server";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -14,19 +19,15 @@ const ipfs = ipfsClient.create({
         authorization: 'Basic ' + Buffer.from(INFURA_IPFS_API_KEY + ':' + INFURA_IPFS_API_SECRET).toString('base64')
     }
 });
-import Tmp from "./Tmp";
-import TimeConfig from "./TimeConfig";
-import RenderConfig from "./RenderConfig";
-import Render from "./Render";
-import Server from "./Server";
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Please define URL");
 Server.create("post", PORT, async (req, res) => {
-    if (!req.body.seed) {
+    if (!req.body.seed || isNaN(parseInt(req.body.seed)) || parseInt(req.body.seed) < 0 || parseInt(req.body.seed) > Number.MAX_SAFE_INTEGER) {
+        console.log(req.body);
         res.status(400).json({"error": "Seed must be preset"});
     }
-    const seed = req.body.seed;
+    const seed = parseInt(req.body.seed);
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
     await render.do(seed, TimeConfig.for2048(), RenderConfig.for2048(), tmp);

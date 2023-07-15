@@ -18,6 +18,7 @@ export default class Server {
             windowMs: 120000,
             max: 1,
             message: 'Only one nft generation attempt per 2 minutes allowed',
+            skip: (req) => req.path === '/ping',
             skipFailedRequests: true,
             legacyHeaders: true,
             handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 2 minutes allowed"}).end()
@@ -34,6 +35,7 @@ export default class Server {
                 try {
                     await listener(req, res);
                     clog("Done.");
+
                 } catch (error) {
                     cerror(`Error: ${errorInfo(error)}`);
                     res.status(500).contentType('application/json').json({"error": errorInfo(error)}).end();

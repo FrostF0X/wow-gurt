@@ -25,7 +25,6 @@ export default class Render {
             const URL = `${this.baseUrl}?size=${render.size}&slow=${time.slow}&seed=${seed}`;
             clog(`Go to url: ${URL}`);
             await page.goto(URL);
-            await page.waitForSelector('.just');
             clog(`Waiting for animation to load`);
             await new Promise((resolve) => setTimeout(resolve, time.wait));
             const stream = await getStream(page, {
