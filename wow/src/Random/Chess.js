@@ -33,8 +33,8 @@ class Chess extends React.Component {
                  className={"just-random-chess-grid just-grid just-random-chess-grid-pieces"}>
                 {Array.range(1, this.rows).map((i) =>
                     Array.range(1, this.cols).map((j) => {
-                            return <div className={"just-random-chess-piece just-grid-cell-" + Grid.toCellIndex(i, j)}>
-                                <GlitchImage key={Grid.toCellIndex(i, j)} img={this.img} preset={this.preset}
+                            return <div key={Grid.toCellIndex(i, j)} className={"just-random-chess-piece just-grid-cell-" + Grid.toCellIndex(i, j)}>
+                                <GlitchImage img={this.img} preset={this.preset}
                                              animationDelayedStart={Grid.animationDelay(this.props.division.startRow + i, this.props.division.startCol + j)}/>
                             </div>;
                         }

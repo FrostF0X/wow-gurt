@@ -11,9 +11,7 @@ class Render extends React.Component {
     constructor(props) {
         super(props);
         this.size = query().get('size') ?? 1024;
-        document.getElementsByTagName('body')[0].style.setProperty('width', `${this.size}px`);
-        document.getElementsByTagName('body')[0].style.setProperty('height', `${this.size}px`);
-        this.config = AnimationConfig.generate(String(query().get('seed') ?? Number.random(0, 10000)));
+        this.config = AnimationConfig.generate(parseInt(query().get('seed')));
     }
 
     render() {
