@@ -5,7 +5,18 @@ $yellow: #9DD544;
 $red: #DE5148;
 $black: #000000;
 
+$highlightPink: #FE2AAA;
+$highlightGreen: #04C74F;
 body {
+  font-family: Machina ub, serif;
+}
+
+.text-highlight {
+  color: $highlightGreen;
+}
+
+.text-highlight-cool {
+  color: $highlightPink;
 }
 
 div {

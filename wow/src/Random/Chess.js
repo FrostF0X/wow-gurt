@@ -9,11 +9,11 @@ class Chess extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.preset = this.props.random.img().randp();
-        this.cols = this.props.division.endCol - this.props.division.startCol + 1;
-        this.rows = this.props.division.endRow - this.props.division.startRow + 1;
+        this.preset = this.props.preset;
+        this.cols = this.props.division.cols;
+        this.rows = this.props.division.rows;
         this.invert = ((this.props.division.startRow + this.props.division.startCol) % 2) ? 'just-random-chess-invert' : 'just-random-chess';
-        this.img = this.props.random.img().rand();
+        this.img = this.props.img;
     }
 
     render() {

@@ -1,31 +1,14 @@
-import React, {Fragment} from "react";
+import React from "react";
 import Random from "./Random";
 import "@rainbow-me/rainbowkit/styles.css";
-import {ConnectButton, darkTheme, getDefaultWallets, RainbowKitProvider} from '@rainbow-me/rainbowkit';
-import {configureChains, createConfig, WagmiConfig} from 'wagmi';
-import {goerli, mainnet,} from 'wagmi/chains';
-import {infuraProvider} from 'wagmi/providers/infura';
+import {ConnectButton} from '@rainbow-me/rainbowkit';
+import {useAccount} from 'wagmi';
 import {MintWow} from "./Mint/MintWow";
 import "./styles/Mint.scss";
 import WowScroller from "./WowScroller";
-
-const {
-    chains,
-    publicClient,
-    webSocketPublicClient
-} = configureChains([...(process.env.REACT_APP_ENABLE_GOERLI === 'true' ? [goerli] : []), ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [mainnet] : []),], [infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})]);
-
-const {connectors} = getDefaultWallets({
-    appName: 'RainbowKit demo', projectId: 'd3a216c52b2adac62ac723b339a7b3c7', chains,
-});
-
-const wagmiConfig = createConfig({
-    autoConnect: true, connectors, publicClient, webSocketPublicClient,
-});
-
-function query() {
-    return new URLSearchParams(document.location.search);
-}
+import Scroller from "./Scroller";
+import MintDescription from "./Mint/MintDescription";
+import Button from "./Mint/Button";
 
 class Mint extends React.Component {
     loaded = false;
@@ -34,11 +17,13 @@ class Mint extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            btnText: "▲ Get WoW ▲"
+            loading: false,
+            btnText: "▲ GET WOW ▲",
+            seed: Number.random(0, Number.MAX_SAFE_INTEGER)
         };
         this.account = null;
         this.contract = null;
-        this.seed = query().get('seed') ?? String(Number.random(0, 10000));
+        this.key = 0;
         this.generate = this.generate.bind(this);
     }
 
@@ -50,22 +35,26 @@ class Mint extends React.Component {
     }
 
     async generate() {
-        this.startLoader();
+        try {
+            this.startLoader();
 
-        const response = await fetch(process.env.REACT_APP_RENDERER_ADDRESS, {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json'
-            }, body: JSON.stringify({
-                seed: this.seed
-            })
-        });
+            const response = await fetch(process.env.REACT_APP_RENDERER_ADDRESS, {
+                method: 'POST', headers: {
+                    'Content-Type': 'application/json'
+                }, body: JSON.stringify({
+                    seed: this.state.seed
+                })
+            });
 
-        const url = (await response.json()).url;
-        this.setState((state) => ({...state, url}));
-        this.stopLoader();
+            const url = (await response.json()).url;
+            this.setState((state) => ({...state, url}));
+        } finally {
+            this.stopLoader();
+        }
     }
 
     startLoader() {
+        this.setState((prevState) => ({...prevState, loading: true}));
         this.loaderInterval = setInterval(() => {
             if (this.state.btnText.length >= 5) {
                 this.setState((prevState) => ({...prevState, btnText: "▲"}));
@@ -77,33 +66,68 @@ class Mint extends React.Component {
 
     stopLoader() {
         clearInterval(this.loaderInterval);
-        Random.fresh(this.seed);
-        this.setState({btnText: "▲ Get WoW ▲"});
+        Random.fresh(this.state.seed);
+        this.setState({btnText: "▲ Get WoW ▲", loading: false});
+    }
+
+    refresh = () => {
+        this.setState(state => ({...state, seed: Number.random(1, Number.MAX_SAFE_INTEGER)}));
     }
 
     render() {
-        return (<Fragment>
-            <WagmiConfig config={wagmiConfig}>
-                <div className={"rk"}>
-                    <RainbowKitProvider chains={chains} theme={darkTheme({
-                        accentColor: '#EA42A7',
-                        accentColorForeground: 'white',
-                        borderRadius: 'none',
-                        fontStack: 'system',
-                        overlayBlur: 'large',
-                    })} coolMode={true}
-                                        modalSize={"compact"}>
-                        <div className={"mint"}>
-                            <WowScroller size={512} random={Random.fresh(this.seed)}></WowScroller>
-                            {this.state.url ? <MintWow url={this.state.url}/> : <button className="generate-btn"
-                                                                                        onClick={this.generate}>{this.state.btnText}</button>}
-                            <ConnectButton accountStatus={"address"} showBalance={false} label={"CONNECT"}/>
-                        </div>
-                    </RainbowKitProvider>
+        ++this.key;
+        return <div className={"mint mint-landscape"}>
+            <div className="mint-content">
+                <MintDescription/>
+                <WowScroller key={this.key} seed={this.state.seed}></WowScroller>
+                <div className="actions" style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "stretch"
+                }}>
+                    <Button><ConnectButton accountStatus={"address"} showBalance={true}
+                                           label={"CONNECT WALLET"}/></Button>
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "stretch",
+                        alignItems: "stretch"
+                    }}>
+                        <Button>
+                            <button className="refresh-btn"
+                                    onClick={this.refresh}>
+                                &nbsp;
+                                <img src="/refresh.svg" alt=""/>
+                            </button>
+                        </Button>
+
+                        {this.state.url ? <Button style={{width: '100%'}}><MintWow
+                                url={this.state.url}/></Button> :
+                            <Button style={{width: '100%'}}>
+                                <button disabled={!this.props.address && !this.state.loading} className="generate-btn"
+                                        onClick={this.generate}>{this.state.btnText}</button>
+                            </Button>}
+                    </div>
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "10px 1.5em 10px 1em",
+                        fontFamily: "Machina r"
+                    }}>
+                        <span>Seed:&nbsp;</span><span className={"text-highlight-cool"}>{this.state.seed}</span></div>
                 </div>
-            </WagmiConfig>
-        </Fragment>);
+            </div>
+            <div className="mint-bottom"><Scroller/></div>
+            <img className={"unicorn"} src="/unicorn.png" alt="unicorn"/>
+        </div>;
     }
 }
 
-export default Mint;
+const MintWithAccount = () => {
+    const {address} = useAccount();
+    return <Mint address={address}></Mint>
+};
+
+
+export default MintWithAccount;

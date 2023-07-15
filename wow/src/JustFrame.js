@@ -23,7 +23,9 @@ export class JustFrame extends React.Component {
                         <span className={"just-random-frame-toolbar-close-2"}></span>
                     </div>
                 </div>
-                {this.props.children}
+                <div className="just-random-frame-content" style={this.props.style}>
+                    {this.props.children}
+                </div>
             </div>
         );
     }

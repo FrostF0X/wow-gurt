@@ -77,6 +77,8 @@ export class AreaDivision {
     public endCol: number;
     public startRow: number;
     public endRow: number;
+    public cols: number;
+    public rows: number;
     public subdivisions: AreaDivision[];
 
     constructor(startCol: number, endCol: number, startRow: number, endRow: number, subdivisions: AreaDivision[]) {
@@ -84,6 +86,8 @@ export class AreaDivision {
         this.endCol = endCol;
         this.startRow = startRow;
         this.endRow = endRow;
+        this.cols = this.endCol - this.startCol + 1;
+        this.rows = this.endRow - this.startRow + 1;
         this.subdivisions = subdivisions;
     }
 

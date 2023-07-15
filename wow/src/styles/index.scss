@@ -24,10 +24,6 @@ body {
   }
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Horizon Outline', 'Roboto', sans-serif;
-}
-
 .box {
   text-decoration: underline;
   background: #d9d8d8;
@@ -36,26 +32,6 @@ h1, h2, h3, h4 {
 
 .box-shadow {
   box-shadow: 5px 5px;
-}
-
-h1 {
-  font-size: 6rem;
-}
-
-h2 {
-  font-size: 1.25rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h3 span {
-  font-size: 1.5rem;
-}
-
-div, span {
-  font-size: 0.875rem;
 }
 
 a {

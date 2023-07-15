@@ -4,34 +4,6 @@ export class Contacts extends React.Component {
     render() {
         return <section className="contacts">
             <div className="services__header section__header">
-                <div className="marquee">
-                    <div className="marq">
-                        <span className="section__header-item"
-                              style={{"transform": "translate(666.051%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(665.955%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(666.096%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(665.981%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(666.166%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.972%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.814%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.929%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.811%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.903%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.978%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                        <span className="section__header-item"
-                              style={{"transform": "translate(-533.885%, 0%) translate3d(0px, 0px, 0px);"}}>contacts</span>
-                    </div>
-                </div>
             </div>
 
             <div className="container">

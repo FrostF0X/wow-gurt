@@ -1,6 +1,5 @@
 import React, {createRef} from "react";
 import "./styles/Wave.scss";
-import Just from "../Just";
 
 import Slow from "../Animation/Slow";
 import Size from "../Animation/Size";
@@ -16,11 +15,12 @@ class Wave extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.img = this.props.random.img().rand();
+        this.img = this.props.img;
+        this.preset = this.props.preset;
+        this.direction = this.props.direction;
         this.randomItem = createRef();
         this.wave = createRef();
         this.waveContainer = createRef();
-        this.preset = this.props.random.number(1, 3);
     }
 
     componentDidMount = () => {
@@ -28,14 +28,7 @@ class Wave extends React.Component {
         this.transform = 0;
         this.refCounter = 0;
         this.timeCounter = 0;
-        Just.onStart(() => {
-            this.animate();
-            if (this.waveContainer.current.clientWidth > this.waveContainer.current.clientHeight) {
-                this.waveContainer.current.classList.add('just-random-wave-container-horizontal');
-            } else {
-                this.waveContainer.current.classList.add('just-random-wave-container-vertical');
-            }
-        });
+        this.animate();
     }
 
     animate = () => {
@@ -43,8 +36,8 @@ class Wave extends React.Component {
         setInterval(() => {
             this.imgs.forEach((d, i) => {
                 let rad = 57.2958;
-                this.transform = (Math.sin((i * 4 + this.refCounter * this.imgs.length * 2 / fps) * 360 / this.imgs.length / rad)) * Size.image() / 2;
-                this.imgs[i].style.transform = `translateY(${this.transform}px)`;
+                this.transform = (Math.sin((-(i * 4) + this.refCounter * this.imgs.length * 2 / fps) * 360 / this.imgs.length / rad)) * Size.image() / 2;
+                this.imgs[i].style.transform = `translateY(${this.transform}px) scaleX(-1)`;
             })
 
             this.refCounter = this.refCounter + 1;
@@ -52,8 +45,10 @@ class Wave extends React.Component {
     }
 
     render() {
-        return <div ref={this.waveContainer} className={"just-random-wave-container"}>
-            <div ref={this.wave} className={`just-random-wave just-random-wave-preset-${this.preset}`}>
+        return <div ref={this.waveContainer}
+                    className={`just-random-wave-container just-random-wave-container-${this.direction}`}>
+            <div ref={this.wave}
+                 className={`just-random-wave just-random-wave-preset-${this.preset}`}>
                 <img className={"just-random-wave-item-1"} src={this.img} alt=""/>
                 <img className={"just-random-wave-item-2"} src={this.img} alt=""/>
                 <img className={"just-random-wave-item-3"} src={this.img} alt=""/>

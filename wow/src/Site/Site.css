@@ -127,12 +127,6 @@ html {
     margin-top: 0 !important
 }
 
-body {
-    font-family: Machina r;
-    background: #0a0a0a;
-    overflow-x: hidden
-}
-
 .container {
     max-width: 1440px;
     width: 100%;
