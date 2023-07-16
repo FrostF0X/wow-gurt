@@ -28,13 +28,16 @@ class Mint extends React.Component {
     }
 
     async componentDidMount() {
-        this.listener = () => {
-            const height = document.getElementsByTagName('body')[0].offsetHeight;
-            const width = document.getElementsByTagName('body')[0].offsetWidth;
-            this.setState((state) => ({...state, orientation: (height > width ? 'portrait' : 'landscape')}));
+        const listener = (portrait) => {
+            if (portrait) {
+                this.setState((state) => ({...state, orientation: 'portrait'}));
+            } else {
+                this.setState((state) => ({...state, orientation: 'landscape'}));
+            }
         }
-        this.listener();
-        window.addEventListener('resize', this.listener);
+
+        window.matchMedia("(orientation: portrait)").addEventListener("change", e => listener(e.matches));
+        listener(window.matchMedia("(orientation: portrait)").matches)
     }
 
     async generate() {
@@ -96,6 +99,7 @@ class Mint extends React.Component {
     }
 
     render() {
+        console.log(this.state.orientation);
         return <div className={`mint mint-${this.state.orientation}`}>
             <div className="mint-content">
                 <MintDescription/>
@@ -136,9 +140,9 @@ class Mint extends React.Component {
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
                                                           className={"text-highlight-cool"}>{this.state.seed}</span>
                         </div>
-                        <a className={"twitter"}  target={"_blank"} rel="noreferrer"
+                        <a className={"twitter"} target={"_blank"} rel="noreferrer"
                            href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                        <a className={"opensea"}  target={"_blank"} rel="noreferrer"
+                        <a className={"opensea"} target={"_blank"} rel="noreferrer"
                            href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
                     </div>
                 </div>
