@@ -27,8 +27,8 @@ export default class WowScroller extends React.Component {
     }
 
     render() {
-        return <div className="just-preview">
-            <div ref={this.ref} className="just-container">
+        return <div ref={this.ref} className="just-preview">
+            <div className="just-container">
                 <JustFrame plain={true}>
                     <Just
                         key={this.state.seed}

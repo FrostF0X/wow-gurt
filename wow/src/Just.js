@@ -73,7 +73,7 @@ class Just extends React.PureComponent {
         let cells = this.config.cells.map(c => this.justFromConfig(c));
         return (
             <div className={"just"} ref={this.ref}>
-                <div className={"just-scene-grid"} style={{"width": "100%", "height": "100%"}}>
+                <div className={"just-scene-grid"} style={{"--scene-size": `${this.props.size}px`}}>
                     {cells}
                 </div>
             </div>

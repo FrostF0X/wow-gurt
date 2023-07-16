@@ -21,13 +21,11 @@ class Mint extends React.Component {
             loading: false,
             btnText: "MINT WOW",
             seed: Number.random(0, Number.MAX_SAFE_INTEGER),
+            orientation: window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape'
         };
         this.account = null;
         this.contract = null;
         this.generate = this.generate.bind(this);
-    }
-
-    async componentDidMount() {
         const listener = (portrait) => {
             if (portrait) {
                 this.setState((state) => ({...state, orientation: 'portrait'}));
@@ -35,9 +33,7 @@ class Mint extends React.Component {
                 this.setState((state) => ({...state, orientation: 'landscape'}));
             }
         }
-
         window.matchMedia("(orientation: portrait)").addEventListener("change", e => listener(e.matches));
-        listener(window.matchMedia("(orientation: portrait)").matches)
     }
 
     async generate() {
