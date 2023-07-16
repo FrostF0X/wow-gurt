@@ -21,11 +21,11 @@ export default class Intro extends React.Component {
                     alignItems: "center",
                 }}>
 
-                    <a href="https://gurt.agency" target={"_blank"}>
+                    <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
                         <img src="/pointer-hand.png" alt="pointer" className={"pointer"}
                              style={{marginRight: '2em', width: "58px"}}/>
                     </a>
-                    <a href="https://gurt.agency" target={"_blank"}>
+                    <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
                         <JustFrame>
                             <div className="gurt">
                                 <img src="/gurt.svg" alt="gurt"/>
@@ -46,9 +46,9 @@ export default class Intro extends React.Component {
                     className={"text-highlight-cool"}>wow.gurt</span><br/>
                     nft&nbsp;collection
                 </div>
-                <a className={"twitter"}  target={"_blank"}
+                <a className={"twitter"} target={"_blank"} rel="noreferrer"
                    href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                <a className={"opensea"}  target={"_blank"}
+                <a className={"opensea"} target={"_blank"} rel="noreferrer"
                    href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
             </div>
         </Fragment>;

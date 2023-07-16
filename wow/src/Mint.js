@@ -136,9 +136,9 @@ class Mint extends React.Component {
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
                                                           className={"text-highlight-cool"}>{this.state.seed}</span>
                         </div>
-                        <a className={"twitter"}  target={"_blank"}
+                        <a className={"twitter"}  target={"_blank"} rel="noreferrer"
                            href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                        <a className={"opensea"}  target={"_blank"}
+                        <a className={"opensea"}  target={"_blank"} rel="noreferrer"
                            href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
                     </div>
                 </div>
