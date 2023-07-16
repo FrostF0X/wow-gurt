@@ -22,7 +22,7 @@ export default class Price extends React.Component {
                     </tr>
                     <tr>
                         <th colSpan={2}>
-                            <span className="text-highlight">how it works?</span><br/>
+                            <span className="text-highlight">What about price?</span><br/>
                             first 500 NFT are <span
                             className="text-highlight">free</span>
                         </th>

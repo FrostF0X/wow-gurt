@@ -1,6 +1,8 @@
 import * as React from 'react'
-import {useAccount, useContractWrite, usePrepareContractWrite, useWaitForTransaction,} from 'wagmi'
+import {useState} from 'react'
+import {useAccount, useContractRead, useContractWrite, usePrepareContractWrite, useWaitForTransaction,} from 'wagmi'
 import WowGurt from './WowGurt.json';
+import Navigate from "../Common/Navigate";
 
 let initialExecute = false;
 
@@ -16,6 +18,15 @@ export function MintWow({url, signature}) {
         functionName: 'mintNFT',
         args: [address, url, signature],
     })
+    const [minted, setMinted] = useState([`???`]);
+    useContractRead({
+        address: process.env.REACT_APP_CONTRACT_ADDRESS,
+        abi: WowGurt.abi,
+        functionName: 'totalSupply',
+        onSuccess(data) {
+            setMinted(String(parseInt(data)));
+        },
+    });
     const {data, error, isError, write} = useContractWrite(config)
 
     const {isLoading, isSuccess, isIdle} = useWaitForTransaction({
@@ -35,12 +46,7 @@ export function MintWow({url, signature}) {
             }}
         >
             {isSuccess ? (
-                <div>
-                    Minted
-                    <div>
-                        <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
-                    </div>
-                </div>
+                <Navigate url={`/wow/${minted}`}/>
             ) : <button className={"btn mint-btn"} disabled={!write || loading}>
                 {loading ? 'Minting...' : 'MINT WOW'}
             </button>

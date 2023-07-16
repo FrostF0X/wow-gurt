@@ -48,7 +48,9 @@ Server.create("post", PORT, async (req, res) => {
         "description": `Wow generated from seed ${seed}`,
         "image": gifUrl,
         "seed": `${seed}`,
-        "metadata": metadata
+        "attributes": metadata,
+        "animation_url": `${BASE_URL}?seed=${seed}&type=opensea`,
+        "external_url": `${BASE_URL}/wow/${newTokenId}`
     };
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
     const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;

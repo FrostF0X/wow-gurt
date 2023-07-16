@@ -10,6 +10,8 @@ import MintDescription from "./Mint/MintDescription";
 import Button from "./Mint/Button";
 import Minted from "./Mint/Minted";
 import HowItWorks from "./Mint/HowItWorks";
+import "./Site/SiteOverride.scss";
+import BrowserOrientation from "./BrowserOrientation";
 
 class Mint extends React.Component {
     provider = null;
@@ -21,19 +23,12 @@ class Mint extends React.Component {
             loading: false,
             btnText: "MINT WOW",
             seed: Number.random(0, Number.MAX_SAFE_INTEGER),
-            orientation: window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape'
+            orientation: BrowserOrientation.get()
         };
         this.account = null;
         this.contract = null;
         this.generate = this.generate.bind(this);
-        const listener = (portrait) => {
-            if (portrait) {
-                this.setState((state) => ({...state, orientation: 'portrait'}));
-            } else {
-                this.setState((state) => ({...state, orientation: 'landscape'}));
-            }
-        }
-        window.matchMedia("(orientation: portrait)").addEventListener("change", e => listener(e.matches));
+        BrowserOrientation.listen(o => this.setState((state) => ({...state, orientation: o})));
     }
 
     async generate() {
@@ -47,7 +42,6 @@ class Mint extends React.Component {
                     seed: String(this.state.seed)
                 })
             });
-
             const {url, signature} = (await response.json());
             this.setState((state) => ({...state, url, signature}));
         } finally {

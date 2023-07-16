@@ -22,7 +22,7 @@ export default class Render {
             chrome = await Chrome.init(render.browserSize);
             clog(`Creating page`);
             const page = await chrome.newPage();
-            const URL = `${this.baseUrl}?size=${render.size}&slow=${time.slow}&seed=${seed}`;
+            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&seed=${seed}`;
             clog(`Go to url: ${URL}`);
             await page.goto(URL);
             await page.waitForSelector('.just');

@@ -6,16 +6,22 @@ import './styles/Fonts.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Render from "./Render";
-import {App} from "./App";
+import Mint from "./Mint";
+import {Config} from "./Eth/Config";
+import Preview from "./Preview";
 
 const router = createBrowserRouter([
         {
             path: "/",
-            element: <App/>,
+            element: <Config><Mint/></Config>,
         },
         {
             path: "/render",
             element: <Render/>,
+        },
+        {
+            path: "/wow/:id",
+            element: <Config><Preview/></Config>,
         }
     ]
 );
