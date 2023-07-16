@@ -10,19 +10,20 @@ import Slow from "./Animation/Slow";
 import Size from "./Animation/Size";
 import {JustChessConfig, JustGridConfig, JustWaveConfig} from "./AnimationConfig";
 
-class Just extends React.Component {
+class Just extends React.PureComponent {
 
     constructor(props) {
         super(props);
         this.ref = createRef();
         this.cells = [];
+        this.config = this.props.config;
         Slow.slow(this.props.slow ?? 1);
     }
 
     componentDidMount() {
         Size.size(this.props.size, this.ref.current);
-        Delay.delay(this.props.config.delay, this.ref.current);
-        Color.setColors(...this.props.config.colors, this.ref.current);
+        Delay.delay(this.config.delay, this.ref.current);
+        Color.setColors(...this.config.colors, this.ref.current);
         Slow.slow2(this.ref.current);
     }
 
@@ -33,7 +34,8 @@ class Just extends React.Component {
             gridColumn: `cell-${cell.division.startCol} / cell-${cell.division.endCol + 1}`,
         };
         if (config instanceof JustWaveConfig) {
-            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"} style={style}><Wave
+            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"}
+                        style={style}><Wave
                 img={config.img}
                 direction={config.direction}
                 preset={config.preset}
@@ -41,7 +43,8 @@ class Just extends React.Component {
             /></div>
         }
         if (config instanceof JustGridConfig) {
-            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"} style={style}><ImageGrid
+            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"}
+                        style={style}><ImageGrid
                 img={config.img}
                 preset={config.preset}
                 type={config.type}
@@ -49,7 +52,8 @@ class Just extends React.Component {
             /></div>
         }
         if (config instanceof JustChessConfig) {
-            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"} style={style}>
+            return <div key={Number.random(1, Number.MAX_SAFE_INTEGER)} className={"just-scene-grid-cell"}
+                        style={style}>
                 <Chess
                     img={config.img}
                     preset={config.preset}
@@ -60,13 +64,13 @@ class Just extends React.Component {
     }
 
     render() {
-        if (this.props.dynamic && this.ref && this.ref.current) {
+        if (this.ref && this.ref.current) {
             Size.size(this.props.size, this.ref.current);
-            Delay.delay(this.props.config.delay, this.ref.current);
-            Color.setColors(...this.props.config.colors, this.ref.current);
+            Delay.delay(this.config.delay, this.ref.current);
+            Color.setColors(...this.config.colors, this.ref.current);
             Slow.slow2(this.ref.current);
         }
-        let cells = this.props.config.cells.map(c => this.justFromConfig(c));
+        let cells = this.config.cells.map(c => this.justFromConfig(c));
         return (
             <div className={"just"} ref={this.ref}>
                 <div className={"just-scene-grid"} style={{"width": "100%", "height": "100%"}}>

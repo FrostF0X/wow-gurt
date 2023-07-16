@@ -32,8 +32,8 @@ class Wave extends React.Component {
     }
 
     animate = () => {
-        var fps = 30;
-        setInterval(() => {
+        const fps = 30;
+        this.interval = setInterval(() => {
             this.imgs.forEach((d, i) => {
                 let rad = 57.2958;
                 this.transform = (Math.sin((-(i * 4) + this.refCounter * this.imgs.length * 2 / fps) * 360 / this.imgs.length / rad)) * Size.image() / 2;
@@ -42,6 +42,10 @@ class Wave extends React.Component {
 
             this.refCounter = this.refCounter + 1;
         }, 1000 / fps * Slow.x());
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {

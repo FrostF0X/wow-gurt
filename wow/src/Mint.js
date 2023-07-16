@@ -1,5 +1,4 @@
 import React from "react";
-import Random from "./Random";
 import "@rainbow-me/rainbowkit/styles.css";
 import {ConnectButton} from '@rainbow-me/rainbowkit';
 import {useAccount} from 'wagmi';
@@ -9,29 +8,33 @@ import WowScroller from "./WowScroller";
 import Scroller from "./Scroller";
 import MintDescription from "./Mint/MintDescription";
 import Button from "./Mint/Button";
+import Minted from "./Mint/Minted";
+import HowItWorks from "./Mint/HowItWorks";
 
 class Mint extends React.Component {
-    loaded = false;
     provider = null;
+    loaderPos = 0;
 
     constructor(props) {
         super(props);
         this.state = {
             loading: false,
-            btnText: "▲ GET WOW ▲",
-            seed: Number.random(0, Number.MAX_SAFE_INTEGER)
+            btnText: "MINT WOW",
+            seed: Number.random(0, Number.MAX_SAFE_INTEGER),
         };
         this.account = null;
         this.contract = null;
-        this.key = 0;
         this.generate = this.generate.bind(this);
     }
 
     async componentDidMount() {
-        if (this.loaded) {
-            return false;
+        this.listener = () => {
+            const height = document.getElementsByTagName('body')[0].offsetHeight;
+            const width = document.getElementsByTagName('body')[0].offsetWidth;
+            this.setState((state) => ({...state, orientation: (height > width ? 'portrait' : 'landscape')}));
         }
-        this.loaded = true;
+        this.listener();
+        window.addEventListener('resize', this.listener);
     }
 
     async generate() {
@@ -46,28 +49,46 @@ class Mint extends React.Component {
                 })
             });
 
-            const url = (await response.json()).url;
-            this.setState((state) => ({...state, url}));
+            const {url, signature} = (await response.json());
+            this.setState((state) => ({...state, url, signature}));
         } finally {
             this.stopLoader();
         }
     }
 
     startLoader() {
-        this.setState((prevState) => ({...prevState, loading: true}));
+        this.setState((prevState) => ({
+            ...prevState,
+            loading: true,
+        }));
+        this.loader();
         this.loaderInterval = setInterval(() => {
-            if (this.state.btnText.length >= 5) {
-                this.setState((prevState) => ({...prevState, btnText: "▲"}));
-            } else {
-                this.setState((prevState) => ({...prevState, btnText: prevState.btnText + "▲"}));
-            }
-        }, 500);
+            this.loader();
+        }, 325);
+    }
+
+    loader() {
+        this.loaderPos++;
+        let size = 6;
+        let window = 5;
+        if (this.loaderPos >= size) {
+            this.loaderPos = 0;
+        }
+        this.setState((prevState) => ({
+            ...prevState,
+            btnText: Array.range(1, window - 1).map((i) => {
+                return <img
+                    className={`loader ${i % 2 === 0 ? 'loader-inverted' : ''} ${!((this.loaderPos + 1) % window === i || this.loaderPos % window === i) ? 'loader-empty' : ''}`}
+                    src={"/loader.svg"}
+                    alt={"loader"}/>;
+            })
+        }));
     }
 
     stopLoader() {
+        this.loaderPos = 0;
         clearInterval(this.loaderInterval);
-        Random.fresh(this.state.seed);
-        this.setState({btnText: "▲ Get WoW ▲", loading: false});
+        this.setState({btnText: "MINT WOW", loading: false});
     }
 
     refresh = () => {
@@ -75,50 +96,56 @@ class Mint extends React.Component {
     }
 
     render() {
-        ++this.key;
-        return <div className={"mint mint-landscape"}>
+        return <div className={`mint mint-${this.state.orientation}`}>
             <div className="mint-content">
                 <MintDescription/>
-                <WowScroller key={this.key} seed={this.state.seed}></WowScroller>
-                <div className="actions" style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "stretch"
-                }}>
-                    <Button><ConnectButton accountStatus={"address"} showBalance={true}
-                                           label={"CONNECT WALLET"}/></Button>
-                    <div style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "stretch",
-                        alignItems: "stretch"
-                    }}>
-                        <Button>
-                            <button className="refresh-btn"
+                <WowScroller key={this.state.seed} seed={this.state.seed}></WowScroller>
+                <div className="actions">
+                    <div className={"actions-inner"}>
+                        <HowItWorks/>
+                        <Minted/>
+                        <Button><ConnectButton accountStatus={"address"} showBalance={true}
+                                               label={"CONNECT WALLET"}/></Button>
+                        <div style={{
+                            display: "flex", flexDirection: "row", justifyContent: "stretch", alignItems: "stretch"
+                        }}>
+                            <Button>
+                                <button
+                                    disabled={this.state.url || this.state.loading}
+                                    className="btn refresh-btn"
                                     onClick={this.refresh}>
-                                &nbsp;
-                                <img src="/refresh.svg" alt=""/>
-                            </button>
-                        </Button>
+                                    &nbsp;
+                                    <img src="/refresh.svg" alt=""/>
+                                </button>
+                            </Button>
 
-                        {this.state.url ? <Button style={{width: '100%'}}><MintWow
-                                url={this.state.url}/></Button> :
-                            <Button style={{width: '100%'}}>
-                                <button disabled={!this.props.address && !this.state.loading} className="generate-btn"
-                                        onClick={this.generate}>{this.state.btnText}</button>
-                            </Button>}
+                            {this.state.url ? <Button style={{width: '100%'}}><MintWow
+                                    url={this.state.url} signature={this.state.signature}/></Button> :
+                                <Button style={{width: '100%'}}>
+                                    <button disabled={!this.props.address || this.state.loading}
+                                            className={`btn generate-btn ${this.state.loading ? 'generate-btn-loading' : ''}`}
+                                            onClick={this.generate}>{this.state.btnText}</button>
+                                </Button>}
+                        </div>
+                        <div style={{
+                            display: "flex",
+                            justifyContent: "space-around",
+                            padding: "10px 0 10px 0",
+                            fontFamily: "Machina r"
+                        }}>
+                            <span>Seed:&nbsp;</span><span style={{width: '166px'}}
+                                                          className={"text-highlight-cool"}>{this.state.seed}</span>
+                        </div>
+                        <a className={"twitter"}  target={"_blank"}
+                           href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
+                        <a className={"opensea"}  target={"_blank"}
+                           href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
                     </div>
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "10px 1.5em 10px 1em",
-                        fontFamily: "Machina r"
-                    }}>
-                        <span>Seed:&nbsp;</span><span className={"text-highlight-cool"}>{this.state.seed}</span></div>
                 </div>
             </div>
+
             <div className="mint-bottom"><Scroller/></div>
+
             <img className={"unicorn"} src="/unicorn.png" alt="unicorn"/>
         </div>;
     }

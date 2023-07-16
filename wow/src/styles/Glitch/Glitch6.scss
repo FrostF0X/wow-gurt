@@ -26,58 +26,70 @@
   }
 }
 
-$filters: (
-        saturate: (
-                units: '',
-                range: (
-                        min: 1,
-                        max: 10
-                ),
-                probability: 1/5
-        ),
-        hue-rotate: (
-                units: 'deg',
-                probability: 1,
-                range: (
-                        min: 0,
-                        max: 90
-                ),
-        ),
-        invert: (
-                units: '',
-                probability: 1/30,
-                range: (
-                        min: 0.8,
-                        max: 1
-                ),
-        ),
-        brightness: (
-                units: '%',
-                probability: 1/20,
-                range: (
-                        min: 40,
-                        max: 60
-                ),
-        ),
-);
-
 
 @keyframes glitch-preset-6 {
-  @for $i from 0 through 20 {
-    @if (random(100) < 66.6) {
-      #{$i}% {
-        $filter_css_value: '';
-        @each $filter, $filter_props in $filters {
-          @if ((random(100) / 100) < map-get($filter_props, probability)) {
-            $range: map-get($filter_props, range);
-            $min: map-get($range, min);
-            $max: map-get($range, max);
-            $filter_css_value: $filter_css_value + ' #{$filter}(#{random(100) / 100 * ($max - $min) + $min}#{map-get($filter_props, units)})';
-          }
-        }
-        filter: unquote($filter_css_value);
-        transform: translate(calc(#{(random(10)-5)} * var(--image-size) / 100), calc(#{(random(10)-5)} * var(--image-size) / 100)) scale(random(20) / 100 + 1.05);
-      }
-    }
+  0% {
+    filter: hue-rotate(54deg);
+    transform: translate(calc(-4 * var(--image-size) / 50), calc(0 * var(--image-size) / 50)) scale(1.09);
+  }
+  1% {
+    filter: saturate(3.34) hue-rotate(37.8deg);
+    transform: translate(calc(-2 * var(--image-size) / 50), calc(4 * var(--image-size) / 50)) scale(1.19);
+  }
+  3% {
+    filter: hue-rotate(58.5deg);
+    transform: translate(calc(1 * var(--image-size) / 50), calc(4 * var(--image-size) / 50)) scale(1.19);
+  }
+  4% {
+    filter: hue-rotate(83.7deg);
+    transform: translate(calc(-1 * var(--image-size) / 50), calc(-4 * var(--image-size) / 50)) scale(1.08);
+  }
+  5% {
+    filter: hue-rotate(14.4deg) contrast(2.35);
+    transform: translate(calc(-3 * var(--image-size) / 50), calc(-1 * var(--image-size) / 50)) scale(1.11);
+  }
+  6% {
+    filter: hue-rotate(60.3deg);
+    transform: translate(calc(1 * var(--image-size) / 50), calc(-2 * var(--image-size) / 50)) scale(1.21);
+  }
+  7% {
+    filter: hue-rotate(76.5deg);
+    transform: translate(calc(3 * var(--image-size) / 50), calc(3 * var(--image-size) / 50)) scale(1.22);
+  }
+  8% {
+    filter: hue-rotate(78.3deg);
+    transform: translate(calc(-2 * var(--image-size) / 50), calc(-3 * var(--image-size) / 50)) scale(1.19);
+  }
+  9% {
+    filter: hue-rotate(45.9deg);
+    transform: translate(calc(-1 * var(--image-size) / 50), calc(4 * var(--image-size) / 50)) scale(1.24);
+  }
+  12% {
+    filter: hue-rotate(63deg);
+    transform: translate(calc(-2 * var(--image-size) / 50), calc(2 * var(--image-size) / 50)) scale(1.24);
+  }
+  13% {
+    filter: hue-rotate(9.9deg);
+    transform: translate(calc(-3 * var(--image-size) / 50), calc(-4 * var(--image-size) / 50)) scale(1.24);
+  }
+  14% {
+    filter: hue-rotate(46.8deg);
+    transform: translate(calc(-1 * var(--image-size) / 50), calc(1 * var(--image-size) / 50)) scale(1.25);
+  }
+  15% {
+    filter: saturate(5.23) hue-rotate(34.2deg) brightness(57%);
+    transform: translate(calc(-4 * var(--image-size) / 50), calc(4 * var(--image-size) / 50)) scale(1.13);
+  }
+  16% {
+    filter: saturate(7.03) hue-rotate(84.6deg);
+    transform: translate(calc(1 * var(--image-size) / 50), calc(2 * var(--image-size) / 50)) scale(1.15);
+  }
+  17% {
+    filter: hue-rotate(81.9deg);
+    transform: translate(calc(1 * var(--image-size) / 50), calc(-4 * var(--image-size) / 50)) scale(1.15);
+  }
+  19% {
+    filter: hue-rotate(74.7deg);
+    transform: translate(calc(3 * var(--image-size) / 50), calc(-3 * var(--image-size) / 50)) scale(1.17);
   }
 }

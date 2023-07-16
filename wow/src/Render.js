@@ -12,12 +12,14 @@ class Render extends React.Component {
         super(props);
         this.size = query().get('size') ?? 1024;
         this.config = AnimationConfig.generate(parseInt(query().get('seed')));
+        this.metadata = JSON.stringify({"some-metadata": "test"});
     }
 
     render() {
         return (
             <div className={"just-render"}>
                 <Just slow={query().get('slow') ?? 10} size={this.size} config={this.config}/>
+                <div id={"just-metadata"} data-json={this.metadata}></div>
             </div>
         );
     }

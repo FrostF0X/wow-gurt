@@ -42,7 +42,7 @@
  */
 
 require('dotenv').config();
-const { MNEMONIC, INFURA_PROJECT_ID } = process.env;
+const {MNEMONIC, INFURA_PROJECT_ID} = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -65,8 +65,8 @@ module.exports = {
         // options below to some value.
         //
         development: {
-            host: "127.0.0.1",     // Localhost (default: none)
-            port: 7545,            // Standard Ethereum port (default: none)
+            host: "127.0.0.1",
+            port: 7545,
             network_id: "5777"       // Any network (default: none)
         },
         goerli: {
@@ -111,7 +111,9 @@ module.exports = {
 
     // Set default mocha options here, use special reporters, etc.
     mocha: {
-        // timeout: 100000
+        timeout: 10000000,
+        enableTimeouts: false,
+        before_timeout: 120000
     },
 
     // Configure your compilers
@@ -120,11 +122,11 @@ module.exports = {
             version: "0.8.8",
             docker: true,
             settings: {
-             optimizer: {
-               enabled: true,
-               runs: 200
-             },
-             evmVersion: "byzantium"
+                optimizer: {
+                    enabled: true,
+                    runs: 200
+                },
+                evmVersion: "byzantium"
             }
         }
     }

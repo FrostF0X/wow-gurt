@@ -1,0 +1,127 @@
+.mint-landscape {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: revert;
+
+  .mint-content {
+    width: 100%;
+    height: calc(100% - 69px);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  .mint-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 69px;
+  }
+
+  .wow-scroller {
+    width: 50%;
+    margin: 25% 0;
+  }
+
+  .wow-scroller .just {
+    width: 100%;
+  }
+
+  .wow-scroller .just-scroll-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .description {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .description-bar {
+    margin-left: 20%;
+  }
+
+  .actions {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions-inner {
+    margin-right: 20%;
+    padding-top: 30%;
+    height: 100%;
+  }
+
+  .actions-inner {
+    margin-right: 20%;
+    padding-top: 30%;
+    height: 100%;
+  }
+
+  .unicorn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(-1) translate(-40%, 8%);
+    height: 45vh;
+  }
+
+  .just-preview {
+    width: 50%;
+    height: 100%;
+    margin: 0 -5px 0 5px;
+  }
+
+  .gurt {
+    margin: 1em 2em;
+    height: 3em;
+    display: flex;
+  }
+
+  .gurt-container {
+    margin-bottom: 2em;
+  }
+
+  .greetings {
+    margin-bottom: 1em;
+  }
+
+  .check-out {
+    margin-bottom: 1em;
+  }
+
+  .actions {
+    .twitter {
+      margin-left: 30%;
+      padding: 10px;
+      height: 70px;
+    }
+
+    .opensea {
+      margin-left: 10%;
+      padding: 10px;
+      height: 70px;
+    }
+  }
+
+
+}
+

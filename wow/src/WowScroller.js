@@ -10,6 +10,7 @@ export default class WowScroller extends React.Component {
         super(props, context);
         this.state = {size: 512};
         this.ref = createRef();
+        this.config = AnimationConfig.generate(this.props.seed);
         this.key = 0;
     }
 
@@ -30,10 +31,10 @@ export default class WowScroller extends React.Component {
             <div ref={this.ref} className="just-container">
                 <JustFrame plain={true}>
                     <Just
+                        key={this.state.seed}
                         dynamic={true}
-                        config={AnimationConfig.generate(this.props.seed)}
+                        config={this.config}
                         size={this.state.size}
-                        random={this.props.random}
                     />
                 </JustFrame>
             </div>

@@ -2,15 +2,23 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.2",
     "@openzeppelin/contracts-upgradeable": "^4.9.2",
+    "@openzeppelin/test-helpers": "^0.5.16",
     "@openzeppelin/truffle-upgrades": "^1.19.0",
     "@truffle/hdwallet-provider": "^2.1.12",
     "dotenv": "^16.3.1",
     "env-cmd": "^10.1.0",
+    "ethereumjs-wallet": "^1.0.2",
+    "ganache": "^7.9.0",
     "web3": "^4.0.2"
   },
   "scripts": {
     "compile": "arch -arm64 /bin/bash -c 'truffle compile'",
-    "migrate": "arch -arm64 /bin/bash -c 'truffle migrate --network development'"
+    "development": "export SERVER_ADDRESS=0xfd3c9c16e5b8efaa49ecb7e31b781994d5761d51 && arch -arm64 /bin/bash -c 'truffle migrate --network development'",
+    "goerli": "export SERVER_ADDRESS=0xb6e01aa3bc04924a6996ebb334b1f4d68773e8ee && arch -arm64 /bin/bash -c 'truffle migrate --network goerli'",
+    "mainnet": "export SERVER_ADDRESS=TODO && arch -arm64 /bin/bash -c 'truffle migrate --network mainnet'",
+    "test": "truffle test --migrate-none",
+    "generate-wallet": "node gen-wallet.js",
+    "ganache": "pkill -f ganache || true && pkill -f Ganache || true && ganache --wallet.mnemonic 'super cricket patch skull garage curve direct glue educate outside envelope tennis' -e 10000 -D --chain.networkId 5777 --miner.blockTime=0 --server.port=7545"
   },
   "devDependencies": {
     "chai": "^4.3.7",

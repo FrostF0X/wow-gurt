@@ -5,7 +5,7 @@ import * as ffmpeg from "fluent-ffmpeg";
 import TimeConfig from "./TimeConfig";
 import RenderConfig from "./RenderConfig";
 import Tmp from "./Tmp";
-import {clog} from "./utils";
+import {clog, throwExpression} from "./utils";
 
 export default class Render {
 
@@ -55,6 +55,9 @@ export default class Render {
                     .run()
             );
             clog(`Done.`);
+            return JSON.parse((await page.$eval('#just-metadata', (element: Element) => element.attributes.getNamedItem('data-json')?.value))
+                ?? throwExpression('Cannot evaluate function')
+            );
         } catch (e) {
             throw e;
         } finally {

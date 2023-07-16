@@ -1,0 +1,93 @@
+.mint-portrait {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: revert;
+  overflow: hidden;
+
+  .mint-content {
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .mint-bottom {
+    display: none;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .price {
+    display: none;
+  }
+
+  .what-is-it {
+    display: none;
+  }
+
+  .unicorn {
+    position: absolute;
+    top: 0;
+    right: -4%;
+    transform: scaleX(-1);
+    height: 25vh;
+  }
+
+  .just-preview {
+    height: 50vh;
+    margin: 1em 0;
+    width: 100%;
+  }
+
+  .gurt {
+    margin: 0.5em 1em;
+    height: 2em;
+    display: flex;
+  }
+
+  .intro {
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gurt-container {
+    margin-bottom: 1.5em;
+  }
+
+  .greetings {
+    margin-bottom: 0.5em;
+  }
+
+  .how-it-works {
+    display: none;
+  }
+
+
+
+  .intro {
+    position: relative;
+    .twitter {
+      display: initial;
+      top: 100%;
+      left: 37%;
+      position: absolute;
+      width: 37px;
+    }
+
+    .opensea {
+      display: initial;
+      top: 100%;
+      left: 48%;
+      position: absolute;
+      width: 30px;
+    }
+  }
+
+}
+

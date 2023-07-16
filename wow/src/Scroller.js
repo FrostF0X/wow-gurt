@@ -6,18 +6,18 @@ export default class Scroller extends React.Component {
         return <div className="section__header">
             <div className="marquee">
                 <div className="marq">
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
-                    <span className="section__header-item">contacts</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
+                    <span className="section__header-item">WOW</span>
                 </div>
             </div>
         </div>

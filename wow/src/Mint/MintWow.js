@@ -1,12 +1,10 @@
 import * as React from 'react'
-import {
-    usePrepareContractWrite,
-    useContractWrite,
-    useWaitForTransaction, useAccount,
-} from 'wagmi'
+import {useAccount, useContractWrite, usePrepareContractWrite, useWaitForTransaction,} from 'wagmi'
 import WowGurt from './WowGurt.json';
 
-export function MintWow(props) {
+let initialExecute = false;
+
+export function MintWow({url, signature}) {
     const {address} = useAccount();
     const {
         config,
@@ -16,14 +14,19 @@ export function MintWow(props) {
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
         abi: WowGurt.abi,
         functionName: 'mintNFT',
-        args: [address, props.url],
+        args: [address, url, signature],
     })
     const {data, error, isError, write} = useContractWrite(config)
 
-    const {isLoading, isSuccess} = useWaitForTransaction({
+    const {isLoading, isSuccess, isIdle} = useWaitForTransaction({
         hash: data?.hash,
     })
 
+    if (write && !initialExecute) {
+        write();
+        initialExecute = true;
+    }
+    let loading = isIdle || isLoading;
     return (
         <form
             onSubmit={(e) => {
@@ -31,17 +34,17 @@ export function MintWow(props) {
                 write?.()
             }}
         >
-            <button className={"mint-btn"} disabled={!write || isLoading}>
-                {isLoading ? 'Minting...' : 'Mint WoW'}
-            </button>
-            {isSuccess && (
+            {isSuccess ? (
                 <div>
-                    Successfully minted your NFT!
+                    Minted
                     <div>
                         <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
                     </div>
                 </div>
-            )}
+            ) : <button className={"btn mint-btn"} disabled={!write || loading}>
+                {loading ? 'Minting...' : 'MINT WOW'}
+            </button>
+            }
             {(isPrepareError || isError) && (
                 <div>Error: {(prepareError || error)?.message}</div>
             )}

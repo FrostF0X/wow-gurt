@@ -1,0 +1,2 @@
+**/.env-mainnet filter=git-crypt diff=git-crypt
+**/.env-goerli filter=git-crypt diff=git-crypt

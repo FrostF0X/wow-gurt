@@ -1,7 +1,7 @@
 @import "Basics";
 @import "include-media/dist/_include-media";
-
-$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
+@import "MintLandscape";
+@import "MintPortrait";
 
 .rk {
   width: 100%;
@@ -17,78 +17,25 @@ $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
   width: 100%;
 }
 
-.mint-landscape {
-  height: 100vh;
+.twitter {
+  display: none;
+}
+
+.opensea {
+  display: none;
+}
+
+.mint .description-bar {
   display: flex;
   flex-direction: column;
-  flex-grow: revert;
-}
-
-.mint-content {
-  width: 100%;
-  height: calc(100% - 69px);
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: space-between;
-}
-
-.mint-bottom {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  height: 69px;
-}
-
-.mint-landscape .wow-scroller {
-  width: 50%;
-  margin: 25% 0;
-}
-
-.mint-landscape .wow-scroller .just {
-  width: 100%;
-}
-
-.mint-landscape .wow-scroller .just-scroll-container {
-  height: 100vh;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.mint-landscape .description {
-  width: 25%;
-  height: 100%;
+.mint .actions-inner {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mint-landscape .actions {
-  width: 25%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mint-landscape .just {
-  --scene-size: calc(90%);
-}
-
-
-.unicorn {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  transform: scaleX(-1) translate(-40%, 8%);
-  height: 45vh;
-}
-
-.just-preview {
-  width: 50%;
-  height: 100%;
-  margin: 0 -5px 0 5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .just-container {
@@ -100,22 +47,38 @@ $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
 }
 
 
-@include media("<=tablet") {
-  .mint {
-    justify-content: space-between;
-  }
-  .just-preview {
-    width: min(90vh, 90vw);
-    height: min(90vh, 90vw);
-  }
-}
-
 .generate-btn {
   color: white;
   background-color: $highlightPink;
-  padding: 10px;
+  padding: 13px 10px 14px 10px;
   width: 100%;
   border: none;
+}
+
+.generate-btn.generate-btn-loading {
+  padding: 2px 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  filter: opacity(0.5);
+}
+
+.btn:hover:not(.btn:disabled) {
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+
+.btn.generate-btn-loading {
+  filter: initial;
 }
 
 .mint-btn {
@@ -148,4 +111,19 @@ $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+.loader {
+  height: 34px;
+  margin: 2px 3px;
+  transition: opacity 325ms ease-in-out;
+  filter: contrast(200);
+}
+
+.loader-empty {
+  opacity: 0;
+}
+
+.loader-inverted {
+  filter: invert(1);
 }

@@ -5,6 +5,8 @@ import TimeConfig from "./TimeConfig";
 import RenderConfig from "./RenderConfig";
 import Render from "./Render";
 import Server from "./Server";
+import Sign from "./Sign";
+import Contract from "./Contract";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -22,6 +24,11 @@ const ipfs = ipfsClient.create({
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Please define URL");
+const signer = new Sign(process.env.SERVER_PRIVATE_KEY ?? throwExpression("Please define SERVER_PRIVATE_KEY"));
+const contract = new Contract(
+    process.env.RPC_PROVIDER_URL ?? throwExpression("Please define RPC_PROVIDER_URL"),
+    process.env.CONTRACT_ADDRESS ?? throwExpression("Please define CONTRACT_URL")
+)
 Server.create("post", PORT, async (req, res) => {
     if (!req.body.seed || typeof req.body.seed === 'number' || req.body.seed < 0 || req.body.seed > Number.MAX_SAFE_INTEGER) {
         console.log(req.body);
@@ -30,20 +37,22 @@ Server.create("post", PORT, async (req, res) => {
     const seed = parseInt(req.body.seed);
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    await render.do(seed, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const metadata = await render.do(seed, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
     const gifUrl = `${IPFS_PUBLIC_URL}/${gifResult.path}`;
+    const newTokenId = await contract.getCurrentTokenId() + 1;
     const gifMetadata = {
-        "name": `Wow ${seed}`,
-        "description": `Wow ${seed}`,
+        "name": `WOW ${newTokenId}`,
+        "description": `Wow generated from seed ${seed}`,
         "image": gifUrl,
-        "seed": seed,
+        "seed": `${seed}`,
+        "metadata": metadata
     };
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
-    const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`
-    res.json({url: metadataUrl});
-    await tmp.clear();
+    const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
+    res.json({metadata: gifMetadata, url: metadataUrl, signature: signer.sign(metadataUrl)});
+    // await tmp.clear();
 })
 
