@@ -12,14 +12,15 @@ jobs:
       contents: read
       deployments: write
     steps:
-      - uses: actions/checkout@v3
-        with:
-          sparse-checkout: wow
       - name: Unlock secrets
         uses: sliteteam/github-action-git-crypt-unlock@1.2.0
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-      - run: cp -r wow/. . && rm -rf wow
+      - run: |
+          TMP=$(mktmp -d)
+          mkdir cp -r wow/. ${TMP}
+          rm -rf ./*
+          cp ${TMP}/* .
       - uses: actions/setup-node@v3
         with:
           node-version: 18
