@@ -95,7 +95,6 @@ class Mint extends React.Component {
     }
 
     render() {
-        console.log(this.state.orientation);
         return <div className={`mint mint-${this.state.orientation}`}>
             <div className="mint-content">
                 <MintDescription/>

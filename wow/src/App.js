@@ -36,7 +36,10 @@ const {
     ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' ? [goerli] : []),
     ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [localhost] : []),
     ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [mainnet] : []),
-], [jsonRpcProvider({rpc:() => ({http: 'http://127.0.0.1:7545'})}), infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})]);
+], [
+    ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [jsonRpcProvider({rpc: () => ({http: 'http://127.0.0.1:7545'})})] : []),
+    ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' || process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})] : [])
+]);
 
 const {connectors} = getDefaultWallets({
     appName: 'RainbowKit demo', projectId: 'd3a216c52b2adac62ac723b339a7b3c7', chains,
