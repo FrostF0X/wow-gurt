@@ -17,16 +17,11 @@ jobs:
         uses: sliteteam/github-action-git-crypt-unlock@1.2.0
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-      - run: |
-          TMP=$(mktemp -d)
-          cp -r wow/ ${TMP}
-          rm -rf ./*
-          cp -r ${TMP}/ .
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm run build-goerli
+      - run: cd wow && npm ci
+      - run: cd wow && npm run build-goerli
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -34,4 +29,4 @@ jobs:
           accountId: bb0d3886dd19a135629b19ad98ec61ed
           projectName: wow-gurt
           branch: master
-          directory: ${{ github.workspace }}/build
+          directory: ${{ github.workspace }}/wow/build
