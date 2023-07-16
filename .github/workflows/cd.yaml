@@ -21,7 +21,7 @@ jobs:
           TMP=$(mktemp -d)
           cp -r wow/. ${TMP}
           rm -rf ./*
-          cp ${TMP}/* .
+          cp -r ${TMP}/* .
       - uses: actions/setup-node@v3
         with:
           node-version: 18
