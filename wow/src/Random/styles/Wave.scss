@@ -14,15 +14,15 @@
       flex-direction: column;
       position: absolute;
       rotate: 90deg;
-      transform: skew(20deg) scaleY(-1);
-      margin-top: calc(var(--image-size) / 4);
+      transform: scaleY(-1);
+      margin-top: calc(var(--image-size) / -4);
     }
   }
 
   &-horizontal {
     .just-random-wave {
-      transform: skew(20deg) scaleX(-1);
-      left: calc(var(--image-size) / -4);
+      transform: scaleX(-1);
+      left: calc(var(--image-size) / 8);
     }
   }
 }
@@ -46,7 +46,7 @@
     top: calc(var(--image-size) / -2);
     width: var(--image-size);
     height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 61) - 0.05);
+    left: math.percentage(math.div($i - 1, 60));
     z-index: 60 - $i;
   }
 }
@@ -58,7 +58,7 @@
     top: calc(var(--image-size) / -2);
     width: var(--image-size);
     height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 41) - 0.03);
+    left: math.percentage(math.div($i - 1, 40));
     z-index: 60 - $i;
   }
 }
@@ -70,7 +70,7 @@
     top: calc(var(--image-size) / -2);
     width: var(--image-size);
     height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 21) - 0.01);
+    left: math.percentage(math.div($i - 1, 20));
     z-index: 60 - $i;
   }
 }

@@ -6,7 +6,7 @@ import Color from "./Animation/Color";
 
 export default class AnimationConfig {
     static levelConfig = [2, 2, 3, 3];
-    static levelRarityConfig = [1, 1, 1, 1, 1, 1, 1, 1, 2, 3];
+    static levelRarityConfig = [1, 1, 1, 2, 3];
 
     constructor(public readonly cells: CellConfig[], public readonly delay: Delay, public readonly colors: string[]) {
     }

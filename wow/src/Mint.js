@@ -42,7 +42,7 @@ class Mint extends React.Component {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify({
-                    seed: this.state.seed
+                    seed: String(this.state.seed)
                 })
             });
 

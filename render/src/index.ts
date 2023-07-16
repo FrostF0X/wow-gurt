@@ -23,9 +23,9 @@ const ipfs = ipfsClient.create({
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Please define URL");
 Server.create("post", PORT, async (req, res) => {
-    if (!req.body.seed || isNaN(parseInt(req.body.seed)) || parseInt(req.body.seed) < 0 || parseInt(req.body.seed) > Number.MAX_SAFE_INTEGER) {
+    if (!req.body.seed || typeof req.body.seed === 'number' || req.body.seed < 0 || req.body.seed > Number.MAX_SAFE_INTEGER) {
         console.log(req.body);
-        res.status(400).json({"error": "Seed must be preset"});
+        res.status(400).json({"error": `Seed must be number from 0 to ${Number.MAX_SAFE_INTEGER}`});
     }
     const seed = parseInt(req.body.seed);
     const render = new Render(BASE_URL);
