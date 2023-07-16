@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             su 'wow-gurt' -c 'cd ~/wow-gurt/render && git pull'
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && echo "${{secret.GIT_CRYPT_KEY}}" | base64  -d > ./git-crypt-key'
+            su 'wow-gurt' -c 'cd ~/wow-gurt/render && echo "${{secrets.GIT_CRYPT_KEY}}" | base64  -d > ./git-crypt-key'
             su 'wow-gurt' -c 'cd ~/wow-gurt/render && git-crypt unlock ./git-crypt-key'
             su 'wow-gurt' -c 'cd ~/wow-gurt/render && rm ./git-crypt-key'
       - name: restart server
