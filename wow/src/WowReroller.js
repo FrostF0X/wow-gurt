@@ -14,6 +14,7 @@ export default class WowReroller extends React.Component {
 
     reroll = () => {
         this.setConfig(AnimationConfig.wowConfig(this.division));
+        document.getElementsByTagName('body')[0].classList.add('tutorial-hide');
     };
 
     setConfig = (c) => {

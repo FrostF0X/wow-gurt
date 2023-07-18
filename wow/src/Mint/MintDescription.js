@@ -19,7 +19,6 @@ export default class MintDescription extends React.Component {
                 <div className={"description-block"}>
                     <WhatIsIt/>
                     <Price/>
-                    <HowToWOW/>
                     <div className={"mint-socials"}>
                         <a className={"twitter"} target={"_blank"} rel="noreferrer"
                            href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>

@@ -7,7 +7,7 @@ export default class Intro extends React.Component {
             <div className={"intro"}>
                 <div className={"greetings"}
                      style={{
-                         textAlign: "left", textTransform: "uppercase", fontSize: '17px',
+                         textAlign: "center", textTransform: "uppercase", fontSize: '17px',
                      }}>
                     hello!<br/>
                     we are <span className={"text-highlight"}>web 3.0</span>
@@ -20,11 +20,6 @@ export default class Intro extends React.Component {
                     justifyContent: "center",
                     alignItems: "center",
                 }}>
-
-                    <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
-                        <img src="/pointer-hand.png" alt="pointer" className={"pointer"}
-                             style={{marginRight: '2em', width: "58px"}}/>
-                    </a>
                     <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
                         <JustFrame>
                             <div className="gurt">
@@ -32,7 +27,6 @@ export default class Intro extends React.Component {
                             </div>
                         </JustFrame>
                     </a>
-
                 </div>
                 <div className={"check-out"}
                      style={{

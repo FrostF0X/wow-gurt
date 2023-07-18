@@ -13,6 +13,7 @@ body {
   font-size: 1em;
 }
 
+
 table {
   width: 100%;
   border-spacing: 0;
@@ -22,6 +23,15 @@ table {
 }
 
 table td {
+  font-family: "Inter", serif;
+  font-size: 0.8em;
+}
+h3 {
+  font-size: 0.9em;
+  font-family: "Machina r", serif;
+}
+
+.text-note {
   font-family: "Inter", serif;
   font-size: 0.8em;
 }
@@ -79,4 +89,3 @@ body a:visited {
 body {
   overflow-x: hidden;
 }
-

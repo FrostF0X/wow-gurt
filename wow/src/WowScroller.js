@@ -25,8 +25,17 @@ export default class WowScroller extends React.Component {
 
     render() {
         return <div ref={this.ref} className="just-preview">
+            <div className={'pointer-wow-container pointer-wow-tile-container'}>
+                <img src="/pointer-hand.png" alt="pointer"
+                     className={"pointer-wow"}/>
+                <div className="pointer-text">
+                    <h3 className="text-highlight">Click BELOW!</h3>
+                    <span className="text-note">To reroll tiles</span>
+                </div>
+            </div>
             <div className="just-container">
-                <JustFrame plain={true}>
+                <JustFrame plain={true}
+                           text={<span><span className={"text-highlight"}>Click HERE!</span> to reroll tiles</span>}>
                     <Wow
                         key={this.state.seed}
                         dynamic={true}

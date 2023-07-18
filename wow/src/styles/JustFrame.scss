@@ -1,6 +1,5 @@
 .just-random-frame {
   border: white 1px solid;
-  overflow: hidden;
   background: black;
   box-shadow: -4px 4px 0 0 black, -5px 5px 0 0 white, -9px 9px 0 0 black, -10px 10px 0 0 white;
 }
@@ -82,4 +81,17 @@
   position: absolute;
   bottom: 5px;
   left: 5px;
+}
+
+.just-random-frame-toolbar-text {
+  display: none;
+  width: 100%;
+  font-size: 0.9em;
+  text-align: left;
+  padding: 0.25em;
+  font-family: "Machina r", serif;
+}
+
+.just-random-frame-toolbar-text-active {
+  display: initial;
 }

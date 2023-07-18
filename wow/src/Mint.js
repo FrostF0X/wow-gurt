@@ -9,7 +9,6 @@ import Scroller from "./Scroller";
 import MintDescription from "./Mint/MintDescription";
 import Button from "./Mint/Button";
 import Minted from "./Mint/Minted";
-import HowToWOW from "./Mint/HowToWOW";
 import "./Site/SiteOverride.scss";
 import BrowserOrientation from "./BrowserOrientation";
 import Cools from "./Random/Cools";
@@ -115,6 +114,10 @@ class Mint extends React.Component {
                                     onClick={this.refresh}>
                                     &nbsp;
                                     <img src="/refresh.svg" alt=""/>
+                                    <div className={'pointer-wow-container pointer-wow-refresh-container'}>
+                                        <img src="/pointer-hand.png" alt="pointer"
+                                             className={"pointer-wow"}/>
+                                    </div>
                                 </button>
                             </Button>
 
@@ -145,7 +148,6 @@ class Mint extends React.Component {
                         <div className={"description-block"}>
                             <WhatIsIt/>
                             <Price/>
-                            <HowToWOW/>
                         </div>
                     </div>
                 </div>

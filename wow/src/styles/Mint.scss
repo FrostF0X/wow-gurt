@@ -120,3 +120,15 @@
 .loader-inverted {
   filter: invert(1);
 }
+
+.tutorial-hide .mint .pointer-wow-container {
+  display: none;
+}
+
+.pointer-wow-container {
+  z-index: 10000;
+}
+
+.tutorial-hide .just-preview .just-random-frame-toolbar-text {
+  display: none;
+}

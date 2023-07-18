@@ -11,6 +11,8 @@ export class JustFrame extends React.Component {
         return (
             <div className={"just-random-frame " + this.class}>
                 <div className={"just-random-frame-toolbar"}>
+                    <span
+                        className={`just-random-frame-toolbar-text ${this.props.text ? 'just-random-frame-toolbar-text-active' : ''}`}>{this.props.text}</span>
                     <div className={"just-random-frame-toolbar-item just-random-frame-toolbar-minimize"}>
                         <span className={"just-random-frame-toolbar-minimize-1"}></span>
                     </div>
