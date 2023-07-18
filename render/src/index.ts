@@ -7,6 +7,7 @@ import Render from "./Render";
 import Server from "./Server";
 import Sign from "./Sign";
 import Contract from "./Contract";
+import {clog} from "./utils";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -30,14 +31,14 @@ const contract = new Contract(
     process.env.CONTRACT_ADDRESS ?? throwExpression("Please define CONTRACT_URL")
 )
 Server.create("post", PORT, async (req, res) => {
-    if (!req.body.seed || typeof req.body.seed === 'number' || req.body.seed < 0 || req.body.seed > Number.MAX_SAFE_INTEGER) {
+    if (!req.body.config) {
         console.log(req.body);
-        res.status(400).json({"error": `Seed must be number from 0 to ${Number.MAX_SAFE_INTEGER}`});
+        res.status(400).json({"error": `Config must be present ${Number.MAX_SAFE_INTEGER}`});
     }
-    const seed = parseInt(req.body.seed);
+    const config = req.body.config;
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    const metadata = await render.do(seed, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const metadata = await render.do(config, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
@@ -45,16 +46,16 @@ Server.create("post", PORT, async (req, res) => {
     const newTokenId = await contract.getCurrentTokenId() + 1;
     const gifMetadata = {
         "name": `WOW ${newTokenId}`,
-        "description": `Wow generated from seed ${seed}`,
+        "description": `Wow generated from config`,
         "image": gifUrl,
-        "seed": `${seed}`,
+        "config": `${config}`,
         "attributes": metadata,
-        "animation_url": `${BASE_URL}?seed=${seed}&type=opensea`,
         "external_url": `${BASE_URL}/wow/${newTokenId}`
     };
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
     const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
+    clog(`Url: ${metadataUrl}`);
     res.json({metadata: gifMetadata, url: metadataUrl, signature: signer.sign(metadataUrl)});
-    // await tmp.clear();
+    await tmp.clear();
 })
 

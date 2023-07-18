@@ -2,6 +2,7 @@ import React from "react";
 import WhatIsIt from "./WhatIsIt";
 import Price from "./Price";
 import Intro from "./Intro";
+import HowToWOW from "./HowToWOW";
 
 export default class MintDescription extends React.Component {
 
@@ -12,9 +13,20 @@ export default class MintDescription extends React.Component {
                     }}
         >
             <div className={"description-bar"}>
-                <Intro/>
-                <Price/>
-                <WhatIsIt/>
+                <div>
+                    <Intro/>
+                </div>
+                <div className={"description-block"}>
+                    <WhatIsIt/>
+                    <Price/>
+                    <HowToWOW/>
+                    <div className={"mint-socials"}>
+                        <a className={"twitter"} target={"_blank"} rel="noreferrer"
+                           href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
+                        <a className={"opensea"} target={"_blank"} rel="noreferrer"
+                           href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
+                    </div>
+                </div>
             </div>
         </div>
     }

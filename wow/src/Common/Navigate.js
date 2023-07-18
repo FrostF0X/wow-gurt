@@ -1,9 +1,7 @@
 import React from 'react';
-import {useNavigate} from "react-router-dom";
 
 const Navigate = ({url}) => {
-    const navigate = useNavigate();
-    navigate(url);
+    document.location.href = url;
 
     return (
         <div>

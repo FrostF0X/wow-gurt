@@ -4,170 +4,56 @@
   .just-glitch-img-1 {
     margin: 0;
     line-height: 0;
-    z-index: 10;
-    filter: invert(1);
-    animation: glitch-preset-4-2 calc(var(--animation-length) / 2) infinite;
+    z-index: 5;
   }
 
   .just-glitch-img-2 {
-    margin-top: var(--image-pos-top-small);
-    margin-left: var(--image-pos-top-small);
-    animation: glitch-preset-4-1 calc(var(--animation-length) / 2) infinite;
+    margin-top: var(--image-pos-top-big);
+    margin-left: var(--image-pos-top-big);
+    animation: glitch-preset-4-1 calc(var(--animation-length)) infinite ease-in;
     z-index: 10;
   }
 
   .just-glitch-img-3 {
-    margin-top: var(--image-pos-bottom-small);
-    margin-left: var(--image-pos-right-small);
-    animation: glitch-preset-4-3 calc(var(--animation-length) / 2) infinite;
-    z-index: 5;
+    margin-top: var(--image-pos-bottom-big);
+    margin-left: var(--image-pos-right-big);
+    animation: glitch-preset-4-2 calc(var(--animation-length)/2) infinite ease-out;
+    filter: invert(1);
+    z-index: 10;
   }
 }
-
 @keyframes glitch-preset-4-1 {
   0% {
-    opacity: 1;
-    clip-path: inset(20% 10% 35% 10%);
-  }
-  15% {
-    clip-path: inset(10% 30% 10% 50%);
+    clip-path: inset(50% 0 50% 0);
   }
   25% {
-    clip-path: inset(20% 15% 40% 40%);
-  }
-  40% {
-    opacity: 1;
-    clip-path: inset(30% 10% 40% 25%);
+    clip-path: inset(0 50% 0 50%);
   }
   50% {
-    opacity: 0;
-    clip-path: inset(10% 10% 50% 20%);
-  }
-  65% {
-    clip-path: inset(20% 50% 10% 10%);
+    clip-path: inset(50% 0 50% 0);
   }
   75% {
-    clip-path: inset(35% 15% 35% 15%);
-  }
-  90% {
-    opacity: 0;
-    clip-path: inset(10% 35% 10% 35%);
+    clip-path: inset(0 50% 0 50%);
   }
   100% {
-    opacity: 1;
-    clip-path: inset(20% 10% 35% 10%);
+    clip-path: inset(50% 0 50% 0);
   }
 }
 
 @keyframes glitch-preset-4-2 {
   0% {
-    opacity: 0;
-    clip-path: inset(20% 10% 35% 10%);
-  }
-  15% {
-    clip-path: inset(10% 30% 10% 50%);
+    clip-path: inset(50% 0 50% 0);
   }
   25% {
-    clip-path: inset(20% 15% 40% 40%);
-  }
-  40% {
-    opacity: 1;
-    clip-path: inset(30% 10% 40% 25%);
+    clip-path: inset(0 50% 0 50%);
   }
   50% {
-    clip-path: inset(10% 10% 50% 20%);
-  }
-  65% {
-    clip-path: inset(20% 50% 10% 10%);
-    opacity: 1;
+    clip-path: inset(50% 0 50% 0);
   }
   75% {
-    opacity: 0;
-    clip-path: inset(35% 15% 35% 15%);
-  }
-  90% {
-    clip-path: inset(10% 35% 10% 35%);
+    clip-path: inset(0 50% 0 50%);
   }
   100% {
-    clip-path: inset(20% 10% 35% 10%);
+    clip-path: inset(50% 0 50% 0);
   }
 }
-
-@keyframes glitch-preset-4-3 {
-  0% {
-    opacity: 0;
-    clip-path: inset(20% 10% 35% 10%);
-  }
-  15% {
-    clip-path: inset(10% 30% 10% 50%);
-  }
-  25% {
-    clip-path: inset(20% 15% 40% 40%);
-  }
-  40% {
-    clip-path: inset(30% 10% 40% 25%);
-  }
-  50% {
-    clip-path: inset(10% 10% 50% 20%);
-  }
-  65% {
-    opacity: 0;
-    clip-path: inset(20% 50% 10% 10%);
-  }
-  75% {
-    opacity: 1;
-    clip-path: inset(35% 15% 35% 15%);
-  }
-  90% {
-    opacity: 1;
-    clip-path: inset(10% 35% 10% 35%);
-  }
-  100% {
-    opacity: 0;
-    clip-path: inset(20% 10% 35% 10%);
-  }
-}
-
-
-$filters: (
-        saturate: (
-                units: '',
-                range: (
-                        min: 1,
-                        max: 10
-                ),
-                probability: 1/5
-        ),
-        hue-rotate: (
-                units: 'deg',
-                probability: 1,
-                range: (
-                        min: 0,
-                        max: 360
-                ),
-        ),
-        invert: (
-                units: '',
-                probability: 1/30,
-                range: (
-                        min: 1,
-                        max: 1
-                ),
-        ),
-        contrast: (
-                units: '',
-                probability: 1/10,
-                range: (
-                        min: 1,
-                        max: 10
-                ),
-        ),
-        brightness: (
-                units: '%',
-                probability: 1/20,
-                range: (
-                        min: 25,
-                        max: 75
-                ),
-        )
-);

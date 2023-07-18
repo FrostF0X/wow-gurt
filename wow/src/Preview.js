@@ -6,10 +6,8 @@ import WowGurt from "./Mint/WowGurt.json";
 import BrowserOrientation from "./BrowserOrientation";
 import Button from "./Mint/Button";
 import {JustFrame} from "./JustFrame";
+import Scroller from "./Scroller";
 
-function query() {
-    return new URLSearchParams(document.location.search);
-}
 
 class Preview extends React.Component {
     constructor(props) {
@@ -26,7 +24,6 @@ class Preview extends React.Component {
                 <Button>Loading data</Button>
             </div>
         }
-        console.log(this.props.data);
         return (
             <div className={`preview preview-${this.state.orientation}`}>
                 <JustFrame>
@@ -34,6 +31,7 @@ class Preview extends React.Component {
                         <img src={this.props.data.image} alt={this.props.data.seed}/>
                     </div>
                 </JustFrame>
+                <Scroller/>
                 <img src="/unicorn.png" className={"unicorn"} alt="unicort"/>
             </div>
         );

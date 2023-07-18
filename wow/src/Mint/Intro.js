@@ -38,7 +38,7 @@ export default class Intro extends React.Component {
                      style={{
                          textAlign: "center",
                          textTransform: "uppercase",
-                         fontSize: '13px',
+                         fontSize: '14px',
                          fontFamily: 'Machina r'
                      }}
                 >
@@ -46,10 +46,6 @@ export default class Intro extends React.Component {
                     className={"text-highlight-cool"}>wow.gurt</span><br/>
                     nft&nbsp;collection
                 </div>
-                <a className={"twitter"} target={"_blank"} rel="noreferrer"
-                   href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                <a className={"opensea"} target={"_blank"} rel="noreferrer"
-                   href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
             </div>
         </Fragment>;
     }

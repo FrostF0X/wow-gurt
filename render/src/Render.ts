@@ -12,17 +12,17 @@ export default class Render {
     constructor(private readonly baseUrl: string) {
     }
 
-    async do(seed: number, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
+    async do(config: string, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
         let chrome = null;
         try {
-            clog(`Processing request for seed: ${seed}`);
+            clog(`Processing request for config: ${config}`);
             clog(`Time config: ${JSON.stringify(time)}`);
             clog(`Rendering config: ${JSON.stringify(render)}`);
             clog(`Starting browser`);
             chrome = await Chrome.init(render.browserSize);
             clog(`Creating page`);
             const page = await chrome.newPage();
-            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&seed=${seed}`;
+            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&config=${config}`;
             clog(`Go to url: ${URL}`);
             await page.goto(URL);
             await page.waitForSelector('.just');

@@ -1,5 +1,4 @@
 import seedrandom from "seedrandom";
-import {GlitchImagePreset} from "./GlitchImage";
 
 export default class Random {
     private readonly rng: () => number;
@@ -10,8 +9,8 @@ export default class Random {
         this.image = new Img(this);
     }
 
-    public static fresh(seed: number): Random {
-        return new Random(seed);
+    public static fresh(seed?: number | string): Random {
+        return new Random(seed ?? Number.random(1, Number.MAX_SAFE_INTEGER));
     }
 
     public img() {
@@ -43,11 +42,7 @@ class Img {
     }
 
     static all() {
-        return Array.range(1, 6).map(i => Img.img(i));
-    }
-
-    static img(x: number) {
-        return `/img-${x}.png`
+        return ['unicorn', 'polihorseman', 'stardroid', 'coolshoe', 'gurtpin', 'sexydrugrabbit'];
     }
 
     rand(): string {
@@ -58,7 +53,11 @@ class Img {
         return this.random.randomItems(Img.all(), x);
     }
 
+    randd(): number {
+        return this.random.number(1, 8);
+    }
+
     randp() {
-        return GlitchImagePreset.presets[this.random.number(0, GlitchImagePreset.presets.length - 1)];
+        return this.random.number(1, 7);
     }
 }

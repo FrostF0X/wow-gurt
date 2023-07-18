@@ -10,9 +10,6 @@
   height: 100%;
 }
 
-.just-random-chess-invert {
-
-}
 
 .just-random-chess-grid {
   position: absolute;
@@ -26,18 +23,18 @@
   box-sizing: border-box;
 }
 
-@for $i from 1 to $cellCount + 1 {
-  @for $j from 1 to $cellCount + 1 {
-    .just-random-chess-grid-cell-#{($i - 1) * $cellCount + $j} {
-      @if (($i+$j) % 2 == 0) {
+@for $col from 1 to $cellCount + 1 {
+  @for $row from 1 to $cellCount + 1 {
+    .just-random-chess-grid-cell-#{$col}-#{$row} {
+      @if (($col+$row) % 2 == 0) {
         background-color: var(--chess-color-1);
       } @else {
         background-color: var(--chess-color-2);
       }
     }
     .just-random-chess-invert {
-      .just-random-chess-grid-cell-#{($i - 1) * $cellCount + $j} {
-        @if (($i+$j) % 2 == 0) {
+      .just-random-chess-grid-cell-#{$col}-#{$row} {
+        @if (($col+$row) % 2 == 0) {
           background-color: var(--chess-color-2);
         } @else {
           background-color: var(--chess-color-1);

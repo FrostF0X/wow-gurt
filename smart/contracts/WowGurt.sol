@@ -12,7 +12,7 @@ contract WowGurt is ERC721URIStorage, Ownable {
     using SafeMath for uint256;
 
     Counters.Counter private _tokenIds;
-    uint256 private constant MAX_NFT_SUPPLY = 10000;
+    uint256 private constant MAX_NFT_SUPPLY = 9999;
     address private serverAddress;
     mapping(string => bool) private _tokenURIs;
 
@@ -128,26 +128,8 @@ contract WowGurt is ERC721URIStorage, Ownable {
     }
 
     function getPrice(uint256 currentId) public pure returns (uint256) {
-        if (currentId >= 9000) {
-            return 1 ether;
-        } else if (currentId >= 8000) {
-            return 0.5 ether;
-        } else if (currentId >= 7000) {
-            return 0.25 ether;
-        } else if (currentId >= 6000) {
-            return 0.15 ether;
-        } else if (currentId >= 5000) {
-            return 0.1 ether;
-        } else if (currentId >= 4000) {
-            return 0.05 ether;
-        } else if (currentId >= 3000) {
-            return 0.025 ether;
-        } else if (currentId >= 2000) {
-            return 0.02 ether;
-        } else if (currentId >= 1000) {
+        if (currentId >= 999) {
             return 0.01 ether;
-        } else if (currentId >= 500) {
-            return 0.005 ether;
         } else {
             return 0 ether;
         }

@@ -19,18 +19,41 @@
 
   .description {
     width: 100%;
+
+    .description-bar {
+      display: flex;
+      flex-direction: row;
+
+      .description-block {
+        width: 50%;
+
+        table {
+          tbody {
+            display: none;
+            position: absolute;
+            :focus {
+              display: flex;
+            }
+          }
+        }
+
+        .mint-socials {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
+      }
+    }
   }
 
-  .price {
-    display: none;
+  .actions {
+    margin-top: 2em;
   }
-
-  .what-is-it {
-    display: none;
-  }
-
   .unicorn {
-    position: absolute;
+    display: none;
+  }
+
+  .star {
     top: 0;
     right: 0;
     transform: scaleX(-1);
@@ -38,7 +61,7 @@
   }
 
   .just-preview {
-    height: 50vh;
+    max-height: 50vh;
     margin: 1em 0;
     width: 100%;
   }
@@ -62,31 +85,6 @@
 
   .greetings {
     margin-bottom: 0.5em;
-  }
-
-  .how-it-works {
-    display: none;
-  }
-
-
-
-  .intro {
-    position: relative;
-    .twitter {
-      display: initial;
-      top: 100%;
-      left: 37%;
-      position: absolute;
-      width: 37px;
-    }
-
-    .opensea {
-      display: initial;
-      top: 100%;
-      left: 48%;
-      position: absolute;
-      width: 30px;
-    }
   }
 
 }

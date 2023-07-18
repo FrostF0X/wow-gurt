@@ -64,10 +64,11 @@ contract("WowGurt", function (accounts) {
         assert.equal(await wowgurt.totalSupply({from: owner}), 1, "Total supply should be 1 after minting 1 nft");
     });
 
-    it("test requires minimal transaction amount after 500 attempt", async () => {
-        for (let i = 0; i < 10; i++) {
+    it("test requires minimal transaction amount after 999 attempt", async () => {
+        for (let i = 0; i < 19; i++) {
             await mintMany("0", 50);
         }
+        await mintMany("0", 49);
         await expectRevert(mint("0"), "Ether sent is not sufficient.")
         await mint("0.005");
         await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.005"), "Transaction price should be payed");

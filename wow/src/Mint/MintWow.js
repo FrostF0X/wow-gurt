@@ -10,7 +10,6 @@ export function MintWow({url, signature}) {
     const {address} = useAccount();
     const {
         config,
-        prepareError,
         isPrepareError,
     } = usePrepareContractWrite({
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -27,8 +26,9 @@ export function MintWow({url, signature}) {
             setMinted(String(parseInt(data)));
         },
     });
-    const {data, error, isError, write} = useContractWrite(config)
-
+    const writeFn = useContractWrite(config);
+    const {data, isError, write} = writeFn;
+    const isTransactionLoading = writeFn.isLoading;
     const {isLoading, isSuccess, isIdle} = useWaitForTransaction({
         hash: data?.hash,
     })
@@ -48,11 +48,13 @@ export function MintWow({url, signature}) {
             {isSuccess ? (
                 <Navigate url={`/wow/${minted}`}/>
             ) : <button className={"btn mint-btn"} disabled={!write || loading}>
-                {loading ? 'Minting...' : 'MINT WOW'}
+                {isIdle ? 'idle' : ''}
+                {isLoading ? 'loading' : ''}
+                {isTransactionLoading ? 'tx loading' : ''}
             </button>
             }
             {(isPrepareError || isError) && (
-                <div>Error: {(prepareError || error)?.message}</div>
+                <div>Mint error :(</div>
             )}
         </form>
     )

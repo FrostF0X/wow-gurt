@@ -17,11 +17,7 @@
   width: 100%;
 }
 
-.twitter {
-  display: none;
-}
-
-.opensea {
+.mint-socials {
   display: none;
 }
 
@@ -66,6 +62,7 @@
 
 .btn {
   cursor: pointer;
+  height: 49px;
 }
 
 .btn:disabled {

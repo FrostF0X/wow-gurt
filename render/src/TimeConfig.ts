@@ -4,7 +4,7 @@ export default class TimeConfig {
     }
 
     static for1024() {
-        return new TimeConfig(10, 5000, 20000 + 2000, 20);
+        return new TimeConfig(10, 10000, 20000 + 2000, 20);
     }
 
     static GIF_DURATION = 2;

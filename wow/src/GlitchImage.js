@@ -19,46 +19,14 @@ class GlitchImage extends React.Component {
 
     render() {
         return <div ref={this.container}
-                    className={`just-glitch-img-container just-glitch-preset-${this.preset.index}`}>
+                    className={`just-glitch-img-container just-glitch-preset-${this.preset}`}>
             <img className={`just-glitch-img just-glitch-img-1 ${this.additionalClass}`}
-                 src={this.img} alt={"img"}/>
+                 src={`/${this.img}.png`} alt={"img"}/>
             <img className={`just-glitch-img just-glitch-img-2 ${this.additionalClass}`}
-                 src={this.img} alt={"img"}/>
+                 src={`/${this.img}.png`} alt={"img"}/>
             <img className={`just-glitch-img just-glitch-img-3 ${this.additionalClass}`} alt={"img"}
-                 src={this.img}/>
-            <img className={`just-glitch-img just-glitch-img-4 ${this.additionalClass}`} alt={"img"}
-                 src={this.img}/>
-            <img className={`just-glitch-img just-glitch-img-5 ${this.additionalClass}`} alt={"img"}
-                 src={this.img}/>
-            <img className={`just-glitch-img just-glitch-img-6 ${this.additionalClass}`} alt={"img"}
-                 src={this.img}/>
-            <img className={`just-glitch-img just-glitch-img-7 ${this.additionalClass}`} alt={"img"}
-                 src={this.img}/>
+                 src={`/${this.img}.png`}/>
         </div>;
     }
 }
-
-export class GlitchImagePreset {
-    static presets = [
-        new GlitchImagePreset(false, 1, true),
-        new GlitchImagePreset(false, 2, true),
-        new GlitchImagePreset(false, 3, true),
-        new GlitchImagePreset(false, 4, true),
-        new GlitchImagePreset(false, 5, true),
-        new GlitchImagePreset(false, 6, true),
-        new GlitchImagePreset(false, 7, true),
-    ];
-
-    static plain = new GlitchImagePreset(true, 2, true);
-    animationDelay;
-    index;
-    doubleImage;
-
-    constructor(animationDelay, index, duplicateImage) {
-        this.animationDelay = animationDelay;
-        this.index = index;
-        this.doubleImage = duplicateImage;
-    }
-}
-
 export default GlitchImage;

@@ -2,8 +2,7 @@
 @import "Basics";
 
 .just {
-  pointer-events: none;
-  position: relative;
+  user-select: none;
   width: var(--scene-size);
   height: var(--scene-size);
   box-sizing: border-box;
@@ -23,6 +22,10 @@
   --image-pos-top-small: calc(var(--image-size) / 25.6 * -1);
   --image-pos-right-small: calc(var(--image-size) / 18.3);
   --image-pos-bottom-small: calc(var(--image-size) / 25.6);
+  --image-pos-left-big: calc(var(--image-pos-left-small) * 3);
+  --image-pos-top-big: calc(var(--image-pos-top-small) * 3);
+  --image-pos-right-big: calc(var(--image-pos-right-small) * 3);
+  --image-pos-bottom-big: calc(var(--image-pos-bottom-small) * 3);
   --image-shift-1: calc(var(--image-size) / 7);
   --image-shift-2: calc(var(--image-size) / 10);
   --image-shift-3: calc(var(--image-size) / -7);

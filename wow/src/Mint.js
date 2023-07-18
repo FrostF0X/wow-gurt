@@ -9,9 +9,13 @@ import Scroller from "./Scroller";
 import MintDescription from "./Mint/MintDescription";
 import Button from "./Mint/Button";
 import Minted from "./Mint/Minted";
-import HowItWorks from "./Mint/HowItWorks";
+import HowToWOW from "./Mint/HowToWOW";
 import "./Site/SiteOverride.scss";
 import BrowserOrientation from "./BrowserOrientation";
+import Cools from "./Random/Cools";
+import AnimationConfig from "./AnimationConfig";
+import WhatIsIt from "./Mint/WhatIsIt";
+import Price from "./Mint/Price";
 
 class Mint extends React.Component {
     provider = null;
@@ -19,10 +23,12 @@ class Mint extends React.Component {
 
     constructor(props) {
         super(props);
+        let seed = Cools.generate();
         this.state = {
             loading: false,
             btnText: "MINT WOW",
-            seed: Number.random(0, Number.MAX_SAFE_INTEGER),
+            seed: seed,
+            config: AnimationConfig.generate(seed),
             orientation: BrowserOrientation.get()
         };
         this.account = null;
@@ -34,12 +40,11 @@ class Mint extends React.Component {
     async generate() {
         try {
             this.startLoader();
-
             const response = await fetch(process.env.REACT_APP_RENDERER_ADDRESS, {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify({
-                    seed: String(this.state.seed)
+                    config: btoa(JSON.stringify(this.state.config))
                 })
             });
             const {url, signature} = (await response.json());
@@ -85,17 +90,17 @@ class Mint extends React.Component {
     }
 
     refresh = () => {
-        this.setState(state => ({...state, seed: Number.random(1, Number.MAX_SAFE_INTEGER)}));
+        let seed = Cools.generate();
+        this.setState(state => ({...state, seed: seed, config: AnimationConfig.generate(seed)}));
     }
 
     render() {
         return <div className={`mint mint-${this.state.orientation}`}>
             <div className="mint-content">
                 <MintDescription/>
-                <WowScroller key={this.state.seed} seed={this.state.seed}></WowScroller>
+                <WowScroller key={this.state.seed} config={this.state.config}></WowScroller>
                 <div className="actions">
                     <div className={"actions-inner"}>
-                        <HowItWorks/>
                         <Minted/>
                         <Button><ConnectButton accountStatus={"address"} showBalance={true}
                                                label={"CONNECT WALLET"}/></Button>
@@ -129,10 +134,11 @@ class Mint extends React.Component {
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
                                                           className={"text-highlight-cool"}>{this.state.seed}</span>
                         </div>
-                        <a className={"twitter"} target={"_blank"} rel="noreferrer"
-                           href="https://gurt.agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                        <a className={"opensea"} target={"_blank"} rel="noreferrer"
-                           href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
+                        <div className={"description-block"}>
+                            <WhatIsIt/>
+                            <Price/>
+                            <HowToWOW/>
+                        </div>
                     </div>
                 </div>
             </div>

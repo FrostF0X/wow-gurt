@@ -20,22 +20,22 @@ class Chess extends React.Component {
         return <div ref={this.randomItem} className={"just-random-chess " + this.invert}>
             <div ref={this.randomItem}
                  className={"just-random-chess-grid just-grid just-random-chess-grid-board"}>
-                {Array.range(1, this.rows).map((i) =>
-                    Array.range(1, this.cols).map((j) =>
+                {Array.range(1, this.cols).map(col =>
+                    Array.range(1, this.rows).map(row =>
                         <div
-                            key={Grid.toCellIndex(i, j)}
-                            className={`just-grid-cell just-random-chess-grid-cell-${Grid.toCellIndex(i, j)} just-grid-cell-${Grid.toCellIndex(i, j)}`}>
+                            key={Grid.toCellIndex(col, row)}
+                            className={`just-grid-cell just-random-chess-grid-cell-${Grid.toCellIndex(col, row)} just-grid-cell-${Grid.toCellIndex(col, row)}`}>
                         </div>
                     )
                 )}
             </div>
             <div ref={this.randomItem}
                  className={"just-random-chess-grid just-grid just-random-chess-grid-pieces"}>
-                {Array.range(1, this.rows).map((i) =>
-                    Array.range(1, this.cols).map((j) => {
-                            return <div key={Grid.toCellIndex(i, j)} className={"just-random-chess-piece just-grid-cell-" + Grid.toCellIndex(i, j)}>
+                {Array.range(1, this.cols).map((col) =>
+                    Array.range(1, this.rows).map((row) => {
+                            return <div key={Grid.toCellIndex(col, row)} className={`just-random-chess-piece just-grid-cell-${Grid.toCellIndex(col, row)} ${this.props.division.startCol + col}-${this.props.division.startRow + row}`}>
                                 <GlitchImage img={this.img} preset={this.preset}
-                                             animationDelayedStart={Grid.animationDelay(this.props.division.startRow + i, this.props.division.startCol + j)}/>
+                                             animationDelayedStart={Grid.animationDelay(this.props.division.startCol + col, this.props.division.startRow + row)}/>
                             </div>;
                         }
                     )

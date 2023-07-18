@@ -1,23 +1,20 @@
 import React, {createRef} from 'react';
-import Just from "./Just";
+import Wow from "./Wow";
 import {JustFrame} from "./JustFrame";
-import AnimationConfig from "./AnimationConfig";
 
 export default class WowScroller extends React.Component {
-
 
     constructor(props, context) {
         super(props, context);
         this.state = {size: 512};
         this.ref = createRef();
-        this.config = AnimationConfig.generate(this.props.seed);
         this.key = 0;
     }
 
     componentDidMount() {
-        this.setState({size: Math.min(this.ref.current.offsetWidth * 0.9, this.ref.current.offsetHeight * 0.9)});
+        this.setState({size: Math.min(this.ref.current.offsetWidth * 0.85, this.ref.current.offsetHeight * 0.85)});
         this.listener = () => {
-            this.setState({size: Math.min(this.ref.current.offsetWidth * 0.9, this.ref.current.offsetHeight * 0.9)});
+            this.setState({size: Math.min(this.ref.current.offsetWidth * 0.85, this.ref.current.offsetHeight * 0.85)});
         };
         window.addEventListener('resize', this.listener);
     }
@@ -30,10 +27,10 @@ export default class WowScroller extends React.Component {
         return <div ref={this.ref} className="just-preview">
             <div className="just-container">
                 <JustFrame plain={true}>
-                    <Just
+                    <Wow
                         key={this.state.seed}
                         dynamic={true}
-                        config={this.config}
+                        config={this.props.config}
                         size={this.state.size}
                     />
                 </JustFrame>

@@ -8,6 +8,8 @@ declare interface Array<T> {
 
 declare interface NumberConstructor {
     random(min: number, max: number): number;
+
+    beautiful(): number;
 }
 
 declare interface ArrayConstructor {

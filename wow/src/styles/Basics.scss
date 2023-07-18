@@ -7,8 +7,53 @@ $black: #000000;
 
 $highlightPink: #FE2AAA;
 $highlightGreen: #04C74F;
+
 body {
   font-family: Machina ub, serif;
+  font-size: 1em;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+table td {
+  font-family: "Inter", serif;
+  font-size: 0.8em;
+}
+
+table thead th {
+  font-family: Machina r, serif;
+  padding: 0.5em 0;
+  border-bottom: 1px solid white;
+}
+
+table.padded {
+  border: 1px solid white;
+}
+
+table.padded thead th {
+  text-align: center;
+}
+
+table.padded tr td:first-child {
+  padding-left: 0.5em;
+}
+
+table.padded tr td:last-child {
+  padding-right: 0.5em;
+}
+
+table tbody tr:first-child td {
+  padding-top: 0.5em;
+}
+
+table tbody tr:last-child td {
+  padding-bottom: 0.5em;
 }
 
 .text-highlight {
@@ -17,6 +62,10 @@ body {
 
 .text-highlight-cool {
   color: $highlightPink;
+}
+
+.text-highlight-big {
+  text-decoration: underline;
 }
 
 div {

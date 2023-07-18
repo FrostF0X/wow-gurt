@@ -109,19 +109,12 @@
   }
 
   .actions {
-    .twitter {
-      margin-left: 30%;
-      padding: 10px;
-      height: 70px;
+    .description-block {
+      display: none;
     }
-
-    .opensea {
-      margin-left: 10%;
-      padding: 10px;
-      height: 70px;
+    .mint-socials {
+      display: flex;
     }
   }
-
-
 }
 
