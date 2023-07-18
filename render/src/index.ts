@@ -58,7 +58,7 @@ Server.create("post", PORT, async (req, res) => {
     const newTokenId = await contract.getCurrentTokenId();
     const gifMetadata = {
         "name": `#${newTokenId} ${names[newTokenId]}`,
-        "description": `Glitchy new WOW generated with: ${req.body.seed}`,
+        "description": `Glitchy new WOW generated with: #${newTokenId} ${req.body.seed}`,
         "seed": `${req.body.seed}`,
         "image": gifUrl,
         "config": `${config}`,

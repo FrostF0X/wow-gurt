@@ -45,7 +45,7 @@ class Mint extends React.Component {
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify({
                     config: btoa(JSON.stringify(this.state.config)),
-                    seed: `#${this.state.minted} ${this.state.seed}`,
+                    seed: `${this.state.seed}`,
                 })
             });
             const {input, signature} = (await response.json());
