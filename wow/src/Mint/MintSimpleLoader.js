@@ -11,7 +11,7 @@ export default class MintSimpleLoader extends React.Component {
 
     componentDidMount() {
         setInterval(() => {
-            this.setState({timer: --this.state.timer});
+            this.setState({timer: this.state.timer - 1});
         }, 1000);
     }
 
