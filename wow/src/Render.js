@@ -54,7 +54,7 @@ class Render extends React.Component {
         })
         return [
             ...animations.filter(this.onlyUnique).flatMap((a) => (Array.range(1, 13).map(i => ({
-                trait_type: `Animation ${i}`,
+                trait_type: `Animation ${(this.number(i))}`,
                 value: a
             })))),
             ...assets.filter(this.onlyUnique).flatMap(a => (Array.range(1, 6).map(i => ({
@@ -66,6 +66,13 @@ class Render extends React.Component {
                 value: chess ? Color.reverseColorMap(c.colors[0]) + ' & ' + Color.reverseColorMap(c.colors[1]) : 'None'
             }
         ];
+    }
+
+    number(i) {
+        if (i < 10) {
+            return "0" + i;
+        }
+        return i
     }
 
     formatImg(img) {

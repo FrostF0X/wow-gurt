@@ -48,9 +48,7 @@ export function MintWow({url, signature}) {
             {isSuccess ? (
                 <Navigate url={`/wow/${minted}`}/>
             ) : <button className={"btn mint-btn"} disabled={!write || loading}>
-                {isIdle ? 'idle' : ''}
-                {isLoading ? 'loading' : ''}
-                {isTransactionLoading ? 'tx loading' : ''}
+                {isLoading || isIdle || isTransactionLoading ? 'Loading...' : ''}
             </button>
             }
             {(isPrepareError || isError) && (
