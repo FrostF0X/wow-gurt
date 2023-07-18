@@ -22,7 +22,8 @@ contract("WowGurt", function (accounts) {
     });
 
     it("Should mint new token correctly", async function () {
-        const transaction = await wowgurt.mintNFT(recipient, tokenURI, {from: owner});
+        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
+        const transaction = await wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner});
         assert.equal(await wowgurt.ownerOf(getEventOfType(transaction, "NewWowMinted").tokenId), recipient, "Token id is not returned to contract");
     });
 
@@ -59,9 +60,13 @@ contract("WowGurt", function (accounts) {
     })
 
     it("test increases total supply when minted", async () => {
-        assert.equal(await wowgurt.totalSupply({from: owner}), 0, "Total supply should be initiated with 0");
+        assert.equal(await wowgurt.totalSupply({from: owner}), 1, "Total supply should be initiated with 1");
         await mint("0");
-        assert.equal(await wowgurt.totalSupply({from: owner}), 1, "Total supply should be 1 after minting 1 nft");
+        assert.equal(await wowgurt.totalSupply({from: owner}), 2, "Total supply should be 2 after minting 1 nft");
+    });
+
+    it("cannot withdraw by not owner", async () => {
+        await expectRevert(wowgurt.withdraw({from: recipient}), 'Ownable: caller is not the owner -- Reason given: Ownable: caller is not the owner.');
     });
 
     it("test requires minimal transaction amount after 999 attempt", async () => {
@@ -71,11 +76,11 @@ contract("WowGurt", function (accounts) {
         await mintMany("0", 49);
         await expectRevert(mint("0"), "Ether sent is not sufficient.")
         await mint("0.01");
-        await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.005"), "Transaction price should be payed");
+        await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.01"), "Transaction price should be payed");
         const current = await web3.eth.getBalance(owner);
         await wowgurt.withdraw({from: owner})
         const newB = await web3.eth.getBalance(owner)
-        await assert.isAbove(newB - current, parseInt(web3.utils.toWei("0.0049")), "Balance should be more after withdraw");
+        await assert.isAbove(newB - current, parseInt(web3.utils.toWei("0.0099")), "Balance should be more after withdraw");
     })
 
     function mint(amount) {

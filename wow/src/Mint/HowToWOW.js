@@ -30,7 +30,8 @@ export default class HowToWOW extends React.Component {
                         2)
                     </td>
                     <td>
-                        Click <img style={{display: "inline-block", width: "12px"}} src="/refresh.svg"
+                        Click <img style={{marginBottom: '-2px', display: "inline-block", width: "1em",
+                        'filter': 'invert(52%) sepia(87%) saturate(657%) hue-rotate(96deg) brightness(92%) contrast(97%)'}} src="/refresh.svg"
                                    alt=""/> button to reroll tiles,
                     </td>
                 </tr>

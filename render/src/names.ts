@@ -1,4 +1,5 @@
 export default [
+    'Token 0 should not exist',
     "Enjoy WOW.",
     "It's Your WOW!",
     "One WOW Is Better Than Two Of Something Else.",

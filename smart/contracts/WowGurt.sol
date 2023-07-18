@@ -20,6 +20,7 @@ contract WowGurt is ERC721URIStorage, Ownable {
 
     constructor(address _serverAddress) ERC721("WowGurt", "WGURT") {
         serverAddress = _serverAddress;
+        _tokenIds.increment();
     }
 
     function totalSupply() public view returns (uint256) {
@@ -32,7 +33,7 @@ contract WowGurt is ERC721URIStorage, Ownable {
     }
 
     function mintNFT(address recipient, string memory tokenURI, bytes memory signature) public payable returns (uint256) {
-        require(_tokenIds.current() < MAX_NFT_SUPPLY, "No more NFTs available for minting.");
+        require(_tokenIds.current() <= MAX_NFT_SUPPLY, "No more NFTs available for minting.");
         require(!_tokenURIs[tokenURI], "NFT with same tokenURI already exists.");
         _tokenURIs[tokenURI] = true;
 
@@ -128,7 +129,7 @@ contract WowGurt is ERC721URIStorage, Ownable {
     }
 
     function getPrice(uint256 currentId) public pure returns (uint256) {
-        if (currentId >= 999) {
+        if (currentId > 999) {
             return 0.01 ether;
         } else {
             return 0 ether;

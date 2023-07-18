@@ -44,7 +44,7 @@ Server.create("post", PORT, async (req, res) => {
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
     const gifUrl = `${IPFS_PUBLIC_URL}/${gifResult.path}`;
-    const newTokenId = await contract.getCurrentTokenId() + 1;
+    const newTokenId = await contract.getCurrentTokenId();
     const gifMetadata = {
         "name": `${names[newTokenId]}`,
         "description": `Fresh new WOW ${newTokenId} !!!`,

@@ -22,7 +22,7 @@ export default function Minted() {
     }}>
         <div>Mint:</div>
         <div style={{width: '166px', textAlign: 'right'}}><span
-            className="text-highlight-cool">{parseInt(minted) + 1}</span> / 9999
+            className="text-highlight-cool">{parseInt(minted)}</span> / 9999
         </div>
     </div>
 }
