@@ -6,16 +6,15 @@ import Navigate from "../Common/Navigate";
 
 let initialExecute = false;
 
-export function MintWow({url, signature}) {
+export function MintWow({input, signature}) {
     const {address} = useAccount();
     const {
         config,
-        isPrepareError,
     } = usePrepareContractWrite({
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
         abi: WowGurt.abi,
         functionName: 'mintNFT',
-        args: [address, url, signature],
+        args: [address, input, signature],
     })
     const [minted, setMinted] = useState([`???`]);
     useContractRead({
@@ -27,9 +26,9 @@ export function MintWow({url, signature}) {
         },
     });
     const writeFn = useContractWrite(config);
-    const {data, isError, write} = writeFn;
+    const {data, status, write} = writeFn;
     const isTransactionLoading = writeFn.isLoading;
-    const {isLoading, isSuccess, isIdle} = useWaitForTransaction({
+    const {isIdle} = useWaitForTransaction({
         hash: data?.hash,
     })
 
@@ -37,7 +36,6 @@ export function MintWow({url, signature}) {
         write();
         initialExecute = true;
     }
-    let loading = isIdle || isLoading;
     return (
         <form
             onSubmit={(e) => {
@@ -45,15 +43,14 @@ export function MintWow({url, signature}) {
                 write?.()
             }}
         >
-            {isSuccess ? (
+            {status === "success" ? (
                 <Navigate url={`/wow/${minted}`}/>
-            ) : <button className={"btn mint-btn"} disabled={!write || loading}>
-                {isLoading || isIdle || isTransactionLoading ? 'Loading...' : ''}
+            ) : <button className={"btn mint-btn"} disabled={status !== "error"}>
+                {isIdle && !isTransactionLoading ? 'Proceed in Wallet' : ''}
+                {isTransactionLoading ? 'Transaction loading' : ''}
+                {status === "error" ? 'Mint error, retry' : ''}
             </button>
             }
-            {(isPrepareError || isError) && (
-                <div>Mint error :(</div>
-            )}
         </form>
     )
 }

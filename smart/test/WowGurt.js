@@ -7,12 +7,12 @@ function getEventOfType(transaction, event) {
     let found = [...transaction.logs].find(t => t.event === event);
     return found ? found.args : new Error(`Event ${event} is not emitted during transaction`);
 }
-
 contract("WowGurt", function (accounts) {
     let wowgurt;
     const owner = accounts[0];
     const recipient = accounts[1];
     const tokenURI = "tokenURI";
+    const tokenURI2 = "tokenURI2";
     const serverAddress = '0xfd3c9c16e5b8efaa49ecb7e31b781994d5761d51';
     const privateKey = '0xb4c8c92a93385e6a11a05de751676691f310f029cef7e1a6758a1a391f60bafa';
     const wrongPrivateKey = '0x2959efc611bcecfbf86395032eb36e222716974d9ae3692b486cc837f6d25f4e';
@@ -21,47 +21,72 @@ contract("WowGurt", function (accounts) {
         wowgurt = await WowGurt.new(serverAddress, {from: owner});
     });
 
+    it("Cannot mint with not proper input", async function () {
+        const input = wrongInput(tokenURI, 1);
+        const signature = web3.eth.accounts.sign(input, privateKey);
+        await expectRevert(wowgurt.mintNFT(recipient, input, signature.signature, {from: owner}), "VM Exception while processing transaction: revert");
+    })
+
+    it("Can mint with proper input", async function () {
+        const {input, signature} = fullInput(1);
+        const transaction = await wowgurt.mintNFT(recipient, input, signature, {from: owner});
+        assert.equal(await wowgurt.ownerOf(getEventOfType(transaction, "NewWowMinted").tokenId), recipient, "Token id is not returned to contract");
+    })
+
+    it("test cannot mint same nft 2 times", async () => {
+        const input1 = input(tokenURI, 1);
+        const input2 = input(tokenURI, 2);
+        const signature1 = web3.eth.accounts.sign(input1, privateKey);
+        await wowgurt.mintNFT(recipient, input1, signature1.signature, {from: owner});
+        const signature2 = web3.eth.accounts.sign(input2, privateKey);
+        await expectRevert(wowgurt.mintNFT(recipient, input2, signature2.signature, {from: owner}), "NFT with same tokenURI already exists.");
+    })
+
+    it("test cannot mint nfts with same id 2 times", async () => {
+        const input1 = input(tokenURI, 1);
+        const input2 = input(tokenURI2, 1);
+        const signature1 = web3.eth.accounts.sign(input1, privateKey);
+        await wowgurt.mintNFT(recipient, input1, signature1.signature, {from: owner});
+        const signature2 = web3.eth.accounts.sign(input2, privateKey);
+        await expectRevert(wowgurt.mintNFT(recipient, input2, signature2.signature, {from: owner}), "NFT with same token id already exists.");
+    })
+
     it("Should mint new token correctly", async function () {
-        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
-        const transaction = await wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner});
+        const {input, signature} = fullInput(1);
+        const transaction = await wowgurt.mintNFT(recipient, input, signature, {from: owner});
         assert.equal(await wowgurt.ownerOf(getEventOfType(transaction, "NewWowMinted").tokenId), recipient, "Token id is not returned to contract");
     });
 
     it("Should set tokenURI correctly", async function () {
-        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
-        const transaction = await wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner});
+        const {input, signature, tokenURI} = fullInput(1);
+        const transaction = await wowgurt.mintNFT(recipient, input, signature, {from: owner});
         assert.equal(await wowgurt.tokenURI(getEventOfType(transaction, "NewWowMinted").tokenId), tokenURI, "Token URI is set correctly");
     });
 
     it("test that signed messages are accepted by smart contract", async () => {
-        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
-        const transaction = await wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner});
+        const {input, signature, tokenURI} = fullInput(1);
+        const transaction = await wowgurt.mintNFT(recipient, input, signature, {from: owner});
         assert.equal(await wowgurt.tokenURI(getEventOfType(transaction, "NewWowMinted").tokenId), tokenURI, "Token URI is set correctly");
     });
 
     it("test that wrong signed messages are not accepted by smart contract", async () => {
-        await expectRevert(wowgurt.mintNFT(recipient, tokenURI, "lol", {from: owner}), "invalid arrayify value (argument=\"value\", value=\"0x0l\", code=INVALID_ARGUMENT, version=bytes/5.6.1)");
+        await expectRevert(wowgurt.mintNFT(recipient, fullInput(1).input, "lol", {from: owner}), "invalid arrayify value (argument=\"value\", value=\"0x0l\", code=INVALID_ARGUMENT, version=bytes/5.6.1)");
     });
 
     it("test that wrong PK signed messages are not accepted by smart contract", async () => {
-        const signature = web3.eth.accounts.sign(tokenURI, wrongPrivateKey);
-        await expectRevert(wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner}), "Unauthorized mint attempt.");
+        const {input} = fullInput(1);
+        const signature = web3.eth.accounts.sign(input, wrongPrivateKey);
+        await expectRevert(wowgurt.mintNFT(recipient, input, signature.signature, {from: owner}), "Unauthorized mint attempt.");
     });
 
     it("test that wrong data signed messages are not accepted by smart contract", async () => {
-        const signature = web3.eth.accounts.sign(tokenURI, wrongPrivateKey);
-        await expectRevert(wowgurt.mintNFT(recipient, "random data", signature.signature, {from: owner}), "Unauthorized mint attempt.");
+        const signature = web3.eth.accounts.sign(input(tokenURI, 1), privateKey);
+        await expectRevert(wowgurt.mintNFT(recipient, input(tokenURI2, 1), signature.signature, {from: owner}), "Unauthorized mint attempt.");
     });
-
-    it("test cannot mint same nft 2 times", async () => {
-        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
-        await wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner});
-        await expectRevert(wowgurt.mintNFT(recipient, tokenURI, signature.signature, {from: owner}), "NFT with same tokenURI already exists.");
-    })
 
     it("test increases total supply when minted", async () => {
         assert.equal(await wowgurt.totalSupply({from: owner}), 1, "Total supply should be initiated with 1");
-        await mint("0");
+        await mint(1, "0");
         assert.equal(await wowgurt.totalSupply({from: owner}), 2, "Total supply should be 2 after minting 1 nft");
     });
 
@@ -70,12 +95,11 @@ contract("WowGurt", function (accounts) {
     });
 
     it("test requires minimal transaction amount after 999 attempt", async () => {
-        for (let i = 0; i < 19; i++) {
-            await mintMany("0", 50);
+        for (let i = 1; i < 1000; i++) {
+            await mint(i, "0");
         }
-        await mintMany("0", 49);
-        await expectRevert(mint("0"), "Ether sent is not sufficient.")
-        await mint("0.01");
+        await expectRevert(mint(1000, "0"), "Ether sent is not sufficient.")
+        await mint(1000, "0.01");
         await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.01"), "Transaction price should be payed");
         const current = await web3.eth.getBalance(owner);
         await wowgurt.withdraw({from: owner})
@@ -83,16 +107,30 @@ contract("WowGurt", function (accounts) {
         await assert.isAbove(newB - current, parseInt(web3.utils.toWei("0.0099")), "Balance should be more after withdraw");
     })
 
-    function mint(amount) {
-        let tokenURI = crypto.randomUUID();
-        const signature = web3.eth.accounts.sign(tokenURI, privateKey);
-        return wowgurt.mintNFT(recipient, tokenURI, signature.signature, {
+    function mint(tokenId, amount) {
+        const {input, signature} = fullInput(tokenId);
+        return wowgurt.mintNFT(recipient, input, signature, {
             from: owner, value: web3.utils.toWei(amount, 'ether')
         });
 
     }
 
-    function mintMany(amount, x) {
-        return Promise.all([...Array(x)].map(() => mint(amount)));
+    function input(tokenURI, tokenId) {
+        const types = ['string', 'uint256'];
+        const values = [tokenURI, tokenId];
+        return web3.eth.abi.encodeParameters(types, values);
+    }
+
+    function wrongInput(tokenURI, tokenId) {
+        const types = ['uint256', 'string'];
+        const values = [tokenId, tokenURI];
+        return web3.eth.abi.encodeParameters(types, values);
+    }
+
+    function fullInput(tokenId) {
+        let tokenURI = crypto.randomUUID();
+        const in1 = input(tokenURI, tokenId);
+        const signature = web3.eth.accounts.sign(in1, privateKey);
+        return {input: in1, tokenURI, signature: signature.signature};
     }
 });

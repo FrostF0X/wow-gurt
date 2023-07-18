@@ -32,17 +32,24 @@ contract WowGurt is ERC721URIStorage, Ownable {
         require(success, "Withdrawal failed");
     }
 
-    function mintNFT(address recipient, string memory tokenURI, bytes memory signature) public payable returns (uint256) {
+    function decodeInput(bytes memory encodedData) public pure returns (string memory, uint256) {
+        (string memory str, uint256 num) = abi.decode(encodedData, (string, uint256));
+        return (str, num);
+    }
+
+    function mintNFT(address recipient, bytes memory input, bytes memory signature) public payable returns (uint256) {
+        require(recoverSigner(string(input), signature) == serverAddress, "Unauthorized mint attempt.");
+        (string memory tokenURI, uint256 providedTokenId) = this.decodeInput(input);
+        uint256 newItemId = _tokenIds.current();
+
+
         require(_tokenIds.current() <= MAX_NFT_SUPPLY, "No more NFTs available for minting.");
         require(!_tokenURIs[tokenURI], "NFT with same tokenURI already exists.");
+        require(_tokenIds.current() == providedTokenId, "NFT with same token id already exists.");
         _tokenURIs[tokenURI] = true;
-
-        uint256 newItemId = _tokenIds.current();
 
         uint256 price = getPrice(newItemId);
         require(msg.value >= price, "Ether sent is not sufficient.");
-
-        require(recoverSigner(tokenURI, signature) == serverAddress, "Unauthorized mint attempt.");
 
         _tokenIds.increment();
         _mint(recipient, newItemId);

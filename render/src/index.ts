@@ -9,6 +9,7 @@ import Sign from "./Sign";
 import Contract from "./Contract";
 import {clog} from "./utils";
 import names from "./names";
+import {ethers} from "ethers";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -31,6 +32,12 @@ const contract = new Contract(
     process.env.RPC_PROVIDER_URL ?? throwExpression("Please define RPC_PROVIDER_URL"),
     process.env.CONTRACT_ADDRESS ?? throwExpression("Please define CONTRACT_URL")
 )
+
+function encodeInput(metadataUrl: string, newTokenId: number) {
+    const abiCoder = new ethers.AbiCoder();
+    return abiCoder.encode(['string', 'uint256'], [metadataUrl, newTokenId]);
+}
+
 Server.create("post", PORT, async (req, res) => {
     if (!req.body.config) {
         console.log(req.body);
@@ -51,7 +58,7 @@ Server.create("post", PORT, async (req, res) => {
     const newTokenId = await contract.getCurrentTokenId();
     const gifMetadata = {
         "name": `${names[newTokenId]}`,
-        "description": `Glitchy new WOW generated with ${req.body.seed}`,
+        "description": `Glitchy new WOW generated with: ${req.body.seed}`,
         "seed": `${req.body.seed}`,
         "image": gifUrl,
         "config": `${config}`,
@@ -61,7 +68,13 @@ Server.create("post", PORT, async (req, res) => {
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
     const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
     clog(`Url: ${metadataUrl}`);
-    res.json({metadata: gifMetadata, url: metadataUrl, signature: signer.sign(metadataUrl)});
+    const input = encodeInput(metadataUrl, newTokenId);
+    res.json({
+        metadata: gifMetadata,
+        url: metadataUrl,
+        signature: signer.sign(input),
+        input: input
+    });
     await tmp.clear();
 })
 

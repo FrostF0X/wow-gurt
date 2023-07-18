@@ -42,7 +42,7 @@
  */
 
 require('dotenv').config();
-const {MNEMONIC, INFURA_PROJECT_ID} = process.env;
+const {MNEMONIC, INFURA_GOERLI_PROJECT_ID} = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 

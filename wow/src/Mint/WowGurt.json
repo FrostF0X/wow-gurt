@@ -483,14 +483,39 @@
     {
       "inputs": [
         {
+          "internalType": "bytes",
+          "name": "encodedData",
+          "type": "bytes"
+        }
+      ],
+      "name": "decodeInput",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
           "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
         {
-          "internalType": "string",
-          "name": "tokenURI",
-          "type": "string"
+          "internalType": "bytes",
+          "name": "input",
+          "type": "bytes"
         },
         {
           "internalType": "bytes",
@@ -530,4 +555,5 @@
       "type": "function",
       "constant": true
     }
-  ]}
+  ]
+}

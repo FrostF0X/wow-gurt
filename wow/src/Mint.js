@@ -15,6 +15,7 @@ import Cools from "./Random/Cools";
 import AnimationConfig from "./AnimationConfig";
 import WhatIsIt from "./Mint/WhatIsIt";
 import Price from "./Mint/Price";
+import MintSimpleLoader from "./Mint/MintSimpleLoader";
 
 class Mint extends React.Component {
     provider = null;
@@ -47,8 +48,8 @@ class Mint extends React.Component {
                     seed: `#${this.state.minted} ${this.state.seed}`,
                 })
             });
-            const {url, signature} = (await response.json());
-            this.setState((state) => ({...state, url, signature}));
+            const {input, signature} = (await response.json());
+            this.setState((state) => ({...state, input, signature}));
         } finally {
             this.stopLoader();
         }
@@ -58,29 +59,11 @@ class Mint extends React.Component {
         this.setState((prevState) => ({
             ...prevState,
             loading: true,
+            btnText: <MintSimpleLoader/>
         }));
-        this.loader();
         this.loaderInterval = setInterval(() => {
-            this.loader();
-        }, 325);
-    }
-
-    loader() {
-        this.loaderPos++;
-        let size = 6;
-        let window = 5;
-        if (this.loaderPos >= size) {
-            this.loaderPos = 0;
-        }
-        this.setState((prevState) => ({
-            ...prevState,
-            btnText: Array.range(1, window - 1).map((i) => {
-                return <img
-                    className={`loader ${i % 2 === 0 ? 'loader-inverted' : ''} ${!((this.loaderPos + 1) % window === i || this.loaderPos % window === i) ? 'loader-empty' : ''}`}
-                    src={"/loader.svg"}
-                    alt={"loader"}/>;
-            })
-        }));
+            this.refresh();
+        }, 500);
     }
 
     stopLoader() {
@@ -101,28 +84,28 @@ class Mint extends React.Component {
                 <WowScroller key={this.state.seed} config={this.state.config}></WowScroller>
                 <div className="actions">
                     <div className={"actions-inner"}>
-                        <Minted setMinted={(m) => this.setState((prev) => ({minted: m}))}/>
+                        <Minted setMinted={(m) => this.setState(() => ({minted: m}))}/>
                         <Button><ConnectButton accountStatus={"address"} showBalance={true}
                                                label={"CONNECT WALLET"}/></Button>
                         <div style={{
                             display: "flex", flexDirection: "row", justifyContent: "stretch", alignItems: "stretch"
                         }}>
-                            <Button>
+                            <Button absolutes={<div className={'pointer-wow-container pointer-wow-refresh-container'}>
+                                <img src="/pointer-hand.png" alt="pointer"
+                                     className={"pointer-wow"}/>
+                            </div>
+                            }>
                                 <button
-                                    disabled={this.state.url || this.state.loading}
+                                    disabled={this.state.input || this.state.loading}
                                     className="btn refresh-btn"
                                     onClick={this.refresh}>
                                     &nbsp;
                                     <img src="/refresh.svg" alt=""/>
-                                    <div className={'pointer-wow-container pointer-wow-refresh-container'}>
-                                        <img src="/pointer-hand.png" alt="pointer"
-                                             className={"pointer-wow"}/>
-                                    </div>
                                 </button>
                             </Button>
 
-                            {this.state.url ? <Button style={{width: '100%'}}><MintWow
-                                    url={this.state.url} signature={this.state.signature}/></Button> :
+                            {this.state.input ? <Button style={{width: '100%'}}><MintWow
+                                    input={this.state.input} signature={this.state.signature}/></Button> :
                                 <Button style={{width: '100%'}}>
                                     <button disabled={!this.props.address || this.state.loading}
                                             className={`btn generate-btn ${this.state.loading ? 'generate-btn-loading' : ''}`}
@@ -133,7 +116,8 @@ class Mint extends React.Component {
                             display: "flex",
                             justifyContent: "space-around",
                             padding: "10px 0 10px 0",
-                            fontFamily: "Machina r"
+                            fontFamily: "Machina r",
+                            height: "100px"
                         }}>
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
                                                           className={"text-highlight-cool"}>#{this.state.minted} {this.state.seed}</span>

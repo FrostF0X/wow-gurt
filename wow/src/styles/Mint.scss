@@ -53,7 +53,7 @@
   border: none;
 }
 
-.generate-btn.generate-btn-loading {
+.generate-btn-loading {
   padding: 2px 3px;
   display: flex;
   flex-direction: row;
@@ -132,4 +132,8 @@
 
 .tutorial-hide .just-preview .just-random-frame-toolbar-text {
   display: none;
+}
+
+.button-wrapper {
+  position: relative;
 }
