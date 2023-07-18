@@ -34,12 +34,16 @@ const contract = new Contract(
 Server.create("post", PORT, async (req, res) => {
     if (!req.body.config) {
         console.log(req.body);
-        res.status(400).json({"error": `Config must be present ${Number.MAX_SAFE_INTEGER}`});
+        res.status(400).json({"error": `config must be present`});
+    }
+    if (!req.body.seed) {
+        console.log(req.body);
+        res.status(400).json({"error": `seed must be present`});
     }
     const config = req.body.config;
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    const metadata = await render.do(config, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const attributes = await render.do(config, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
@@ -47,10 +51,11 @@ Server.create("post", PORT, async (req, res) => {
     const newTokenId = await contract.getCurrentTokenId();
     const gifMetadata = {
         "name": `${names[newTokenId]}`,
-        "description": `Fresh new WOW ${newTokenId} !!!`,
+        "description": `Glitchy new WOW generated with ${req.body.seed}`,
+        "seed": `${req.body.seed}`,
         "image": gifUrl,
         "config": `${config}`,
-        "attributes": metadata,
+        "attributes": attributes,
         "external_url": `${BASE_URL}/wow/${newTokenId}`
     };
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));

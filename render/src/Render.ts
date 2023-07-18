@@ -55,7 +55,7 @@ export default class Render {
                     .run()
             );
             clog(`Done.`);
-            return JSON.parse((await page.$eval('#just-metadata', (element: Element) => element.attributes.getNamedItem('data-json')?.value))
+            return JSON.parse((await page.$eval('#just-attributes', (element: Element) => element.attributes.getNamedItem('data-json')?.value))
                 ?? throwExpression('Cannot evaluate function')
             );
         } catch (e) {

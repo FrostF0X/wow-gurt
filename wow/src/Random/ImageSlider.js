@@ -17,7 +17,6 @@ class ImageSlider extends React.Component {
         super(props, context);
         this.item = createRef();
         this.c = this.props.config;
-        console.log(this.props.division);
     }
 
     render() {

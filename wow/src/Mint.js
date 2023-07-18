@@ -44,7 +44,8 @@ class Mint extends React.Component {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify({
-                    config: btoa(JSON.stringify(this.state.config))
+                    config: btoa(JSON.stringify(this.state.config)),
+                    seed: this.state.seed,
                 })
             });
             const {url, signature} = (await response.json());
@@ -133,6 +134,12 @@ class Mint extends React.Component {
                         }}>
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
                                                           className={"text-highlight-cool"}>{this.state.seed}</span>
+                        </div>
+                        <div className={"mint-socials"}>
+                            <a className={"twitter"} target={"_blank"} rel="noreferrer"
+                               href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
+                            <a className={"opensea"} target={"_blank"} rel="noreferrer"
+                               href="https://opensea.com"><img src={"/opensea.svg"} alt={"opensea"}/></a>
                         </div>
                         <div className={"description-block"}>
                             <WhatIsIt/>

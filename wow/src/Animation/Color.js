@@ -8,6 +8,15 @@ export default class Color {
         'orange': '#ffa418',
         'violet': '#6805d3',
     };
+    static reverse = {
+        '#e82099': 'Pink',
+        '#9DD544FF': 'Green',
+        '#000000': 'Black',
+        '#a9cee5': 'Gray',
+        '#0047FF': 'Blue',
+        '#ffa418': 'Orange',
+        '#6805d3': 'Violet',
+    };
     static variants = [
         [Color.colors.pink, Color.colors.violet],
         [Color.colors.orange, Color.colors.violet],
@@ -21,6 +30,10 @@ export default class Color {
         [Color.colors.blue, Color.colors.gray],
         [Color.colors.black, Color.colors.gray],
     ];
+
+    static reverseColorMap = (i) => {
+        return Color.reverse[i];
+    }
 
     static setColors(one, two, el) {
         el.style.setProperty('--chess-color-1', one);
