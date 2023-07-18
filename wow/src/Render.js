@@ -53,14 +53,14 @@ class Render extends React.Component {
             }
         })
         return [
-            ...animations.filter(this.onlyUnique).map((a) => ({
-                trait_type: 'Animations',
+            ...animations.filter(this.onlyUnique).flatMap((a) => (Array.range(1, 13).map(i => ({
+                trait_type: `Animation ${i}`,
                 value: a
-            })),
-            ...assets.filter(this.onlyUnique).map(a => ({
-                trait_type: 'Characters',
+            })))),
+            ...assets.filter(this.onlyUnique).flatMap(a => (Array.range(1, 6).map(i => ({
+                trait_type: `Character ${i}`,
                 value: a
-            })),
+            })))),
             {
                 trait_type: 'Chess',
                 value: chess ? Color.reverseColorMap(c.colors[0]) + ' & ' + Color.reverseColorMap(c.colors[1]) : 'None'
