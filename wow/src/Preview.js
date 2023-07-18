@@ -64,6 +64,9 @@ const RealPreview = (props) => {
         async onSuccess(data) {
             setData(await (await fetch(data)).json());
         },
+        async onError() {
+            location.reload();
+        }
     });
     return <Preview
         {...props}
