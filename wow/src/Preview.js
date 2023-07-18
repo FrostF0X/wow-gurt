@@ -38,7 +38,7 @@ class Preview extends React.Component {
     }
 }
 
-export default (props) => {
+const realPreview = (props) => {
     const {id} = useParams()
     const [data, setData] = useState();
     useContractRead({
@@ -56,3 +56,5 @@ export default (props) => {
         data={data}
     />
 };
+
+export default realPreview;
