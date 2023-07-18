@@ -8,6 +8,7 @@ import Server from "./Server";
 import Sign from "./Sign";
 import Contract from "./Contract";
 import {clog} from "./utils";
+import names from "./names";
 
 function throwExpression(errorMessage: string): never {
     throw new Error(errorMessage);
@@ -45,8 +46,8 @@ Server.create("post", PORT, async (req, res) => {
     const gifUrl = `${IPFS_PUBLIC_URL}/${gifResult.path}`;
     const newTokenId = await contract.getCurrentTokenId() + 1;
     const gifMetadata = {
-        "name": `WOW ${newTokenId}`,
-        "description": `Wow generated from config`,
+        "name": `${names[newTokenId]}`,
+        "description": `Fresh new WOW ${newTokenId} !!!`,
         "image": gifUrl,
         "config": `${config}`,
         "attributes": metadata,
