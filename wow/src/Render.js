@@ -48,6 +48,8 @@ class Render extends React.Component {
                     animations.push(this.formatAnimation(c.config.preset, c.config.img));
                     chess = true;
                     break;
+                default:
+                    throw new Error('Cannot gather metadata from ' + c.config.type);
             }
         })
         return [
