@@ -44,7 +44,7 @@ class Mint extends React.Component {
                     'Content-Type': 'application/json'
                 }, body: JSON.stringify({
                     config: btoa(JSON.stringify(this.state.config)),
-                    seed: this.state.seed,
+                    seed: `#${this.state.minted} ${this.state.seed}`,
                 })
             });
             const {url, signature} = (await response.json());
@@ -101,7 +101,7 @@ class Mint extends React.Component {
                 <WowScroller key={this.state.seed} config={this.state.config}></WowScroller>
                 <div className="actions">
                     <div className={"actions-inner"}>
-                        <Minted/>
+                        <Minted setMinted={(m) => this.setState((prev) => ({minted: m}))}/>
                         <Button><ConnectButton accountStatus={"address"} showBalance={true}
                                                label={"CONNECT WALLET"}/></Button>
                         <div style={{
@@ -136,7 +136,7 @@ class Mint extends React.Component {
                             fontFamily: "Machina r"
                         }}>
                             <span>Seed:&nbsp;</span><span style={{width: '166px'}}
-                                                          className={"text-highlight-cool"}>{this.state.seed}</span>
+                                                          className={"text-highlight-cool"}>#{this.state.minted} {this.state.seed}</span>
                         </div>
                         <div className={"mint-socials"}>
                             <a className={"twitter"} target={"_blank"} rel="noreferrer"

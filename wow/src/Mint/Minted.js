@@ -2,16 +2,20 @@ import WowGurt from "./WowGurt.json";
 import {useContractRead} from "wagmi";
 import {useState} from "react";
 
-export default function Minted() {
+export default function Minted(props) {
     const [minted, setMinted] = useState([`???`]);
     useContractRead({
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
         abi: WowGurt.abi,
         functionName: 'totalSupply',
         onSuccess(data) {
-            setMinted(String(parseInt(data)));
+            let minted = String(parseInt(data));
+            setMinted(minted);
+            props.setMinted(minted);
         },
     });
+
+
     return <div style={{
         display: "flex",
         justifyContent: "space-around",
