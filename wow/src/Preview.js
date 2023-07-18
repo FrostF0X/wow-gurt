@@ -26,14 +26,29 @@ class Preview extends React.Component {
         }
         return (
             <div className={`preview preview-${this.state.orientation}`}>
-                <JustFrame>
-                    <div className={"preview-gif"}>
-                        <img src={this.props.data.image} alt={this.props.data.seed}/>
+                <div className="preview-content">
+                    <div className={"preview-description"}>
+                        <Button><a className={'btn'} href="/">Mint more!</a></Button>
                     </div>
-                </JustFrame>
-                <Scroller/>
+                    <div className="preview-wow">
+                        <JustFrame>
+                            <div className={"preview-gif"}>
+                                <img src={this.props.data.image} alt={this.props.data.seed}/>
+                            </div>
+                        </JustFrame>
+                    </div>
+                    <div className={"preview-actions"}>
+                        <a className={"opensea"} target={"_blank"} rel="noreferrer"
+                           href={`${process.env.REACT_APP_OPENSEA_ITEM_LINK}${process.env.REACT_APP_CONTRACT_ADDRESS}/${this.props.id}`}><img
+                            src={"/opensea.svg"}
+                            alt={"opensea"}/></a>
+                    </div>
+                </div>
+                <div className={"preview-scroller"}><Scroller/></div>
                 <img src="/unicorn.png" className={"unicorn"} alt="unicort"/>
+                <img src="/polihorseman.png" className={"polihorseman"} alt="unicort"/>
             </div>
+
         );
     }
 }
