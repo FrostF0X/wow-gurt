@@ -9,13 +9,19 @@ const queue = require("express-queue");
 export default class Server {
     static create(type: "get" | "post", port: number, listener: (req: Request, res: Response) => Promise<void>) {
         const app: express.Express = express();
+        app.options('*', cors())
+        app.use(cors({
+            credentials: true,
+            exposedHeaders: ['Content-Type', 'Depth', 'User-Agent', 'X-File-Size', 'X-Requested-With', 'If-Modified-Since', 'X-File-Name', 'Cache-Control'],
+            origin: '*'
+        }));
         app.use(queue({
             activeLimit: 2,
             queuedLimit: 1,
             rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
         }));
         app.use(rateLimit({
-            windowMs: 60000,
+            windowMs: 120000,
             max: 1,
             message: 'Only one nft generation attempt per minute allowed',
             skip: (req) => req.path === '/ping',
@@ -24,12 +30,6 @@ export default class Server {
             handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 2 minutes allowed"}).end()
         }));
         app.use(express.json()); // for parsing application/json
-        app.options('*', cors())
-        app.use(cors({
-            credentials: true,
-            exposedHeaders: ['Content-Type', 'Depth', 'User-Agent', 'X-File-Size', 'X-Requested-With', 'If-Modified-Since', 'X-File-Name', 'Cache-Control'],
-            origin: '*'
-        }));
 
         function wrapped() {
             return async (req: Request, res: Response) => {
