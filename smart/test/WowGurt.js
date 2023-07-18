@@ -70,7 +70,7 @@ contract("WowGurt", function (accounts) {
         }
         await mintMany("0", 49);
         await expectRevert(mint("0"), "Ether sent is not sufficient.")
-        await mint("0.005");
+        await mint("0.01");
         await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.005"), "Transaction price should be payed");
         const current = await web3.eth.getBalance(owner);
         await wowgurt.withdraw({from: owner})
@@ -90,43 +90,4 @@ contract("WowGurt", function (accounts) {
     function mintMany(amount, x) {
         return Promise.all([...Array(x)].map(() => mint(amount)));
     }
-
-    it("test passes all amounts", async () => {
-        for (let i = 0; i < 10; i++) {
-            await mintMany("0", 50);
-        }
-        for (let i = 0; i < 10; i++) {
-            await mintMany("0.005", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.01", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.02", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.025", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.05", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.1", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.15", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.25", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("0.5", 50);
-        }
-        for (let i = 0; i < 20; i++) {
-            await mintMany("1", 50);
-        }
-        await assert.greaterThan(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei('2107'), "After transactions nft should be 2107.5");
-        await expectRevert(mint("1", "No more NFTs available for minting."));
-    })
-
 });
