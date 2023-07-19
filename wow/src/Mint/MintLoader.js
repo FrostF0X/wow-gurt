@@ -9,8 +9,12 @@ export default class MintLoader extends React.Component {
         this.loaderPos = 0;
         this.state = {
             enabled: Array.range(1, this.window - 1).map(() => false),
-            timer: 60
+            timer: 90
         };
+    }
+
+    str_pad_left(string, pad, length) {
+        return (new Array(length + 1).join(pad) + string).slice(-length);
     }
 
     componentDidMount() {
@@ -28,6 +32,9 @@ export default class MintLoader extends React.Component {
     }
 
     render() {
+        const minutes = Math.floor(this.state.timer / 60);
+        const seconds = this.state.timer - minutes * 60;
+
         return (
             <div className={"generate-btn-loading"}>
                 {this.state.enabled.map((i, key) => <img
@@ -36,7 +43,7 @@ export default class MintLoader extends React.Component {
                     src={"/loader.svg"}
                     alt={"loader"}/>
                 )}
-                <div className={"timer"}>{this.state.timer}</div>
+                <div className={"timer"}>{this.str_pad_left(minutes, '0', 2) + ':' + this.str_pad_left(seconds, '0', 2)}</div>
             </div>
         );
     }
