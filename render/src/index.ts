@@ -68,14 +68,15 @@ Server.create("post", PORT, async (req, res) => {
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
     const baseMetadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
     const metadataUrl = queryParams(baseMetadataUrl);
-    clog(`Url: ${baseMetadataUrl}`);
     const input = encodeInput(metadataUrl);
-    res.json({
+    let response = {
         metadata: gifMetadata,
         url: metadataUrl,
         signature: signer.sign(input),
         input: input
-    });
+    };
+    res.json(response);
+    clog(`Url: ${JSON.stringify(response)}`);
     await tmp.clear();
 })
 
