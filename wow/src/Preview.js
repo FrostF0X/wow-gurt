@@ -5,8 +5,9 @@ import {useContractRead} from 'wagmi';
 import WowGurt from "./Mint/WowGurt.json";
 import BrowserOrientation from "./BrowserOrientation";
 import Button from "./Mint/Button";
-import {JustFrame} from "./JustFrame";
 import Scroller from "./Scroller";
+import WowScroller from "./WowScroller";
+import {JustFrame} from "./JustFrame";
 
 
 class Preview extends React.Component {
@@ -29,18 +30,37 @@ class Preview extends React.Component {
             <div className={`preview preview-${this.state.orientation}`}>
                 <div className="preview-content">
                     <div className={"preview-description"}>
-                        <Button><a className={'btn'} href="/">Mint more!</a></Button>
+                        <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
+                            <JustFrame>
+                                <div className="gurt">
+                                    <img src="/gurt.svg" alt="gurt"/>
+                                </div>
+                            </JustFrame>
+                        </a>
+                        <Button>
+                            <a href="/">
+                                <button className={"btn"}>Mint more!</button>
+                            </a>
+                        </Button>
                     </div>
                     <div className="preview-wow">
-                        <JustFrame>
-                            <div className={"preview-gif"}>
-                                <img src={this.props.data.image} alt={this.props.data.seed}/>
-                            </div>
-                        </JustFrame>
+                        <WowScroller config={JSON.parse(atob(this.props.data.config))}></WowScroller>
                     </div>
                     <div className={"preview-actions"}>
-                        {/*{this.props.data.name}*/}
-                        {/*{this.props.data.description}*/}
+                        <div style={{margin: "2em 1em 0 1em"}}>
+                            <table className={"padded"}>
+                                <thead>
+                                <tr>
+                                    <th><h1>{this.props.data.name}</h1></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{this.props.data.description}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <a className={"opensea"} target={"_blank"} rel="noreferrer"
                            href={`${process.env.REACT_APP_OPENSEA_ITEM_LINK}${process.env.REACT_APP_CONTRACT_ADDRESS}/${this.props.id}`}><img
                             src={"/opensea.svg"}

@@ -1,5 +1,6 @@
 import {JustFrame} from "../JustFrame";
 import React from "react";
+import "./styles/Button.scss";
 
 export default class Button extends React.Component {
     render() {

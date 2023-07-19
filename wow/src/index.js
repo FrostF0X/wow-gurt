@@ -9,6 +9,7 @@ import Render from "./Render";
 import Mint from "./Mint";
 import {Config} from "./Eth/Config";
 import Preview from "./Preview";
+import {getCookie} from "./Common/Cookie";
 
 const router = createBrowserRouter([
         {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
         }
     ]
 );
+
+document.getElementsByTagName('body')[0].classList.add(getCookie('class'));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Fragment>

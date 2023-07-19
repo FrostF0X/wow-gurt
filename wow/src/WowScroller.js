@@ -12,9 +12,9 @@ export default class WowScroller extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({size: Math.min(this.ref.current.offsetWidth * 0.85, this.ref.current.offsetHeight * 0.85)});
+        this.setState({size: Math.min(this.ref.current.offsetWidth, this.ref.current.offsetHeight)});
         this.listener = () => {
-            this.setState({size: Math.min(this.ref.current.offsetWidth * 0.85, this.ref.current.offsetHeight * 0.85)});
+            this.setState({size: Math.min(this.ref.current.offsetWidth, this.ref.current.offsetHeight)});
         };
         window.addEventListener('resize', this.listener);
     }
@@ -24,6 +24,7 @@ export default class WowScroller extends React.Component {
     }
 
     render() {
+        console.log(this.state.size);
         return <div ref={this.ref} className="just-preview">
             <div className={'pointer-wow-container pointer-wow-tile-container'}>
                 <img src="/pointer-hand.png" alt="pointer"
@@ -37,7 +38,6 @@ export default class WowScroller extends React.Component {
                 <JustFrame plain={true}
                            text={<span><span className={"text-highlight"}>Click HERE!</span> to reroll tiles</span>}>
                     <Wow
-                        key={this.state.seed}
                         dynamic={true}
                         config={this.props.config}
                         size={this.state.size}

@@ -61,28 +61,6 @@
   justify-content: center;
 }
 
-.btn {
-  padding: 10px;
-  color: white;
-  background-color: $highlightPink;
-  cursor: pointer;
-  height: 49px;
-}
-
-.btn:disabled {
-  cursor: not-allowed;
-  filter: opacity(0.5);
-}
-
-.btn:hover:not(.btn:disabled) {
-  transform: scale(1.1);
-  transition: all .2s ease-in-out;
-}
-
-.btn.generate-btn-loading {
-  filter: initial;
-}
-
 .mint-btn {
   width: 100%;
   border: none;
