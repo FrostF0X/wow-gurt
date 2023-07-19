@@ -39,9 +39,8 @@ class Preview extends React.Component {
                         </JustFrame>
                     </div>
                     <div className={"preview-actions"}>
-                        {this.props.data.name}
-                        {this.props.data.description}
-                        {this.props.data.attributes}
+                        {/*{this.props.data.name}*/}
+                        {/*{this.props.data.description}*/}
                         <a className={"opensea"} target={"_blank"} rel="noreferrer"
                            href={`${process.env.REACT_APP_OPENSEA_ITEM_LINK}${process.env.REACT_APP_CONTRACT_ADDRESS}/${this.props.id}`}><img
                             src={"/opensea.svg"}
