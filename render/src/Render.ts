@@ -48,7 +48,7 @@ export default class Render {
             clog(`Creating gif`);
             await new Promise((resolve, reject) =>
                 ffmpeg(tmp.cutVideo.path)
-                    .outputOptions(['-vf', `setpts=${time.speedUp}*PTS,fps=${render.fps},split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse`])
+                    .outputOptions(['-vf', `setpts=${time.speedUp}*PTS,fps=${render.fps}`])
                     .output(tmp.gif.path)
                     .on('end', resolve)
                     .on('error', reject)
