@@ -42,7 +42,7 @@
  */
 
 require('dotenv').config();
-const {MNEMONIC, INFURA_GOERLI_PROJECT_ID} = process.env;
+const {MNEMONIC, INFURA_GOERLI_PROJECT_ID, INFURA_MAINNET_PROJECT_ID} = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -75,17 +75,13 @@ module.exports = {
             skipDryRun: true
         },
         mainnet: {
-            provider: () =>
-                new HDWalletProvider(
-                    MNEMONIC,
-                    `https://goerli.infura.io/v3/${INFURA_MAINNET_PROJECT_ID}`
-                ),
-            network_id: "1",
-            confirmations: 2,
-            timeoutBlocks: 200,
-            skipDryRun: true
-        }
-        //
+            provider: function() {
+                return new HDWalletProvider(MNEMONIC, `https://mainnet.infura.io/v3/${INFURA_MAINNET_PROJECT_ID}`)
+            },
+            gas: 2200000,
+            gasPrice: 21e9,
+            network_id: 1
+        }        //
         // advanced: {
         //   port: 8777,             // Custom port
         //   network_id: 1342,       // Custom network

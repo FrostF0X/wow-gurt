@@ -7,7 +7,7 @@ start-goerli: build
 start-development: build
 	docker run --name render --init --cap-add=SYS_ADMIN --rm -p 8000:80 -v $(shell pwd)/tmp:/tmp -v $(shell pwd)/src:/usr/src/app/src render watch-development
 prod-start: build
-	docker run --name render --init --cap-add=SYS_ADMIN --rm -p 80:80 -v /tmp:/tmp render prod-goerli
+	docker run --name render --init --cap-add=SYS_ADMIN --rm -p 80:80 -v /tmp:/tmp render prod-mainnet
 prod-stop:
 	docker kill render
 build:

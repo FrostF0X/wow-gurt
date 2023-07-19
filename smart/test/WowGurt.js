@@ -90,10 +90,10 @@ contract("WowGurt", function (accounts) {
 
     it("test requires minimal transaction amount after 999 attempt", async () => {
         for (let i = 1; i < 1000; i++) {
-            await mint(i, "0");
+            await mint("0");
         }
-        await expectRevert(mint(1000, "0"), "Ether sent is not sufficient.")
-        await mint(1000, "0.01");
+        await expectRevert(mint("0"), "Ether sent is not sufficient.")
+        await mint("0.01");
         await assert.equal(await web3.eth.getBalance(wowgurt.address), web3.utils.toWei("0.01"), "Transaction price should be payed");
         const current = await web3.eth.getBalance(owner);
         await wowgurt.withdraw({from: owner})
