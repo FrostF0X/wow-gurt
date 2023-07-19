@@ -137,10 +137,10 @@
     position: absolute;
     left: -1em;
     top: 80%;
-    width: 2em;
-
+    width: 3em;
+    transform: translate(-100%, -50%);
     .pointer-wow {
-      transform: translate(-100%, -50%);
+      padding: 0.5em;
     }
   }
 
@@ -157,11 +157,15 @@
     .pointer-text {
       margin-top: 9px;
       padding: 1em 1em;
+      background: #FE2AAA;
+      border: white solid 1px;
     }
+
 
     .pointer-wow {
       width: 5em;
       transform: scaleX(-1);
+      background: black;
     }
   }
 

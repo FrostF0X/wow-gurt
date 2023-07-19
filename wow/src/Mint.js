@@ -15,8 +15,8 @@ import Cools from "./Random/Cools";
 import AnimationConfig from "./AnimationConfig";
 import WhatIsIt from "./Mint/WhatIsIt";
 import Price from "./Mint/Price";
-import MintSimpleLoader from "./Mint/MintSimpleLoader";
 import MintLoader from "./Mint/MintLoader";
+import {JustFrame} from "./JustFrame";
 
 class Mint extends React.Component {
     provider = null;
@@ -94,8 +94,10 @@ class Mint extends React.Component {
                             display: "flex", flexDirection: "row", justifyContent: "stretch", alignItems: "stretch"
                         }}>
                             <Button absolutes={<div className={'pointer-wow-container pointer-wow-refresh-container'}>
-                                <img src="/pointer-hand.png" alt="pointer"
-                                     className={"pointer-wow"}/>
+                                <JustFrame>
+                                    <img src="/pointer-hand.png" alt="pointer"
+                                         className={"pointer-wow"}/>
+                                </JustFrame>
                             </div>
                             }>
                                 <button
