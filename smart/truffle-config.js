@@ -123,7 +123,7 @@ module.exports = {
     // Configure your compilers
     compilers: {
         solc: {
-            version: "0.8.8",
+            version: "0.8.12",
             docker: true,
             settings: {
                 optimizer: {

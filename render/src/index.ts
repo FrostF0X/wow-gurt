@@ -6,9 +6,7 @@ import RenderConfig from "./RenderConfig";
 import Render from "./Render";
 import Server from "./Server";
 import Sign from "./Sign";
-import Contract from "./Contract";
 import {clog} from "./utils";
-import names from "./names";
 import {ethers} from "ethers";
 
 function throwExpression(errorMessage: string): never {
@@ -26,16 +24,19 @@ const ipfs = ipfsClient.create({
 });
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
+const PROXY_URL = process.env.PROXY_URL ?? throwExpression("Please define PROXY_URL");
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Please define URL");
 const signer = new Sign(process.env.SERVER_PRIVATE_KEY ?? throwExpression("Please define SERVER_PRIVATE_KEY"));
-const contract = new Contract(
-    process.env.RPC_PROVIDER_URL ?? throwExpression("Please define RPC_PROVIDER_URL"),
-    process.env.CONTRACT_ADDRESS ?? throwExpression("Please define CONTRACT_URL")
-)
 
-function encodeInput(metadataUrl: string, newTokenId: number) {
+function encodeInput(metadataUrl: string) {
     const abiCoder = new ethers.AbiCoder();
-    return abiCoder.encode(['string', 'uint256'], [metadataUrl, newTokenId]);
+    return abiCoder.encode(['string'], [metadataUrl]);
+}
+
+function queryParams(baseMetadataUrl: string) {
+    const params = new URLSearchParams();
+    params.set('url', baseMetadataUrl);
+    return `${PROXY_URL}?${params.toString()}`;
 }
 
 Server.create("post", PORT, async (req, res) => {
@@ -55,20 +56,20 @@ Server.create("post", PORT, async (req, res) => {
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
     const gifUrl = `${IPFS_PUBLIC_URL}/${gifResult.path}`;
-    const newTokenId = await contract.getCurrentTokenId();
     const gifMetadata = {
-        "name": `#${newTokenId} ${names[newTokenId]}`,
-        "description": `Glitchy new WOW generated with: #${newTokenId} ${req.body.seed}`,
+        "name": `#[token_id] [token_name]`,
+        "description": `Glitchy new WOW generated with: #[token_id] ${req.body.seed}`,
         "seed": `${req.body.seed}`,
         "image": gifUrl,
         "config": `${config}`,
         "attributes": attributes,
-        "external_url": `${BASE_URL}/wow/${newTokenId}`
+        "external_url": `${BASE_URL}/wow/[token_id]`
     };
     const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
-    const metadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
-    clog(`Url: ${metadataUrl}`);
-    const input = encodeInput(metadataUrl, newTokenId);
+    const baseMetadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
+    const metadataUrl = queryParams(baseMetadataUrl);
+    clog(`Url: ${baseMetadataUrl}`);
+    const input = encodeInput(metadataUrl);
     res.json({
         metadata: gifMetadata,
         url: metadataUrl,

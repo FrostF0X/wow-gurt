@@ -32,20 +32,20 @@ class Render extends React.Component {
             assets.push(this.formatImg(c.config.img));
             switch (c.config.wowType) {
                 case 'wave':
-                    animations.push(this.formatAnimation('wave', c.config.img));
+                    animations.push(this.formatAnimation('wave'));
                     break;
                 case 'images':
                     if (c.config.type === 'big') {
-                        animations.push(this.formatAnimation('big', c.config.img));
+                        animations.push(this.formatAnimation('big'));
                     } else {
-                        animations.push(this.formatAnimation(c.config.preset, c.config.img));
+                        animations.push(this.formatAnimation(c.config.preset));
                     }
                     break;
                 case 'slider':
-                    animations.push(this.formatAnimation('slider', c.config.img));
+                    animations.push(this.formatAnimation('slider'));
                     break;
                 case 'chess':
-                    animations.push(this.formatAnimation(c.config.preset, c.config.img));
+                    animations.push(this.formatAnimation(c.config.preset));
                     chess = true;
                     break;
                 default:
@@ -53,14 +53,14 @@ class Render extends React.Component {
             }
         })
         return [
-            ...animations.filter(this.onlyUnique).flatMap((a) => (Array.range(1, 13).map(i => ({
-                trait_type: `Animation ${(this.number(i))}`,
+            ...animations.filter(this.onlyUnique).map((a) => ({
+                trait_type: `Animation`,
                 value: a
-            })))),
-            ...assets.filter(this.onlyUnique).flatMap(a => (Array.range(1, 6).map(i => ({
-                trait_type: `Character ${i}`,
+            })),
+            ...assets.filter(this.onlyUnique).map((a) => ({
+                trait_type: `Character`,
                 value: a
-            })))),
+            })),
             {
                 trait_type: 'Chess',
                 value: chess ? Color.reverseColorMap(c.colors[0]) + ' & ' + Color.reverseColorMap(c.colors[1]) : 'None'
@@ -87,7 +87,7 @@ class Render extends React.Component {
         return imgs[img];
     }
 
-    formatAnimation(name, img) {
+    formatAnimation(name) {
         const names = {
             'wave': 'Snake',
             '1': 'Inversion Glitchy',
@@ -100,7 +100,7 @@ class Render extends React.Component {
             'slider': 'Sliding',
             'big': 'Gigantic'
         }
-        return names[name] + ' ' + this.formatImg(img);
+        return names[name];
     }
 
     onlyUnique(value, index, array) {

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.12;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
@@ -32,32 +32,32 @@ contract WowGurt is ERC721URIStorage, Ownable {
         require(success, "Withdrawal failed");
     }
 
-    function decodeInput(bytes memory encodedData) public pure returns (string memory, uint256) {
-        (string memory str, uint256 num) = abi.decode(encodedData, (string, uint256));
-        return (str, num);
+    function decodeInput(bytes memory encodedData) public pure returns (string memory) {
+        string memory str = abi.decode(encodedData, (string));
+        return str;
     }
 
     function mintNFT(address recipient, bytes memory input, bytes memory signature) public payable returns (uint256) {
         require(recoverSigner(string(input), signature) == serverAddress, "Unauthorized mint attempt.");
-        (string memory tokenURI, uint256 providedTokenId) = this.decodeInput(input);
-        uint256 newItemId = _tokenIds.current();
-
+        (string memory baseTokenURI) = this.decodeInput(input);
+        uint256 tokenId = _tokenIds.current();
 
         require(_tokenIds.current() <= MAX_NFT_SUPPLY, "No more NFTs available for minting.");
-        require(!_tokenURIs[tokenURI], "NFT with same tokenURI already exists.");
-        require(_tokenIds.current() == providedTokenId, "NFT with same token id already exists.");
-        _tokenURIs[tokenURI] = true;
+        require(!_tokenURIs[baseTokenURI], "NFT with same tokenURI already exists.");
+        _tokenURIs[baseTokenURI] = true;
 
-        uint256 price = getPrice(newItemId);
+        string memory tokenURI = string.concat(string.concat(baseTokenURI, '&tokenId='), Strings.toString(tokenId));
+
+        uint256 price = getPrice(tokenId);
         require(msg.value >= price, "Ether sent is not sufficient.");
 
         _tokenIds.increment();
-        _mint(recipient, newItemId);
-        _setTokenURI(newItemId, tokenURI);
+        _mint(recipient, tokenId);
+        _setTokenURI(tokenId, tokenURI);
 
-        emit NewWowMinted(newItemId, recipient, tokenURI);
+        emit NewWowMinted(tokenId, recipient, tokenURI);
 
-        return newItemId;
+        return tokenId;
     }
 
     function prefixed(bytes32 hash) internal pure returns (bytes32) {

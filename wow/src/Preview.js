@@ -19,6 +19,7 @@ class Preview extends React.Component {
     }
 
     render() {
+
         if (!this.props.data) {
             return <div className={`preview preview-${this.state.orientation}`}>
                 <Button>Loading data</Button>
@@ -38,6 +39,9 @@ class Preview extends React.Component {
                         </JustFrame>
                     </div>
                     <div className={"preview-actions"}>
+                        {this.props.data.name}
+                        {this.props.data.description}
+                        {this.props.data.attributes}
                         <a className={"opensea"} target={"_blank"} rel="noreferrer"
                            href={`${process.env.REACT_APP_OPENSEA_ITEM_LINK}${process.env.REACT_APP_CONTRACT_ADDRESS}/${this.props.id}`}><img
                             src={"/opensea.svg"}
@@ -60,12 +64,13 @@ const RealPreview = (props) => {
         address: process.env.REACT_APP_CONTRACT_ADDRESS,
         abi: WowGurt.abi,
         functionName: 'tokenURI',
+        retry: true,
         args: [Number(id)],
         async onSuccess(data) {
             setData(await (await fetch(data)).json());
         },
         async onError() {
-            window.location.reload();
+            setTimeout(() => window.location.reload(), 5000);
         }
     });
     return <Preview

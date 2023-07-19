@@ -56,6 +56,8 @@ class Mint extends React.Component {
     }
 
     startLoader() {
+        this.rememberConfig = this.state.config;
+        this.remberSeed = this.state.seed;
         this.setState((prevState) => ({
             ...prevState,
             loading: true,
@@ -69,7 +71,7 @@ class Mint extends React.Component {
     stopLoader() {
         this.loaderPos = 0;
         clearInterval(this.loaderInterval);
-        this.setState({btnText: "MINT WOW", loading: false});
+        this.setState({btnText: "MINT WOW", loading: false, seed: this.remberSeed, config: this.rememberConfig});
     }
 
     refresh = () => {

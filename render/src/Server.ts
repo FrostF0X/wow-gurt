@@ -2,7 +2,7 @@ import * as express from "express";
 import {Request, Response} from "express";
 import * as cors from "cors";
 import {cerror, clog, errorInfo} from "./utils";
-import rateLimit from "express-rate-limit";
+import names from "./names";
 
 const queue = require("express-queue");
 
@@ -48,6 +48,19 @@ export default class Server {
         } else {
             app.post('/', wrapped());
         }
+
+        app.get('/wow', async (req, res) => {
+            console.log("Processing request");
+            let tokenId = parseInt(req.query.tokenId as string);
+            const response = await fetch(req.query.url as string);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            let data = await response.json();
+
+            data = JSON.parse(JSON.stringify(data).replace(/\[token_id]/g, String(tokenId)).replace(/\[token_name]/g, names[tokenId]));
+            res.json(data);
+        })
         app.get('/ping', (req, res) => res.json({"pong": true}));
         app.listen(port, () => {
             clog(`Server is listening on port ${port}`);
