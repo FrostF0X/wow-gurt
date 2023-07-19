@@ -33,8 +33,16 @@ export default class Chrome {
         }
         const page = await this.browser.newPage();
         await page.setViewport({width: this.size, height: this.size, deviceScaleFactor: 1});
+        await page.setViewport({width: this.size, height: this.size, deviceScaleFactor: 1});
+        await page.setViewport({width: this.size, height: this.size, deviceScaleFactor: 1});
+        await page.setViewport({width: this.size, height: this.size, deviceScaleFactor: 1});
+        await page.setViewport({width: this.size, height: this.size, deviceScaleFactor: 1});
         const session = await page.target().createCDPSession();
         const {windowId} = await session.send('Browser.getWindowForTarget');
+        await session.send('Browser.setWindowBounds', {windowId, bounds: {width: this.size, height: this.size}});
+        await session.send('Browser.setWindowBounds', {windowId, bounds: {width: this.size, height: this.size}});
+        await session.send('Browser.setWindowBounds', {windowId, bounds: {width: this.size, height: this.size}});
+        await session.send('Browser.setWindowBounds', {windowId, bounds: {width: this.size, height: this.size}});
         await session.send('Browser.setWindowBounds', {windowId, bounds: {width: this.size, height: this.size}});
         await session.detach();
         return page;
