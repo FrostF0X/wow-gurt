@@ -28,7 +28,7 @@ export default class Render {
             clog(`Waiting for animation to load`);
             await new Promise((resolve) => setTimeout(resolve, time.wait));
             const stream = await getStream(page, {
-                video: true, audio: false, videoBitsPerSecond: 300000
+                video: true, audio: false, videoBitsPerSecond: 10000000
             });
             clog(`Recording animation`);
             const [_1, _2, metadata] = await Promise.all([
