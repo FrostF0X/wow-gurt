@@ -2,6 +2,8 @@ import './styles/Render.scss';
 import React from "react";
 import Wow from "./Wow";
 import Color from "./Animation/Color";
+import AnimationConfig from "./AnimationConfig";
+import Cools from "./Random/Cools";
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -11,7 +13,11 @@ class Render extends React.Component {
     constructor(props) {
         super(props);
         this.size = query().get('size') ?? 1024;
-        this.config = JSON.parse(atob(query().get('config')));
+        try {
+            this.config = JSON.parse(atob(query().get('config')));
+        } catch (e) {
+            this.config = AnimationConfig.generate(Cools.generate());
+        }
         this.attributes = JSON.stringify(this.gatherAttributes(this.config));
     }
 
@@ -19,6 +25,9 @@ class Render extends React.Component {
         return (
             <div className={"just-render"}>
                 <Wow slow={query().get('slow') ?? 10} size={this.size} config={this.config}/>
+                <div className={"pretty-rare-vow"} style={{width: `${this.size}px`}}>
+                    Congratulations: You're a lucky cat, You've got pretty rare WOW with pink line!
+                </div>
                 <div id={"just-attributes"} data-json={this.attributes}></div>
             </div>
         );

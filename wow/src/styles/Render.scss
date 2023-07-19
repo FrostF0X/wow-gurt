@@ -4,3 +4,15 @@
 .just-render {
   background: black;
 }
+
+.just-render .pretty-rare-vow {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 1.15em;
+  text-align: justify;
+  background: $highlightPink;
+  height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
