@@ -15,7 +15,8 @@ jobs:
       - name: pull code
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '159.89.213.104'
+          host: '159.89.213.104,157.245.26.106'
+          sync: true
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
@@ -26,8 +27,9 @@ jobs:
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '159.89.213.104'
+          host: '159.89.213.104,157.245.26.106'
           username: 'root'
+          sync: true
           key: ${{ secrets.KEY }}
           script: |
             cp /home/wow-gurt/wow-gurt/render/.deploy/wow-gurt.service /etc/systemd/system/wow-gurt.service
