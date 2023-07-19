@@ -43,10 +43,11 @@ export default class Server {
         }));
         app.use(express.json()); // for parsing application/json
 
-        function wrapped() {
+        function wrapped(wr: (req: Request, res: Response) => Promise<void>) {
             return async (req: Request, res: Response) => {
                 try {
-                    await listener(req, res);
+                    clog(`Starting: ${req.path}`);
+                    await wr(req, res);
                     clog("Done.");
                 } catch (error) {
                     cerror(`Error: ${errorInfo(error)}`);
@@ -56,13 +57,12 @@ export default class Server {
         }
 
         if (type === "get") {
-            app.get('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped());
+            app.get('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
         } else {
-            app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped());
+            app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
         }
 
-        app.get('/wow', async (req, res) => {
-            console.log("Processing request");
+        app.get('/wow', wrapped(async (req, res) => {
             let tokenId = parseInt(req.query.tokenId as string);
             const response = await fetch(req.query.url as string);
             if (!response.ok) {
@@ -72,7 +72,7 @@ export default class Server {
 
             data = JSON.parse(JSON.stringify(data).replace(/\[token_id]/g, String(tokenId)).replace(/\[token_name]/g, names[tokenId]));
             res.json(data);
-        })
+        }))
         app.get('/ping', (req, res) => res.json({"pong": true}));
         app.listen(port, () => {
             clog(`Server is listening on port ${port}`);
