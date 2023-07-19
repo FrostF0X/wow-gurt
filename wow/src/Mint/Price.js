@@ -15,7 +15,7 @@ export default class Price extends React.Component {
                 <table className={"padded"}>
                     <thead>
                     <tr>
-                        <th colSpan={2}>
+                        <th colSpan={6}>
                             <span className="text-highlight">What about price?</span><br/>
                             <span className={"price-first-free"}>first 999 WOW are <span
                                 className="text-highlight">free</span></span>
@@ -24,100 +24,91 @@ export default class Price extends React.Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <td style={{textAlign: "right"}}>1000</td>
-                        <td>-</td>
+                        <td>1000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>1999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.01
+                        <td className={"text-highlight-cool"}>0.01
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>2000</td>
-                        <td>-</td>
+                        <td>2000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>2999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.02
+                        <td className={"text-highlight-cool"}>0.02
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>3000</td>
-                        <td>-</td>
+                        <td>3000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>3999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.025
+                        <td className={"text-highlight-cool"}>0.025
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>4000</td>
-                        <td>-</td>
+                        <td>4000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>4999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.05
+                        <td className={"text-highlight-cool"}>0.05
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>5000</td>
-                        <td>-</td>
+                        <td>5000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>5999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.10
+                        <td className={"text-highlight-cool"}>0.10
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>6000</td>
-                        <td>-</td>
+                        <td>6000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>6999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.15
+                        <td className={"text-highlight-cool"}>0.15
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>7000</td>
-                        <td>-</td>
+                        <td>7000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>7999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.25
+                        <td className={"text-highlight-cool"}>0.25
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>8000</td>
-                        <td>-</td>
+                        <td>8000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>8999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.5
+                        <td className={"text-highlight-cool"}>0.5
                         </td>
                         <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>9000</td>
-                        <td>-</td>
+                        <td>9000</td>
+                        <td style={{textAlign: "center"}}>-</td>
                         <td>9999</td>
                         <td>WOW</td>
-                        <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>1
+                        <td className={"text-highlight-cool"}>1
                         </td>
                         <td>ETH
                         </td>
