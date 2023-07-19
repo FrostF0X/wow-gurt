@@ -7,6 +7,31 @@ import rateLimit from "express-rate-limit";
 
 const queue = require("express-queue");
 
+let rateLimitStandard = rateLimit({
+    windowMs: 10000,
+    max: 1,
+    message: 'Only one nft generation attempt per 10s allowed',
+    skip: (req) => req.path === '/ping' || req.path === '/wow',
+    skipFailedRequests: true,
+    legacyHeaders: true,
+    handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 10s allowed"}).end()
+});
+let rateLimitSpam = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 50,
+    message: 'Looks like you are spamming us.',
+    skip: (req) => req.path === '/ping' || req.path === '/wow',
+    skipFailedRequests: true,
+    legacyHeaders: true,
+    handler: (_: Request, r: Response) => r.status(429).json({"error": "Looks like you are spamming us."}).end()
+});
+let maxActiveRequests = queue({
+    activeLimit: 2,
+    queuedLimit: 1,
+    rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
+});
+
+
 export default class Server {
     static create(type: "get" | "post", port: number, listener: (req: Request, res: Response) => Promise<void>) {
         const app: express.Express = express();
@@ -15,29 +40,6 @@ export default class Server {
             credentials: true,
             exposedHeaders: ['Content-Type', 'Depth', 'User-Agent', 'X-File-Size', 'X-Requested-With', 'If-Modified-Since', 'X-File-Name', 'Cache-Control'],
             origin: '*'
-        }));
-        app.use(queue({
-            activeLimit: 2,
-            queuedLimit: 1,
-            rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
-        }));
-        app.use(rateLimit({
-            windowMs: 10000,
-            max: 1,
-            message: 'Only one nft generation attempt per 10s allowed',
-            skip: (req) => req.path === '/ping' || req.path === '/wow',
-            skipFailedRequests: true,
-            legacyHeaders: true,
-            handler: (_: Request, r:  Response) => r.status(429).json({"error": "Only one nft generation attempt per 10s allowed"}).end()
-        }));
-        app.use(rateLimit({
-            windowMs: 60 * 60 * 1000,
-            max: 50,
-            message: 'Looks like you are spamming us.',
-            skip: (req) => req.path === '/ping' || req.path === '/wow',
-            skipFailedRequests: true,
-            legacyHeaders: true,
-            handler: (_: Request, r: Response) => r.status(429).json({"error": "Looks like you are spamming us."}).end()
         }));
         app.use(express.json()); // for parsing application/json
 
@@ -54,9 +56,9 @@ export default class Server {
         }
 
         if (type === "get") {
-            app.get('/', wrapped());
+            app.get('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped());
         } else {
-            app.post('/', wrapped());
+            app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped());
         }
 
         app.get('/wow', async (req, res) => {

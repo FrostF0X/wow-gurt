@@ -124,7 +124,7 @@ class Mint extends React.Component {
                             fontFamily: "Machina r",
                             height: "100px"
                         }}>
-                            <span>Seed:&nbsp;</span><span style={{width: '166px'}}
+                            <span>Seed:&nbsp;</span><span style={{width: '166px', fontSize: '0.875em', textAlign:'right'}}
                                                           className={"text-highlight-cool"}>#{this.state.minted} {this.state.seed}</span>
                         </div>
                         <div className={"mint-socials"}>
