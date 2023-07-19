@@ -27,7 +27,7 @@ export function MintWow({input, signature}) {
     });
     const writeFn = useContractWrite(config);
     const {data, status, write} = writeFn;
-    const {} = useWaitForTransaction({
+    useWaitForTransaction({
         hash: data?.hash,
     })
 
