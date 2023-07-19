@@ -17,7 +17,7 @@ export default class Server {
             origin: '*'
         }));
         app.use(queue({
-            activeLimit: 10,
+            activeLimit: 2,
             queuedLimit: 1,
             rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
         }));
@@ -28,7 +28,7 @@ export default class Server {
             skip: (req) => req.path === '/ping' || req.path === '/wow',
             skipFailedRequests: true,
             legacyHeaders: true,
-            handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 10s allowed"}).end()
+            handler: (_: Request, r:  Response) => r.status(429).json({"error": "Only one nft generation attempt per 10s allowed"}).end()
         }));
         app.use(rateLimit({
             windowMs: 60 * 60 * 1000,
