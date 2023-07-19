@@ -24,57 +24,102 @@ export default class Price extends React.Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <td style={{textAlign: "right"}}>1000 - 1999 WOW</td>
+                        <td style={{textAlign: "right"}}>1000</td>
+                        <td>-</td>
+                        <td>1999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.01 ETH
+                            className={"text-highlight-cool"}>0.01
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>2000 - 2999 WOW</td>
+                        <td style={{textAlign: "right"}}>2000</td>
+                        <td>-</td>
+                        <td>2999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.02 ETH
+                            className={"text-highlight-cool"}>0.02
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>3000 - 3999 WOW</td>
+                        <td style={{textAlign: "right"}}>3000</td>
+                        <td>-</td>
+                        <td>3999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.025 ETH
+                            className={"text-highlight-cool"}>0.025
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>4000 - 4999 WOW</td>
+                        <td style={{textAlign: "right"}}>4000</td>
+                        <td>-</td>
+                        <td>4999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.05 ETH
+                            className={"text-highlight-cool"}>0.05
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>5000 - 5999 WOW</td>
+                        <td style={{textAlign: "right"}}>5000</td>
+                        <td>-</td>
+                        <td>5999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.10 ETH
+                            className={"text-highlight-cool"}>0.10
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>6000 - 6999 WOW</td>
+                        <td style={{textAlign: "right"}}>6000</td>
+                        <td>-</td>
+                        <td>6999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.15 ETH
+                            className={"text-highlight-cool"}>0.15
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>7000 - 7999 WOW</td>
+                        <td style={{textAlign: "right"}}>7000</td>
+                        <td>-</td>
+                        <td>7999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.25 ETH
+                            className={"text-highlight-cool"}>0.25
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>8000 - 8999 WOW</td>
+                        <td style={{textAlign: "right"}}>8000</td>
+                        <td>-</td>
+                        <td>8999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>0.5 ETH
+                            className={"text-highlight-cool"}>0.5
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     <tr>
-                        <td style={{textAlign: "right"}}>9000 - 9999 WOW</td>
+                        <td style={{textAlign: "right"}}>9000</td>
+                        <td>-</td>
+                        <td>9999</td>
+                        <td>WOW</td>
                         <td style={{textAlign: "left"}}
-                            className={"text-highlight-cool"}>1 ETH
+                            className={"text-highlight-cool"}>1
+                        </td>
+                        <td>ETH
                         </td>
                     </tr>
                     </tbody>
