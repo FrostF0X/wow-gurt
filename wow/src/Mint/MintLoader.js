@@ -8,7 +8,8 @@ export default class MintLoader extends React.Component {
         this.window = 5;
         this.loaderPos = 0;
         this.state = {
-            enabled: Array.range(1, this.window - 1).map(() => false)
+            enabled: Array.range(1, this.window - 1).map(() => false),
+            timer: 60
         };
     }
 
@@ -23,6 +24,7 @@ export default class MintLoader extends React.Component {
                 enabled: state.enabled.map((i, key) => (this.loaderPos + 1) % this.window === key || this.loaderPos % this.window === key),
             }));
         }, 325);
+        setInterval(() => this.setState((prev) => ({...prev, timer: this.state.timer - 1})), 1000);
     }
 
     render() {
@@ -30,11 +32,11 @@ export default class MintLoader extends React.Component {
             <div className={"generate-btn-loading"}>
                 {this.state.enabled.map((i, key) => <img
                     key={key}
-                    className={`loader ${key % 2 === 1 ? 'loader-inverted' : ''} ${i ? 'loader-empty' : ''}`}
+                    className={`loader loader-inverted ${i ? 'loader-empty' : ''}`}
                     src={"/loader.svg"}
                     alt={"loader"}/>
                 )}
-                <div className={"timer"}></div>
+                <div className={"timer"}>{this.state.timer}</div>
             </div>
         );
     }

@@ -10,6 +10,11 @@
   width: 100vw;
   height: 100vh;
 
+
+  .pointer-wow-container {
+    display: none;
+  }
+
   .preview-content {
     height: calc(100vh - 69px);
     display: flex;
@@ -144,12 +149,7 @@
     transform: translate(18%, -5%) scaleX(-1);
   }
 
-  .section__header{
+  .section__header {
     display: none;
   }
-}
-
-
-.pointer-wow-container {
-  display: none;
 }

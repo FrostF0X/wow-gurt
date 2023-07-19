@@ -46,9 +46,9 @@ export function MintWow({input, signature}) {
             {status === "success" ? (
                 <Navigate url={`/wow/${minted}`}/>
             ) : <button className={"btn mint-btn"} disabled={status !== "error"}>
-                {isIdle && !isTransactionLoading ? 'Proceed in Wallet' : ''}
-                {isTransactionLoading ? 'Transaction loading' : ''}
-                {status === "error" ? 'Mint error, retry' : ''}
+                {status === 'idle' ? 'Proceed in Wallet' : ''}
+                {status === 'loading' ? 'Transaction loading' : ''}
+                {status === "error" ? 'Mint error, retry!' : ''}
             </button>
             }
         </form>

@@ -22,3 +22,32 @@
 .btn.generate-btn-loading {
   filter: initial;
 }
+
+.generate-btn-loading {
+  position: relative;
+
+  .timer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    animation: blink 1s infinite ease-in-out;
+  }
+}
+
+@keyframes blink {
+  0% {
+    filter: none;
+  }
+  92% {
+    filter: none;
+  }
+  100% {
+    filter: invert(1);
+  }
+}

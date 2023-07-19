@@ -16,6 +16,7 @@ import AnimationConfig from "./AnimationConfig";
 import WhatIsIt from "./Mint/WhatIsIt";
 import Price from "./Mint/Price";
 import MintSimpleLoader from "./Mint/MintSimpleLoader";
+import MintLoader from "./Mint/MintLoader";
 
 class Mint extends React.Component {
     provider = null;
@@ -61,7 +62,7 @@ class Mint extends React.Component {
         this.setState((prevState) => ({
             ...prevState,
             loading: true,
-            btnText: <MintSimpleLoader/>
+            btnText: <MintLoader/>
         }));
         this.loaderInterval = setInterval(() => {
             this.refresh();

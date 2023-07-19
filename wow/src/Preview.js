@@ -39,7 +39,7 @@ class Preview extends React.Component {
                         </a>
                         <Button>
                             <a href="/">
-                                <button className={"btn"}>Mint more!</button>
+                                <button className={"btn"}>More WOWs!</button>
                             </a>
                         </Button>
                     </div>
