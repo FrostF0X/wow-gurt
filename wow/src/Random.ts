@@ -1,12 +1,13 @@
 import seedrandom from "seedrandom";
+import Img from "./Img/Img";
 
 export default class Random {
     private readonly rng: () => number;
-    private readonly image: Img;
+    private readonly image: RandomImg;
 
     constructor(seed: string | number) {
         this.rng = seedrandom(seed.toString());
-        this.image = new Img(this);
+        this.image = new RandomImg(this);
     }
 
     public static fresh(seed?: number | string): Random {
@@ -37,12 +38,8 @@ export default class Random {
     }
 }
 
-class Img {
+class RandomImg {
     constructor(private readonly random: Random) {
-    }
-
-    static all() {
-        return ['unicorn', 'polihorseman', 'stardroid', 'coolshoe', 'gurtpin', 'sexydrugrabbit'];
     }
 
     rand(): string {

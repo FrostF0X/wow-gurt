@@ -6,6 +6,8 @@ import WowBorders, {WowBordersPreset} from "./WowBorders";
 import Random from "./Random";
 import Cools from "./Random/Cools";
 import WowReroller from "./WowReroller";
+import Bounce from "./Cools/Bounce";
+import Matrix from "./Cools/Matrix";
 
 class Wow extends React.PureComponent {
 
@@ -30,7 +32,8 @@ class Wow extends React.PureComponent {
                 <WowBorders preset={Random.fresh(Cools.generate()).number(1, WowBordersPreset.all().length)}
                             size={this.props.size}
                             img={Random.fresh(Cools.generate()).img().rand()}>
-
+                    <Bounce img={Random.fresh(Cools.generate()).img().rand()}/>
+                    <Matrix img={Random.fresh(Cools.generate()).img().rand()}/>
                     {this.props.config.cells.map(c =>
                         <WowReroller division={c.division} config={c.config}
                                      configListener={this.modifyConfig(c)}></WowReroller>
