@@ -1,10 +1,10 @@
-import './styles/Just.scss';
+import './styles/Wow.scss';
 import './styles/TextGlitch.scss';
 import React, {createRef} from "react";
-import Delay from "./Animation/Delay";
-import Color from "./Animation/Color";
 import Slow from "./Animation/Slow";
-import Size from "./Animation/Size";
+import WowBorders, {WowBordersPreset} from "./WowBorders";
+import Random from "./Random";
+import Cools from "./Random/Cools";
 import WowReroller from "./WowReroller";
 
 class Wow extends React.PureComponent {
@@ -16,27 +16,26 @@ class Wow extends React.PureComponent {
     }
 
     componentDidMount() {
-        Size.size(this.props.size, this.ref.current);
-        Delay.delay(this.props.config.delay, this.ref.current);
-        Color.setColors(...this.props.config.colors, this.ref.current);
-        Slow.slow2(this.ref.current);
     }
 
     render() {
-        if (this.ref && this.ref.current) {
-            Size.size(this.props.size, this.ref.current);
-            Delay.delay(this.props.config.delay, this.ref.current);
-            Color.setColors(...this.props.config.colors, this.ref.current);
-            Slow.slow2(this.ref.current);
-        }
         return (
-            <div className={"just"} ref={this.ref}>
-                <div className={"just-scene-grid"} style={{"--scene-size": `${this.props.size}px`}}>
+            <div className={"wow"} style={{
+                "--wow-size": `${this.props.size}px`,
+                "--chess-color-1": this.props.config.colors[0],
+                "--chess-color-2": this.props.config.colors[1],
+                "--animation-delay-multiplier": this.props.config.delay,
+                '--animation-length': `${2000 * (this.props.slow ?? 1)}ms`,
+            }}>
+                <WowBorders preset={Random.fresh(Cools.generate()).number(1, WowBordersPreset.all().length)}
+                            size={this.props.size}
+                            img={Random.fresh(Cools.generate()).img().rand()}>
+
                     {this.props.config.cells.map(c =>
                         <WowReroller division={c.division} config={c.config}
                                      configListener={this.modifyConfig(c)}></WowReroller>
                     )}
-                </div>
+                </WowBorders>
             </div>
         );
     }

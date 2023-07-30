@@ -8,11 +8,18 @@ $black: #000000;
 $highlightPink: #FE2AAA;
 $highlightGreen: #04C74F;
 
+$background: black;
+$text: #f5efed;
+$accent: white;
+$textHighlight1: $highlightPink;
+$textHighlight2: $highlightGreen;
+$borderWidth: 1px;
+
 body {
   font-family: Machina ub, serif;
   font-size: 1em;
+  color: $text;
 }
-
 
 table {
   width: 100%;
@@ -46,11 +53,11 @@ h1 {
 table thead th {
   font-family: Machina r, serif;
   padding: 0.5em 0;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid $accent;
 }
 
 table.padded {
-  border: 1px solid white;
+  border: 1px solid $accent;
 }
 
 table.padded thead th {
@@ -74,11 +81,11 @@ table tbody tr:last-child td {
 }
 
 .text-highlight {
-  color: $highlightGreen;
+  color: $textHighlight2;
 }
 
 .text-highlight-cool {
-  color: $highlightPink;
+  color: $textHighlight1;
 }
 
 .text-highlight-big {
@@ -90,7 +97,7 @@ div {
 }
 
 body a:visited {
-  color: white;
+  color: $accent;
 }
 
 body {

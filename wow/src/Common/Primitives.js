@@ -1,8 +1,7 @@
 import "./Primitives.d.ts";
 // eslint-disable-next-line no-extend-native
 String.prototype.shuffle = function () {
-    var a = this.split(""),
-        n = a.length;
+    var a = this.split(""), n = a.length;
 
     for (var i = n - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -37,6 +36,29 @@ Number.beautiful = () => {
 }
 
 Array.range = (start, finish = 0) => {
-    return [...Array(finish - start + 1).keys()].map(i => i + start);
+    const length = finish - start + 1 > 0 ? finish - start + 1 : 0;
+    return [...Array(length).keys()].map(i => i + start);
 };
 
+Array.combinations = (arrays) => {
+    const combinations = [];
+    const max = arrays.length - 1;
+
+    function helper(arr, idx) {
+        for (let i = 0; i < arrays[idx].length; i++) {
+            const copy = [...arr]; // Copy the current array
+            copy.push(arrays[idx][i]); // Add the current element
+            if (idx === max) {
+                // If at the last array, add the current combination to the result
+                combinations.push(copy);
+            } else {
+                // Otherwise, recursively call the helper function with the current combination
+                helper(copy, idx + 1);
+            }
+        }
+    }
+
+    helper([], 0);
+
+    return combinations;
+}

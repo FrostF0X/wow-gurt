@@ -61,7 +61,7 @@ export default class WowReroller extends React.Component {
             gridColumn: `cell-${this.division.startCol} / cell-${this.division.endCol + 1}`,
             cursor: 'pointer'
         };
-        return <div className={"just-scene-grid-cell"} style={style}
+        return <div className={"wow-scene-grid-cell image-rescale"} style={style}
                     onClick={this.reroll}>
             {this.justFromConfig(this.state.config)}
         </div>;

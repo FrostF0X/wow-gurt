@@ -1,0 +1,65 @@
+@import "Basics";
+
+.wow-borders {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--wow-border-full-cell-count), var(--wow-border-cell-size));
+  grid-template-rows: repeat(var(--wow-border-full-cell-count), var(--wow-border-cell-size));
+  --image-size: var(--wow-border-cell-size);
+
+  .wow-borders-inner {
+    grid-column: calc(var(--wow-border-depth) + 1) / span calc(var(--wow-border-full-cell-count) - var(--wow-border-depth));
+    grid-row: calc(var(--wow-border-depth) + 1) / span calc(var(--wow-border-full-cell-count) - var(--wow-border-depth));
+  }
+
+  @for $col from 1 to 100 {
+    @for $row from 1 to 100 {
+      .wow-borders-cell-#{$col}-#{$row} {
+        grid-column: #{$col};
+        grid-row: #{$row};
+      }
+    }
+  }
+}
+
+.wow-borders.wow-borders-chess {
+  @for $col from 1 to 100 {
+    @for $row from 1 to 100 {
+      .wow-borders-cell-#{$col}-#{$row} {
+        @if (($col+$row) % 2 == 0) {
+          background-color: var(--chess-color-1);
+        } @else {
+          background-color: var(--chess-color-2);
+        }
+      }
+    }
+  }
+}
+
+.wow-borders-outer {
+  position: absolute;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 0 #{$borderWidth} $accent;
+  pointer-events: none;
+}
+
+.wow-borders-level-0 {
+  display: none;
+}
+
+@for $i from 1 to 11 {
+  .wow-borders-level-#{$i} {
+    position: absolute;
+    z-index: 100000;
+    top: calc(var(--wow-border-cell-size) * #{$i});
+    left: calc(var(--wow-border-cell-size) * #{$i});
+    right: calc(var(--wow-border-cell-size) * #{$i});
+    bottom: calc(var(--wow-border-cell-size) * #{$i});
+    box-shadow: inset 0 0 0 #{$borderWidth} $accent;
+    pointer-events: none;
+  }
+}

@@ -7,14 +7,20 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+
+interface WowGurtPass {
+    function burnDrop(address account) external;
+}
+
 contract WowGurt is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     using SafeMath for uint256;
 
-    Counters.Counter private _tokenIds;
     uint256 private constant MAX_NFT_SUPPLY = 9999;
-    address private serverAddress;
+    Counters.Counter private _tokenIds;
     mapping(string => bool) private _tokenURIs;
+    address private serverAddress;
+    WowGurtPass private passContract;
 
     event NewWowMinted(uint256 tokenId, address recipient, string tokenURI);
 
@@ -58,6 +64,32 @@ contract WowGurt is ERC721URIStorage, Ownable {
         emit NewWowMinted(tokenId, recipient, tokenURI);
 
         return tokenId;
+    }
+
+    function mintNFTFromDrop(address recipient, bytes memory input, bytes memory signature) public payable returns (uint256) {
+        require(recoverSigner(string(input), signature) == serverAddress, "Unauthorized mint attempt.");
+        (string memory baseTokenURI) = this.decodeInput(input);
+        uint256 tokenId = _tokenIds.current();
+
+        require(_tokenIds.current() <= MAX_NFT_SUPPLY, "No more NFTs available for minting.");
+        require(!_tokenURIs[baseTokenURI], "NFT with same tokenURI already exists.");
+        _tokenURIs[baseTokenURI] = true;
+
+        string memory tokenURI = string.concat(string.concat(baseTokenURI, '&tokenId='), Strings.toString(tokenId));
+
+        require(passContract.burnDrop(recipient), "Failed to burn drop token");
+
+        _tokenIds.increment();
+        _mint(recipient, tokenId);
+        _setTokenURI(tokenId, tokenURI);
+
+        emit NewWowMinted(tokenId, recipient, tokenURI);
+
+        return tokenId;
+    }
+
+    function setPassContractAddress(address passContactAddress) public onlyOwner {
+        passContact = ITarget(passContactAddress);
     }
 
     function prefixed(bytes32 hash) internal pure returns (bytes32) {
@@ -137,25 +169,25 @@ contract WowGurt is ERC721URIStorage, Ownable {
 
     function getPrice(uint256 currentId) public pure returns (uint256) {
         if (currentId >= 9000) {
-            return 1 ether;
+            return 10000 ether;
         } else if (currentId >= 8000) {
-            return 0.5 ether;
+            return 5000 ether;
         } else if (currentId >= 7000) {
-            return 0.25 ether;
+            return 2000 ether;
         } else if (currentId >= 6000) {
-            return 0.15 ether;
+            return 1000 ether;
         } else if (currentId >= 5000) {
-            return 0.1 ether;
+            return 500 ether;
         } else if (currentId >= 4000) {
-            return 0.05 ether;
+            return 200 ether;
         } else if (currentId >= 3000) {
-            return 0.025 ether;
+            return 100 ether;
         } else if (currentId >= 2000) {
-            return 0.02 ether;
+            return 50 ether;
         } else if (currentId >= 1000) {
-            return 0.01 ether;
+            return 20 ether;
         } else {
-            return 0 ether;
+            return 10 ether;
         }
     }
 }

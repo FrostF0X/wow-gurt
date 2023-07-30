@@ -9,12 +9,14 @@
     "env-cmd": "^10.1.0",
     "ethereumjs-wallet": "^1.0.2",
     "ganache": "^7.9.0",
+    "seadrop": "^0.0.1-security",
     "web3": "^4.0.2"
   },
   "scripts": {
     "compile": "arch -arm64 /bin/bash -c 'truffle compile'",
     "development": "export SERVER_ADDRESS=0xfd3c9c16e5b8efaa49ecb7e31b781994d5761d51 && arch -arm64 /bin/bash -c 'truffle migrate --network development'",
     "goerli": "export SERVER_ADDRESS=0xb6e01aa3bc04924a6996ebb334b1f4d68773e8ee && arch -arm64 /bin/bash -c 'truffle migrate --network goerli'",
+    "mumbai": "export SERVER_ADDRESS=0xb6e01aa3bc04924a6996ebb334b1f4d68773e8ee && arch -arm64 /bin/bash -c 'truffle migrate --network mumbai'",
     "mainnet": "export SERVER_ADDRESS=0x3c43cb66d82406cc10d8b6721e599efc1dfc37a1 && arch -arm64 /bin/bash -c 'truffle migrate --network mainnet'",
     "test": "truffle test --migrate-none",
     "generate-wallet": "node gen-wallet.js",

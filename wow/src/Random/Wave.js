@@ -1,8 +1,6 @@
 import React, {createRef} from "react";
 import "./styles/Wave.scss";
-
-import Slow from "../Animation/Slow";
-import Size from "../Animation/Size";
+import Img from "../Img/Img";
 
 class Wave extends React.Component {
 
@@ -40,8 +38,8 @@ class Wave extends React.Component {
 
     extracted(i) {
         let rad = 57.2958;
-        const translate = (Math.sin((-(i * 4) + this.refCounter * this.length * 2 / this.fps) * 360 / this.length / rad)) * Size.image() / 2;
-        return `translateY(${translate}px) scaleX(-1)`;
+        const translate = (Math.sin((-(i * 4) + this.refCounter * this.length * 2 / this.fps) * 360 / this.length / rad)) / 2;
+        return `translateY(calc(${translate} * var(--image-size))) scaleX(-1)`;
     }
 
     animate = () => {
@@ -50,7 +48,7 @@ class Wave extends React.Component {
                 this.imgs[i].style.transform = this.extracted(i);
             })
             this.refCounter = this.refCounter + 1;
-        }, 1000 / this.fps * Slow.x());
+        }, 1000 / this.fps);
     }
 
     componentWillUnmount() {
@@ -64,7 +62,8 @@ class Wave extends React.Component {
                  className={`just-random-wave just-random-wave-preset-${this.preset}`}>
                 {Array.range(1, 60).map(i =>
                     <img className={`just-random-wave-item-${i}`}
-                         style={{transform: this.extracted(i)}} src={`/${this.img}.png`}
+                         key={i}
+                         style={{transform: this.extracted(i)}} src={Img.path(this.img)}
                          alt=""/>
                 )}
             </div>

@@ -2,8 +2,6 @@ name: cd
 
 on:
   push:
-    branches:
-      - 'master'
 
 jobs:
   docker:
@@ -28,5 +26,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: bb0d3886dd19a135629b19ad98ec61ed
           projectName: wow-gurt
-          branch: master
           directory: ${{ github.workspace }}/wow/build

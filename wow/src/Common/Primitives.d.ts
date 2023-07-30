@@ -14,6 +14,8 @@ declare interface NumberConstructor {
 
 declare interface ArrayConstructor {
     range(start: number, finish): number[];
+
+    combinations(arrays: any[][]): any[][];
 }
 
 declare var String: NumberConstructor;
