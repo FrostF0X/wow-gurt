@@ -54,7 +54,7 @@
 @for $i from 1 to 11 {
   .wow-borders-level-#{$i} {
     position: absolute;
-    z-index: 100000;
+    z-index: 1000000000000;
     top: calc(var(--wow-border-cell-size) * #{$i});
     left: calc(var(--wow-border-cell-size) * #{$i});
     right: calc(var(--wow-border-cell-size) * #{$i});

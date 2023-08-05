@@ -1,19 +1,29 @@
 import React from "react";
 import "./Matrix.scss"
-import RotatingImg from "../Img/RotatingImg";
+import Img from "../Img/Img";
 
 export default class Matrix extends React.Component {
     render() {
-        let MAX_OFFSET = 64;
-        let MAX_ASSETS = 30;
+        if (!this.props.config) {
+            return;
+        }
         return <div className="wow-cools-matrix">
             <div className="wow-cools-matrix-container">
-                {Array.range(1, Number.random(20, 30)).map(_ => <div
-                    className={`wow-cools-matrix-line wow-cools-matrix-animation-delay-${Number.random(1, MAX_OFFSET)} wow-cools-matrix-line-offset-${Number.random(1, MAX_OFFSET)} wow-cools-matrix-line-offset-top-${Number.random(1, MAX_OFFSET)}`}>
-                    {Array.range(1, Number.random(10, MAX_ASSETS)).map(_ => <RotatingImg
-                        delay={Number.random(1, 6)}/>)}
-                </div>)
-                }
+                {Array.range(1, 128).map(_ => <div className={`wow-cools-matrix-line`}>
+                        {Array.range(1, 128).map(_ =>
+                            <img className={`wow-cools-matrix-asset`}
+                                 src={Img.path(this.props.config.img)} alt=""/>
+                        )}
+                    </div>
+                )}
+                <div className="wow-cools-matrix-overlay">
+                    {Array.range(1, 256).map(_ =>
+                        <div className="wow-cools-matrix-overlay-line">
+                            {Array.range(1, 256).map(_ => <div
+                                className="wow-cools-matrix-overlay-cell"></div>)}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     }

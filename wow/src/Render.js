@@ -3,7 +3,7 @@ import React from "react";
 import Wow from "./Wow";
 import Color from "./Animation/Color";
 import AnimationConfig from "./AnimationConfig";
-import Cools from "./Random/Cools";
+import {Cools} from "./Cools/Cools";
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -15,8 +15,10 @@ class Render extends React.Component {
         this.size = query().get('size') ?? 1024;
         try {
             this.config = JSON.parse(atob(query().get('config')));
+            this.cools = Cools.none();
         } catch (e) {
-            this.config = AnimationConfig.generate(Cools.generate());
+            this.config = AnimationConfig.generate(query().get('seed'));
+            this.cools = Cools.glitch(query().get('seed'), 1, parseInt(query().get('level')));
         }
         this.attributes = JSON.stringify(this.gatherAttributes(this.config));
     }
@@ -24,7 +26,7 @@ class Render extends React.Component {
     render() {
         return (
             <div className={"just-render"}>
-                <Wow slow={query().get('slow') ?? 10} size={this.size} config={this.config}/>
+                <Wow slow={query().get('slow') ?? 10} size={this.size} config={this.config} cools={this.cools}/>
                 <div className={"pretty-rare-vow"} style={{width: `${this.size}px`}}>
                     Congratulations: You're a lucky cat, You've got pretty rare WOW with pink line!
                 </div>

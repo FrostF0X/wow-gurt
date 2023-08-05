@@ -1,6 +1,7 @@
 import React, {createRef} from "react";
 import "./styles/Wave.scss";
-import Img from "../Img/Img";
+import GlitchImage from "../GlitchImage";
+import Slow from "../Animation/Slow";
 
 class Wave extends React.Component {
 
@@ -48,7 +49,7 @@ class Wave extends React.Component {
                 this.imgs[i].style.transform = this.extracted(i);
             })
             this.refCounter = this.refCounter + 1;
-        }, 1000 / this.fps);
+        }, 1000 / this.fps * Slow.x());
     }
 
     componentWillUnmount() {
@@ -61,10 +62,11 @@ class Wave extends React.Component {
             <div ref={this.wave}
                  className={`just-random-wave just-random-wave-preset-${this.preset}`}>
                 {Array.range(1, 60).map(i =>
-                    <img className={`just-random-wave-item-${i}`}
-                         key={i}
-                         style={{transform: this.extracted(i)}} src={Img.path(this.img)}
-                         alt=""/>
+                    <GlitchImage class={`just-random-wave-item just-random-wave-item-${i}`}
+                                 key={i}
+                                 type={'wow'}
+                                 style={{transform: this.extracted(i)}}
+                                 img={this.img}/>
                 )}
             </div>
         </div>;

@@ -16,6 +16,7 @@
 
 $cellCount: 8;
 .wow-scene-grid {
+  overflow: hidden;
   display: grid;
   --cell-size: calc(var(--wow-scene-size) / 8 - #{$borderWidth});
   --image-size: calc(var(--wow-scene-size) / 8);
@@ -51,6 +52,7 @@ $cellCount: 8;
   --image-size-5: calc(var(--wow-scene-size) / 8 * 5);
   --image-size-6: calc(var(--wow-scene-size) / 8 * 6);
   --image-size-7: calc(var(--wow-scene-size) / 8 * 7);
+  --image-size-8: calc(var(--wow-scene-size));
   --image-pos-left-small: calc(var(--image-size) / 18.3 * -1);
   --image-pos-top-small: calc(var(--image-size) / 25.6 * -1);
   --image-pos-right-small: calc(var(--image-size) / 18.3);

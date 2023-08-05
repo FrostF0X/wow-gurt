@@ -1,0 +1,11 @@
+.wow-cools-overlay {
+  z-index: 10000000;
+  position: absolute;
+  width: var(--wow-scene-size);
+  height: var(--wow-scene-size);
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}

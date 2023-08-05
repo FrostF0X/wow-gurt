@@ -1,0 +1,81 @@
+@import "../../styles/Basics";
+
+.over-preset-4-just-grid-left-top {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+  grid-column: cell-1 / span 2;
+  grid-row: cell-1 / span 2;
+  animation: calc(var(--animation-length) / 2) over-preset-4-left-top ease-out infinite;
+}
+
+.over-preset-4-just-grid-left-bottom {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-1 / span 2;
+  grid-row: cell-7 / span 2;
+  animation: calc(var(--animation-length) / 2) over-preset-4-left-bottom ease-out infinite;
+}
+
+.over-preset-4-just-grid-right-top {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-7 / span 2;
+  grid-row: cell-1 / span 2;
+  animation: calc(var(--animation-length) / 2) over-preset-4-right-top ease-out infinite;
+}
+
+.over-preset-4-just-grid-right-bottom {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-7 / span 2;
+  grid-row: cell-7 / span 2;
+  animation: calc(var(--animation-length) / 2) over-preset-4-right-bottom ease-out infinite;
+}
+
+.over-preset-4-just-grid-center {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+  box-sizing: border-box;
+  grid-column: cell-3/span 4;
+  grid-row: cell-3/span 4;
+}
+
+
+@keyframes over-preset-4-left-top {
+  0% {
+
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes over-preset-4-left-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+@keyframes over-preset-4-right-top {
+  0% {
+
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+@keyframes over-preset-4-right-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-300%);
+  }
+}

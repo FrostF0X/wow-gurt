@@ -1,0 +1,72 @@
+@import "../../styles/Basics";
+
+.over-preset-3-just-grid-left-top {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+  grid-column: cell-3 / span 2;
+  grid-row: cell-3 / span 2;
+  animation: calc(var(--animation-length) / 4) over-preset-3-left-top ease-out infinite;
+}
+
+.over-preset-3-just-grid-left-bottom {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-3 / span 2;
+  grid-row: cell-5 / span 2;
+  animation: calc(var(--animation-length) / 4) over-preset-3-left-bottom ease-out infinite;
+}
+
+.over-preset-3-just-grid-right-top {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-5 / span 2;
+  grid-row: cell-3 / span 2;
+  animation: calc(var(--animation-length) / 4) over-preset-3-right-top ease-out infinite;
+}
+
+.over-preset-3-just-grid-right-bottom {
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 0 $borderWidth $borderWidth $accent;
+
+  grid-column: cell-5 / span 2;
+  grid-row: cell-5 / span 2;
+  animation: calc(var(--animation-length) / 4) over-preset-3-right-bottom ease-out infinite;
+}
+
+@keyframes over-preset-3-left-top {
+  0% {
+
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes over-preset-3-left-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes over-preset-3-right-top {
+  0% {
+
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes over-preset-3-right-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

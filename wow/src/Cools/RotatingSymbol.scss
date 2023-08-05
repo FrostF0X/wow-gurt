@@ -1,0 +1,39 @@
+@import "../styles/Basics";
+
+$symbolCount: 2;
+
+.rotating-symbols {
+  --rotating-symbol-animation-delay-base: calc(var(--animation-length) / #{$symbolCount} / 10);
+  width: 100%;
+  display: flex;
+  font-size: 9px;
+  font-family: monospace;
+}
+
+.rotating-symbol {
+  width: 100%;
+  animation: disappear linear infinite;
+  animation-duration: calc(var(--rotating-symbol-animation-delay-base) * #{$symbolCount});
+}
+
+@keyframes disappear {
+  0% {
+    visibility: hidden;
+  }
+  83.3333332% {
+    visibility: hidden;
+  }
+  83.3333333% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@for $i from 1 to $symbolCount + 1 {
+  .rotating-symbol-delay-#{$i} {
+    animation-delay: calc(var(--rotating-symbol-animation-delay-base) * #{$i});
+  }
+}
+

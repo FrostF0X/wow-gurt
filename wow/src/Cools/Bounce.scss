@@ -19,7 +19,6 @@
 
   .wow-cools-bounce-asset-container-#{$i} {
     position: absolute;
-    z-index: 10000000;
     width: calc(var(--image-size) / 3);
     height: calc(var(--image-size) / 3);
     animation: bounce-#{$i} 2s linear infinite;
@@ -32,6 +31,7 @@
 }
 
 .wow-cools-bounce {
+  z-index: 10000000;
   position: absolute;
   width: var(--wow-scene-size);
   height: var(--wow-scene-size);

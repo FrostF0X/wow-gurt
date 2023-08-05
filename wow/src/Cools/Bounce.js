@@ -1,7 +1,7 @@
 import React from "react";
-import Img from "../Img/Img";
 import "./Bounce.scss"
 import {JustFrame} from "../JustFrame";
+import Img from "../Img/Img";
 
 export default class Bounce extends React.Component {
     render() {

@@ -10,6 +10,7 @@ import Mint from "./Mint";
 import {Config} from "./Eth/Config";
 import Preview from "./Preview";
 import {getCookie} from "./Common/Cookie";
+import {Multirender} from "./Multirender";
 
 const router = createBrowserRouter([
         {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         {
             path: "/render",
             element: <Render/>,
+        },
+        {
+            path: "/multirender",
+            element: <Multirender/>,
         },
         {
             path: "/wow/:id",

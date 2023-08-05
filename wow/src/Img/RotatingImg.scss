@@ -8,26 +8,22 @@
 
 .rotating-img {
   width: 100%;
-  animation: disappear linear infinite;
-  animation-duration: calc(var(--rotating-img-animation-delay-base) * #{$imagesCount});
+  //animation: disappear linear infinite;
+  //animation-duration: calc(var(--rotating-img-animation-delay-base) * #{$imagesCount});
 }
 
 @keyframes disappear {
   0% {
-    width: 0;
-    display: none;
+    visibility: hidden;
   }
   83.3333332% {
-    width: 0;
-    display: none;
+    visibility: hidden;
   }
   83.3333333% {
-    width: 100%;
-    display: none;
+    visibility: visible;
   }
   100% {
-    width: 100%;
-    display: none;
+    visibility: visible;
   }
 }
 

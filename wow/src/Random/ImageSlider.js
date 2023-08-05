@@ -29,9 +29,11 @@ class ImageSlider extends React.Component {
                         Array.range(1, this.props.division.rows + 1).map((row) =>
                             <div key={Grid.toCellIndex(col, row)}
                                  className={`just-grid-cell just-grid-cell-${Grid.toCellIndex(col, row)}`}>
-                                <GlitchImage img={this.c.img}
-                                             preset={2}
-                                             animationDelayedStart={this.c.randomDelay[(col-1) + (row-1) * this.props.division.col]}
+                                <GlitchImage
+                                    type={'wow'}
+                                    img={this.c.img}
+                                    preset={2}
+                                    animationDelayedStart={this.c.randomDelay[(col - 1) + (row - 1) * this.props.division.col]}
                                 />
                             </div>
                         ))}
