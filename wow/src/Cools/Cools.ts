@@ -94,18 +94,3 @@ export class MatrixConfig {
         return null;
     }
 }
-
-function split(level: number, maxConfig: number[], random: Random): number[] {
-    const result = maxConfig.map(_ => 0);
-    level = Math.min(level, maxConfig.reduce((i1, i2) => i1 + i2));
-    Array.range(1, level).forEach((i) => {
-        while (true) {
-            const enhance = random.number(1, maxConfig.length);
-            if (result[enhance - 1] < maxConfig[enhance - 1]) {
-                result[enhance - 1]++;
-                break;
-            }
-        }
-    });
-    return result;
-}

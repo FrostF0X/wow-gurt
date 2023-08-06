@@ -7,7 +7,6 @@ import WowReroller from "./WowReroller";
 import Over from "./Cools/Over";
 import Matrix from "./Cools/Matrix";
 import {Cools} from "./Cools/Cools";
-import Img from "./Img/Img";
 
 class Wow extends React.PureComponent {
 
