@@ -33,7 +33,7 @@ let maxActiveRequests = queue({
 
 
 export default class Server {
-    static create(type: "get" | "post", port: number, listener: (req: Request, res: Response) => Promise<void>) {
+    static create(type: "get" | "post", port: number, listener: (req: Request, res: Response) => Promise<void>, testListener: (req: Request, res: Response) => Promise<void>) {
         const app: express.Express = express();
         app.options('*', cors())
         app.use(cors({
@@ -56,11 +56,8 @@ export default class Server {
             };
         }
 
-        if (type === "get") {
-            app.get('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
-        } else {
-            app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
-        }
+        app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
+        app.post('/test', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(testListener));
 
         app.get('/wow', wrapped(async (req, res) => {
             let tokenId = parseInt(req.query.tokenId as string);

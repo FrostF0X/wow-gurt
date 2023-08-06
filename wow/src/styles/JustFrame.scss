@@ -1,7 +1,9 @@
+@import "Basics";
+
 .just-random-frame {
-  border: white 1px solid;
-  background: black;
-  box-shadow: -4px 4px 0 0 black, -5px 5px 0 0 white, -9px 9px 0 0 black, -10px 10px 0 0 white;
+  border: $accent $borderWidth solid;
+  background: $background;
+  box-shadow: -$borderWidth $borderWidth 0 0 $background, -($borderWidth * 2) $borderWidth * 2 0 0 $accent, -($borderWidth * 3) ($borderWidth * 3) 0 0 $background, -($borderWidth * 4) ($borderWidth * 4) 0 0 $accent, -($borderWidth * 5) ($borderWidth * 5) 0 0 $background;
 }
 
 .just-random-frame-content {
@@ -18,13 +20,13 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
-  border-bottom: 1px solid white;
+  border-bottom: $borderWidth solid $accent;
   z-index: 10;
-  background: black;
+  background: $background;
 }
 
 .just-random-frame-toolbar-item {
-  border-left: 1px solid white;
+  border-left: $borderWidth solid $accent;
   position: relative;
   height: 18px;
   width: 18px;
@@ -34,7 +36,7 @@
   width: 11px;
   height: 1px;
   display: block;
-  background: #ffffff;
+  background: $accent;
   position: absolute;
   transform: rotate(-45deg);
   left: 3px;
@@ -45,7 +47,7 @@
   width: 11px;
   height: 1px;
   display: block;
-  background: #ffffff;
+  background: $accent;
   position: absolute;
   transform: rotate(45deg);
   left: 3px;
@@ -56,19 +58,19 @@
   display: block;
   width: 8px;
   height: 8px;
-  border: 1px solid #ffffff;
+  border: 1px solid $background;
   position: absolute;
   left: 3px;
   bottom: 4px;
   z-index: 10;
-  background: black;
+  background: $accent;
 }
 
 .just-random-frame-toolbar-expand-2 {
   display: block;
   width: 8px;
   height: 8px;
-  border: 1px solid #ffffff;
+  border: 1px solid $accent;
   position: absolute;
   left: 6px;
   bottom: 7px;
@@ -78,7 +80,7 @@
   display: block;
   width: 7px;
   height: 1px;
-  background: #ffffff;
+  background: $accent;
   position: absolute;
   bottom: 5px;
   left: 5px;

@@ -1,0 +1,30 @@
+$borderCellCount: 68;
+$borderCellFullCount: $borderCellCount+2;
+
+.wow-borders-level-3 {
+  display: grid;
+  --wow-border-cell-size: calc(var(--wow-size) / $borderCellFullCount);
+  grid-template-columns: repeat($borderCellFullCount, var(--wow-border-cell-size));
+  grid-template-rows: repeat($borderCellFullCount, var(--wow-border-cell-size));
+  --image-size: var(--wow-border-cell-size);
+}
+
+@for $col from 1 to $borderCellFullCount + 1 {
+  @for $row from 1 to $borderCellFullCount + 1 {
+    .wow-borders-cell-level-3-#{$col}-#{$row} {
+      grid-column: #{$col};
+      grid-row: #{$row};
+      @if (($col+$row) % 2 == 0) {
+        background-color: var(--chess-color-1);
+      } @else {
+        background-color: var(--chess-color-2);
+      }
+    }
+  }
+}
+
+.wow-borders-item {
+  grid-column: 2 / span $borderCellCount;
+  grid-row: 2 / span $borderCellCount;
+  border: 1px solid $accent;
+}

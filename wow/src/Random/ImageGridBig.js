@@ -12,7 +12,7 @@ class ImageGrid extends React.Component {
     render() {
         return <div ref={this.item} className={"just-random-image-glitch-big"}>
             <div className={`just-random-image-glitch-big img-size-${this.props.size}`}>
-                {Array.range(1, this.props.images).map(() => <GlitchImage img={this.props.img} size={this.props.size} preset={this.props.preset}/>)}
+                {Array.range(1, this.props.images).map(() => <GlitchImage type={'wow'} img={this.props.img} size={this.props.size} preset={this.props.preset}/>)}
             </div>
         </div>;
     }

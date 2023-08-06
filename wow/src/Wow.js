@@ -1,11 +1,13 @@
-import './styles/Just.scss';
+import './styles/Wow.scss';
 import './styles/TextGlitch.scss';
 import React, {createRef} from "react";
-import Delay from "./Animation/Delay";
-import Color from "./Animation/Color";
 import Slow from "./Animation/Slow";
-import Size from "./Animation/Size";
+import WowBorders from "./WowBorders";
 import WowReroller from "./WowReroller";
+import Over from "./Cools/Over";
+import Matrix from "./Cools/Matrix";
+import {Cools} from "./Cools/Cools";
+import Img from "./Img/Img";
 
 class Wow extends React.PureComponent {
 
@@ -13,30 +15,28 @@ class Wow extends React.PureComponent {
         super(props);
         this.ref = createRef();
         Slow.slow(this.props.slow ?? 1);
+        this.state = {cools: this.props.cools ?? Cools.none()};
     }
 
-    componentDidMount() {
-        Size.size(this.props.size, this.ref.current);
-        Delay.delay(this.props.config.delay, this.ref.current);
-        Color.setColors(...this.props.config.colors, this.ref.current);
-        Slow.slow2(this.ref.current);
-    }
 
     render() {
-        if (this.ref && this.ref.current) {
-            Size.size(this.props.size, this.ref.current);
-            Delay.delay(this.props.config.delay, this.ref.current);
-            Color.setColors(...this.props.config.colors, this.ref.current);
-            Slow.slow2(this.ref.current);
-        }
         return (
-            <div className={"just"} ref={this.ref}>
-                <div className={"just-scene-grid"} style={{"--scene-size": `${this.props.size}px`}}>
+            <div className={"wow"} style={{
+                "--wow-size": `${this.props.size}px`,
+                "--chess-color-1": this.props.config.colors[0],
+                "--chess-color-2": this.props.config.colors[1],
+                "--animation-delay-multiplier": this.props.config.delay,
+                '--animation-length': `${2000 * (this.props.slow ?? 1)}ms`,
+            }}>
+                <WowBorders config={this.state.cools.borders} size={this.props.size}>
+                    <Matrix config={this.state.cools.matrix}/>
+                    {this.state.cools.over ?
+                        <Over config={this.state.cools.over}/> : null}
                     {this.props.config.cells.map(c =>
                         <WowReroller division={c.division} config={c.config}
                                      configListener={this.modifyConfig(c)}></WowReroller>
                     )}
-                </div>
+                </WowBorders>
             </div>
         );
     }

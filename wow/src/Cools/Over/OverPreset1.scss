@@ -1,0 +1,25 @@
+@import "../../styles/Basics";
+
+.over-just-grid-preset-1 {
+  .over-just-grid-block {
+    display: none;
+  }
+
+  &.over-just-grid-preset-1-level-1, &.over-just-grid-preset-1-level-2, &.over-just-grid-preset-1-level-3 {
+    .over-just-grid-corner {
+      display: block;
+    }
+  }
+
+  &.over-just-grid-preset-1-level-2, &.over-just-grid-preset-1-level-3 {
+    .just-glitch-img-container {
+      animation: calc(var(--animation-length)) over-coin ease-in-out infinite;
+    }
+  }
+
+  &.over-just-grid-preset-1-level-3 {
+    .over-just-grid-center-x {
+      display: block;
+    }
+  }
+}

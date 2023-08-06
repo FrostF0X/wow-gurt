@@ -25,52 +25,51 @@
       left: calc(var(--image-size) / 8);
     }
   }
-}
 
 
-.just-random-wave {
-  position: absolute;
-  width: var(--scene-size);
-  height: 0;
-  z-index: 20;
-}
-
-
-@for $i from 1 to 61 {
-  .just-random-wave-item-#{$i} {
-    display: none;
-  }
-  .just-random-wave-preset-1 .just-random-wave-item-#{$i} {
-    display: block;
+  .just-random-wave {
     position: absolute;
-    top: calc(var(--image-size) / -2);
+    width: var(--wow-scene-size);
+    height: 0;
+    z-index: 20;
+  }
+
+  .just-random-wave-item {
     width: var(--image-size);
     height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 60));
-    z-index: 60 - $i;
   }
-}
+  @for $i from 1 to 61 {
+    .just-random-wave-item-#{$i} {
+      display: none;
+    }
+    .just-random-wave-preset-1 .just-random-wave-item-#{$i} {
+      display: block;
+      position: absolute;
+      top: calc(var(--image-size) / -2);
+      left: math.percentage(math.div($i - 1, 60));
+      z-index: 60 - $i;
+    }
+  }
 
-@for $i from 1 to 41 {
-  .just-random-wave-preset-2 .just-random-wave-item-#{$i} {
-    display: block;
-    position: absolute;
-    top: calc(var(--image-size) / -2);
-    width: var(--image-size);
-    height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 40));
-    z-index: 60 - $i;
+  @for $i from 1 to 41 {
+    .just-random-wave-preset-2 .just-random-wave-item-#{$i} {
+      display: block;
+      position: absolute;
+      top: calc(var(--image-size) / -2);
+      left: math.percentage(math.div($i - 1, 40));
+      z-index: 60 - $i;
+    }
   }
-}
 
-@for $i from 1 to 21 {
-  .just-random-wave-preset-3 .just-random-wave-item-#{$i} {
-    display: block;
-    position: absolute;
-    top: calc(var(--image-size) / -2);
-    width: var(--image-size);
-    height: var(--image-size);
-    left: math.percentage(math.div($i - 1, 20));
-    z-index: 60 - $i;
+  @for $i from 1 to 21 {
+    .just-random-wave-preset-3 .just-random-wave-item-#{$i} {
+      display: block;
+      position: absolute;
+      top: calc(var(--image-size) / -2);
+      left: math.percentage(math.div($i - 1, 20));
+      z-index: 60 - $i;
+    }
   }
+
+
 }

@@ -1,0 +1,35 @@
+@import "../styles/Basics";
+
+.rotating-imgs {
+  --rotating-img-animation-delay-base: calc(var(--animation-length) / #{$imagesCount} / 10);
+  width: 100%;
+  display: flex;
+}
+
+.rotating-img {
+  width: 100%;
+  //animation: disappear linear infinite;
+  //animation-duration: calc(var(--rotating-img-animation-delay-base) * #{$imagesCount});
+}
+
+@keyframes disappear {
+  0% {
+    visibility: hidden;
+  }
+  83.3333332% {
+    visibility: hidden;
+  }
+  83.3333333% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@for $i from 1 to $imagesCount + 1 {
+  .rotating-img-delay-#{$i} {
+    animation-delay: calc(var(--rotating-img-animation-delay-base) * #{$i});
+  }
+}
+

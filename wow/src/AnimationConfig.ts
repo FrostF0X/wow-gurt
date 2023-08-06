@@ -15,14 +15,14 @@ export default class AnimationConfig {
         const divider = new AreaDivider(r.randomItems(AnimationConfig.levelConfig, r.randomItems(AnimationConfig.levelRarityConfig, 1)[0]), 8, 8, r);
         const divisions = divider.divide().flatten();
         const cells = divisions.map(d => {
-            return new CellConfig(d, AnimationConfig.wowConfig(d));
+            return new CellConfig(d, AnimationConfig.wowConfig(d, r));
         });
         return new AnimationConfig(cells, r.randomItem(Delay.variants), r.randomItem(Color.variants));
     }
 
-    public static wowConfig(d: AreaDivision) {
-        const r = Random.fresh(Number.random(1, Number.MAX_SAFE_INTEGER));
-        switch (Number.random(1, 4)) {
+    public static wowConfig(d: AreaDivision, random: Random | null = null) {
+        const r = random ? random : Random.fresh(Number.random(1, Number.MAX_SAFE_INTEGER));
+        switch (r.number(1, 4)) {
             case 1:
                 return new JustWaveConfig(r.img().rand(), d.rows > d.cols ? "vertical" : "horizontal", r.number(1, 3));
             case 2:

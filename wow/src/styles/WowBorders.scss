@@ -1,0 +1,191 @@
+@use "sass:math";
+@import "Basics";
+
+.wow-borders {
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--wow-border-full-cell-count), var(--wow-border-cell-size));
+  grid-template-rows: repeat(var(--wow-border-full-cell-count), var(--wow-border-cell-size));
+  --image-size: var(--wow-border-cell-size);
+
+  @for $col from 1 to 100 {
+    @for $row from 1 to 100 {
+      .wow-borders-cell-#{$col}-#{$row} {
+        grid-column: #{$col};
+        grid-row: #{$row};
+      }
+    }
+  }
+
+  .wow-borders-overlay {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .wow-borders-overlay-frame {
+    display: none;
+    z-index: $zIndexBorders - 1;
+
+    .wow-borders-overlay-img {
+      position: absolute;
+      width: calc(var(--wow-border-width) * var(--wow-border-cell-size));
+      height: calc(var(--wow-border-width) * var(--wow-border-cell-size));
+      --overlay-border-offset: calc(var(--wow-border-width) * var(--wow-border-cell-size) / 2);
+      background: $shadowBackground;
+      box-shadow: 0 0 0 $borderWidth $accent;
+    }
+
+    @for $i from 1 to 4 {
+      .wow-borders-overlay-img-top-#{$i} {
+        left: calc(var(--overlay-border-offset) * (($i - 1) * 8 + 9));
+        top: 0;
+      }
+      .wow-borders-overlay-img-bottom-#{$i} {
+        left: calc(var(--overlay-border-offset) * (($i - 1) * 8 + 9));
+        top: calc(calc(var(--overlay-border-offset) * 34));
+      }
+      .wow-borders-overlay-img-left-#{$i} {
+        left: 0;
+        top: calc(var(--overlay-border-offset) * (($i - 1) * 8 + 9));
+      }
+      .wow-borders-overlay-img-right-#{$i} {
+        left: calc(var(--overlay-border-offset) * 34);
+        top: calc(var(--overlay-border-offset) * (($i - 1) * 8 + 9));
+      }
+    }
+  }
+
+  .wow-borders-overlay-corners {
+    display: none;
+    z-index: $zIndexBorders + 1;
+
+    .wow-borders-overlay-img {
+      position: absolute;
+      width: calc(var(--wow-border-width) * var(--wow-border-cell-size) * 2);
+      height: calc(var(--wow-border-width) * var(--wow-border-cell-size) * 2);
+      background: $shadowBackground;
+      border: $borderWidth $accent solid;
+    }
+
+    @for $col from 1 to 3 {
+      @for $row from 1 to 3 {
+        .wow-borders-overlay-img-#{$col}-#{$row} {
+          --overlay-border-offset: calc(var(--wow-border-width) * var(--wow-border-cell-size));
+          left: calc(var(--overlay-border-offset) * (($col - 1) * 16));
+          top: calc(var(--overlay-border-offset) * (($row - 1) * 16));
+        }
+      }
+    }
+  }
+
+  .wow-borders-outer {
+    position: absolute;
+    z-index: $zIndexBorders;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 #{$borderWidth} $accent;
+    pointer-events: none;
+  }
+
+  .wow-borders-level-0 {
+    display: none;
+  }
+
+  @for $i from 1 to 11 {
+    .wow-borders-level-#{$i} {
+      position: absolute;
+      z-index: $zIndexBorders - $i;
+      top: calc(var(--wow-border-cell-size) * #{$i});
+      left: calc(var(--wow-border-cell-size) * #{$i});
+      right: calc(var(--wow-border-cell-size) * #{$i});
+      bottom: calc(var(--wow-border-cell-size) * #{$i});
+      box-shadow: inset 0 0 0 #{$borderWidth} $accent;
+      pointer-events: none;
+    }
+  }
+
+  &.wow-borders-chess {
+    @for $col from 1 to 100 {
+      @for $row from 1 to 100 {
+        .wow-borders-cell-#{$col}-#{$row} {
+          @if (($col+$row) % 2 == 0) {
+            background-color: var(--chess-color-1);
+          } @else {
+            background-color: var(--chess-color-2);
+          }
+        }
+      }
+    }
+  }
+
+  &.wow-borders-level-4 {
+    .wow-borders-overlay-frame {
+      display: block;
+    }
+  }
+
+  &.wow-borders-level-3, &.wow-borders-level-4 {
+    .wow-borders-overlay-corners {
+      display: block;
+    }
+  }
+
+  &.wow-borders-level-4 {
+    .wow-borders-cell-left {
+      animation: move-top calc(var(--animation-length) / var(--wow-border-width) / 2) linear infinite;
+    }
+
+    .wow-borders-cell-top {
+      animation: move-right calc(var(--animation-length) / var(--wow-border-width) / 2) linear infinite;
+    }
+
+    .wow-borders-cell-right {
+      animation: move-bottom calc(var(--animation-length) / var(--wow-border-width) / 2) linear infinite;
+    }
+
+    .wow-borders-cell-bottom {
+      animation: move-left calc(var(--animation-length) / var(--wow-border-width) / 2) linear infinite;
+    }
+  }
+}
+
+@keyframes move-right {
+  0% {
+
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes move-top {
+  0% {
+
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes move-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes move-left {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}

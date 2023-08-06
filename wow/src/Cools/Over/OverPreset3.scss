@@ -1,0 +1,37 @@
+@import "../../styles/Basics";
+
+.over-just-grid-preset-3 {
+  .over-just-grid-block {
+    display: none;
+  }
+
+  &.over-just-grid-preset-3-level-1, &.over-just-grid-preset-3-level-2, &.over-just-grid-preset-3-level-3 {
+    .over-just-grid-corner {
+      display: block;
+    }
+  }
+
+  &.over-just-grid-preset-3-level-2, &.over-just-grid-preset-3-level-3 {
+    .over-just-grid-center {
+      display: block;
+    }
+  }
+
+  &.over-just-grid-preset-3-level-3 {
+    .over-just-grid-center-left-top {
+      animation: calc(var(--animation-length) / 4) over-center-slide-left-top ease-out infinite;
+    }
+
+    .over-just-grid-center-left-bottom {
+      animation: calc(var(--animation-length) / 4) over-center-slide-left-bottom ease-out infinite;
+    }
+
+    .over-just-grid-center-right-top {
+      animation: calc(var(--animation-length) / 4) over-center-slide-right-top ease-out infinite;
+    }
+
+    .over-just-grid-center-right-bottom {
+      animation: calc(var(--animation-length) / 4) over-center-slide-right-bottom ease-out infinite;
+    }
+  }
+}

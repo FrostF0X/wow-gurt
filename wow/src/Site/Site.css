@@ -1,9 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap);
 
-.sw1, img {
-    display: block
-}
-
 .button__contact, .top__menu ul .menu__item .menu__link {
     font-family: Machina ub;
     -webkit-transition: .5s;
@@ -87,10 +83,6 @@ a {
 
 .top__menu ul .menu__item .menu__link:hover, body {
     color: #fff
-}
-
-img {
-    max-width: 100%
 }
 
 article > * + * {
