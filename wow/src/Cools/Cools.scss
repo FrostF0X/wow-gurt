@@ -1,5 +1,6 @@
-.wow-cools-overlay {
-  z-index: 10000000;
+@import "../styles/Basics";
+
+.cools-overlay {
   position: absolute;
   width: var(--wow-scene-size);
   height: var(--wow-scene-size);

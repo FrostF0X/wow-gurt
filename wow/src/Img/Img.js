@@ -5,7 +5,6 @@ export default class Img {
     static all() {
         return ['unicorn', 'polihorseman', 'stardroid', 'coolshoe', 'gurtpin', 'sexydrugrabbit'];
     }
-
     static applyStyleConfig(styleConfig) {
         Img.styleConfig = styleConfig;
     }

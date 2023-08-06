@@ -15,10 +15,13 @@ class Render extends React.Component {
         this.size = query().get('size') ?? 1024;
         try {
             this.config = JSON.parse(atob(query().get('config')));
-            this.cools = Cools.none();
         } catch (e) {
             this.config = AnimationConfig.generate(query().get('seed'));
-            this.cools = Cools.glitch(query().get('seed'), 1, parseInt(query().get('level')));
+        }
+        try {
+            this.cools = JSON.parse(atob(query().get('cools')));
+        } catch (e) {
+            this.cools = Cools.none();
         }
         this.attributes = JSON.stringify(this.gatherAttributes(this.config));
     }

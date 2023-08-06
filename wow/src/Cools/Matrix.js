@@ -7,20 +7,22 @@ export default class Matrix extends React.Component {
         if (!this.props.config) {
             return;
         }
-        return <div className="wow-cools-matrix">
-            <div className="wow-cools-matrix-container">
-                {Array.range(1, 128).map(_ => <div className={`wow-cools-matrix-line`}>
-                        {Array.range(1, 128).map(_ =>
-                            <img className={`wow-cools-matrix-asset`}
-                                 src={Img.path(this.props.config.img)} alt=""/>
-                        )}
-                    </div>
-                )}
-                <div className="wow-cools-matrix-overlay">
+        return <div className={`cools-overlay matrix matrix-level-${this.props.config.level}`}>
+            <div className="matrix-container">
+                <div className="matrix-overlay matrix-overlay-chess">
                     {Array.range(1, 256).map(_ =>
-                        <div className="wow-cools-matrix-overlay-line">
+                        <div className="matrix-overlay-line">
                             {Array.range(1, 256).map(_ => <div
-                                className="wow-cools-matrix-overlay-cell"></div>)}
+                                className="matrix-overlay-cell"></div>)}
+                        </div>
+                    )}
+                </div>
+                <div className="matrix-overlay matrix-overlay-img">
+                    {Array.range(1, 128).map(_ => <div className={`matrix-line`}>
+                            {Array.range(1, 128).map(_ =>
+                                <img className={`matrix-asset`}
+                                     src={Img.path(this.props.config.img)} alt=""/>
+                            )}
                         </div>
                     )}
                 </div>

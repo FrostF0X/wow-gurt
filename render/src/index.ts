@@ -49,9 +49,10 @@ Server.create("post", PORT, async (req, res) => {
         res.status(400).json({"error": `seed must be present`});
     }
     const config = req.body.config;
+    const cools = req.body.cools ?? null;
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    const attributes = await render.do(config, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const attributes = await render.do(config, cools, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
@@ -77,6 +78,32 @@ Server.create("post", PORT, async (req, res) => {
     };
     res.json(response);
     clog(`Url: ${JSON.stringify(response)}`);
+    await tmp.clear();
+}, async (req, res) => {
+    if (!req.body.config) {
+        console.log(req.body);
+        res.status(400).json({"error": `config must be present`});
+    }
+    if (!req.body.seed) {
+        console.log(req.body);
+        res.status(400).json({"error": `seed must be present`});
+    }
+    const config = req.body.config;
+    const cools = req.body.cools ?? null;
+
+    const tmp = await Tmp.init();
+    const render = new Render(BASE_URL);
+    await render.do(config, cools, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+
+    await new Promise((resolve, reject) => {
+        res.sendFile(tmp.gif.path, function (error) {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(true);
+            }
+        });
+    });
     await tmp.clear();
 })
 

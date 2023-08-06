@@ -16,12 +16,8 @@ class Wow extends React.PureComponent {
         this.ref = createRef();
         Slow.slow(this.props.slow ?? 1);
         this.state = {cools: this.props.cools ?? Cools.none()};
-        console.log(this.props.cools);
-        Img.applyStyleConfig(this.props.cools.style.style);
     }
 
-    componentDidMount() {
-    }
 
     render() {
         return (
@@ -31,7 +27,6 @@ class Wow extends React.PureComponent {
                 "--chess-color-2": this.props.config.colors[1],
                 "--animation-delay-multiplier": this.props.config.delay,
                 '--animation-length': `${2000 * (this.props.slow ?? 1)}ms`,
-                '--image-style': this.state.cools.style
             }}>
                 <WowBorders config={this.state.cools.borders} size={this.props.size}>
                     <Matrix config={this.state.cools.matrix}/>

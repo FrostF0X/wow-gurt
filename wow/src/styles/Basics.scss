@@ -9,13 +9,17 @@ $highlightPink: #FE2AAA;
 $highlightGreen: #04C74F;
 
 $background: black;
+$shadowBackground: rgba(0, 0, 0, 0.77);
 $text: #f5efed;
 $accent: white;
 $textHighlight1: $highlightPink;
 $textHighlight2: $highlightGreen;
-
 $borderWidth: 1px;
 $imagesCount: 6;
+
+$zIndexOverlay: 10000;
+$zIndexMatrix: 1000;
+$zIndexBorders: 100000;
 
 body {
   font-family: Machina ub, serif;
