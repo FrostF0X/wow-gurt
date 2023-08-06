@@ -1,9 +1,9 @@
 import './styles/MultiRender.scss';
 import React from "react";
-import Wow from "./Wow";
 import AnimationConfig from "./AnimationConfig";
 import {Cools} from "./Cools/Cools";
 import Button from "./Mint/Button";
+import Wow from "./Wow";
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -21,14 +21,23 @@ export class Multirender extends React.Component {
         };
     }
 
-    generate = async () => {
-        const response = await fetch(`${process.env.REACT_APP_RENDERER_ADDRESS}/test` , {
+    generateWithoutOverlay = async () => {
+        return await this.generate(false);
+    }
+
+    generateWithOverlay = async () => {
+        return await this.generate(true);
+    }
+
+    generate = async (overlay) => {
+        const response = await fetch(`${process.env.REACT_APP_RENDERER_ADDRESS}/test`, {
             method: 'POST', headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify({
                 config: btoa(JSON.stringify(AnimationConfig.generate(this.state.seed))),
                 cools: btoa(JSON.stringify(Cools.gen(this.state.seed, 1, this.state.level))),
                 seed: `${this.state.seed}`,
+                overlay: overlay
             })
         });
         const blob = await response.blob();
@@ -65,11 +74,16 @@ export class Multirender extends React.Component {
         }));
     }
 
+    hideOverlay() {
+
+    }
+
     render() {
         return (
             <div className={"just-multirender"}>
-                <div className="just-multirender-buttons">
+                <div className="wow-render">
                     <Wow key={Number.random(1, Number.MAX_SAFE_INTEGER)} size={this.size}
+                         ready={this.hideOverlay()}
                          config={AnimationConfig.generate(this.state.seed)}
                          cools={Cools.gen(this.state.seed, 1, this.state.level)}/>
                 </div>
@@ -81,12 +95,12 @@ export class Multirender extends React.Component {
                                                    className={"text-highlight-cool"}>{this.state.level}</span>
                     <Button>
                         <button className={"btn"} onClick={this.nextLevel}>
-                            NEXT
+                            NEXT LEVEL
                         </button>
                     </Button>
                     <Button>
                         <button className={"btn"} onClick={this.prevLevel}>
-                            PREV
+                            PREV LEVEL
                         </button>
                     </Button>
                     <Button>
@@ -95,8 +109,13 @@ export class Multirender extends React.Component {
                         </button>
                     </Button>
                     <Button>
-                        <button className={"btn"} onClick={this.generate}>
-                            GENERATE
+                        <button className={"btn"} onClick={this.generateWithOverlay}>
+                            GENERATE WITH OVERLAY
+                        </button>
+                    </Button>
+                    <Button>
+                        <button className={"btn"} onClick={this.generateWithoutOverlay}>
+                            GENERATE WITHOUT OVERLAY
                         </button>
                     </Button>
                 </div>

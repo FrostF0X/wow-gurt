@@ -17,6 +17,9 @@ class Wow extends React.PureComponent {
         this.state = {cools: this.props.cools ?? Cools.none()};
     }
 
+    componentDidMount() {
+        (this.props.ready ?? (_ => true))();
+    }
 
     render() {
         return (

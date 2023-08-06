@@ -11,7 +11,7 @@ export default class Render {
     constructor(private readonly baseUrl: string) {
     }
 
-    async do(config: string, cools: string | null, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
+    async do(config: string, cools: string | null, overlay: boolean, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
         let chrome = null;
         try {
             clog(`Processing request for config: ${config}`);
@@ -21,7 +21,7 @@ export default class Render {
             chrome = await Chrome.init(render.browserSize);
             clog(`Creating page`);
             const page = await chrome.newPage();
-            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&config=${config}&cools=${cools}`;
+            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&config=${config}&cools=${cools}&overlay=${overlay}`;
             clog(`Go to url: ${URL}`);
             await page.goto(URL, {timeout: 60000});
             await page.waitForSelector('.wow');

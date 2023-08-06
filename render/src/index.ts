@@ -52,7 +52,7 @@ Server.create("post", PORT, async (req, res) => {
     const cools = req.body.cools ?? null;
     const render = new Render(BASE_URL);
     const tmp = await Tmp.init();
-    const attributes = await render.do(config, cools, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const attributes = await render.do(config, cools, false, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     const gifBuffer = fs.readFileSync(tmp.gif.path);
     const gifResult = await ipfs.add(gifBuffer);
@@ -90,10 +90,11 @@ Server.create("post", PORT, async (req, res) => {
     }
     const config = req.body.config;
     const cools = req.body.cools ?? null;
+    const overlay = req.body.overlay ?? false;
 
     const tmp = await Tmp.init();
     const render = new Render(BASE_URL);
-    await render.do(config, cools, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    await render.do(config, cools, overlay, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
     await new Promise((resolve, reject) => {
         res.sendFile(tmp.gif.path, function (error) {
