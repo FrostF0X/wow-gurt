@@ -4,6 +4,7 @@ import AnimationConfig from "./AnimationConfig";
 import {Cools} from "./Cools/Cools";
 import Button from "./Mint/Button";
 import Wow from "./Wow";
+import RenderOverlay from "./RenderOverlay";
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -82,6 +83,7 @@ export class Multirender extends React.Component {
         return (
             <div className={"just-multirender"}>
                 <div className="wow-render">
+                    <RenderOverlay size={this.size} animationLength={2000}/>
                     <Wow key={Number.random(1, Number.MAX_SAFE_INTEGER)} size={this.size}
                          ready={this.hideOverlay()}
                          config={AnimationConfig.generate(this.state.seed)}

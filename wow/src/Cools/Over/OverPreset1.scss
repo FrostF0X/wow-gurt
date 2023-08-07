@@ -1,4 +1,5 @@
 @import "../../styles/Basics";
+@import "../../styles/Animation/Coin";
 
 .over-just-grid-preset-1 {
   .over-just-grid-block {
@@ -13,7 +14,7 @@
 
   &.over-just-grid-preset-1-level-2, &.over-just-grid-preset-1-level-3 {
     .just-glitch-img-container {
-      animation: calc(var(--animation-length)) over-coin ease-in-out infinite;
+      animation: calc(var(--animation-length)) coin ease-in-out infinite;
     }
   }
 

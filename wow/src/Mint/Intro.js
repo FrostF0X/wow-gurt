@@ -1,5 +1,7 @@
-import {JustFrame} from "../JustFrame";
 import React, {Fragment} from "react";
+import Logo from "../Logo";
+import {JustFrame} from "../JustFrame";
+import Basics from "../Basics";
 
 export default class Intro extends React.Component {
     render() {

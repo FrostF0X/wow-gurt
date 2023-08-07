@@ -2,6 +2,7 @@ import GlitchImage from "./GlitchImage";
 import "./styles/RenderOverlay.scss";
 import React from "react";
 import Random from "./Random";
+import Logo from "./Logo";
 
 export default class RenderOverlay extends React.Component {
 
@@ -27,7 +28,7 @@ export default class RenderOverlay extends React.Component {
                 </div>))}
             </div>
             <div className="wow-render-overlay-big-img">
-                <GlitchImage img={this.state.img} preset={2}/>
+                <Logo/>
             </div>
         </div>
 

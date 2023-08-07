@@ -1,7 +1,7 @@
 @import "Basics";
 
 .wow-render-overlay {
-  z-index: 100000000000;
+  z-index: 100000;
   position: absolute;
   width: var(--size);
   height: var(--size);
@@ -45,6 +45,7 @@
 }
 
 .wow-render-overlay-big-img {
+  z-index: 1000;
   width: 50%;
   height: 50%;
   position: absolute;

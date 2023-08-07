@@ -1,0 +1,74 @@
+@import "Basics";
+@import "./Animation/Coin";
+
+.wow-logo-container {
+  width: var(--wow-logo-size);
+  height: var(--wow-logo-size);
+}
+
+.wow-logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-logo-item {
+  position: absolute;
+}
+
+.wow-logo-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 1000;
+
+  img {
+    height: 100%;
+    width: initial;
+  }
+}
+
+.wow-logo-frame {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-logo-lines {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-logo-w {
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-logo-geton {
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: var(--animation-length) coin infinite linear;
+}
+
+.wow-logo-star {
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

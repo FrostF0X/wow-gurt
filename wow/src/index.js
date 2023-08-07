@@ -11,6 +11,8 @@ import {Config} from "./Eth/Config";
 import Preview from "./Preview";
 import {getCookie} from "./Common/Cookie";
 import {Multirender} from "./Multirender";
+import Logo from "./Logo";
+import Basics from "./Basics";
 
 const router = createBrowserRouter([
         {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
         {
             path: "/wow/:id",
             element: <Config><Preview/></Config>,
+        },
+        {
+            path: "/logo",
+            element: <Basics><Logo size={400}/></Basics>
         }
     ]
 );
