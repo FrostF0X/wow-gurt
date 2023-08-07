@@ -11,7 +11,13 @@
     }
   }
 
-  &.over-just-grid-preset-3-level-2, &.over-just-grid-preset-3-level-3 {
+  &.over-just-grid-preset-3-level-2 {
+    .over-just-grid-center-x {
+      display: block;
+    }
+  }
+
+  &.over-just-grid-preset-3-level-3 {
     .over-just-grid-center {
       display: block;
     }

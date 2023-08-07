@@ -38,6 +38,10 @@ export default class OverPreset3 extends React.Component {
                 <GlitchImage type={'over'} key={Number.random(1, Number.MAX_SAFE_INTEGER)}
                              img={this.props.config.img} preset={this.props.config.preset} size={2}/>
             </div>
+            <div className="over-just-grid-block over-just-grid-center-x over-just-grid-center-4 over-frame">
+                <GlitchImage type={'over'} key={Number.random(1, Number.MAX_SAFE_INTEGER)}
+                             img={this.props.config.img} preset={this.props.config.preset} size={2}/>
+            </div>
         </div>;
     }
 }
