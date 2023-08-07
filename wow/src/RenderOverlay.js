@@ -22,7 +22,7 @@ export default class RenderOverlay extends React.Component {
             <div className="wow-render-overlay-small-imgs">
                 {Array.range(1, 2).map(i => Array.range(1, 2).map(j => <div
                     className={`wow-render-overlay-img wow-render-overlay-img-${i}-${j}`}>
-                    <Logo/>
+                    <GlitchImage img={"logo/parts/coin-star"} preset={"geton"}/>
                 </div>))}
             </div>
             <div className="wow-render-overlay-big-img">
