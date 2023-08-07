@@ -22,6 +22,7 @@ export default class WowBorders extends React.Component {
                     "--wow-scene-size": `${this.props.size * width / fullCellsCount}px`,
                     "--wow-border-cell-size": `${this.props.size / fullCellsCount}px`,
                 }}>
+                <div className={"wow-start-pointer"}></div>
                 {this.getFramePairs(fullCellsCount, preset.count).map(i => <div
                     className={`wow-borders-cell-${i[0]}-${i[1]} wow-borders-cell-${this.getTriangle(i[0], i[1], fullCellsCount)}`}>{borderImage}</div>)}
                 <div className="wow-borders-outer"></div>

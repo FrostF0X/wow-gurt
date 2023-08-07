@@ -18,6 +18,17 @@
     }
   }
 
+  .wow-start-pointer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    animation: wow-starting-point var(--animation-length) linear infinite;
+    background: $pink;
+    z-index: 1000000;
+  }
+
   .wow-borders-overlay {
     position: absolute;
 
@@ -187,5 +198,20 @@
   }
   100% {
     transform: translateX(-200%);
+  }
+}
+
+@keyframes wow-starting-point {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 1;
+  }
+  5.0000001% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }

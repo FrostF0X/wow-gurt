@@ -23,8 +23,8 @@ export default class Render {
             const page = await chrome.newPage();
             const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&config=${config}&cools=${cools}&overlay=${overlay}`;
             clog(`Go to url: ${URL}`);
-            await page.goto(URL, {timeout: 60000});
-            await page.waitForSelector('.wow');
+            await page.goto(URL, {timeout: 120000});
+            await page.waitForSelector('.wow', {timeout: 120000});
             clog(`Waiting for animation to load`);
             await new Promise((resolve) => setTimeout(resolve, time.wait));
             const stream = await getStream(page, {
