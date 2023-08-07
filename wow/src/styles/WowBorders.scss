@@ -94,7 +94,7 @@
 
   .wow-borders-outer {
     position: absolute;
-    z-index: $zIndexBorders;
+    z-index: $zIndexBorders + 10;
     top: 0;
     left: 0;
     right: 0;

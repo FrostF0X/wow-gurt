@@ -9,22 +9,20 @@ export default class RenderOverlay extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            preset: Random.fresh().randomItem([1, 3]),
-            img: Random.fresh().randomItem(['coolshoe', 'sexydrugrabbit', 'stardroid'])
+            preset: Random.fresh().randomItem([1]),
+            img: Random.fresh().randomItem(['stardroid'])
         };
     }
 
     render() {
         return <div className="wow-render-overlay" style={{
             '--size': `${this.props.size}px`,
-            '--animation-length': `${this.props.animationLength * 2}ms`,
+            '--animation-length': `${this.props.animationLength}ms`,
         }}>
             <div className="wow-render-overlay-small-imgs">
-                {Array.range(1, 16).map(_ => Array.range(1, 16).map(_ => <div
-                    className={"wow-render-overlay-img-container"}>
-                    <div className="wow-render-overlay-img-container-img"><GlitchImage img={this.state.img}
-                                                                                       preset={this.state.preset}/>
-                    </div>
+                {Array.range(1, 2).map(i => Array.range(1, 2).map(j => <div
+                    className={`wow-render-overlay-img wow-render-overlay-img-${i}-${j}`}>
+                    <Logo/>
                 </div>))}
             </div>
             <div className="wow-render-overlay-big-img">

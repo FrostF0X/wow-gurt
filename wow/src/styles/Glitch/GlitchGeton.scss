@@ -1,0 +1,21 @@
+@import "../../styles/Basics";
+@import "../../styles/Animation/Coin";
+.just-glitch-preset-geton {
+  .just-glitch-img-1 {
+    margin: 0;
+    line-height: 0;
+    z-index: 10;
+    overflow: hidden;
+    animation: coin calc(var(--animation-length)) infinite;
+  }
+
+  .just-glitch-img-2 {
+    opacity: 1;
+    animation: coin calc(var(--animation-length)) infinite;
+    z-index: 10;
+  }
+
+  .just-glitch-img-3 {
+    display: none;
+  }
+}

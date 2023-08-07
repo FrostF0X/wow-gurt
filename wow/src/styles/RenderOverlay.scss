@@ -1,7 +1,7 @@
 @import "Basics";
 
 .wow-render-overlay {
-  z-index: 100000;
+  z-index: 100005;
   position: absolute;
   width: var(--size);
   height: var(--size);
@@ -9,12 +9,10 @@
   --image-size: calc(var(--size) / 8);
   animation: var(--animation-length) show-overlay-at-the-end linear infinite;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.77);
 }
 
 .wow-render-overlay-small-imgs {
-  left: calc(var(--size) / -32);
-  top: calc(var(--size) / -32);
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -25,23 +23,45 @@
   --image-size: calc(var(--size) / 8);
 }
 
-
-.wow-render-overlay-img-container {
-  width: var(--container-size);
-  height: var(--container-size);
+.wow-render-overlay-img-overlay {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.wow-render-overlay-main-img-container {
-  width: var(--size);
-}
-
-.wow-render-overlay-img-container-img {
+.wow-render-overlay-img-overlay-img {
   position: absolute;
   left: 0;
   top: 0;
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-render-overlay-img-1-1 {
+  top: 25%;
+  left: 25%;
+}
+
+.wow-render-overlay-img-1-2 {
+  top: 25%;
+  left: 75%;
+}
+
+.wow-render-overlay-img-2-1 {
+  top: 75%;
+  left: 25%;
+}
+
+.wow-render-overlay-img-2-2 {
+  top: 75%;
+  left: 75%;
+}
+
+.wow-render-overlay-img {
+  position: absolute;
+  width: var(--image-size);
+  height: var(--image-size);
+  transform: translate(-50%, -50%);
 }
 
 .wow-render-overlay-big-img {
