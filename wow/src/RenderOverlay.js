@@ -17,7 +17,7 @@ export default class RenderOverlay extends React.Component {
     render() {
         return <div className="wow-render-overlay" style={{
             '--size': `${this.props.size}px`,
-            '--animation-length': `${this.props.animationLength}ms`,
+            '--animation-length': `${this.props.animationLength * 2}ms`,
         }}>
             <div className="wow-render-overlay-small-imgs">
                 {Array.range(1, 16).map(_ => Array.range(1, 16).map(_ => <div

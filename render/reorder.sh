@@ -25,9 +25,9 @@ done
 
 FILES=($TMP_DIR/*.png)
 for ((i = 0; i < ${#FILES[@]}; i++)); do
-  PIXEL=$(magick "${FILES[$i]}" -format "%[hex:u.p{1,1}]\n" info:)
+  PIXEL=$(magick "${FILES[$i]}" -format "%[pixel:u.p{0,0}]\n" info:)
   echo "${FILES[$i]}" "$PIXEL"
-  if [[ $PIXEL == "#EA42A7" ]]; then
+  if [[ $PIXEL == "srgba(36,36,0,1)" || $PIXEL == "srgba(0,0,0,1)" ]]; then
     START_FRAME=$i
     break
   fi
@@ -38,19 +38,42 @@ if [[ $START_FRAME -eq -1 ]]; then
   exit 1
 fi
 
-# Reorder the frames
-REORDERED_FRAMES=()
 for ((i = $START_FRAME; i < ${#FILES[@]}; i++)); do
-  REORDERED_FRAMES+=(${FILES[$i]})
+  BASENAME=$(basename "${FILES[$i]}")
+
+  # Extract the number from the filename (e.g., 01)
+  NUM=$(echo "$BASENAME" | grep -o '[0-9]\+')
+
+  # Format the number with leading zeros (e.g., 0001)
+  PADDED_NUM="00${NUM}"
+
+  # Construct the new filename
+  NEWNAME="frame$PADDED_NUM.png"
+
+  # Rename the file
+  if [[ "$BASENAME" != "$NEWNAME" ]]; then
+    mv "${FILES[$i]}" "$TMP_DIR/$NEWNAME"
+  fi
 done
 
 for ((i = 0; i < $START_FRAME; i++)); do
-  REORDERED_FRAMES+=(${FILES[$i]})
+  BASENAME=$(basename "${FILES[$i]}")
+
+  # Extract the number from the filename (e.g., 01)
+  NUM=$(echo "$BASENAME" | grep -o '[0-9]\+')
+
+  PADDED_NUM="01${NUM}"
+  # Construct the new filename
+  NEWNAME="frame$PADDED_NUM.png"
+
+  # Rename the file
+  if [[ "$BASENAME" != "$NEWNAME" ]]; then
+    mv "${FILES[$i]}" "$TMP_DIR/$NEWNAME"
+  fi
 done
 
 # Combine frames back into GIF
-convert -loop 0 "${REORDERED_FRAMES[@]}" $OUTPUT_GIF
-
+ffmpeg -framerate 50 -i $TMP_DIR/frame%04d.png -c:v gif output.gif
 # Clean up temporary files
 rm -rf $TMP_DIR
 
