@@ -4,10 +4,6 @@ import React from "react";
 
 export default class RenderOverlay2 extends React.Component {
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
         return <div className="wow-render-2-overlay" style={{
             '--size': `${this.props.size}px`,

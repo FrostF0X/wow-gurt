@@ -16,6 +16,8 @@
 .mint {
   width: 100%;
   overflow: hidden;
+  background: url("background-chess-wow-cropped.png");
+  background-size: 200px;
 }
 
 .mint-socials {
@@ -117,4 +119,8 @@
 
 .opensea {
   z-index: 10000;
+}
+
+.mint-bottom {
+  background: black;
 }

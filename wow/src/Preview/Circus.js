@@ -188,27 +188,27 @@ export default class Circus extends React.Component {
             </div>
             <div className="circus-banner-top-text-center">
                 <div className="circus-banner-top-text">
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH
-                    WOW&nbsp;&nbsp;<span
-                    className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW&nbsp;&nbsp;
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span
+                        className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS
                 </div>
             </div>
 
             <div className="circus-banner-top-text-left">
                 <div className="circus-banner-top-text">
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH
-                    WOW&nbsp;&nbsp;<span
-                    className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW&nbsp;&nbsp;
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span
+                        className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS
                 </div>
             </div>
             <div className="circus-banner-top-text-right">
                 <div className="circus-banner-top-text">
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH
-                    WOW&nbsp;&nbsp;<span
-                    className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW&nbsp;&nbsp;
-                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;GLITCH WOW
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span
+                        className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS&nbsp;&nbsp;
+                    <span className="circus-banner-top-text-star">✦</span>&nbsp;&nbsp;&nbsp;WOW GLITCH PASS
                 </div>
             </div>
         </>;
