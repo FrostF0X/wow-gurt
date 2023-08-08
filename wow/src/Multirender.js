@@ -14,9 +14,9 @@ export class Multirender extends React.Component {
     constructor(props) {
         super(props);
         this.size = 700;
-        let seed = parseInt(query().get('seed'));
+        let seed = parseInt(query().get('seed')) ?? 0;
         let level = parseInt(query().get('level') ?? 7);
-        this.overlay = query().get('overlay') === 'true';
+        this.overlay = parseInt(query().get('overlay')) ?? 0;
         this.state = {
             level: level,
             seed: seed,
@@ -39,7 +39,7 @@ export class Multirender extends React.Component {
                 config: btoa(JSON.stringify(AnimationConfig.generate(this.state.seed))),
                 cools: btoa(JSON.stringify(Cools.gen(this.state.seed, 1, this.state.level))),
                 seed: `${this.state.seed}`,
-                overlay: overlay
+                overlay: `${this.overlay}`
             })
         });
         const blob = await response.blob();
@@ -84,7 +84,7 @@ export class Multirender extends React.Component {
         return (
             <div className={"just-multirender"}>
                 <div className="wow-render">
-                    {this.overlay ? <RenderOverlay size={this.size} animationLength={2000}/> : null}
+                    <RenderOverlay overlay={this.overlay} size={this.size} animationLength={2000}/>
                     <Wow key={Number.random(1, Number.MAX_SAFE_INTEGER)} size={this.size}
                          ready={this.hideOverlay()}
                          config={AnimationConfig.generate(this.state.seed)}

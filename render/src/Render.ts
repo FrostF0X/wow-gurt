@@ -11,7 +11,7 @@ export default class Render {
     constructor(private readonly baseUrl: string) {
     }
 
-    async do(config: string, cools: string | null, overlay: boolean, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
+    async do(config: string, cools: string | null, overlay: number, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
         let chrome = null;
         try {
             clog(`Processing request for config: ${config}`);

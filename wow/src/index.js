@@ -13,6 +13,7 @@ import {getCookie} from "./Common/Cookie";
 import {Multirender} from "./Multirender";
 import Logo from "./Logo";
 import Basics from "./Basics";
+import Circus from "./Preview/Circus";
 
 const router = createBrowserRouter([
         {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         {
             path: "/logo",
             element: <Basics><Logo size={400}/></Basics>
+        },
+        {
+            path: "/circus",
+            element: <Basics><Circus/></Basics>
         }
     ]
 );

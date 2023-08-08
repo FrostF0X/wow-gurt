@@ -26,14 +26,13 @@ class Render extends React.Component {
             this.cools = Cools.none();
         }
         this.attributes = JSON.stringify(this.gatherAttributes(this.config));
-        this.overlay = query().get('overlay') === 'true';
+        this.overlay = parseInt(query().get('overlay'));
     }
 
     render() {
         return (
             <div className={"just-render"}>
-                {this.overlay ?
-                    <RenderOverlay size={this.size} animationLength={2000 * this.slow}/> : ''}
+                <RenderOverlay overlay={this.overlay} size={this.size} animationLength={2000 * this.slow}/>
                 <Wow slow={query().get('slow') ?? 10} size={this.size} config={this.config} cools={this.cools}/>
                 <div className={"pretty-rare-vow"} style={{width: `${this.size}px`}}>
                     Congratulations: You're a lucky cat, You've got pretty rare WOW with pink line!

@@ -1,0 +1,78 @@
+@import "../styles/Basics";
+
+.circus-banner-bottom {
+  z-index: 10;
+  width: 248px;
+  height: 53px;
+  top: 395px;
+  left: 605px;
+  position: absolute;
+}
+
+.circus-banner-bottom-shadow {
+  z-index: 20;
+  width: 248px;
+  height: 53px;
+  top: 395px;
+  left: 605px;
+  position: absolute;
+  opacity: 0.9;
+}
+
+
+.circus-banner-bottom-text-center {
+  z-index: 20;
+  width: 115px;
+  height: 19px;
+  top: 428px;
+  left: 671px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.circus-banner-bottom-text-left {
+  z-index: 20;
+  width: 135px;
+  height: 28px;
+  top: 417px;
+  left: 570px;
+  transform: skew(0, 19deg) scaleX(0.475);
+  position: absolute;
+  overflow: hidden;
+}
+
+.circus-banner-bottom-text-right {
+  z-index: 20;
+  width: 135px;
+  height: 28px;
+  top: 416px;
+  left: 753px;
+  transform: skew(0, -19deg) scaleX(0.475);
+  position: absolute;
+  overflow: hidden;
+}
+
+.circus-banner-bottom-text {
+  font-size: 12px;
+  color: $pink;
+  padding: 5px;
+  width: 1000px;
+  animation: text-slide-bottom var(--animation-length) linear infinite;
+
+  .circus-banner-bottom-text-star {
+    position: absolute;
+    font-size: 8px;
+    top: 6px;
+    margin-left: -1px;
+  }
+}
+
+@keyframes text-slide-bottom {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-155px);
+  }
+}
+

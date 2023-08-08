@@ -6,6 +6,8 @@ INPUT_GIF=$1
 OUTPUT_GIF=$2
 TMP_DIR=$3
 
+echo "[reorder] $INPUT_GIF $OUTPUT_GIF $TMP_DIR"
+
 # Split the GIF into individual frames
 ffmpeg -i "$INPUT_GIF" -vsync 0 "$TMP_DIR/frame%d.png"
 
@@ -27,7 +29,7 @@ FILES=($TMP_DIR/*.png)
 for ((i = 0; i < ${#FILES[@]}; i++)); do
   PIXEL=$(magick "${FILES[$i]}" -format "%[pixel:u.p{0,0}]\n" info:)
   echo "${FILES[$i]}" "$PIXEL"
-  if [[ $PIXEL == "srgba(36,36,0,1)" || $PIXEL == "srgba(0,0,0,1)" ]]; then
+  if [[ $PIXEL == "srgba(36,36,0,1)" || $PIXEL == "srgba(0,0,0,1)" || $PIXEL == "srgba(36,0,0,1)" || $PIXEL == "srgba(0,36,0,1)" ]]; then
     START_FRAME=$i
     break
   fi
@@ -73,7 +75,7 @@ for ((i = 0; i < $START_FRAME; i++)); do
 done
 
 # Combine frames back into GIF
-ffmpeg -framerate 50 -i $TMP_DIR/frame%04d.png -c:v gif output.gif
+ffmpeg -framerate 50 -pattern_type glob -i "$TMP_DIR/*.png" -c:v gif "$OUTPUT_GIF"
 # Clean up temporary files
 rm -rf $TMP_DIR
 

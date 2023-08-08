@@ -1,6 +1,6 @@
 @import "Basics";
 
-.wow-render-overlay {
+.wow-render-1-overlay {
   z-index: 100005;
   position: absolute;
   width: var(--size);
@@ -12,7 +12,7 @@
   background: rgba(0, 0, 0, 0.77);
 }
 
-.wow-render-overlay-small-imgs {
+.wow-render-1-overlay-small-imgs {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -23,13 +23,13 @@
   --image-size: calc(var(--size) / 8);
 }
 
-.wow-render-overlay-img-overlay {
+.wow-render-1-overlay-img-overlay {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.wow-render-overlay-img-overlay-img {
+.wow-render-1-overlay-img-overlay-img {
   position: absolute;
   left: 0;
   top: 0;
@@ -37,34 +37,34 @@
   height: 100%;
 }
 
-.wow-render-overlay-img-1-1 {
+.wow-render-1-overlay-img-1-1 {
   top: 25%;
   left: 25%;
 }
 
-.wow-render-overlay-img-1-2 {
+.wow-render-1-overlay-img-1-2 {
   top: 25%;
   left: 75%;
 }
 
-.wow-render-overlay-img-2-1 {
+.wow-render-1-overlay-img-2-1 {
   top: 75%;
   left: 25%;
 }
 
-.wow-render-overlay-img-2-2 {
+.wow-render-1-overlay-img-2-2 {
   top: 75%;
   left: 75%;
 }
 
-.wow-render-overlay-img {
+.wow-render-1-overlay-img {
   position: absolute;
   width: var(--image-size);
   height: var(--image-size);
   transform: translate(-50%, -50%);
 }
 
-.wow-render-overlay-big-img {
+.wow-render-1-overlay-big-img {
   z-index: 1000;
   width: 50%;
   height: 50%;
