@@ -7,9 +7,8 @@
   height: var(--size);
   --container-size: calc(var(--size) / 16);
   --image-size: calc(var(--size) / 8);
-  animation: var(--animation-length) show-overlay-at-the-end linear infinite;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.77);
+  background: rgba(0, 0, 0, 0.33);
 }
 
 .wow-render-2-overlay-small-imgs {
@@ -65,7 +64,7 @@
 }
 
 .wow-render-2-overlay-big-img {
-  z-index: 1000;
+  z-index: 10000000;
   width: 50%;
   height: 50%;
   position: absolute;
@@ -74,14 +73,3 @@
 }
 
 
-@keyframes show-overlay-at-the-end {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  50.00000001% {
-    opacity: 1;
-  }
-}
