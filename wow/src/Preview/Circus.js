@@ -12,59 +12,57 @@ export default class Circus extends React.Component {
     opensea = false;
 
     render() {
-        return <>
-            <div className={'circus-background-top'}>
-                <img className={'circus-main-asset circus-background'} src={Img.path('circus/background')} alt=""/>
-                <div className={'circus-main-asset circus-background-shadow'}>
-                    <GlitchImage img={'circus/background'} preset={2}/>
-                </div>
-            </div>
-            <div className={'circus'}>
-                <img className={'circus-main-asset circus-background'} src={Img.path('circus/background')} alt=""/>
+        return <div className="circus-page">
+            <div className={'circus-page-circus'}>
+                <div className={'circus'}>
+                    <img className={'circus-main-asset circus-background'} src={Img.path('background-chess-wow-cropped')} alt=""/>
+                    <div className={'circus-main-asset circus-clouds'}>
+                        <GlitchImage img={'circus/clouds'}/>
+                    </div>
+                    <div className={'circus-main-asset circus-stars'}>
+                        <GlitchImage img={'circus/stars'}/>
+                    </div>
+                    <div className={'circus-main-asset circus-pills'}>
+                        <GlitchImage img={'circus/pills'}/>
+                    </div>
+                    <div className={'circus-gurt-frame'}>
+                        <GlitchImage img={'circus/gurt-frame'} preset={2}/>
+                    </div>
+                    <img className={'circus-main-asset circus-scene'} src={Img.path('circus/scene')} alt=""/>
+                    <div className="circus-asset left-polihorseman">
+                        <GlitchImage img={'polihorseman'} preset={2}/>
+                    </div>
+                    <div className="circus-asset right-polihorseman">
+                        <GlitchImage img={'polihorseman'} preset={5}/>
+                    </div>
+                    <div className="circus-logo">
+                        <Logo/>
+                    </div>
+                    <div className="circus-main-asset circus-tent">
+                        <GlitchImage img={'circus/tent'} preset={2}/>
+                    </div>
+                    {this.tentTop()}
+                    {this.banner()}
+                    {this.left()}
+                    {this.right()}
+                    {this.bannerBottom()}
+                    <div className="circus-sphere">
+                        <GlitchImage img={'circus/sphere'} preset={5}/>
+                    </div>
+                    {this.opensea ?
+                        <div className="opensea-left">
+                            <GlitchImage img={'circus/opensea-left'}/>
+                        </div> : null}
+                    {this.opensea ?
+                        <div className="opensea-top">
+                            <GlitchImage img={'circus/opensea-top'}/>
+                        </div> : null}
+                    {this.opensea ? <div className="opensea-overlay"></div> : null}
 
-                <div className={'circus-main-asset circus-background-shadow'}>
-                    <GlitchImage img={'circus/background'} preset={2}/>
-                </div>
-                <img className={'circus-main-asset circus-scene'} src={Img.path('circus/scene')} alt=""/>
-                <div className="circus-asset left-polihorseman">
-                    <GlitchImage img={'polihorseman'} preset={2}/>
-                </div>
-                <div className="circus-asset right-polihorseman">
-                    <GlitchImage img={'polihorseman'} preset={5}/>
-                </div>
-                <div className="circus-logo">
-                    <Logo/>
-                </div>
-                <div className="circus-main-asset circus-tent">
-                    <GlitchImage img={'circus/tent'} preset={2}/>
-                </div>
-                {this.tentTop()}
-                {this.banner()}
-                {this.left()}
-                {this.right()}
-                {this.bannerBottom()}
-                <div className="circus-sphere">
-                    <GlitchImage img={'circus/sphere'} preset={5}/>
-                </div>
-                {this.opensea ?
-                    <div className="opensea-left">
-                        <GlitchImage img={'circus/opensea-left'}/>
-                    </div> : null}
-                {this.opensea ?
-                    <div className="opensea-top">
-                        <GlitchImage img={'circus/opensea-top'}/>
-                    </div> : null}
-                {this.opensea ? <div className="opensea-overlay"></div> : null}
-
-                <img className={'circus-main-asset circus-all'} src={Img.path('circus/all')} alt=""/>
-            </div>
-            <div className={'circus-background-bottom'}>
-                <img className={'circus-main-asset circus-background'} src={Img.path('circus/background')} alt=""/>
-                <div className={'circus-main-asset circus-background-shadow'}>
-                    <GlitchImage img={'circus/background'} preset={2}/>
+                    <img className={'circus-main-asset circus-all'} src={Img.path('circus/all')} alt=""/>
                 </div>
             </div>
-        </>;
+        </div>;
     }
 
     right() {

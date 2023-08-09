@@ -4,6 +4,26 @@
 @import "CircusLeft";
 @import "CircusRight";
 
+
+.circus-page {
+  width: 1416px * 3;
+  height: 200vh;
+  display: flex;
+  flex-direction: row;
+  background: black url("background-chess-wow-cropped.png");
+  background-size: 355px;
+}
+
+.circus-page-circus {
+  position: absolute;
+}
+
+.circus {
+  position: relative;
+  transform: scale(1.00, 0.99);
+  top: 284px;
+  left: 289px;
+}
 .circus-main-asset {
   width: 1416px;
   height: 596px;
@@ -11,18 +31,63 @@
 }
 
 .circus-background-shadow {
-  width: 100%;
-  height: 100%;
+  height: initial;
+}
+
+.circus-clouds {
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.circus-stars {
+  z-index: 10;
+}
+
+.circus-pills {
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.circus-gurt-frame {
+  width: 265px;
+  height: 265px;
+  left: 1110px;
+  top: 130px;
+  z-index: 10;
   position: absolute;
-  opacity: 0.5;
 }
 
 .circus-all {
   opacity: 1;
 }
 
-.circus-tent {
-  //z-index: 10;
+.circus-background-left {
+  width: 1416px;
+}
+
+.circus-background-left-1 {
+  width: 1416px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circus-background-left-2 {
+  width: 1416px;
+  height: 596px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circus-background-left-3 {
+  width: 1416px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  .circus-background, .circus-background-shadow {
+    top: -15px;
+  }
 }
 
 .circus-background-top {
