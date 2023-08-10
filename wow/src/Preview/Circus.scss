@@ -7,7 +7,7 @@
 
 .circus-page {
   width: 1416px * 3;
-  height: 200vh;
+  height: 300vh;
   display: flex;
   flex-direction: row;
   background: black url("background-chess-wow-cropped.png");
@@ -24,10 +24,62 @@
   top: 284px;
   left: 289px;
 }
+
 .circus-main-asset {
   width: 1416px;
   height: 596px;
   position: absolute;
+}
+
+.circus-page-explainer {
+  width: 1416px;
+  height: 596px;
+  position: absolute;
+  top: 1000px;
+  left: 289px;
+}
+
+.circus-page-explainer-contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.circus-page-gif {
+  position: absolute;
+  width: 256px;
+  height: 256px;
+  z-index: 100000000;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.circus-page-gif-1 {
+  top: 20%;
+  left: 20%;
+}
+
+.circus-page-gif-2 {
+  top: 40%;
+  left: 35%;
+}
+
+.circus-page-gif-3 {
+  top: 20%;
+  left: 50%;
+}
+
+.circus-page-gif-4 {
+  top: 40%;
+  left: 65%;
+}
+
+.circus-page-gif-5 {
+  top: 20%;
+  left: 80%;
 }
 
 .circus-background-shadow {

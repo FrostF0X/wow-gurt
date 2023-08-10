@@ -7,6 +7,7 @@ import Chess from "../Random/Chess";
 import {AreaDivision} from "../AreaDivision";
 import Color from "../Animation/Color";
 import Wave from "../Random/Wave";
+import {JustFrame} from "../JustFrame";
 
 export default class Circus extends React.Component {
     opensea = false;
@@ -15,7 +16,8 @@ export default class Circus extends React.Component {
         return <div className="circus-page">
             <div className={'circus-page-circus'}>
                 <div className={'circus'}>
-                    <img className={'circus-main-asset circus-background'} src={Img.path('background-chess-wow-cropped')} alt=""/>
+                    <img className={'circus-main-asset circus-background'}
+                         src={Img.path('background-chess-wow-cropped')} alt=""/>
                     <div className={'circus-main-asset circus-clouds'}>
                         <GlitchImage img={'circus/clouds'}/>
                     </div>
@@ -60,6 +62,35 @@ export default class Circus extends React.Component {
                     {this.opensea ? <div className="opensea-overlay"></div> : null}
 
                     <img className={'circus-main-asset circus-all'} src={Img.path('circus/all')} alt=""/>
+                </div>
+            </div>
+            <div className="circus-page-explainer">
+                <div className="circus-page-explainer-contents">
+                    <div className="circus-page-gif circus-page-gif-1">
+                        <JustFrame>
+                            <img src="/assets/circus/explainer/gif_1.gif" alt=""/>
+                        </JustFrame>
+                    </div>
+                    <div className="circus-page-gif circus-page-gif-2">
+                        <JustFrame>
+                            <img src="/assets/circus/explainer/gif_2.gif" alt=""/>
+                        </JustFrame>
+                    </div>
+                    <div className="circus-page-gif circus-page-gif-3">
+                        <JustFrame>
+                            <img src="/assets/circus/explainer/gif_3.gif" alt=""/>
+                        </JustFrame>
+                    </div>
+                    <div className="circus-page-gif circus-page-gif-4">
+                        <JustFrame>
+                            <img src="/assets/circus/explainer/gif_4.gif" alt=""/>
+                        </JustFrame>
+                    </div>
+                    <div className="circus-page-gif circus-page-gif-5">
+                        <JustFrame>
+                            <img src="/assets/circus/explainer/gif_5.gif" alt=""/>
+                        </JustFrame>
+                    </div>
                 </div>
             </div>
         </div>;
