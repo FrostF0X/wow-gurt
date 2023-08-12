@@ -7,7 +7,7 @@ import fs from "fs";
 import {clog, throwExpression} from "../utils";
 import * as ipfsClient from "ipfs-http-client";
 import Sign from "../Sign";
-import {ethers} from "ethers/lib.esm";
+import {ethers} from "ethers";
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PROXY_URL = process.env.PROXY_URL ?? throwExpression("Please define PROXY_URL");
