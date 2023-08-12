@@ -5,10 +5,8 @@ import Color from "./Animation/Color";
 import AnimationConfig from "./AnimationConfig";
 import {Cools} from "./Cools/Cools";
 import RenderOverlay from "./RenderOverlay";
+import query from "./Common/Query";
 
-function query() {
-    return new URLSearchParams(document.location.search);
-}
 
 class Render extends React.Component {
     constructor(props) {

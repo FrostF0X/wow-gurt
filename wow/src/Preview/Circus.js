@@ -116,6 +116,23 @@ export default class Circus extends React.Component {
                     </div>
                 </div>
             </div>
+            <div className="circus-page-meme-1">
+                <div className="circus-page-meme-1-contents">
+                    <div className={"circus-page-meme-1-drake"}>
+                        <GlitchImage preset={5} img={'meme/drake'}></GlitchImage>
+                    </div>
+                    <div className="circus-page-meme-gif circus-page-meme-1-gif-13">
+                        <JustFrame>
+                            <img src="/assets/meme/13.gif" alt=""/>
+                        </JustFrame>
+                    </div>
+                    <div className="circus-page-meme-1-man">
+                        <JustFrame>
+                            <GlitchImage preset={1} img={'meme/mem'}></GlitchImage>
+                        </JustFrame>
+                    </div>
+                </div>
+            </div>
         </div>;
     }
 

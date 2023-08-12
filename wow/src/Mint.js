@@ -17,6 +17,7 @@ import WhatIsIt from "./Mint/WhatIsIt";
 import Price from "./Mint/Price";
 import MintLoader from "./Mint/MintLoader";
 import {JustFrame} from "./JustFrame";
+import query from "./Common/Query";
 
 class Mint extends React.Component {
     provider = null;
@@ -24,7 +25,7 @@ class Mint extends React.Component {
 
     constructor(props) {
         super(props);
-        let seed = Cools.generate();
+        let seed = query().get('seed') ?? Cools.generate();
         this.state = {
             loading: false,
             btnText: "MINT WOW",

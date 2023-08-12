@@ -45,6 +45,51 @@
   height: 100%;
 }
 
+.circus-page-meme-1 {
+  width: 596px;
+  height: 596px;
+  position: absolute;
+  top: 2000px;
+  left: 289px;
+}
+
+.circus-page-meme-1-drake {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.circus-page-meme-1-gif-13 {
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  z-index: 100;
+  img {
+    width: 100%;
+  }
+}
+.circus-page-meme-1-man {
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  z-index: 100;
+  .just-glitch-img-container {
+    height: 274px;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.circus-page-meme-1-contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .circus-page-gif {
   position: absolute;
   width: 256px;
