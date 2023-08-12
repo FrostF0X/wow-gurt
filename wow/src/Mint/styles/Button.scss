@@ -3,10 +3,14 @@
 .btn {
   padding: 10px;
   color: white;
-  background-color: $highlightPink;
+  background-color: transparent;
   cursor: pointer;
   height: 49px;
   border: none;
+}
+
+.btn.btn-blue {
+  background-color: $blue;
 }
 
 .btn:disabled {

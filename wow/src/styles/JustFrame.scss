@@ -1,5 +1,15 @@
 @import "Basics";
 
+
+.just-random-frame.just-random-frame-background-pink {
+  background: $highlightPink;
+}
+.just-random-frame.just-random-frame-background-green {
+  background: $highlightGreen;
+}
+.just-random-frame.just-random-frame-background-blue {
+  background: $blue;
+}
 .just-random-frame {
   border: $accent $borderWidth solid;
   background: $background;

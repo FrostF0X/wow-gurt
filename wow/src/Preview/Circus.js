@@ -12,8 +12,31 @@ import {JustFrame} from "../JustFrame";
 export default class Circus extends React.Component {
     opensea = false;
 
+    scroll = () => {
+        let start;
+        let currentPosition = window.scrollX;
+        const distance = 800; // pixels to scroll
+        const duration = 7500; // duration in milliseconds
+
+        function animateScroll(timestamp) {
+            if (!start) start = timestamp;
+
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const amountToScroll = progress * distance;
+
+            window.scrollTo(currentPosition + amountToScroll, window.scrollY);
+
+            if (progress < 1) {
+                window.requestAnimationFrame(animateScroll);
+            }
+        }
+
+        window.requestAnimationFrame(animateScroll);
+    }
+
     render() {
-        return <div className="circus-page">
+        return <div className="circus-page" onClick={this.scroll}>
             <div className={'circus-page-circus'}>
                 <div className={'circus'}>
                     <img className={'circus-main-asset circus-background'}

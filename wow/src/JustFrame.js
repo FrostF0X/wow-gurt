@@ -4,12 +4,12 @@ import './styles/JustFrame.scss';
 export class JustFrame extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.class = this.props.plain ? 'just-random-frame-plain' : '';
+        this.class = +this.props.plain ? 'just-random-frame-plain' : '';
     }
 
     render() {
         return (
-            <div className={"just-random-frame " + this.class}>
+            <div className={`just-random-frame ${this.props.class} ${this.class}`}>
                 <div className={"just-random-frame-toolbar"}>
                     <span
                         className={`just-random-frame-toolbar-text ${this.props.text ? 'just-random-frame-toolbar-text-active' : ''}`}>{this.props.text}</span>

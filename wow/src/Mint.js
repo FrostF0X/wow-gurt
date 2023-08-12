@@ -122,18 +122,28 @@ class Mint extends React.Component {
                             justifyContent: "space-around",
                             padding: "10px 0 10px 0",
                             fontFamily: "Machina r",
-                            height: "100px"
+                            height: "60px"
                         }}>
                             <span>Seed:&nbsp;</span><span
                             style={{width: '166px', fontSize: '0.875em', textAlign: 'right'}}
                             className={"text-highlight-cool"}>#{this.state.minted} {this.state.seed}</span>
                         </div>
+                        <Button color={'blue'}>
+                            <a href={`${process.env.REACT_APP_OPENSEA_DROP_LINK}`} target={"_blank"}>
+                                <button className={"btn"}>Cool Up my WOW!</button>
+                            </a>
+                        </Button>
                         <div className={"mint-socials"}>
-                            <a className={"twitter"} target={"_blank"} rel="noreferrer"
-                               href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                            <a className={"opensea"} target={"_blank"} rel="noreferrer"
-                               href={process.env.REACT_APP_OPENSEA_COLLECTION_LINK}><img src={"/opensea.svg"}
-                                                                                         alt={"opensea"}/></a>
+                            <Button>
+                                <a className={"twitter"} target={"_blank"} rel="noreferrer"
+                                   href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"}
+                                                                               alt={"twitter"}/></a>
+                            </Button>
+                            <Button color={"blue"}>
+                                <a className={"opensea"} target={"_blank"} rel="noreferrer"
+                                   href={process.env.REACT_APP_OPENSEA_COLLECTION_LINK}><img src={"/opensea.svg"}
+                                                                                             alt={"opensea"}/></a>
+                            </Button>
                         </div>
                         <div className={"description-block"}>
                             <WhatIsIt/>

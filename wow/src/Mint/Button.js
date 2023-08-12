@@ -8,7 +8,10 @@ export default class Button extends React.Component {
                     className={"button-wrapper"}
                     onClick={this.props.onClick ? this.props.onClick : () => null}>
             {this.props.absolutes}
-            <JustFrame style={{backgroundColor: this.props.color ? this.props.color : "#FE2AAA", height: '100%'}}>
+            <JustFrame
+                style={{height: '100%'}}
+                class={`just-random-frame-background-${this.props.color ? this.props.color : 'pink'}`}
+            >
                 {this.props.children}
             </JustFrame>
         </div>

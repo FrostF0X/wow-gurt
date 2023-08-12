@@ -2,6 +2,7 @@ import React from "react";
 import WhatIsIt from "./WhatIsIt";
 import Price from "./Price";
 import Intro from "./Intro";
+import Button from "./Button";
 
 export default class MintDescription extends React.Component {
 
@@ -19,11 +20,16 @@ export default class MintDescription extends React.Component {
                     <WhatIsIt/>
                     <Price/>
                     <div className={"mint-socials"}>
-                        <a className={"twitter"} target={"_blank"} rel="noreferrer"
-                           href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"} alt={"twitter"}/></a>
-                        <a className={"opensea"} target={"_blank"} rel="noreferrer"
-                           href={process.env.REACT_APP_OPENSEA_COLLECTION_LINK}><img src={"/opensea.svg"}
-                                                                                     alt={"opensea"}/></a>
+                        <Button>
+                            <a className={"twitter"} target={"_blank"} rel="noreferrer"
+                               href="https://twitter.com/gurt_agency"><img src={"/twitter.svg"}
+                                                                           alt={"twitter"}/></a>
+                        </Button>
+                        <Button color={"blue"}>
+                            <a className={"opensea"} target={"_blank"} rel="noreferrer"
+                               href={process.env.REACT_APP_OPENSEA_COLLECTION_LINK}><img src={"/opensea.svg"}
+                                                                                         alt={"opensea"}/></a>
+                        </Button>
                     </div>
                 </div>
             </div>
