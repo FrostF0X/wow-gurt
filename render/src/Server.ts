@@ -2,38 +2,15 @@ import * as express from "express";
 import {Request, Response} from "express";
 import * as cors from "cors";
 import {cerror, clog, errorInfo} from "./utils";
-import names from "./names";
-import rateLimit from "express-rate-limit";
 
-const queue = require("express-queue");
+export class Listener {
 
-let rateLimitStandard = rateLimit({
-    windowMs: 10000,
-    max: 1,
-    message: 'Only one nft generation attempt per 10s allowed',
-    skip: (req) => req.path === '/ping' || req.path === '/wow',
-    skipFailedRequests: true,
-    legacyHeaders: true,
-    handler: (_: Request, r: Response) => r.status(429).json({"error": "Only one nft generation attempt per 10s allowed"}).end()
-});
-let rateLimitSpam = rateLimit({
-    windowMs: 60 * 60 * 1000,
-    max: 50,
-    message: 'Looks like you are spamming us.',
-    skip: (req) => req.path === '/ping' || req.path === '/wow',
-    skipFailedRequests: true,
-    legacyHeaders: true,
-    handler: (_: Request, r: Response) => r.status(429).json({"error": "Looks like you are spamming us."}).end()
-});
-let maxActiveRequests = queue({
-    activeLimit: 2,
-    queuedLimit: 1,
-    rejectHandler: (_: Request, r: Response) => r.status(429).json({"error": "Server is busy generating other nfts"}).end()
-});
-
+    constructor(public readonly method: 'get' | 'post', public readonly path: string, public callback: (req: Request, res: Response) => Promise<void>, public middlewares: ((req: Request, res: Response) => Promise<void>)[] = []) {
+    }
+}
 
 export default class Server {
-    static create(type: "get" | "post", port: number, listener: (req: Request, res: Response) => Promise<void>, testListener: (req: Request, res: Response) => Promise<void>) {
+    static create(port: number, listeners: Listener[]) {
         const app: express.Express = express();
         app.options('*', cors())
         app.use(cors({
@@ -56,20 +33,15 @@ export default class Server {
             };
         }
 
-        app.post('/', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(listener));
-        app.post('/test', maxActiveRequests, rateLimitStandard, rateLimitSpam, wrapped(testListener));
-
-        app.get('/wow', wrapped(async (req, res) => {
-            let tokenId = parseInt(req.query.tokenId as string);
-            const response = await fetch(req.query.url as string);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+        listeners.forEach((l: Listener) => {
+            if (l.method === 'post') {
+                app.post(l.path, ...l.middlewares, wrapped(l.callback));
+            } else {
+                app.get(l.path, ...l.middlewares, wrapped(l.callback));
             }
-            let data = await response.json();
+        })
 
-            data = JSON.parse(JSON.stringify(data).replace(/\[token_id]/g, String(tokenId)).replace(/\[token_name]/g, names[tokenId]));
-            res.json(data);
-        }))
+
         app.get('/ping', (req, res) => res.json({"pong": true}));
         app.listen(port, () => {
             clog(`Server is listening on port ${port}`);
