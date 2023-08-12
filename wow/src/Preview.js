@@ -8,7 +8,6 @@ import Button from "./Mint/Button";
 import Scroller from "./Scroller";
 import WowScroller from "./WowScroller";
 import {JustFrame} from "./JustFrame";
-import Img from "./Img/Img";
 
 
 class Preview extends React.Component {

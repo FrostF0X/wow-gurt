@@ -129,7 +129,7 @@ class Mint extends React.Component {
                             className={"text-highlight-cool"}>#{this.state.minted} {this.state.seed}</span>
                         </div>
                         <Button color={'blue'}>
-                            <a href={`${process.env.REACT_APP_OPENSEA_DROP_LINK}`} target={"_blank"}>
+                            <a href={`${process.env.REACT_APP_OPENSEA_DROP_LINK}`} target={"_blank"} rel="noreferrer">
                                 <button className={"btn"}>Cool Up my WOW!</button>
                             </a>
                         </Button>
