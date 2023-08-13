@@ -9,6 +9,6 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Pl
 
 Server.create(PORT, [
     new Listener('post', '/', render, [rateLimitOnceA10Second, max2SimultaneousRequests]),
-    new Listener('get', '/test', test),
+    new Listener('post', '/test', test),
     new Listener('get', '/wow', wow),
 ]);
