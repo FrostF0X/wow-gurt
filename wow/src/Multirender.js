@@ -10,11 +10,20 @@ function query() {
     return new URLSearchParams(document.location.search);
 }
 
+function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+        !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
 export class Multirender extends React.Component {
     constructor(props) {
         super(props);
         this.size = 700;
-        let seed = parseInt(query().get('seed')) ?? 0;
+        let seed = 1;
+        if (query().get('seed')) {
+            seed = isNumeric(query().get('seed')) ? parseInt(query().get('seed')) : query().get('seed');
+        }
         let level = parseInt(query().get('level') ?? 7);
         this.overlay = parseInt(query().get('overlay')) ?? 0;
         this.state = {
