@@ -10,7 +10,7 @@ export default class AnimationConfig {
     constructor(public cells: CellConfig[], public delay: Delay, public readonly colors: string[]) {
     }
 
-    public static generate(seed: string): AnimationConfig {
+    public static generate(seed: string | number): AnimationConfig {
         const r = Random.fresh(seed);
         const divider = new AreaDivider(r.randomItems(AnimationConfig.levelConfig, r.randomItems(AnimationConfig.levelRarityConfig, 1)[0]), 8, 8, r);
         const divisions = divider.divide().flatten();

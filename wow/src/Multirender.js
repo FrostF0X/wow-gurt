@@ -1,10 +1,10 @@
 import './styles/MultiRender.scss';
 import React from "react";
-import AnimationConfig from "./AnimationConfig";
 import {Cools} from "./Cools/Cools";
 import Button from "./Mint/Button";
 import Wow from "./Wow";
 import RenderOverlay from "./RenderOverlay";
+import AnimationConfig from "./AnimationConfig";
 
 function query() {
     return new URLSearchParams(document.location.search);
@@ -29,23 +29,16 @@ export class Multirender extends React.Component {
         this.state = {
             level: level,
             seed: seed,
+            config: AnimationConfig.generate(seed),
         };
     }
 
-    generateWithoutOverlay = async () => {
-        return await this.generate(false);
-    }
-
-    generateWithOverlay = async () => {
-        return await this.generate(true);
-    }
-
-    generate = async (overlay) => {
+    generate = async () => {
         const response = await fetch(`${process.env.REACT_APP_RENDERER_ADDRESS}/test`, {
             method: 'POST', headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify({
-                config: btoa(JSON.stringify(AnimationConfig.generate(this.state.seed))),
+                config: btoa(JSON.stringify(this.state.config)),
                 cools: btoa(JSON.stringify(Cools.gen(this.state.seed, 1, this.state.level))),
                 seed: `${this.state.seed}`,
                 overlay: `${this.overlay}`
@@ -79,10 +72,14 @@ export class Multirender extends React.Component {
     }
 
     nextSeed = () => {
-        this.setState((state) => ({
-            ...state,
-            seed: state.seed + 1,
-        }));
+        this.setState((state) => {
+            const seed = state.seed + 1;
+            return ({
+                ...state,
+                seed: seed,
+                config: AnimationConfig.generate(seed),
+            });
+        });
     }
 
     hideOverlay() {
@@ -96,7 +93,7 @@ export class Multirender extends React.Component {
                     <RenderOverlay overlay={this.overlay} size={this.size} animationLength={2000}/>
                     <Wow key={Number.random(1, Number.MAX_SAFE_INTEGER)} size={this.size}
                          ready={this.hideOverlay()}
-                         config={AnimationConfig.generate(this.state.seed)}
+                         config={this.state.config}
                          cools={Cools.gen(this.state.seed, 1, this.state.level)}/>
                 </div>
                 <div className="just-multirender-buttons">
@@ -121,13 +118,8 @@ export class Multirender extends React.Component {
                         </button>
                     </Button>
                     <Button>
-                        <button className={"btn"} onClick={this.generateWithOverlay}>
-                            GENERATE WITH OVERLAY
-                        </button>
-                    </Button>
-                    <Button>
-                        <button className={"btn"} onClick={this.generateWithoutOverlay}>
-                            GENERATE WITHOUT OVERLAY
+                        <button className={"btn"} onClick={this.generate}>
+                            GENERATE
                         </button>
                     </Button>
                 </div>
