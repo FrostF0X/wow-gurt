@@ -2,9 +2,9 @@ import React from "react";
 import {configureChains, createConfig, WagmiConfig} from "wagmi";
 import {getDefaultWallets, RainbowKitProvider} from "@rainbow-me/rainbowkit";
 import {theme} from "../Theme";
-import {goerli, mainnet} from "wagmi/chains";
 import {infuraProvider} from "wagmi/providers/infura";
 import {jsonRpcProvider} from "wagmi/providers/jsonRpc";
+import {base, baseGoerli} from "viem/chains";
 
 const localhost = {
     id: 1337,
@@ -30,12 +30,12 @@ const {
     publicClient,
     webSocketPublicClient
 } = configureChains([
-    ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' ? [goerli] : []),
+    ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' ? [baseGoerli] : []),
     ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [localhost] : []),
-    ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [mainnet] : []),
+    ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [base] : []),
 ], [
     ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [jsonRpcProvider({rpc: () => ({http: 'http://127.0.0.1:7545'})})] : []),
-    ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' || process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})] : [])
+    ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' || process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [jsonRpcProvider({rpc: () => ({http: 'https://intensive-empty-isle.base-mainnet.discover.quiknode.pro/f49cf1ce10983435421826160fc886010faeb206/'})})] : [])
 ]);
 
 const {connectors} = getDefaultWallets({
@@ -46,7 +46,7 @@ const wagmiConfig = createConfig({
     autoConnect: true, connectors, publicClient, webSocketPublicClient,
 });
 
-export const Config = ({children}) => {
+export const Eth = ({children}) => {
     return <WagmiConfig config={wagmiConfig}>
         <div className={"rk"}>
             <RainbowKitProvider chains={chains} theme={theme} coolMode={true}

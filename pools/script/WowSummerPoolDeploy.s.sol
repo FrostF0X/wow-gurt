@@ -11,8 +11,9 @@ contract WowSummerPoolDeploy is Script {
     function run() public {
         vm.startBroadcast();
 
-        WowSummerPool nft = new WowSummerPool();
-        nft.mintTo{value: 0.001 ether}(address (0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44));
+        WowSummerPool nft = WowSummerPool(address(0x773d100c99797881fAC69123F25bA37B83AbCA3c));
+        nft.mint{value: 0.00001 ether}(address(0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44));
+        nft.withdraw();
         vm.stopBroadcast();
     }
 }

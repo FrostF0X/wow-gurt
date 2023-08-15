@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Render from "./Render";
 import Mint from "./Mint";
-import {Config} from "./Eth/Config";
+import {Eth} from "./Chains/Eth";
 import Preview from "./Preview";
 import {getCookie} from "./Common/Cookie";
 import {Multirender} from "./Multirender";
@@ -18,7 +18,7 @@ import Circus from "./Preview/Circus";
 const router = createBrowserRouter([
         {
             path: "/",
-            element: <Config><Mint/></Config>,
+            element: <Eth><Mint/></Eth>,
         },
         {
             path: "/render",
@@ -30,7 +30,11 @@ const router = createBrowserRouter([
         },
         {
             path: "/wow/:id",
-            element: <Config><Preview/></Config>,
+            element: <Eth><Preview/></Eth>,
+        },
+        {
+            path: "/wow/:id",
+            element: <Base><Preview/></Base>,
         },
         {
             path: "/logo",

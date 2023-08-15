@@ -9,7 +9,7 @@ contract WowSummerPool is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    uint256 private constant MAX_NFT_SUPPLY = 9999;
+    uint256 public constant TOTAL_SUPPLY = 69333;
 
     address[] public allowedContracts;
     address public owner;
@@ -69,6 +69,11 @@ contract WowSummerPool is ERC721URIStorage {
         _setTokenURI(toPool, generateTokenURI(toPool, getPoolGuys(toPool)));
     }
 
+    function burn(uint256 pool) public onlyAllowedContracts {
+        _burn(pool);
+        delete pools[pool].guys;
+    }
+
     function _baseURI() override internal view virtual returns (string memory) {
         return "https://nft.gurt.agency/pool";
     }
@@ -82,9 +87,22 @@ contract WowSummerPool is ERC721URIStorage {
         require(success, "Withdrawal failed");
     }
 
-    function mintTo(address to) public payable {
+    function mintMany(address to, uint256 count) public payable {
+        require(count > 0, "Cannot mint less then 1");
+        uint256 price = 0;
+        uint256 startToken = _tokenIds.current();
+        for (uint256 i = 0; i < count; i++) {
+            price += getPrice(startToken + i);
+        }
+        require(msg.value >= price, "Ether sent is not sufficient.");
+        for (uint256 i = 0; i < count; i++) {
+            mint(to);
+        }
+    }
+
+    function mint(address to) public payable {
         uint256 newTokenId = _tokenIds.current();
-        require(newTokenId <= MAX_NFT_SUPPLY, "No more NFTs available for minting.");
+        require(newTokenId <= TOTAL_SUPPLY, "No more NFTs available for minting.");
 
         uint256 price = getPrice(newTokenId);
         require(msg.value >= price, "Ether sent is not sufficient.");
@@ -131,26 +149,26 @@ contract WowSummerPool is ERC721URIStorage {
 
 
     function getPrice(uint256 currentId) public pure returns (uint256) {
-        if (currentId >= 9000) {
+        if (currentId >= 65000) {
             return 0.01 ether;
-        } else if (currentId >= 8000) {
-            return 0.009 ether;
-        } else if (currentId >= 7000) {
-            return 0.008 ether;
-        } else if (currentId >= 6000) {
+        } else if (currentId >= 60000) {
             return 0.007 ether;
-        } else if (currentId >= 5000) {
-            return 0.006 ether;
-        } else if (currentId >= 4000) {
-            return 0.005 ether;
-        } else if (currentId >= 3000) {
-            return 0.004 ether;
-        } else if (currentId >= 2000) {
+        } else if (currentId >= 50000) {
             return 0.003 ether;
-        } else if (currentId >= 1000) {
-            return 0.002 ether;
-        } else {
+        } else if (currentId >= 40000) {
             return 0.001 ether;
+        } else if (currentId >= 30000) {
+            return 0.0007 ether;
+        } else if (currentId >= 20000) {
+            return 0.0003 ether;
+        } else if (currentId >= 10000) {
+            return 0.0001 ether;
+        } else if (currentId >= 5000) {
+            return 0.00007 ether;
+        } else if (currentId >= 1000) {
+            return 0.00003 ether;
+        } else {
+            return 0.00001 ether;
         }
     }
 }

@@ -43,14 +43,14 @@ contract WowSummerPoolTest is Test {
         vm.stopPrank();
         vm.startPrank(owner);
         pool.setAllowedContracts(allowedContracts);
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         userContract.use(1);
     }
 
 
     function testCannotUseContractIfUserContractNotSet() public {
         WowSummerPoolUser userContract = new WowSummerPoolUser(address(pool));
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         vm.prank(owner);
         vm.expectRevert("Caller not allowed");
         userContract.use(1);
@@ -67,7 +67,7 @@ contract WowSummerPoolTest is Test {
     }
 
     function testAssignsPoolsOnMint() public {
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         string[] memory guys = pool.getPoolGuys(1);
         assertEq(guys[0], 'pepe');
         assertEq(guys[1], 'bored');
@@ -75,7 +75,7 @@ contract WowSummerPoolTest is Test {
     }
 
     function testCanRemoveGuyIfInAllowed() public {
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         pool.removeLastGuy(1);
         string[] memory guys = pool.getPoolGuys(1);
         assertEq(guys[0], 'pepe');
@@ -84,7 +84,7 @@ contract WowSummerPoolTest is Test {
     }
 
     function testCannotRemoveGuyIfNotEnough() public {
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         pool.removeLastGuy(1);
         pool.removeLastGuy(1);
         pool.removeLastGuy(1);
@@ -93,13 +93,20 @@ contract WowSummerPoolTest is Test {
     }
 
     function testCanAddGuyIfInAllowed() public {
-        pool.mintTo{value: 0.001 ether}(owner);
+        pool.mint{value: 0.001 ether}(owner);
         pool.addGuy(1, 'foxe');
         string[] memory guys = pool.getPoolGuys(1);
         assertEq(guys[0], 'pepe');
         assertEq(guys[1], 'bored');
         assertEq(guys[2], 'foxe');
         assertEq(guys[3], 'foxe');
+    }
+
+    function testCanBurnGuys() public {
+        pool.mint{value: 0.00001 ether}(owner);
+        pool.burn(1);
+        string[] memory guys = pool.getPoolGuys(1);
+        assertEq(guys.length, 0);
     }
 }
 
