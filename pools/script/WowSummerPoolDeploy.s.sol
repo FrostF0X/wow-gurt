@@ -12,29 +12,7 @@ contract WowSummerPoolDeploy is Script {
         vm.startBroadcast();
 
         WowSummerPool nft = new WowSummerPool();
-        AddressGenerator gen = new AddressGenerator();
-        gen.generateAddresses()
+        nft.mintTo{value: 0.001 ether}(address (0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44));
         vm.stopBroadcast();
-    }
-}
-
-contract AddressGenerator {
-
-    address[] public generatedAddresses;
-
-    function generateAddresses() public {
-        // Clear the list (in case the function was called before)
-        delete generatedAddresses;
-
-        // Generate 30,000 pseudo-random addresses
-        for (uint i = 0; i < 30000; i++) {
-            // This will create a pseudo-random address using current block information and loop counter
-            address generatedAddress = address(uint160(uint(keccak256(abi.encodePacked(block.timestamp, block.difficulty, i)))));
-            generatedAddresses.push(generatedAddress);
-        }
-    }
-
-    function getGeneratedAddresses() external view returns (address[] memory) {
-        return generatedAddresses;
     }
 }

@@ -5,23 +5,16 @@ import TimeConfig from "../TimeConfig";
 import RenderConfig from "../RenderConfig";
 import {clog, throwExpression} from "../utils";
 import * as fs from "fs";
-import * as ipfsClient from "ipfs-http-client";
 import Sign from "../Sign";
 import {ethers} from "ethers";
+import {IPFS} from "../Utils/IPFS";
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PROXY_URL = process.env.PROXY_URL ?? throwExpression("Please define PROXY_URL");
-const INFURA_IPFS_API_KEY = process.env.INFURA_IPFS_API_KEY ?? throwExpression('Please define INFURA_IPFS_API_KEY');
-const INFURA_IPFS_API_SECRET = process.env.INFURA_IPFS_API_SECRET ?? throwExpression('Please define INFURA_IPFS_API_SECRET');
-const IPFS_PUBLIC_URL: string = process.env.INFURA_IPFS_PUBLIC_URL ?? throwExpression("Please define INFURA_IPFS_PUBLIC_URL");
-const ipfs = ipfsClient.create({
-    host: 'ipfs.infura.io', port: 5001, protocol: 'https',
-    headers: {
-        authorization: 'Basic ' + Buffer.from(INFURA_IPFS_API_KEY + ':' + INFURA_IPFS_API_SECRET).toString('base64')
-    }
-});
 
-function queryParams(baseMetadataUrl: string) {
+const ipfs = IPFS.wow();
+
+function urlWithProxy(baseMetadataUrl: string) {
     const params = new URLSearchParams();
     params.set('url', baseMetadataUrl);
     return `${PROXY_URL}?${params.toString()}`;
@@ -49,9 +42,7 @@ export const render = async (req: Request, res: Response) => {
     const tmp = await Tmp.init();
     const attributes = await render.do(config, cools, 0, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
 
-    const gifBuffer = fs.readFileSync(tmp.gif.path);
-    const gifResult = await ipfs.add(gifBuffer);
-    const gifUrl = `${IPFS_PUBLIC_URL}/${gifResult.path}`;
+    const gifUrl = await ipfs.upload(fs.readFileSync(tmp.gif.path));
     const gifMetadata = {
         "name": `#[token_id] [token_name]`,
         "description": `Glitchy new WOW generated with: #[token_id] ${req.body.seed}`,
@@ -61,9 +52,7 @@ export const render = async (req: Request, res: Response) => {
         "attributes": attributes,
         "external_url": `${BASE_URL}/wow/[token_id]`
     };
-    const metadataResult = await ipfs.add(Buffer.from(JSON.stringify(gifMetadata)));
-    const baseMetadataUrl = `${IPFS_PUBLIC_URL}/${metadataResult.path}`;
-    const metadataUrl = queryParams(baseMetadataUrl);
+    const metadataUrl = urlWithProxy(await ipfs.upload(Buffer.from(JSON.stringify(gifMetadata))));
     const input = encodeInput(metadataUrl);
     let response = {
         metadata: gifMetadata,

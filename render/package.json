@@ -32,6 +32,8 @@
     "puppeteer-screen-recorder": "^2.1.2",
     "puppeteer-stream": "^3.0.5",
     "response-time": "^2.3.2",
+    "seedrandom": "^3.0.5",
+    "sharp": "^0.32.4",
     "tmp-promise": "^3.0.3",
     "typescript": "^5.1.6",
     "web3": "^4.0.3"
@@ -42,6 +44,7 @@
     "@types/gifencoder": "^2.0.1",
     "@types/node": "^20.3.3",
     "@types/pngjs": "^6.0.1",
+    "@types/seedrandom": "^3.0.5",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1"
   }

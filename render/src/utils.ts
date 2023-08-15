@@ -16,6 +16,7 @@ function doubleDigit(digit: number) {
     }
     return `${digit}`;
 }
+
 function tripleDigit(digit: number) {
     if (digit < 10) {
         return `00${digit}`;
@@ -37,4 +38,9 @@ export function clog(m: string) {
 
 export function cerror(m: string) {
     console.error(`[${logTime()}] ${m}`);
+}
+
+export function range(start: number, finish: number): number[] {
+    const length = finish - start + 1 > 0 ? finish - start + 1 : 0;
+    return [...Array(length).keys()].map(i => i + start);
 }

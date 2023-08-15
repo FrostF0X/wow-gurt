@@ -4,3 +4,6 @@
 [submodule "drop/lib/seadrop"]
 	path = drop/lib/seadrop
 	url = https://github.com/ProjectOpenSea/seadrop
+[submodule "pools/lib/openzeppelin-contracts-upgradeable"]
+	path = pools/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
