@@ -27,24 +27,24 @@ export class Pools {
     public static generate(seed: number) {
         const rng = Random.fresh(seed);
         const ducks = [
-            {x: 140, y: 975},
-            {x: 2100, y: 1470},
-            {x: 2985, y: 1950},
-            {x: 390, y: 2899},
-            {x: 570, y: 3700},
-            {x: 3026, y: 3671},
-            {x: 5261, y: 4124},
-            {x: 4496, y: 5250},
-            {x: 2323, y: 5367},
-        ].map(i => new Duck(rng.number(1, 5), i.x, i.y));
+            {x: 140, y: 996},
+            {x: 2100, y: 1491},
+            {x: 2985, y: 1971},
+            {x: 390, y: 2920},
+            {x: 570, y: 3721},
+            {x: 3026, y: 3692},
+            {x: 5261, y: 4145},
+            {x: 4496, y: 5271},
+            {x: 2323, y: 5388},
+        ].map(i => new Duck(rng.number(1, 6), i.x, i.y));
         const pools = [
-            {x: 100, y: 1500},
-            {x: 2192, y: 636},
-            {x: 4163, y: 1501},
-            {x: 1452, y: 2489},
-            {x: 4033, y: 2983},
-            {x: 592, y: 4094},
-            {x: 2804, y: 4219},
+            {x: 100, y: 1521},
+            {x: 2192, y: 657},
+            {x: 4161, y: 1522},
+            {x: 1452, y: 2510},
+            {x: 4035, y: 3004},
+            {x: 592, y: 4115},
+            {x: 2804, y: 4240},
         ].map(i => {
                 const pool = rng.randomItem([PoolType.HEART, PoolType.ROUND, PoolType.SQUARE]);
 
