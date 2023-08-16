@@ -39,10 +39,10 @@ export default class Pools extends React.Component {
                href="https://mint.fun/base/0x773d100c99797881fAC69123F25bA37B83AbCA3c"
                rel="noreferrer"
                target="_blank">
-                <img src="/assets/pools/mint.png" alt=""/>
+                <img src="/assets/pools/mint1.png" alt=""/>
             </a>
             <button className={"pools-buttons-b pools-buttons pools-buttons-game"}>
-                <img src="/assets/pools/game.png" alt=""/>
+                <img src="/assets/pools/game1.png" alt=""/>
             </button>
             <Popup open={this.state.open}>
                 <div className="pools-popup" onClick={this.closeModal}>
