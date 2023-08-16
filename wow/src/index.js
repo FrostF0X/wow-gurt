@@ -15,6 +15,7 @@ import Logo from "./Logo";
 import Basics from "./Basics";
 import Circus from "./Preview/Circus";
 import Pools from "./Pools/Pools";
+import {document} from "postcss";
 
 
 const wow = [
@@ -56,7 +57,6 @@ const pools = [
 const router = createBrowserRouter(window.location.host.split(".")[0] === "summer-pools" ? pools : wow);
 
 document.getElementsByTagName('body')[0].classList.add(getCookie('class'));
-
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Fragment>
         <RouterProvider router={router}/>
