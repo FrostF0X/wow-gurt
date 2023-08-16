@@ -15,7 +15,6 @@ import Logo from "./Logo";
 import Basics from "./Basics";
 import Circus from "./Preview/Circus";
 import Pools from "./Pools/Pools";
-import {document} from "postcss";
 
 
 const wow = [
