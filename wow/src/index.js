@@ -56,8 +56,8 @@ const pools = [
 ];
 const router = createBrowserRouter(window.location.host.split(".")[0] === "summer-pools" ? pools : wow);
 
-document.getElementsByTagName('body')[0].classList.add(getCookie('class'));
-ReactDOM.createRoot(document.getElementById("root")).render(
+window.document.getElementsByTagName('body')[0].classList.add(getCookie('class'));
+ReactDOM.createRoot(window.document.getElementById("root")).render(
     <Fragment>
         <RouterProvider router={router}/>
     </Fragment>
