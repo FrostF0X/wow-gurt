@@ -4,7 +4,8 @@ import './styles/JustFrame.scss';
 export class JustFrame extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.class = +this.props.plain ? 'just-random-frame-plain' : '';
+        this.class = this.props.plain ? 'just-random-frame-plain' : '';
+        this.class += ` just-random-frame-colors-${this.props.color ?? 'pink'}`
     }
 
     render() {

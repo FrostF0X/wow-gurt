@@ -10,7 +10,7 @@ export default class Button extends React.Component {
             {this.props.absolutes}
             <JustFrame
                 style={{height: '100%'}}
-                class={`just-random-frame-background-${this.props.color ? this.props.color : 'pink'}`}
+                color={this.props.color}
             >
                 {this.props.children}
             </JustFrame>
