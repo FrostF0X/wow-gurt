@@ -32,7 +32,7 @@ jobs:
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && make migrate-production'
+            su 'wow-gurt' -c 'cd ~/wow-gurt/render && npm install && make migrate-production'
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
