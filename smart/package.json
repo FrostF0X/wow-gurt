@@ -20,7 +20,7 @@
     "mainnet": "export SERVER_ADDRESS=0x3c43cb66d82406cc10d8b6721e599efc1dfc37a1 && arch -arm64 /bin/bash -c 'truffle migrate --network mainnet'",
     "test": "truffle test --migrate-none",
     "generate-wallet": "node gen-wallet.js",
-    "ganache": "pkill -f ganache || true && pkill -f Ganache || true && ganache --wallet.mnemonic 'super cricket patch skull garage curve direct glue educate outside envelope tennis' -e 10000 -D --chain.networkId 5777 --miner.blockTime=0 --server.port=7545"
+    "ganache": "pkill -9 -i -f ganache || true && ganache --wallet.mnemonic 'super cricket patch skull garage curve direct glue educate outside envelope tennis' -e 10000 --chain.networkId 5777 --server.port=7545"
   },
   "devDependencies": {
     "chai": "^4.3.7",

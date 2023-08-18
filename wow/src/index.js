@@ -15,6 +15,7 @@ import Logo from "./Logo";
 import Basics from "./Basics";
 import Circus from "./Preview/Circus";
 import Pools from "./Pools/Pools";
+import Wows from "./Wows";
 
 
 const wow = [
@@ -45,6 +46,10 @@ const wow = [
     {
         path: "/circus",
         element: <Basics><Circus/></Basics>
+    },
+    {
+        path: "/wows",
+        element: <Wows/>,
     }
 ];
 const pools = [

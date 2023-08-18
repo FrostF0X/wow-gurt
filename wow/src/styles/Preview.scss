@@ -2,6 +2,7 @@
 @import "include-media/dist/_include-media";
 
 .preview {
+  overflow-x: hidden;
   background: black;
   display: flex;
   justify-content: center;

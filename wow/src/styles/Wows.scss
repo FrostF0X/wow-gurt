@@ -1,0 +1,40 @@
+@import "Basics";
+@import "include-media/dist/_include-media";
+
+
+.wows-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wows {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: black;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.wows .wows-wow {
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.wows .wows-wow:hover {
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+
+@media screen and (orientation: portrait) {
+  .wows .wows-wow {
+    width: 50%;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .wows .wows-wow {
+    width: 20%;
+  }
+}

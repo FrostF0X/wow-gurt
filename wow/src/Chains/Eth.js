@@ -7,7 +7,7 @@ import {infuraProvider} from "wagmi/providers/infura";
 import {jsonRpcProvider} from "wagmi/providers/jsonRpc";
 
 const localhost = {
-    id: 1337,
+    id: 31337,
     name: "Local",
     network: "localhost",
     nativeCurrency: {
@@ -17,10 +17,10 @@ const localhost = {
     },
     rpcUrls: {
         default: {
-            http: ["http://127.0.0.1:7545"],
+            http: ["http://127.0.0.1:8545"],
         },
         public: {
-            http: ["http://127.0.0.1:7545"],
+            http: ["http://127.0.0.1:8545"],
         },
     },
 };
@@ -34,7 +34,7 @@ const {
     ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [localhost] : []),
     ...(process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [mainnet] : []),
 ], [
-    ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [jsonRpcProvider({rpc: () => ({http: 'http://127.0.0.1:7545'})})] : []),
+    ...(process.env.REACT_APP_ENABLE_LOCAL === 'true' ? [jsonRpcProvider({rpc: () => ({http: 'http://127.0.0.1:8545'})})] : []),
     ...(process.env.REACT_APP_ENABLE_GOERLI === 'true' || process.env.REACT_APP_ENABLE_MAINNET === 'true' ? [infuraProvider({apiKey: String(process.env.REACT_APP_INFURA_PROJECT_ID)})] : [])
 ]);
 

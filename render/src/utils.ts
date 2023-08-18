@@ -4,7 +4,7 @@ export function throwExpression(errorMessage: string): never {
 
 export function errorInfo(e: unknown): string {
     if (e instanceof Error) {
-        return e.message;
+        return `${e.message} ${e.stack}`;
     } else {
         return JSON.stringify(e);
     }
