@@ -33,19 +33,48 @@ export default class Pools extends React.Component {
     render() {
         return <div className={`pools pools-${this.state.orientation}`}>
             <img src={`/assets/pools/landing-${this.state.orientation}.png`} alt="" className="pools-background"/>
-            <img src={`/assets/pools/pepe.png`} alt="" className="pools-pepe"/>
+            <div className="pools-pepe">
+                {this.pepe()}
+            </div>
             <div className="pools-background-line">&nbsp;</div>
             <a className={"pools-buttons pools-buttons-mint"}
                href="https://mint.fun/base/0x773d100c99797881fAC69123F25bA37B83AbCA3c"
                rel="noreferrer"
                target="_blank">
-                <img src="/assets/pools/mint1.png" alt=""/>
+                <img src="/assets/pools/mint.png" alt=""/>
             </a>
-            <button className={"pools-buttons-b pools-buttons pools-buttons-game"}>
-                <img src="/assets/pools/game1.png" alt=""/>
+            <button className={"pools-buttons-b pools-buttons pools-buttons-game"} onClick={this.openModal}>
+                <img src="/assets/pools/game.png" alt=""/>
             </button>
             <Popup open={this.state.open}>
-                <div className="pools-popup" onClick={this.closeModal}>
+                <div className={`pools-popup`} onClick={this.closeModal}>
+                    {this.state.orientation === 'landscape'
+                        ? <div className={"pools-popup-landscape"}>
+                            <img src={`/assets/pools/popup/landscape/banner.png`} alt=""
+                                 className="pools-popup-landscape-banner"/>
+                            <a href="https://wow.gurt.agency"
+                               className="pools-popup-landscape-gurt"
+                               target={"_blank"}
+                            >
+                                <img src={`/assets/pools/gurt.png`} alt=""
+                                     className="pools-popup-landscape-gurt-image"/>
+                            </a>
+                            <a href="https://wow.gurt.agency"
+                               className="pools-popup-landscape-twitter"
+                               target={"_blank"}
+                            >
+                                <img src={`/assets/pools/twitter.png`} alt=""
+                                     className="pools-popup-landscape-gurt-image"/>
+                            </a>
+                            <div className="pools-popup-landscape-pepe">
+                                {this.pepe()}
+                            </div>
+                        </div> :
+                        <>
+                            <div className="pools-popup-landscape-header">
+                            </div>
+                        </>
+                    }
                 </div>
             </Popup>
             <a className={"pools-buttons pools-buttons-wow-gurt"}
@@ -59,5 +88,14 @@ export default class Pools extends React.Component {
                 <img src="/assets/pools/made-by.png" alt=""/>
             </a>
         </div>
+    }
+
+    pepe() {
+        return <div className="pools-pepe-animated">
+            <img src="/assets/pools/pepe-rubber-ring.png" className={"pools-pepe-animated-rubber-ring"}
+                 alt=""/>
+            <img src="/assets/pools/pepe-character.png" className={"pools-pepe-animated-character"}
+                 alt=""/>
+        </div>;
     }
 }

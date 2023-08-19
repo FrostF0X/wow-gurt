@@ -16,6 +16,7 @@ import Basics from "./Basics";
 import Circus from "./Preview/Circus";
 import Pools from "./Pools/Pools";
 import Wows from "./Wows";
+import PoolsCelebsPreview from "./Pools/PoolsCelebsPreview";
 
 
 const wow = [
@@ -56,6 +57,10 @@ const pools = [
     {
         path: "/",
         element: <Pools/>
+    },
+    {
+        path: "/celebs",
+        element: <PoolsCelebsPreview/>
     }
 ];
 const router = createBrowserRouter(window.location.host.split(".")[0] === "summer-pools" ? pools : wow);
