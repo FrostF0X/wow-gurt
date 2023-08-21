@@ -2,6 +2,7 @@ import React from "react";
 import "./Pools.scss";
 import BrowserOrientation from "../BrowserOrientation";
 import Popup from "reactjs-popup";
+import Pepe from "./Pepe";
 
 export default class Pools extends React.Component {
 
@@ -91,11 +92,6 @@ export default class Pools extends React.Component {
     }
 
     pepe() {
-        return <div className="pools-pepe-animated">
-            <img src="/assets/pools/pepe-rubber-ring.png" className={"pools-pepe-animated-rubber-ring"}
-                 alt=""/>
-            <img src="/assets/pools/pepe-character.png" className={"pools-pepe-animated-character"}
-                 alt=""/>
-        </div>;
+        return <Pepe/>;
     }
 }

@@ -60,7 +60,7 @@ const pools = [
     },
     {
         path: "/celebs",
-        element: <PoolsCelebsPreview/>
+        element: <Basics><PoolsCelebsPreview/></Basics>
     }
 ];
 const router = createBrowserRouter(window.location.host.split(".")[0] === "summer-pools" ? pools : wow);

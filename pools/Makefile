@@ -31,5 +31,5 @@ deploy-mainnet:
   --mnemonics ${MAINNET_MNEMONIC} \
   --broadcast
 
-test :
+tests:
 	forge test -vv

@@ -44,13 +44,10 @@ export const render = async (req: Request, res: Response) => {
 
     const gifUrl = await ipfs.upload(fs.readFileSync(tmp.gif.path));
     const gifMetadata = {
-        "name": `#[token_id] [token_name]`,
-        "description": `Glitchy new WOW generated with: #[token_id] ${req.body.seed}`,
-        "seed": `${req.body.seed}`,
-        "image": gifUrl,
-        "config": `${config}`,
-        "attributes": attributes,
-        "external_url": `${BASE_URL}/wow/[token_id]`
+        "name": `WOW Summer Pools 10 Games Pass`,
+        "description": `Visit (game website)[https://summer-pools.gurt.agency/10-games-pass] to redeem your 10 games!`,
+        "image": 'https://wow-pools.infura-ipfs.io/ipfs/Qma9siALexELPvfXuYaXRCL6RqUFT83zuF7t9j5YHhgNeg',
+        "external_url": `https://summer-pools.gurt.agency/10-games-pass`
     };
     const metadataUrl = urlWithProxy(await ipfs.upload(Buffer.from(JSON.stringify(gifMetadata))));
     const input = encodeInput(metadataUrl);
