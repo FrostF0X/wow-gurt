@@ -59,7 +59,7 @@ export default class Pools extends React.Component {
                                 <img src={`/assets/pools/gurt.png`} alt=""
                                      className="pools-popup-landscape-gurt-image"/>
                             </a>
-                            <a href="https://wow.gurt.agency"
+                            <a href="https://twitter.com/gurt_agency"
                                className="pools-popup-landscape-twitter"
                                target={"_blank"}
                             >
