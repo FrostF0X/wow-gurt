@@ -1,28 +1,31 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {useAccount, useContractRead, useContractWrite, usePrepareContractWrite, useWaitForTransaction,} from 'wagmi'
-import WowGurt from './WowSummerPools.json';
+import WowSummerPools10GamesPass from './10GamesPass.json';
 import Navigate from "../Common/Navigate";
+import * as ethers from "viem";
 
 let initialExecute = false;
 
-export function MintWow({input, signature}) {
+export function MintPool({input, signature}) {
     const {address} = useAccount();
+    console.log(process.env.REACT_APP_WOW_SUMMER_POOLS_10_GAMES_PASS_CONTRACT_ADDRESS);
     const {
         config,
     } = usePrepareContractWrite({
-        address: process.env.REACT_APP_WOW_SUMMER_POOLS_CONTRACT_ADDRESS,
-        abi: WowGurt.abi,
-        functionName: 'mintNFT',
-        args: [address, input, signature],
-    })
+        address: process.env.REACT_APP_WOW_SUMMER_POOLS_10_GAMES_PASS_CONTRACT_ADDRESS,
+        abi: WowSummerPools10GamesPass,
+        functionName: 'mint',
+        value: ethers.parseEther(('0.000333').toString()),
+        args: [1],
+    });
     const [minted, setMinted] = useState([`???`]);
     useContractRead({
-        address: process.env.REACT_APP_WOW_SUMMER_POOLS_CONTRACT_ADDRESS,
-        abi: WowGurt.abi,
+        address: process.env.REACT_APP_WOW_SUMMER_POOLS_10_GAMES_PASS_CONTRACT_ADDRESS,
+        abi: WowSummerPools10GamesPass,
         functionName: 'totalSupply',
-        onSuccess(data) {
-            setMinted(String(parseInt(data)));
+        onSuccess() {
+            setMinted('Minted!');
         },
     });
     const writeFn = useContractWrite(config);

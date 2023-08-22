@@ -65,7 +65,6 @@ contract WowSummerPools10GamesPass is ERC721 {
         require(success, "Withdrawal failed");
     }
 
-
     function mint(uint256 quantity) public payable {
         require(quantity > 0, "Cannot mint less then 1");
         require(totalSupply() + quantity <= MAX_SUPPLY, "ERC721: Exceeds maximum supply");

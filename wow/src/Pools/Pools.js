@@ -3,6 +3,8 @@ import "./Pools.scss";
 import BrowserOrientation from "../BrowserOrientation";
 import Popup from "reactjs-popup";
 import Pepe from "./Pepe";
+import {MintPool} from "./MintPool";
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 
 export default class Pools extends React.Component {
 
@@ -55,6 +57,7 @@ export default class Pools extends React.Component {
                                  className="pools-popup-landscape-banner"/>
                             <a href="https://wow.gurt.agency"
                                className="pools-popup-landscape-gurt"
+                               rel="noreferrer"
                                target={"_blank"}
                             >
                                 <img src={`/assets/pools/gurt.png`} alt=""
@@ -62,6 +65,7 @@ export default class Pools extends React.Component {
                             </a>
                             <a href="https://twitter.com/gurt_agency"
                                className="pools-popup-landscape-twitter"
+                               rel="noreferrer"
                                target={"_blank"}
                             >
                                 <img src={`/assets/pools/twitter.png`} alt=""

@@ -61,12 +61,9 @@ export default class PoolsCelebsPreview extends React.Component {
             <div className={'pools-celebs-preview-pepe'}>
                 <Pepe/>
             </div>
-            <div className="pools-celebs-preview-10-games-pass-bg-1">
-                <GlitchImage img={'pools/celebs/10-games-pass'} preset={5}/>
-            </div>
             <div className="pools-celebs-preview-10-games-pass">
                 <div className="pools-celebs-preview-10-games-pass-con">
-                    <img src={`/assets/pools/celebs/10-games-pass.png`} alt=""
+                    <img src={`/assets/pools/game.png`} alt=""
                          className="pools-celebs-preview-10-games-pass-img"/>
                     <img src={`/assets/pools/celebs/blick.png`} alt=""
                          className="pools-celebs-preview-10-games-pass-blick"/>

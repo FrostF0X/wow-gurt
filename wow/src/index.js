@@ -17,6 +17,7 @@ import Circus from "./Preview/Circus";
 import Pools from "./Pools/Pools";
 import Wows from "./Wows";
 import PoolsCelebsPreview from "./Pools/PoolsCelebsPreview";
+import {Base} from "./Chains/Base";
 
 
 const wow = [
@@ -56,7 +57,7 @@ const wow = [
 const pools = [
     {
         path: "/",
-        element: <Pools/>
+        element: <Base><Pools/></Base>
     },
     {
         path: "/celebs",
