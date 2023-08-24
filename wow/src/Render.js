@@ -7,7 +7,6 @@ import {Cools} from "./Cools/Cools";
 import RenderOverlay from "./RenderOverlay";
 import query from "./Common/Query";
 
-
 class Render extends React.Component {
     constructor(props) {
         super(props);
@@ -29,13 +28,13 @@ class Render extends React.Component {
 
     render() {
         return (
-            <div className={"just-render"}>
+            <div className={"just-render render"}>
                 <RenderOverlay overlay={this.overlay} size={this.size} animationLength={2000 * this.slow}/>
                 <Wow slow={query().get('slow') ?? 10} size={this.size} config={this.config} cools={this.cools}/>
                 <div className={"pretty-rare-vow"} style={{width: `${this.size}px`}}>
                     Congratulations: You're a lucky cat, You've got pretty rare WOW with pink line!
                 </div>
-                <div id={"just-attributes"} data-json={this.attributes}></div>
+                <div id={"attributes"} data-json={this.attributes}></div>
             </div>
         );
     }

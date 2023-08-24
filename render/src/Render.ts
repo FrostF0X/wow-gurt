@@ -8,23 +8,18 @@ import {clog, throwExpression} from "./utils";
 
 export default class Render {
 
-    constructor(private readonly baseUrl: string) {
-    }
-
-    async do(config: string, cools: string | null, overlay: number, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
+    async do(url: string, time: TimeConfig, render: RenderConfig, tmp: Tmp) {
         let chrome = null;
         try {
-            clog(`Processing request for config: ${config}`);
             clog(`Time config: ${JSON.stringify(time)}`);
             clog(`Rendering config: ${JSON.stringify(render)}`);
             clog(`Starting browser`);
             chrome = await Chrome.init(render.browserSize);
             clog(`Creating page`);
             const page = await chrome.newPage();
-            const URL = `${this.baseUrl}/render?size=${render.size}&slow=${time.slow}&config=${config}&cools=${cools}&overlay=${overlay}`;
-            clog(`Go to url: ${URL}`);
-            await page.goto(URL, {timeout: 120000});
-            await page.waitForSelector('.wow', {timeout: 120000});
+            clog(`Go to url: ${url}`);
+            await page.goto(url, {timeout: 120000});
+            await page.waitForSelector('.render', {timeout: 120000});
             clog(`Waiting for animation to load`);
             await new Promise((resolve) => setTimeout(resolve, time.wait));
             const stream = await getStream(page, {
@@ -41,7 +36,10 @@ export default class Render {
                         .run()
                 ),
                 new Promise((resolve) => setTimeout(resolve, time.record)),
-                (await page.$eval('#just-attributes', (element: Element) => element.attributes.getNamedItem('data-json')?.value)) ?? throwExpression('Cannot evaluate function'),
+                (await page.$eval('#attributes',
+                    (element: Element) => element.attributes.getNamedItem('data-json')?.value)) ??
+                throwExpression('#attributes element or its data-json value not present on rendering page'
+                ),
             ]);
             await chrome?.stop();
 
@@ -55,7 +53,9 @@ export default class Render {
                     .run()
             );
             clog(`Done.`);
-            return JSON.parse(metadata);
+            if (metadata) {
+                return JSON.parse(metadata);
+            }
         } catch (e) {
             chrome?.stop();
             throw e;

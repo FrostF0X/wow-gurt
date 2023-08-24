@@ -18,6 +18,7 @@ import Pools from "./Pools/Pools";
 import Wows from "./Wows";
 import PoolsCelebsPreview from "./Pools/PoolsCelebsPreview";
 import {Base} from "./Chains/Base";
+import {apeLuckyCoinRoutes} from "./ApeLuckyCoin/routes";
 
 
 const wow = [
@@ -64,7 +65,19 @@ const pools = [
         element: <Basics><PoolsCelebsPreview/></Basics>
     }
 ];
-const router = createBrowserRouter(window.location.host.split(".")[0] === "summer-pools" ? pools : wow);
+
+function resolveRoutesForDomain() {
+    let subdomain = window.location.host.split(".")[0];
+    if (subdomain === "summer-pools") {
+        return pools;
+    }
+    if (subdomain === "ape-lucky-coin") {
+        return apeLuckyCoinRoutes;
+    }
+    return wow;
+}
+
+const router = createBrowserRouter(resolveRoutesForDomain());
 
 window.document.getElementsByTagName('body')[0].classList.add(getCookie('class'));
 ReactDOM.createRoot(window.document.getElementById("root")).render(

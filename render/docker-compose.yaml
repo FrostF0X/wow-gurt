@@ -4,9 +4,12 @@ services:
     image: 'render'
     volumes:
       - './src:/usr/src/app/src'
+      - './migrations:/usr/src/app/migrations'
       - './tmp:/tmp'
     ports:
       - '8000:80'
+    extra_hosts:
+      - "ape-lucky-coin.host.docker.internal:host-gateway"
     command: 'watch-development'
   redis:
     image: redis:6.2-alpine

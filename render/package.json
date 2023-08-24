@@ -14,6 +14,7 @@
     "prod-goerli": "env-cmd -f .env-goerli npm run prod",
     "prod-mainnet": "env-cmd -f .env-mainnet npm run prod",
     "prod": "env-cmd -f .env.production ts-node src/index.ts",
+    "migrate-make": "env-cmd -f .env-development npx knex migrate:make",
     "migrate-development": "env-cmd -f .env-development npx knex migrate:latest",
     "migrate-rollback-development": "env-cmd -f .env-development npx knex migrate:rollback",
     "migrate-production": "env-cmd -f .env-mainnet npx knex migrate:latest"

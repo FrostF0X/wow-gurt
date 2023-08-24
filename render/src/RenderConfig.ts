@@ -15,6 +15,10 @@ export default class RenderConfig {
         return new RenderConfig(512, 58, 512 + 200, 50);
     }
 
+    static apeLuckyCoin() {
+        return new RenderConfig(1024, 58, 1024 + 200, 5);
+    }
+
     constructor(public readonly size: number,
                 public readonly offset: number,
                 public readonly browserSize: number,

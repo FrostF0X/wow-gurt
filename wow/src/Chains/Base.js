@@ -1,7 +1,7 @@
 import React from "react";
 import {configureChains, createConfig, WagmiConfig} from "wagmi";
 import {getDefaultWallets, RainbowKitProvider} from "@rainbow-me/rainbowkit";
-import {theme} from "../Theme";
+import {theme as defaultTheme} from "../Theme";
 import {jsonRpcProvider} from "wagmi/providers/jsonRpc";
 import {base, baseGoerli} from "viem/chains";
 
@@ -49,10 +49,10 @@ const wagmiConfig = createConfig({
     autoConnect: true, connectors, publicClient, webSocketPublicClient,
 });
 
-export const Base = ({children}) => {
+export const Base = ({theme, children}) => {
     return <WagmiConfig config={wagmiConfig}>
         <div className={"rk"}>
-            <RainbowKitProvider chains={chains} theme={theme} coolMode={true}
+            <RainbowKitProvider chains={chains} theme={theme ?? defaultTheme} coolMode={true}
                                 modalSize={"compact"}>
                 {children}
             </RainbowKitProvider>

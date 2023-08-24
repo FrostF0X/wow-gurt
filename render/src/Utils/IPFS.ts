@@ -8,6 +8,9 @@ const WOW_INFURA_IPFS_PUBLIC_URL: string = process.env.WOW_INFURA_IPFS_PUBLIC_UR
 const POOLS_INFURA_IPFS_API_KEY = process.env.POOLS_INFURA_IPFS_API_KEY ?? throwExpression('Please define POOLS_INFURA_IPFS_API_KEY');
 const POOLS_INFURA_IPFS_API_SECRET = process.env.POOLS_INFURA_IPFS_API_SECRET ?? throwExpression('Please define POOLS_INFURA_IPFS_API_SECRET');
 const POOLS_INFURA_IPFS_PUBLIC_URL: string = process.env.POOLS_INFURA_IPFS_PUBLIC_URL ?? throwExpression("Please define POOLS_INFURA_IPFS_PUBLIC_URL");
+const APE_LUCKY_COIN_INFURA_IPFS_API_KEY = process.env.APE_LUCKY_COIN_INFURA_IPFS_API_KEY ?? throwExpression('Please define APE_LUCKY_COIN_INFURA_IPFS_API_KEY');
+const APE_LUCKY_COIN_INFURA_IPFS_API_SECRET = process.env.APE_LUCKY_COIN_INFURA_IPFS_API_SECRET ?? throwExpression('Please define APE_LUCKY_COIN_INFURA_IPFS_API_SECRET');
+const APE_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL: string = process.env.APE_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL ?? throwExpression("Please define APE_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL");
 
 
 export class IPFS {
@@ -19,6 +22,10 @@ export class IPFS {
 
     public static pools(): IPFS {
         return new IPFS(POOLS_INFURA_IPFS_API_KEY, POOLS_INFURA_IPFS_API_SECRET, POOLS_INFURA_IPFS_PUBLIC_URL);
+    }
+
+    public static apeLuckyCoin(): IPFS {
+        return new IPFS(APE_LUCKY_COIN_INFURA_IPFS_API_KEY, APE_LUCKY_COIN_INFURA_IPFS_API_SECRET, APE_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL);
     }
 
     constructor(apiKey: string, apiSecret: string, public readonly publicUrl: string) {

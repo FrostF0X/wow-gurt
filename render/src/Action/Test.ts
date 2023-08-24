@@ -3,9 +3,7 @@ import Tmp from "../Tmp";
 import Render from "../Render";
 import TimeConfig from "../TimeConfig";
 import RenderConfig from "../RenderConfig";
-import {throwExpression} from "../utils";
-
-const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
+import WowRenderUrl from "../WowRenderUrl";
 
 export const test = async (req: Request, res: Response) => {
     if (!req.body.config) {
@@ -21,8 +19,11 @@ export const test = async (req: Request, res: Response) => {
     const overlay = parseInt(req.body.overlay) ?? 0;
 
     const tmp = await Tmp.init();
-    const render = new Render(BASE_URL);
-    await render.do(config, cools, overlay, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const render = new Render();
+    const renderConfig = RenderConfig.for1024();
+    const time = TimeConfig.for1024();
+    const url = WowRenderUrl.get(renderConfig, time, config, cools, overlay);
+    await render.do(url, time, renderConfig, tmp);
 
     await new Promise((resolve, reject) => {
         res.sendFile(tmp.gif.path, function (error: any) {

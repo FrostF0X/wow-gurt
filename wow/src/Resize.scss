@@ -1,0 +1,13 @@
+.equal-size {
+  width: 100%;
+  height: 100%;
+
+  &-c {
+    width: var(--resizer-equal-size);
+    height: var(--resizer-equal-size);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+  }
+}

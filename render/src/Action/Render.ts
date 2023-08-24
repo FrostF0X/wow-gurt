@@ -8,6 +8,7 @@ import * as fs from "fs";
 import Sign from "../Sign";
 import {ethers} from "ethers";
 import {IPFS} from "../Utils/IPFS";
+import WowRenderUrl from "../WowRenderUrl";
 
 const BASE_URL = process.env.URL ?? throwExpression("Please define URL");
 const PROXY_URL = process.env.PROXY_URL ?? throwExpression("Please define PROXY_URL");
@@ -38,16 +39,22 @@ export const render = async (req: Request, res: Response) => {
     }
     const config = req.body.config;
     const cools = req.body.cools ?? null;
-    const render = new Render(BASE_URL);
+    const render = new Render();
     const tmp = await Tmp.init();
-    const attributes = await render.do(config, cools, 0, TimeConfig.for1024(), RenderConfig.for1024(), tmp);
+    const renderConfig = RenderConfig.for1024();
+    const time = TimeConfig.for1024();
+    const url = WowRenderUrl.get(renderConfig, time, config, cools, 0);
+    const attributes = await render.do(url, time, renderConfig, tmp);
 
     const gifUrl = await ipfs.upload(fs.readFileSync(tmp.gif.path));
     const gifMetadata = {
-        "name": `WOW Summer Pools 10 Games Pass`,
-        "description": `Visit (game website)[https://summer-pools.gurt.agency/10-games-pass] to redeem your 10 games!`,
-        "image": 'https://wow-pools.infura-ipfs.io/ipfs/Qma9siALexELPvfXuYaXRCL6RqUFT83zuF7t9j5YHhgNeg',
-        "external_url": `https://summer-pools.gurt.agency/10-games-pass`
+        "name": `#[token_id] [token_name]`,
+        "description": `Glitchy new WOW generated with: #[token_id] ${req.body.seed}`,
+        "seed": `${req.body.seed}`,
+        "image": gifUrl,
+        "config": `${config}`,
+        "attributes": attributes,
+        "external_url": `${BASE_URL}/wow/[token_id]`
     };
     const metadataUrl = urlWithProxy(await ipfs.upload(Buffer.from(JSON.stringify(gifMetadata))));
     const input = encodeInput(metadataUrl);

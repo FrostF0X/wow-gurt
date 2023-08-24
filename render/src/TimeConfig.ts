@@ -1,5 +1,6 @@
 export default class TimeConfig {
     static animationDuration: number = 2;
+    static apeLuckyCoinAnimationDuration: number = 0.365;
 
     static for1024() {
         return this.create(10, 4000);
@@ -17,7 +18,9 @@ export default class TimeConfig {
         return new TimeConfig(targetTime / TimeConfig.animationDuration, wait1, targetTime * 1000, targetTime, TimeConfig.animationDuration / targetTime);
     }
 
-    static GIF_DURATION = 2;
+    public static apeLuckyCoin(targetTime: number, wait1: number) {
+        return new TimeConfig(targetTime / TimeConfig.apeLuckyCoinAnimationDuration, wait1, targetTime * 1000, targetTime, TimeConfig.apeLuckyCoinAnimationDuration / targetTime);
+    }
 
     constructor(public readonly slow: number,
                 public readonly wait: number,
