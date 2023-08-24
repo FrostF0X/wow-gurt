@@ -3,8 +3,6 @@ import "./Pools.scss";
 import BrowserOrientation from "../BrowserOrientation";
 import Popup from "reactjs-popup";
 import Pepe from "./Pepe";
-import {MintPool} from "./MintPool";
-import {ConnectButton} from "@rainbow-me/rainbowkit";
 
 export default class Pools extends React.Component {
 

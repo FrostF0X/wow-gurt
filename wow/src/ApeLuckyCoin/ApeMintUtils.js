@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {getPublicClient, getWalletClient} from '@wagmi/core';
 import {ApeCoinAbi} from "./ApeCoinAbi";
 import {ApeLuckyCoinAbi} from "./ApeLuckyCoinAbi";

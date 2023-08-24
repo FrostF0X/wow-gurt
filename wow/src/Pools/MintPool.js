@@ -7,8 +7,8 @@ import * as ethers from "viem";
 
 let initialExecute = false;
 
-export function MintPool({input, signature}) {
-    const {address} = useAccount();
+export function MintPool({}) {
+    useAccount();
     console.log(process.env.REACT_APP_WOW_SUMMER_POOLS_10_GAMES_PASS_CONTRACT_ADDRESS);
     const {
         config,

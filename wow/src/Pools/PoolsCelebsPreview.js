@@ -2,7 +2,6 @@ import React from "react";
 import "./PoolsCelebsPreview.scss";
 import Random from "../Random";
 import Pepe from "./Pepe";
-import GlitchImage from "../GlitchImage";
 
 export default class PoolsCelebsPreview extends React.Component {
 
