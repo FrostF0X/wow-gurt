@@ -18,7 +18,7 @@ export default class Render {
             clog(`Creating page`);
             const page = await chrome.newPage();
             clog(`Go to url: ${url}`);
-            await page.goto(url, {timeout: 120000});
+            await page.goto(url, {timeout: 120000, waitUntil: 'networkidle2'});
             await page.waitForSelector('.render', {timeout: 120000});
             clog(`Waiting for animation to load`);
             await new Promise((resolve) => setTimeout(resolve, time.wait));

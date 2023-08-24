@@ -35,7 +35,7 @@ export const renderApeLuckyCoin = async (req: Request, res: Response) => {
     }
     const render = new Render();
     const tmp = await Tmp.init();
-    const time = TimeConfig.apeLuckyCoin(3.650, 5);
+    const time = TimeConfig.apeLuckyCoin(18.25, 5000);
     const config = RenderConfig.apeLuckyCoin();
     const url = ApeLuckyCoinRenderUrl.get(config, time, tokenId);
     await render.do(url, time, config, tmp);
@@ -43,5 +43,5 @@ export const renderApeLuckyCoin = async (req: Request, res: Response) => {
     await addApeLuckyCoin({tokenId, image});
     res.json(response(tokenId, image));
     clog(`Url: ${JSON.stringify(image)}`);
-    await tmp.clear();
+    clog(JSON.stringify(tmp));
 };

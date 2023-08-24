@@ -19,13 +19,11 @@ export default class ApeLuckyCoin extends React.Component {
     }
 
     componentDidMount = () => {
-        if (this.props.animate) {
-            setInterval(() => {
-                const patterns = this.state.patterns;
-                patterns.unshift(patterns.pop());
-                this.setState({patterns: patterns});
-            }, 73 * Slow.x());
-        }
+        setInterval(() => {
+            const patterns = this.state.patterns;
+            patterns.unshift(patterns.pop());
+            this.setState({patterns: patterns});
+        }, 73 * Slow.x());
     }
 
     render() {
@@ -48,10 +46,10 @@ export default class ApeLuckyCoin extends React.Component {
                                  className={'ape-lucky-coin-skull-layer-1 ape-lucky-coin-background'}/>
                         </div>
                     </div>
-                    <img src="/assets/ape-lucky-coin/coin-wrap.png" className={'ape-lucky-coin-background'}/>
                     <img src="/assets/ape-lucky-coin/ape.png" className={'ape-lucky-coin-background'}/>
                     <img src="/assets/ape-lucky-coin/lines.png" className={'ape-lucky-coin-background'}/>
                     <img src="/assets/ape-lucky-coin/lines.png" className={'ape-lucky-coin-background'}/>
+                    <img src="/assets/ape-lucky-coin/coin-wrap.png" className={'ape-lucky-coin-background'}/>
                     <div className="ape-lucky-coin-background ape-lucky-coin-shadow"></div>
                 </div>
             </div>
