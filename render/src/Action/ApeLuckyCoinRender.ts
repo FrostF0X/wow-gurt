@@ -44,4 +44,5 @@ export const renderApeLuckyCoin = async (req: Request, res: Response) => {
     res.json(response(tokenId, image));
     clog(`Url: ${JSON.stringify(image)}`);
     clog(JSON.stringify(tmp));
+    await tmp.clear();
 };

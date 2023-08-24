@@ -30,12 +30,12 @@ const signer = new Sign(process.env.SERVER_PRIVATE_KEY ?? throwExpression("Pleas
 
 export const render = async (req: Request, res: Response) => {
     if (!req.body.config) {
-        console.log(req.body);
         res.status(400).json({"error": `config must be present`});
+        return;
     }
     if (!req.body.seed) {
-        console.log(req.body);
         res.status(400).json({"error": `seed must be present`});
+        return;
     }
     const config = req.body.config;
     const cools = req.body.cools ?? null;
