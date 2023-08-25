@@ -54,7 +54,7 @@ export default class Mint extends React.Component {
                             [PRICE: 1 APE]
                         </Button>
                         <Button type={"left"}>
-                            [MINT #[{this.state.minted}] ]
+                            [MINT #[{this.state.minted}]]
                         </Button>
                     </div>
                     <div className={`ape-lucky-coin-mint-preview`}>
