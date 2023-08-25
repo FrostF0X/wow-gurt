@@ -2,7 +2,6 @@ import {getPublicClient, getWalletClient} from '@wagmi/core';
 import {ApeCoinAbi} from "./ApeCoinAbi";
 import {ApeLuckyCoinAbi} from "./ApeLuckyCoinAbi";
 import NotEnoughApeCoin from "./NotEnoughApeCoin";
-import * as publicClient from "viem/actions";
 
 export class ApeMintUtils {
     static async transferApe() {
@@ -20,16 +19,6 @@ export class ApeMintUtils {
         }
         return await this.isMintWorking(publicClient, walletClient);
     }
-
-    static async enoughApeOnBalance() {
-        return await publicClient.readContract({
-            address: process.env.REACT_APP_APE_COIN_CONTRACT_ADDRESS,
-            abi: ApeCoinAbi,
-            functionName: 'balance',
-            args: [walletClient.account.address],
-        }) >= 10n ** 18n;
-    }
-
     static async getMintedTokens() {
         const publicClient = getPublicClient();
         return await publicClient.readContract({
