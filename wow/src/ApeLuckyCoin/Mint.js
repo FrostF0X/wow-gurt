@@ -8,14 +8,17 @@ import Button from "./Button";
 import {getWalletClient} from '@wagmi/core';
 import {ApeMintUtils} from "./ApeMintUtils";
 import {MintApeLuckyCoin} from "./MintApeLuckyCoin";
+import NotEnoughApeCoin from "./NotEnoughApeCoin";
+import {useAccount} from "wagmi";
 
-export default class Mint extends React.Component {
+class MintInternal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             orientation: BrowserOrientation.get(),
             wallet: getWalletClient(),
             firstPhaseError: false,
+            buyOnUniswap: false,
             minted: null
         };
         BrowserOrientation.listen(o => this.setState((state) => ({...state, orientation: o})));
@@ -32,15 +35,30 @@ export default class Mint extends React.Component {
         try {
             const approved = await ApeMintUtils.transferApe();
             if (!approved) {
-                this.setState((state) => ({...state, firstPhaseError: '⤫[NEED 1 APE COIN] [CLICK TO RETRY]⤬'}));
+                this.setState((state) => ({...state, firstPhaseError: '[NEED 1 APE COIN] ⤫ [CLICK TO RETRY] ⤬'}));
                 return;
             }
         } catch (e) {
-            this.setState((state) => ({...state, firstPhaseError: '⤫[TRANSACTION ERROR] [CLICK TO RETRY]⤬'}));
+            if (e instanceof NotEnoughApeCoin) {
+                this.setState((state) => ({
+                    ...state,
+                    buyOnUniswap: true
+                }));
+                return;
+            }
+            this.setState((state) => ({...state, firstPhaseError: '[TRANSACTION REJECTED] ⤫ [CLICK TO RETRY] ⤬'}));
             return;
         }
         this.setState((state) => ({...state, showMint: true}));
     };
+
+    openUniswap = async () => {
+        window.open(`https://app.uniswap.org/#/swap?theme=dark&exactField=output&exactAmount=1&inputCurrency=ETH&outputCurrency=${process.env.REACT_APP_APE_COIN_CONTRACT_ADDRESS}`, '_blank');
+        this.setState((state) => ({
+            ...state,
+            buyOnUniswap: false
+        }));
+    }
 
     render() {
         return (
@@ -69,15 +87,18 @@ export default class Mint extends React.Component {
                             <ConnectButton
                                 accountStatus={"address"}
                                 showBalance={false}
-                                label={"⤫[CONNECT WALLET]⤬"}
+                                label={"⤫ [CONNECT WALLET] ⤬"}
                             />
                         </Button>
                         <Button type={"right"}>
-                            {this.state.showMint ?
-                                <MintApeLuckyCoin tokenId={this.state.minted}/> :
-                                <button className={""} onClick={this.write}>
-                                    {this.state.firstPhaseError ? this.state.firstPhaseError : '⤫[MINT]⤬'}
-                                </button>}
+                            {!this.state.buyOnUniswap && !this.state.showMint ?
+                                <button disabled={!this.props.address} onClick={this.write}>
+                                    {this.state.firstPhaseError ? this.state.firstPhaseError : '⤫ [MINT] ⤬'}
+                                </button> : null}
+                            {this.state.buyOnUniswap ?
+                                <button onClick={this.openUniswap}>[NOT ENOUGH APE COIN] ⤫ [BUY ON UNISWAP]
+                                    ⤬</button> : null}
+                            {this.state.showMint ? <MintApeLuckyCoin tokenId={this.state.minted}/> : null}
                         </Button>
                     </div>
                 </div>
@@ -85,3 +106,9 @@ export default class Mint extends React.Component {
         );
     }
 }
+
+
+export const Mint = () => {
+    const {address} = useAccount();
+    return <MintInternal address={address}></MintInternal>
+};

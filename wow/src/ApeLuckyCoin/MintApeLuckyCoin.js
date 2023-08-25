@@ -35,9 +35,9 @@ export function MintApeLuckyCoin({tokenId}) {
                 <Navigate
                     url={`https://rarible.com/token/polygon/0xd8acd4fb562e4824d93bbcbf03aa8d6262db6035:${tokenId}`}/>
             ) : <button style={{textAlign: "center", width: "100%"}}>
-                {status === 'idle' ? '⤫[PROCEED IN WALLET] [CLICK TO RETRY]⤬' : ''}
-                {status === 'loading' ? '⤫[TRANSACTION LOADING] [CLICK TO RETRY]⤬' : ''}
-                {status === "error" ? '⤫[MINT ERROR] [CLICK TO RETRY]⤬' : ''}
+                {status === 'idle' ? '[PROCEED IN WALLET] ⤫ [CLICK TO RETRY] ⤬' : ''}
+                {status === 'loading' ? '[TRANSACTION LOADING] ⤫ [CLICK TO RETRY] ⤬' : ''}
+                {status === "error" ? '[MINT ERROR] ⤫ [CLICK TO RETRY] ⤬' : ''}
             </button>
             }
         </form>
