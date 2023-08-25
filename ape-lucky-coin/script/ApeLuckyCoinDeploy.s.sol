@@ -11,8 +11,8 @@ contract ApeLuckyCoinDeploy is Script {
     function run() public {
         address coin = vm.envAddress("APE_COIN_ADDRESS");
         vm.startBroadcast();
-        ApeLuckyCoin luckyCoin = new ApeLuckyCoin();
-        luckyCoin.setApeCoinContract(address(coin));
+        ApeLuckyCoin luckyCoin = ApeLuckyCoin(0xd8aCD4Fb562E4824D93bbcbf03aa8d6262dB6035);
+        luckyCoin.setApeCoinContract(coin);
         vm.stopBroadcast();
     }
 }
