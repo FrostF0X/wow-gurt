@@ -55,6 +55,14 @@ export class ApeMintUtils {
                 'ERC20: insufficient allowance') {
                 return false;
             }
+            if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
+                'ERC20: transfer amount exceeds balance') {
+                return false;
+            }
+            if (e.shortMessage === 'The contract function "mint" reverted with the following reason: \n' +
+                'ERC20: transfer amount exceeds allowance') {
+                return false;
+            }
             throw e;
         }
     }
