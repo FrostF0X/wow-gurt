@@ -59,7 +59,7 @@ export default class Mint extends React.Component {
                     </div>
                     <div className={`ape-lucky-coin-mint-preview`}>
                         {this.state.minted !== null ?
-                            <ApeLuckyCoin seed={this.state.minted + 1}
+                            <ApeLuckyCoin seed={this.state.minted}
                                           slow={this.slow}
                                           animate={true}
                                           config={this.config}/> : ''}
@@ -74,7 +74,7 @@ export default class Mint extends React.Component {
                         </Button>
                         <Button type={"right"}>
                             {this.state.showMint ?
-                                <MintApeLuckyCoin tokenId={this.state.minted + 1}/> :
+                                <MintApeLuckyCoin tokenId={this.state.minted}/> :
                                 <button className={""} onClick={this.write}>
                                     {this.state.firstPhaseError ? this.state.firstPhaseError : '⤫[MINT]⤬'}
                                 </button>}
