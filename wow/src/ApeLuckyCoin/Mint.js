@@ -35,7 +35,7 @@ class MintInternal extends React.Component {
         try {
             const approved = await ApeMintUtils.transferApe();
             if (!approved) {
-                this.setState((state) => ({...state, firstPhaseError: '[NEED 1 APE COIN] ⤫ [CLICK TO RETRY] ⤬'}));
+                this.setState((state) => ({...state, firstPhaseError: '[NEED 1 APE COIN]\n⤫ [CLICK TO RETRY] ⤬'}));
                 return;
             }
         } catch (e) {
@@ -46,7 +46,7 @@ class MintInternal extends React.Component {
                 }));
                 return;
             }
-            this.setState((state) => ({...state, firstPhaseError: '[TRANSACTION REJECTED] ⤫ [CLICK TO RETRY] ⤬'}));
+            this.setState((state) => ({...state, firstPhaseError: '[TRANSACTION REJECTED]\n⤫ [CLICK TO RETRY] ⤬'}));
             return;
         }
         this.setState((state) => ({...state, showMint: true}));
@@ -96,8 +96,8 @@ class MintInternal extends React.Component {
                                     {this.state.firstPhaseError ? this.state.firstPhaseError : '⤫ [MINT] ⤬'}
                                 </button> : null}
                             {this.state.buyOnUniswap ?
-                                <button onClick={this.openUniswap}>[NOT ENOUGH APE COIN] ⤫ [BUY ON UNISWAP]
-                                    ⤬</button> : null}
+                                <button
+                                    onClick={this.openUniswap}>{'[NOT ENOUGH APE COIN]\n⤫ [BUY ON UNISWAP] ⤬'}</button> : null}
                             {this.state.showMint ? <MintApeLuckyCoin tokenId={this.state.minted}/> : null}
                         </Button>
                     </div>
