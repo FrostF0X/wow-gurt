@@ -35,9 +35,9 @@ export function MintApeLuckyCoin({tokenId}) {
                 <Navigate
                     url={`https://opensea.io/assets/polygon/0xd8aCD4Fb562E4824D93bbcbf03aa8d6262dB6035/${tokenId}`}/>
             ) : <button style={{textAlign: "center", width: "100%"}}>
-                {status === 'idle' ? '[PROCEED IN WALLET] [CLICK TO RETRY]' : ''}
-                {status === 'loading' ? '[TRANSACTION LOADING] [CLICK TO RETRY]' : ''}
-                {status === "error" ? '[MINT ERROR] [CLICK TO RETRY]' : ''}
+                {status === 'idle' ? '⤫[PROCEED IN WALLET] [CLICK TO RETRY]⤬' : ''}
+                {status === 'loading' ? '⤫[TRANSACTION LOADING] [CLICK TO RETRY]⤬' : ''}
+                {status === "error" ? '⤫[MINT ERROR] [CLICK TO RETRY]⤬' : ''}
             </button>
             }
         </form>
