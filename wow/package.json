@@ -108,7 +108,8 @@
     "rules": {
       "no-script-url": "off",
       "jsx-a11y/anchor-is-valid": "off",
-      "jsx-a11y/alt-text": "off"
+      "jsx-a11y/alt-text": "off",
+      "react/jsx-no-target-blank": "off"
     }
   },
   "browser": {
