@@ -1,8 +1,8 @@
 @import "PoolsPopup";
 
 .pools {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
 }
@@ -100,9 +100,19 @@
     transform: translateY(-50%);
   }
 
+  .pools-pepe {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 15%;
+    height: 25%;
+    transform: translateX(-41%);
+    width: 250px;
+  }
+
   .pools-buttons {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     left: 50%;
     height: 7%;
     transform: translateX(-50%);
