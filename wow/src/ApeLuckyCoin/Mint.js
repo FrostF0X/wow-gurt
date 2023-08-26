@@ -74,12 +74,12 @@ class MintInternal extends React.Component {
                         <Button type={"left"}>
                             [MINT #[{this.state.minted}]]
                         </Button>
-                        <Button type={"left"}>
+                        <Button>
                             [CHECK OUT]
                             <a target={"_blank"}
                                href="https://rarible.com/collection/polygon/0xd8acd4fb562e4824d93bbcbf03aa8d6262db6035/items">[RARIBLE]</a>
                         </Button>
-                        <Button type={"left"}>
+                        <Button>
                             [CHECK OUT]
                             <a target={"_blank"}
                                href="https://wow.gurt.agency">[WOW SECRET]</a>
