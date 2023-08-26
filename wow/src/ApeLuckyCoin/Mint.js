@@ -74,13 +74,22 @@ class MintInternal extends React.Component {
                         <Button type={"left"}>
                             [MINT #[{this.state.minted}]]
                         </Button>
+                        <Button type={"left"}>
+                            [CHECK OUT]
+                            <a target={"_blank"}
+                               href="https://rarible.com/collection/polygon/0xd8acd4fb562e4824d93bbcbf03aa8d6262db6035/items">[RARIBLE]</a>
+                        </Button>
+                        <Button type={"left"}>
+                            [CHECK OUT]
+                            <a target={"_blank"}
+                               href="https://wow.gurt.agency">[WOW SECRET]</a>
+                        </Button>
                     </div>
                     <div className={`ape-lucky-coin-mint-preview`}>
-                        {this.state.minted !== null ?
-                            <ApeLuckyCoin seed={this.state.minted}
-                                          slow={this.slow}
-                                          animate={true}
-                                          config={this.config}/> : ''}
+                        {this.state.minted !== null ? <ApeLuckyCoin seed={this.state.minted}
+                                                                    slow={this.slow}
+                                                                    animate={true}
+                                                                    config={this.config}/> : ''}
                     </div>
                     <div className={`ape-lucky-coin-mint-buttons`}>
                         <Button type={"right"}>
