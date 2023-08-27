@@ -19,6 +19,8 @@ import Wows from "./Wows";
 import PoolsCelebsPreview from "./Pools/PoolsCelebsPreview";
 import {Base} from "./Chains/Base";
 import {apeLuckyCoinRoutes} from "./ApeLuckyCoin/routes";
+import {galleryRoutes} from "./Gallery/routes";
+import {wowLuckyCoinRoutes} from "./WowLuckyCoin/routes";
 
 
 const wow = [
@@ -73,6 +75,12 @@ function resolveRoutesForDomain() {
     }
     if (subdomain === "ape-lucky-coin") {
         return apeLuckyCoinRoutes;
+    }
+    if (subdomain === "wow-lucky-coin") {
+        return wowLuckyCoinRoutes;
+    }
+    if (subdomain === "gallery") {
+        return galleryRoutes;
     }
     return wow;
 }

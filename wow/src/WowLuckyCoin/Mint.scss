@@ -1,0 +1,80 @@
+@import "../styles/Basics";
+
+.ape-lucky-coin-mint {
+  &-portrait {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .ape-lucky-coin-mint-content {
+      width: 100%;
+      height: 100%;
+      padding: 2%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: space-between;
+    }
+
+    .ape-lucky-coin-mint-preview {
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+
+    .ape-lucky-coin-mint-explanations {
+      width: 100%;
+      height: 15%;
+    }
+
+    .ape-lucky-coin-mint-buttons {
+      width: 100%;
+      height: 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+  }
+
+  &-landscape {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 12px;
+
+    .ape-lucky-coin-mint-content {
+      width: 100%;
+      height: 100%;
+      padding: 2%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ape-lucky-coin-mint-preview {
+      display: block;
+      width: 100dvh;
+      aspect-ratio: 1/1;
+    }
+
+    .ape-lucky-coin-mint-explanations {
+      width: 20%;
+      height: 100%;
+    }
+
+    .ape-lucky-coin-mint-buttons {
+      width: 20%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+  }
+
+}

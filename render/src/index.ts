@@ -8,6 +8,7 @@ import {pool} from "./Action/Pool";
 import {wows} from "./Action/Wows";
 import {summerPools10GamesPass} from "./Action/SummerPools10GamesPass";
 import {renderApeLuckyCoin} from "./Action/ApeLuckyCoinRender";
+import {renderWowLuckyCoin} from "./Action/WowLuckyCoinRender";
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : throwExpression("Please define URL");
 
@@ -19,4 +20,5 @@ Server.create(PORT, [
     new Listener('get', '/pool', pool),
     new Listener('get', '/wow-summer-pools/10-games-pass.json', summerPools10GamesPass),
     new Listener('get', '/ape-lucky-coin/:tokenId', renderApeLuckyCoin),
+    new Listener('get', '/wow-lucky-coin/:tokenId', renderWowLuckyCoin),
 ]);

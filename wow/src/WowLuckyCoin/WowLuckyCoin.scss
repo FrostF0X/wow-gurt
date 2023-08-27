@@ -1,0 +1,76 @@
+.ape-lucky-coin {
+  overflow: hidden;
+  position: relative;
+  width: var(--scene-width);
+  height: var(--scene-width);
+
+  &-assets {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 2%;
+    top: 5%;
+
+    &-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  &-layer-1 {
+    mask-image: url(masks/layer-1.png);
+    mask-size: 100%;
+  }
+
+  &-layer-2 {
+    mask-image: url(masks/layer-2.png);
+    mask-size: 100%;
+  }
+
+  &-layer-3 {
+    mask-image: url(masks/layer-3.png);
+    mask-size: 100%;
+  }
+
+  &-layer-4 {
+    mask-image: url(masks/layer-4.png);
+    mask-size: 100%;
+  }
+
+  &-layer-5 {
+    mask-image: url(masks/layer-5.png);
+    mask-size: 100%;
+  }
+
+  &-background {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-backgrounds {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    //animation: slow-roll 250ms linear infinite;
+    //@keyframes slow-roll {
+    //  0% {
+    //    transform: translate(-50%, -50%) scale(1);
+    //  }
+    //  100% {
+    //    transform: translate(-50%, -50%) scale(1.2);
+    //  }
+    //}
+    &-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
