@@ -79,7 +79,7 @@ function resolveRoutesForDomain() {
     if (subdomain === "wow-lucky-coin") {
         return wowLuckyCoinRoutes;
     }
-    if (subdomain === "gallery") {
+    if (subdomain === "wow-art-galleries") {
         return galleryRoutes;
     }
     return wow;

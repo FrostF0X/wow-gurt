@@ -42,6 +42,9 @@ export class WowMintUtils {
     }
 
     static async isMintWorking(publicClient, walletClient) {
+        if (await this.getBalance(publicClient, walletClient) < 10n * 6n) {
+            throw new NotEnoughUSDCCoin();
+        }
         try {
             await publicClient.simulateContract({
                 address: process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS,
@@ -55,7 +58,7 @@ export class WowMintUtils {
             console.log(e.shortMessage);
             if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
                 'ERC20: insufficient allowance') {
-                throw new NotEnoughUSDCCoin();
+                return false;
             }
             if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
                 'ERC20: transfer amount exceeds balance') {
@@ -69,12 +72,12 @@ export class WowMintUtils {
         }
     }
 
-    static async getApprovedAmount(publicClient, walletClient) {
+    static async getBalance(publicClient, walletClient) {
         return await publicClient.readContract({
             address: process.env.REACT_APP_USDC_COIN_CONTRACT_ADDRESS,
             abi: WowCoinAbi,
-            functionName: 'allowance',
-            args: [walletClient.account.address, process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS],
+            functionName: 'balanceOf',
+            args: [walletClient.account.address],
         });
     }
 }
