@@ -21,7 +21,6 @@ export default class TimeConfig {
     public static apeLuckyCoin(targetTime: number, wait1: number) {
         return new TimeConfig(targetTime / TimeConfig.apeLuckyCoinAnimationDuration, wait1, targetTime * 1000, targetTime, TimeConfig.apeLuckyCoinAnimationDuration / targetTime);
     }
-
     constructor(public readonly slow: number,
                 public readonly wait: number,
                 public readonly record: number,

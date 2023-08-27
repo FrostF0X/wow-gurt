@@ -6,8 +6,8 @@ import RenderConfig from "../RenderConfig";
 import {clog, throwExpression} from "../utils";
 import * as fs from "fs";
 import {IPFS} from "../Utils/IPFS";
-import ApeLuckyCoinRenderUrl from "../ApeLuckyCoinRenderUrl";
 import {addWowLuckyCoin, wowLuckyCoin} from "../WowLuckyCoins";
+import WowLuckyCoinRenderUrl from "../WowLuckyCoinRenderUrl";
 
 const WOW_LUCKY_COIN_BASE_URL = process.env.URL ?? throwExpression("Please define WOW_LUCKY_COIN_BASE_URL");
 
@@ -37,7 +37,7 @@ export const renderWowLuckyCoin = async (req: Request, res: Response) => {
     const tmp = await Tmp.init();
     const time = TimeConfig.apeLuckyCoin(18.25, 5000);
     const config = RenderConfig.apeLuckyCoin();
-    const url = ApeLuckyCoinRenderUrl.get(config, time, tokenId);
+    const url = WowLuckyCoinRenderUrl.get(config, time, tokenId);
     await render.do(url, time, config, tmp);
     const image = await ipfs.upload(fs.readFileSync(tmp.gif.path));
     await addWowLuckyCoin({tokenId, image});
