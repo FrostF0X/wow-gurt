@@ -26,27 +26,27 @@ export default class WowLuckyCoin extends React.Component {
     }
 
     render() {
-        return <div className={`ape-lucky-coin ${this.props.noScene === true ? '' : 'ape-lucky-coin-scene'}`}
+        return <div className={`wow-lucky-coin ${this.props.noScene === true ? '' : 'wow-lucky-coin-scene'}`}
                     style={{"--scene-width": this.props.size ? `${this.props.size}px` : '100%'}}>
-            <div className="ape-lucky-coin-assets">
-                <div className="ape-lucky-coin-assets-container">
-                    <div className={`ape-lucky-coin-backgrounds`}>
-                        <div className={`ape-lucky-coin-backgrounds-container`}>
+            <div className="wow-lucky-coin-assets">
+                <div className="wow-lucky-coin-assets-container">
+                    <div className={`wow-lucky-coin-backgrounds`}>
+                        <div className={`wow-lucky-coin-backgrounds-container`}>
                             <img src={`/assets/wow-lucky-coin/background/${this.state.patterns[4]}.png`}
-                                 className={'ape-lucky-coin-layer-5 ape-lucky-coin-background'}/>
+                                 className={'wow-lucky-coin-layer-5 wow-lucky-coin-background'}/>
                             <img src={`/assets/wow-lucky-coin/background/${this.state.patterns[3]}.png`}
-                                 className={'ape-lucky-coin-layer-4 ape-lucky-coin-background'}/>
+                                 className={'wow-lucky-coin-layer-4 wow-lucky-coin-background'}/>
                             <img src={`/assets/wow-lucky-coin/background/${this.state.patterns[2]}.png`}
-                                 className={'ape-lucky-coin-layer-3 ape-lucky-coin-background'}/>
+                                 className={'wow-lucky-coin-layer-3 wow-lucky-coin-background'}/>
                             <img src={`/assets/wow-lucky-coin/background/${this.state.patterns[1]}.png`}
-                                 className={'ape-lucky-coin-layer-2 ape-lucky-coin-background'}/>
+                                 className={'wow-lucky-coin-layer-2 wow-lucky-coin-background'}/>
                             <img src={`/assets/wow-lucky-coin/background/${this.state.patterns[0]}.png`}
-                                 className={'ape-lucky-coin-layer-1 ape-lucky-coin-background'}/>
+                                 className={'wow-lucky-coin-layer-1 wow-lucky-coin-background'}/>
                         </div>
                     </div>
-                    <img src="/assets/wow-lucky-coin/logo.png" className={'ape-lucky-coin-background'}/>
-                    <img src="/assets/wow-lucky-coin/lines.png" className={'ape-lucky-coin-background'}/>
-                    <img src="/assets/wow-lucky-coin/coin-wrap.png" className={'ape-lucky-coin-background'}/>
+                    <img src="/assets/wow-lucky-coin/logo.png" className={'wow-lucky-coin-background'}/>
+                    <img src="/assets/wow-lucky-coin/lines.png" className={'wow-lucky-coin-background'}/>
+                    <img src="/assets/wow-lucky-coin/coin-wrap.png" className={'wow-lucky-coin-background'}/>
                 </div>
             </div>
         </div>

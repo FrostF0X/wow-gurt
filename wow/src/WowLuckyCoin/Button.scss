@@ -1,4 +1,4 @@
-.ape-lucky-coin-button {
+.wow-lucky-coin-button {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   }
 
   &-type-left {
-    .ape-lucky-coin-button-line {
+    .wow-lucky-coin-button-line {
       top: 0;
       left: -50%;
       position: absolute;
@@ -25,7 +25,7 @@
 
 
   &-type-right {
-    .ape-lucky-coin-button-line {
+    .wow-lucky-coin-button-line {
       bottom: 0;
       left: 50%;
       position: absolute;
@@ -52,9 +52,9 @@
       justify-content: center;
 
       button {
+        height: 1.25em !important;
 
         div {
-          font-weight: 400;
           padding: 0 !important;
           border: 0 !important;
         }

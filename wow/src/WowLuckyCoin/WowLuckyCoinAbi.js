@@ -107,7 +107,7 @@ export const WowLuckyCoinAbi = [
     },
     {
         "inputs": [],
-        "name": "apeCoinContract",
+        "name": "wowCoinContract",
         "outputs": [
             {
                 "internalType": "contract IERC20",

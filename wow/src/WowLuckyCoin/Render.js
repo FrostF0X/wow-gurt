@@ -13,7 +13,7 @@ class Render extends React.Component {
 
     render() {
         return (
-            <div className={"ape-lucky-coin-render render"}>
+            <div className={"wow-lucky-coin-render render"}>
                 <WowLuckyCoin seed={this.seed} size={this.size} slow={this.slow} animate={true} config={this.config}/>
                 <div id={"attributes"} data-json={'{}'}></div>
             </div>

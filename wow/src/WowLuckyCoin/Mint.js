@@ -62,9 +62,9 @@ class MintInternal extends React.Component {
 
     render() {
         return (
-            <div className={`ape-lucky-coin-mint ape-lucky-coin-mint-${this.state.orientation}`}>
-                <div className={`ape-lucky-coin-mint-content`}>
-                    <div className={`ape-lucky-coin-mint-explanations`}>
+            <div className={`wow-lucky-coin-mint wow-lucky-coin-mint-${this.state.orientation}`}>
+                <div className={`wow-lucky-coin-mint-content`}>
+                    <div className={`wow-lucky-coin-mint-explanations`}>
                         <Button type={"left"}>
                             [WOW LUCKY COIN]
                         </Button>
@@ -85,14 +85,14 @@ class MintInternal extends React.Component {
                                href="https://wow.gurt.agency">[WOW SECRET]</a>
                         </Button>
                     </div>
-                    <div className={`ape-lucky-coin-mint-preview`}>
+                    <div className={`wow-lucky-coin-mint-preview`}>
                         {this.state.minted !== null ? <WowLuckyCoin seed={this.state.minted + 1}
                                                                     noScene={true}
                                                                     slow={this.slow}
                                                                     animate={true}
                                                                     config={this.config}/> : ''}
                     </div>
-                    <div className={`ape-lucky-coin-mint-buttons`}>
+                    <div className={`wow-lucky-coin-mint-buttons`}>
                         <Button type={"right"}>
                             <ConnectButton
                                 accountStatus={"address"}
