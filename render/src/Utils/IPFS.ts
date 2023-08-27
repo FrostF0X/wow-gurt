@@ -32,7 +32,7 @@ export class IPFS {
     }
 
     public static wowLuckyCoin(): IPFS {
-        return new IPFS(APE_LUCKY_COIN_INFURA_IPFS_API_KEY, APE_LUCKY_COIN_INFURA_IPFS_API_SECRET, APE_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL);
+        return new IPFS(WOW_LUCKY_COIN_INFURA_IPFS_API_KEY, WOW_LUCKY_COIN_INFURA_IPFS_API_SECRET, WOW_LUCKY_COIN_INFURA_IPFS_PUBLIC_URL);
     }
 
     constructor(apiKey: string, apiSecret: string, public readonly publicUrl: string) {
