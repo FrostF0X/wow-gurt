@@ -1,7 +1,7 @@
 import {getPublicClient, getWalletClient} from '@wagmi/core';
 import {WowCoinAbi} from "./WowCoinAbi";
 import {WowLuckyCoinAbi} from "./WowLuckyCoinAbi";
-import NotEnoughApeCoin from "./NotEnoughApeCoin";
+import NotEnoughUSDCCoin from "./NotEnoughUSDCCoin";
 
 export class WowMintUtils {
     static async transferApe() {
@@ -55,11 +55,11 @@ export class WowMintUtils {
             console.log(e.shortMessage);
             if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
                 'ERC20: insufficient allowance') {
-                return false;
+                throw new NotEnoughUSDCCoin();
             }
             if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
                 'ERC20: transfer amount exceeds balance') {
-                throw new NotEnoughApeCoin();
+                throw new NotEnoughUSDCCoin();
             }
             if (e.shortMessage === 'The contract function "mint" reverted with the following reason:\n' +
                 'ERC20: transfer amount exceeds allowance') {

@@ -8,7 +8,7 @@ import Button from "./Button";
 import {getWalletClient} from '@wagmi/core';
 import {WowMintUtils} from "./WowMintUtils";
 import {MintApeLuckyCoin} from "./MintApeLuckyCoin";
-import NotEnoughApeCoin from "./NotEnoughApeCoin";
+import NotEnoughUSDCCoin from "./NotEnoughUSDCCoin";
 import {useAccount} from "wagmi";
 
 class MintInternal extends React.Component {
@@ -35,11 +35,11 @@ class MintInternal extends React.Component {
         try {
             const approved = await WowMintUtils.transferApe();
             if (!approved) {
-                this.setState((state) => ({...state, firstPhaseError: '[NEED 1 WOW COIN]\n⤫ [CLICK TO RETRY] ⤬'}));
+                this.setState((state) => ({...state, firstPhaseError: '[NEED 1 USDC COIN]\n⤫ [CLICK TO RETRY] ⤬'}));
                 return;
             }
         } catch (e) {
-            if (e instanceof NotEnoughApeCoin) {
+            if (e instanceof NotEnoughUSDCCoin) {
                 this.setState((state) => ({
                     ...state,
                     buyOnUniswap: true
