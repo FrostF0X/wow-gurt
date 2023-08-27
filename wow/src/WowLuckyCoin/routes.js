@@ -1,14 +1,14 @@
 import React from "react";
 import Render from "./Render";
 import {Mint} from "./Mint";
-import WowLuckyCoinSite from "./WowLuckyCoinSite";
+import Site from "./Site";
 import {theme} from "./Theme";
 import {Base} from "../Chains/Base";
 
 export const wowLuckyCoinRoutes = [
     {
         path: "/",
-        element: <WowLuckyCoinSite><Base theme={theme}><Mint/></Base></WowLuckyCoinSite>
+        element: <Site><Base theme={theme}><Mint/></Base></Site>
     },
     {
         path: "/render",

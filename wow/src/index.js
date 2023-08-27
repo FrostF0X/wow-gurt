@@ -14,13 +14,11 @@ import {Multirender} from "./Multirender";
 import Logo from "./Logo";
 import Basics from "./Basics";
 import Circus from "./Preview/Circus";
-import Pools from "./Pools/Pools";
 import Wows from "./Wows";
-import PoolsCelebsPreview from "./Pools/PoolsCelebsPreview";
-import {Base} from "./Chains/Base";
 import {apeLuckyCoinRoutes} from "./ApeLuckyCoin/routes";
-import {galleryRoutes} from "./Gallery/routes";
-import {wowLuckyCoinRoutes} from "./WowLuckyCoin/routes";
+import {galleryRoutes} from "./WowArtGalleries/routes";
+import {summerPoolsRoutes} from "./Pools/routes";
+import {wowCryptoCityRoutes} from "./WowCryptoCity/routes";
 
 
 const wow = [
@@ -57,27 +55,17 @@ const wow = [
         element: <Wows/>,
     }
 ];
-const pools = [
-    {
-        path: "/",
-        element: <Base><Pools/></Base>
-    },
-    {
-        path: "/celebs",
-        element: <Basics><PoolsCelebsPreview/></Basics>
-    }
-];
 
 function resolveRoutesForDomain() {
     let subdomain = window.location.host.split(".")[0];
     if (subdomain === "summer-pools") {
-        return pools;
+        return summerPoolsRoutes;
     }
     if (subdomain === "ape-lucky-coin") {
         return apeLuckyCoinRoutes;
     }
-    if (subdomain === "wow-lucky-coin") {
-        return wowLuckyCoinRoutes;
+    if (subdomain === "wow-crypto-city") {
+        return wowCryptoCityRoutes;
     }
     if (subdomain === "wow-art-galleries") {
         return galleryRoutes;

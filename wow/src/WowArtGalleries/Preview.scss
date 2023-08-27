@@ -1,0 +1,42 @@
+.wow-art-galleries-preview {
+  height: 100dvh;
+  position: relative;
+  overflow-y: hidden;
+
+  &-background {
+    height: 100%;
+  }
+
+  &-iwant-my-gallery {
+    position: absolute;
+    top: 69%;
+    left: 6vh;
+    width: 30vh;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-twitter {
+    position: absolute;
+    top: 54%;
+    left: 18vh;
+    width: 7vh;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-medium {
+    position: absolute;
+    top: 54%;
+    left: 27vh;
+    width: 7vh;
+
+    img {
+      width: 100%;
+    }
+  }
+}

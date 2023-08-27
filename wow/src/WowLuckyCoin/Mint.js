@@ -77,7 +77,7 @@ class MintInternal extends React.Component {
                         <Button>
                             [CHECK OUT]
                             <a target={"_blank"}
-                               href={`https://rarible.com/collection/base/${process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS}/items`}>[RARIBLE]</a>
+                               href={`https://opensea.io/collection/wow-lucky-coin`}>[OPENSEA]</a>
                         </Button>
                         <Button>
                             [CHECK OUT]

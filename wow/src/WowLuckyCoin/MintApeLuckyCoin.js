@@ -33,7 +33,7 @@ export function MintApeLuckyCoin({tokenId}) {
         >
             {status === "success" ? (
                 <Navigate
-                    url={`https://rarible.com/token/base/${process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS}:${tokenId}`}/>
+                    url={`https://opensea.io/assets/base/${process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS}/${tokenId}`}/>
             ) : <button style={{textAlign: "center", width: "100%"}}>
                 {status === 'idle' ? '[PROCEED IN WALLET] ⤫ [CLICK TO RETRY] ⤬' : ''}
                 {status === 'loading' ? '[TRANSACTION LOADING] ⤫ [CLICK TO RETRY] ⤬' : ''}

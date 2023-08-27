@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 export default class Pools extends React.Component {
 
     constructor(props, context) {
+
         super(props, context);
         this.state = {
             orientation: BrowserOrientation.get(),
