@@ -17,13 +17,11 @@ deploy-anvil : anvil
 deploy-mainnet:
 	export USDC_COIN_ADDRESS="0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA" && \
 	forge script ./script/WowLuckyCoinDeploy.s.sol:WowLuckyCoinDeploy \
-  	--skip-simulation \
   	--gas-estimate-multiplier 100 \
   	--sender '0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44' \
 	--chain-id 8453 \
-	--rpc-url https://mainnet.base.org \
+	--rpc-url https://rpc.ankr.com/base/3af1b873a20ee560b8c5a2afb845edb469296b68270ab68cc54494d166aa30e8 \
 	--optimizer-runs 200 \
-	--gas-price 50000 \
 	--etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
 	--mnemonics ${MAINNET_MNEMONIC} \
 	--broadcast

@@ -1,4 +1,4 @@
-import './ApeLuckyCoinSite.scss';
+import './GallerySite.scss';
 import React from "react";
 
 export default class ApeLuckyCoinSite extends React.Component {

@@ -53,7 +53,7 @@ class MintInternal extends React.Component {
     };
 
     openUniswap = async () => {
-        window.open(`https://app.uniswap.org/#/swap?theme=dark&exactField=output&exactAmount=1&inputCurrency=ETH&outputCurrency=${process.env.REACT_APP_USDC_COIN_CONTRACT_ADDRESS}&chain=polygon`, '_blank');
+        window.open(`https://app.uniswap.org/#/swap?theme=light&exactField=output&exactAmount=1&inputCurrency=ETH&outputCurrency=${process.env.REACT_APP_USDC_COIN_CONTRACT_ADDRESS}&chain=polygon`, '_blank');
         this.setState((state) => ({
             ...state,
             buyOnUniswap: false
