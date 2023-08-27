@@ -4,6 +4,10 @@
   width: var(--scene-width);
   height: var(--scene-width);
 
+  &-scene {
+    background: linear-gradient(104deg, #ffc9d8, #c3e1ff);
+  }
+
   &-assets {
     position: absolute;
     width: 100%;

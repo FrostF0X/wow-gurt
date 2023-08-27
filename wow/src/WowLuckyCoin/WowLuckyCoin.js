@@ -26,7 +26,7 @@ export default class WowLuckyCoin extends React.Component {
     }
 
     render() {
-        return <div className={`ape-lucky-coin`}
+        return <div className={`ape-lucky-coin ${this.props.noScene === true ? '' : 'ape-lucky-coin-scene'}`}
                     style={{"--scene-width": this.props.size ? `${this.props.size}px` : '100%'}}>
             <div className="ape-lucky-coin-assets">
                 <div className="ape-lucky-coin-assets-container">

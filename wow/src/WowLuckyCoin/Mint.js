@@ -87,6 +87,7 @@ class MintInternal extends React.Component {
                     </div>
                     <div className={`ape-lucky-coin-mint-preview`}>
                         {this.state.minted !== null ? <WowLuckyCoin seed={this.state.minted + 1}
+                                                                    noScene={true}
                                                                     slow={this.slow}
                                                                     animate={true}
                                                                     config={this.config}/> : ''}

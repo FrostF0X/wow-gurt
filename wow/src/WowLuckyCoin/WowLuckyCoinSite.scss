@@ -1,4 +1,4 @@
-.ape-lucky-coin-site {
+.wow-lucky-coin-site {
   font-family: 'GT America Regular', 'Roboto Light', 'Roboto', sans-serif;
 }
 
@@ -10,4 +10,8 @@ button, input[type="submit"], input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+body .wow-lucky-coin-site a:visited {
+  color: #483dcc;
 }
