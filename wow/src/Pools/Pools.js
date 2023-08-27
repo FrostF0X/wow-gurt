@@ -3,6 +3,7 @@ import "./Pools.scss";
 import BrowserOrientation from "../BrowserOrientation";
 import Popup from "reactjs-popup";
 import Pepe from "./Pepe";
+import {Link} from "react-router-dom";
 
 export default class Pools extends React.Component {
 
@@ -44,8 +45,8 @@ export default class Pools extends React.Component {
                target="_blank">
                 <img src="/assets/pools/mint.png" alt=""/>
             </a>
-            <button className={"pools-buttons-b pools-buttons pools-buttons-game"} onClick={this.openModal}>
-                <img src="/assets/pools/game.png" alt=""/>
+            <button className={"pools-buttons pools-buttons-game"}>
+                <Link to={'/game'}><img src="/assets/pools/game.png" alt=""/></Link>
             </button>
             <Popup open={this.state.open}>
                 <div className={`pools-popup`} onClick={this.closeModal}>

@@ -9,10 +9,10 @@ deploy-anvil :
 deploy-goerli :
 	forge script ./script/WowSummerPoolDeploy.s.sol:WowSummerPoolDeploy \
   --skip-simulation \
-  --gas-estimate-multiplier 1000 \
-  --sender '0x90ade45a1b3ebe40cebf519f680cca82ff5d7f0e' \
+  --gas-estimate-multiplier 100 \
+  --sender '0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44' \
   --chain-id 84531 \
-  --rpc-url https://goerli.base.org \
+  --rpc-url https://base-goerli.public.blastapi.io \
   --optimizer-runs 200 \
   --etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
   --mnemonics ${GOERLI_MNEMONIC} \
