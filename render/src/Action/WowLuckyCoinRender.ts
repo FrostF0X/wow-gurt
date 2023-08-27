@@ -7,7 +7,7 @@ import {clog, throwExpression} from "../utils";
 import * as fs from "fs";
 import {IPFS} from "../Utils/IPFS";
 import ApeLuckyCoinRenderUrl from "../ApeLuckyCoinRenderUrl";
-import {addApeLuckyCoin, wowLuckyCoin} from "../ApeLuckyCoins";
+import {addWowLuckyCoin, wowLuckyCoin} from "../WowLuckyCoins";
 
 const WOW_LUCKY_COIN_BASE_URL = process.env.URL ?? throwExpression("Please define WOW_LUCKY_COIN_BASE_URL");
 
@@ -40,7 +40,7 @@ export const renderWowLuckyCoin = async (req: Request, res: Response) => {
     const url = ApeLuckyCoinRenderUrl.get(config, time, tokenId);
     await render.do(url, time, config, tmp);
     const image = await ipfs.upload(fs.readFileSync(tmp.gif.path));
-    await addApeLuckyCoin({tokenId, image});
+    await addWowLuckyCoin({tokenId, image});
     res.json(response(tokenId, image));
     clog(`Url: ${JSON.stringify(image)}`);
     clog(JSON.stringify(tmp));
