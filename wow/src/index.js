@@ -19,6 +19,7 @@ import {apeLuckyCoinRoutes} from "./ApeLuckyCoin/routes";
 import {galleryRoutes} from "./WowArtGalleries/routes";
 import {summerPoolsRoutes} from "./Pools/routes";
 import {wowCryptoCityRoutes} from "./WowCryptoCity/routes";
+import {wowLuckyCoinRoutes} from "./WowLuckyCoin/routes";
 
 
 const wow = [
@@ -63,6 +64,9 @@ function resolveRoutesForDomain() {
     }
     if (subdomain === "ape-lucky-coin") {
         return apeLuckyCoinRoutes;
+    }
+    if (subdomain === "wow-lucky-coin") {
+        return wowLuckyCoinRoutes;
     }
     if (subdomain === "wow-crypto-city") {
         return wowCryptoCityRoutes;
