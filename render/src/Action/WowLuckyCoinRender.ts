@@ -7,11 +7,11 @@ import {clog, throwExpression} from "../utils";
 import * as fs from "fs";
 import {IPFS} from "../Utils/IPFS";
 import ApeLuckyCoinRenderUrl from "../ApeLuckyCoinRenderUrl";
-import {addApeLuckyCoin, apeLuckyCoin} from "../ApeLuckyCoins";
+import {addApeLuckyCoin, wowLuckyCoin} from "../ApeLuckyCoins";
 
 const WOW_LUCKY_COIN_BASE_URL = process.env.URL ?? throwExpression("Please define WOW_LUCKY_COIN_BASE_URL");
 
-const ipfs = IPFS.apeLuckyCoin();
+const ipfs = IPFS.wowLuckyCoin();
 
 function response(tokenId: string, gifUrl: string) {
     return {
@@ -28,7 +28,7 @@ export const renderWowLuckyCoin = async (req: Request, res: Response) => {
         console.log(req.params.tokenId);
         res.status(400).json({"error": `token id must be present`});
     }
-    const generated = await apeLuckyCoin(tokenId);
+    const generated = await wowLuckyCoin(tokenId);
     if (generated) {
         res.json(response(tokenId, generated.image));
         return;

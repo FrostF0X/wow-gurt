@@ -77,7 +77,7 @@ class MintInternal extends React.Component {
                         <Button>
                             [CHECK OUT]
                             <a target={"_blank"}
-                               href="https://rarible.com/collection/polygon/0xd8acd4fb562e4824d93bbcbf03aa8d6262db6035/items">[RARIBLE]</a>
+                               href={`https://rarible.com/collection/base/${process.env.REACT_APP_WOW_LUCKY_COIN_CONTRACT_ADDRESS}/items`}>[RARIBLE]</a>
                         </Button>
                         <Button>
                             [CHECK OUT]
@@ -86,7 +86,7 @@ class MintInternal extends React.Component {
                         </Button>
                     </div>
                     <div className={`ape-lucky-coin-mint-preview`}>
-                        {this.state.minted !== null ? <WowLuckyCoin seed={this.state.minted}
+                        {this.state.minted !== null ? <WowLuckyCoin seed={this.state.minted + 1}
                                                                     slow={this.slow}
                                                                     animate={true}
                                                                     config={this.config}/> : ''}
@@ -107,7 +107,7 @@ class MintInternal extends React.Component {
                             {this.state.buyOnUniswap ?
                                 <button
                                     onClick={this.openUniswap}>{'[NOT ENOUGH WOW COIN]\n⤫ [BUY ON UNISWAP] ⤬'}</button> : null}
-                            {this.state.showMint ? <MintApeLuckyCoin tokenId={this.state.minted}/> : null}
+                            {this.state.showMint ? <MintApeLuckyCoin tokenId={this.state.minted + 1}/> : null}
                         </Button>
                     </div>
                 </div>
