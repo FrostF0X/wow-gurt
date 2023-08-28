@@ -12,17 +12,6 @@ export default class Preview extends React.Component {
     }
 
     render() {
-        if (this.state.orientation === 'landscape') {
-            return (
-                <div className={'wow-crypto-city-preview-container'}>
-                    <div className={`wow-crypto-city-preview wow-crypto-city-preview-${this.state.orientation}`}>
-                        <div className="wow-crypto-city-preview-inner-container">
-                            {this.content()}
-                        </div>
-                    </div>
-                </div>
-            );
-        }
         return (
             <div className={`wow-crypto-city-preview wow-crypto-city-preview-${this.state.orientation}`}>
                 {this.content()}
