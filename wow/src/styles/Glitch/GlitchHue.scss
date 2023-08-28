@@ -1,0 +1,25 @@
+.just-glitch-preset-hue {
+  .just-glitch-img-1 {
+    position: absolute;
+    left: -2px;
+    opacity: 1;
+
+    filter: hue-rotate(-90deg);
+    z-index: 5;
+  }
+
+  .just-glitch-img-2 {
+    position: absolute;
+    line-height: 0;
+    opacity: 0.9;
+    z-index: 6;
+  }
+
+  .just-glitch-img-3 {
+    position: absolute;
+    opacity: 1;
+    left: 2px;
+    filter: hue-rotate(90deg);
+    z-index: 5;
+  }
+}

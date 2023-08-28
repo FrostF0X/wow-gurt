@@ -1,6 +1,7 @@
 import './Preview.scss';
 import React from "react";
 import BrowserOrientation from "../BrowserOrientation";
+import GlitchImage from "../GlitchImage";
 
 export default class Preview extends React.Component {
     constructor(props, context) {
@@ -14,8 +15,9 @@ export default class Preview extends React.Component {
     render() {
         return (
             <div className={`wow-art-galleries-preview wow-art-galleries-preview-${this.state.orientation}`}>
-                <img className={'wow-art-galleries-preview-background'} src="/assets/wow-art-galleries/mobile.png"
-                     alt=""/>
+                <div className={`wow-art-galleries-preview-background`}>
+                    <GlitchImage img={`wow-art-galleries/mobile`} preset={'hue'}/>
+                </div>
                 <a href="#" className={'wow-art-galleries-preview-iwant-my-gallery'}>
                     <img src="/assets/wow-art-galleries/i-want-my-gallery.png"
                          alt=""/>
