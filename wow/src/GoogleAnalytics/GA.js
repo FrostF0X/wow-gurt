@@ -3,7 +3,7 @@ import React from "react";
 
 const initGA = (id) => {
     console.log(`GA: ${id}`);
-    if (process.env.GA !== 'true') {
+    if (process.env.REACT_APP_GA !== 'true') {
         return;
     }
     ReactGA4.initialize(`${id}`);

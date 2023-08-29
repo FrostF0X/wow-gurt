@@ -16,10 +16,11 @@ import Basics from "./Basics";
 import Circus from "./Preview/Circus";
 import Wows from "./Wows";
 import {apeLuckyCoinRoutes} from "./ApeLuckyCoin/routes";
-import {galleryRoutes} from "./WowArtGalleries/routes";
+import {wowArtGalleriesRoutes} from "./WowArtGalleries/routes";
 import {summerPoolsRoutes} from "./Pools/routes";
 import {wowCryptoCityRoutes} from "./WowCryptoCity/routes";
 import {wowLuckyCoinRoutes} from "./WowLuckyCoin/routes";
+import {wowArtGalleryRoutes} from "./WowArtGallery/routes";
 
 
 const wow = [
@@ -58,7 +59,13 @@ const wow = [
 ];
 
 function resolveRoutesForDomain() {
-    let subdomain = window.location.host.split(".")[0];
+    let parts = window.location.host.split(".");
+    parts.pop();
+    parts.pop();
+    const subdomain = parts.join('.');
+    if (subdomain.endsWith('.wow-art-gallery')) {
+        return wowArtGalleryRoutes;
+    }
     if (subdomain === "summer-pools") {
         return summerPoolsRoutes;
     }
@@ -72,7 +79,7 @@ function resolveRoutesForDomain() {
         return wowCryptoCityRoutes;
     }
     if (subdomain === "wow-art-galleries") {
-        return galleryRoutes;
+        return wowArtGalleriesRoutes;
     }
     return wow;
 }
