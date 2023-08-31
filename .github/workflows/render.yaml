@@ -21,10 +21,12 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             curl -1sLf 'https://repositories.timber.io/public/vector/cfg/setup/bash.deb.sh' | sudo -E bash
-            apt update && apt install -y make git-crypt vector
+            apt update && apt install -y make git-crypt vector rsyslog-gnutls
             mkdir -p /etc/vector && wget -O ->> /etc/vector/vector.toml https://logs.betterstack.com/vector-toml/docker/oE8N8dzN41yc5KkEyXm3xFSH
             usermod -a -G docker vector
             systemctl restart vector
+            wget -qO- https://logs.betterstack.com/rsyslog/nby1p3pWKVgGnJRCrpjdk6c6 | sh
+            systemctl restart rsyslog
             echo "${{secrets.KEY}}" > ~/.ssh/id_rsa
             chmod 400 ~/.ssh/id_rsa
             git clone git@github.com:FrostF0X/wow-gurt.git || true
