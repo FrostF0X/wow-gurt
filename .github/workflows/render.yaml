@@ -15,7 +15,7 @@ jobs:
       - name: pull code
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '161.35.226.19'
+          host: '165.232.70.106,165.232.70.218'
           sync: true
           username: 'root'
           key: ${{ secrets.KEY }}
@@ -37,7 +37,7 @@ jobs:
       - name: migrate
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '161.35.226.19'
+          host: '165.232.70.106,165.232.70.218'
           sync: true
           username: 'root'
           key: ${{ secrets.KEY }}
@@ -46,7 +46,7 @@ jobs:
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '161.35.226.19'
+          host: '165.232.70.106,165.232.70.218'
           username: 'root'
           sync: true
           key: ${{ secrets.KEY }}
