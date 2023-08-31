@@ -15,36 +15,37 @@ jobs:
       - name: pull code
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '159.89.213.104,157.245.26.106,159.223.250.77'
+          host: '161.35.226.19'
           sync: true
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && git fetch && git reset --hard origin/master'
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && echo "${{secrets.GIT_CRYPT_KEY}}" | base64  -d > ./git-crypt-key'
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && git-crypt unlock ./git-crypt-key'
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && rm ./git-crypt-key'
+            echo "${{secrets.KEY}}" > ~/.ssh/id_rsa
+            chmod 400 ~/.ssh/id_rsa
+            git clone git@github.com:FrostF0X/wow-gurt.git || true
+            cd ~/wow-gurt/render && git fetch && git reset --hard origin/master
+            cd ~/wow-gurt/render && echo "${{secrets.GIT_CRYPT_KEY}}" | base64  -d > ./git-crypt-key
+            cd ~/wow-gurt/render && git-crypt unlock ./git-crypt-key
+            cd ~/wow-gurt/render && rm ./git-crypt-key
       - name: migrate
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '159.89.213.104'
+          host: '161.35.226.19'
           sync: true
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
-            su 'wow-gurt' -c 'cd ~/wow-gurt/render && npm install && make migrate-production'
+            cd ~/wow-gurt/render && npm install && make migrate-production
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: '159.89.213.104,157.245.26.106,159.223.250.77'
+          host: '161.35.226.19'
           username: 'root'
           sync: true
           key: ${{ secrets.KEY }}
           script: |
-            cp /home/wow-gurt/wow-gurt/render/.deploy/wow-gurt.service /etc/systemd/system/wow-gurt.service
+            cp ~/wow-gurt/wow-gurt/render/.deploy/wow-gurt.service /etc/systemd/system/wow-gurt.service
             chown root:root /etc/systemd/system/wow-gurt.service
             chmod 644 /etc/systemd/system/wow-gurt.service
             systemctl daemon-reload
             systemctl restart wow-gurt.service
-
-
