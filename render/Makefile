@@ -7,7 +7,7 @@ dev-logs:
 prod-start: build
 	docker run --name render --init --cap-add=SYS_ADMIN --rm -p 80:80 -v /tmp:/tmp render prod-mainnet
 prod-migrate: build
-	docker run --name render --init --rm render migrate-production
+	docker run --name render-migrate --init --rm render migrate-production
 prod-stop:
 	docker kill render
 dev-migrate-make:
