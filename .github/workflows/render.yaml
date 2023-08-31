@@ -20,6 +20,7 @@ jobs:
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
+            apt update && apt install make git-crypt
             echo "${{secrets.KEY}}" > ~/.ssh/id_rsa
             chmod 400 ~/.ssh/id_rsa
             git clone git@github.com:FrostF0X/wow-gurt.git || true
