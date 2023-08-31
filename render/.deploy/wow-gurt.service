@@ -8,8 +8,8 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=bash -c 'cd /home/wow-gurt/render && make prod-start'
-ExecStop=bash -c 'cd /home/wow-gurt/render && make prod-stop'
+ExecStart=bash -c 'cd /root/wow-gurt/render && make prod-start'
+ExecStop=bash -c 'cd /root/wow-gurt/render && make prod-stop'
 
 [Install]
 WantedBy=multi-user.target
