@@ -45,7 +45,7 @@ jobs:
           sync: true
           key: ${{ secrets.KEY }}
           script: |
-            cp ~/wow-gurt/wow-gurt/render/.deploy/wow-gurt.service /etc/systemd/system/wow-gurt.service
+            cp ~/wow-gurt/render/.deploy/wow-gurt.service /etc/systemd/system/wow-gurt.service
             chown root:root /etc/systemd/system/wow-gurt.service
             chmod 644 /etc/systemd/system/wow-gurt.service
             systemctl daemon-reload
