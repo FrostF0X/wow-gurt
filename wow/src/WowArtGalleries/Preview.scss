@@ -1,18 +1,21 @@
+@import "Site";
+
 .wow-art-galleries-preview {
-  height: 100dvh;
+  height: h(100);
   position: relative;
   overflow-y: hidden;
 
   &-background {
     height: 100%;
-    width: 434vh;
+    width: w(434);
   }
 
   &-iwant-my-gallery {
     position: absolute;
-    top: 69%;
-    left: 6vh;
-    width: 30vh;
+    top: h(69);
+    left: w(10);
+    width: w(80);
+    height: h(10);
     z-index: 10;
 
     img {

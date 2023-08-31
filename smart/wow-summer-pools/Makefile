@@ -24,9 +24,46 @@ deploy-mainnet:
   --gas-estimate-multiplier 100 \
   --sender '0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44' \
   --chain-id 8453 \
-  --rpc-url https://mainnet.base.org \
+  --rpc-url https://rpc.ankr.com/base/3af1b873a20ee560b8c5a2afb845edb469296b68270ab68cc54494d166aa30e8 \
   --optimizer-runs 200 \
-  --gas-price 50000 \
+  --etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
+  --mnemonics ${MAINNET_MNEMONIC} \
+  --broadcast
+
+mint:
+	forge script ./script/Mint.s.sol:Mint \
+  --skip-simulation \
+  --gas-estimate-multiplier 100 \
+  --sender ${FROM} \
+  --unlocked ${FROM} \
+  --chain-id 8453 \
+  --with-gas-price 137178348 \
+  --rpc-url https://rpc.ankr.com/base/3af1b873a20ee560b8c5a2afb845edb469296b68270ab68cc54494d166aa30e8 \
+  --etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
+  --mnemonics ${MAINNET_MNEMONIC} \
+  --broadcast
+
+addresses:
+	export MNEMONIC
+	forge script ./script/Addresses.s.sol:Addresses \
+  --skip-simulation \
+  --gas-estimate-multiplier 100 \
+  --sender '0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44' \
+  --chain-id 8453 \
+  --with-gas-price 1 \
+  --rpc-url https://rpc.ankr.com/base/3af1b873a20ee560b8c5a2afb845edb469296b68270ab68cc54494d166aa30e8 \
+  --etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
+  --mnemonics ${MAINNET_MNEMONIC} \
+  --broadcast
+
+send-to:
+	forge script ./script/SendTo.s.sol:SendTo \
+  --skip-simulation \
+  --gas-estimate-multiplier 100 \
+  --sender '0x1A5bb078AcbB76B2D3873D6e94c5D553F2F6bD44' \
+  --chain-id 8453 \
+  --with-gas-price 121297772 \
+  --rpc-url https://rpc.ankr.com/base/3af1b873a20ee560b8c5a2afb845edb469296b68270ab68cc54494d166aa30e8 \
   --etherscan-api-key "TQRZQT7PR8UEGAZNEV8AKVP8C2SAJDT1VE" \
   --mnemonics ${MAINNET_MNEMONIC} \
   --broadcast

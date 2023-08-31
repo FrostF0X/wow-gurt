@@ -3,7 +3,6 @@ import "./Pools.scss";
 import BrowserOrientation from "../BrowserOrientation";
 import Popup from "reactjs-popup";
 import Pepe from "./Pepe";
-import {Link} from "react-router-dom";
 
 export default class Pools extends React.Component {
 
@@ -47,7 +46,12 @@ export default class Pools extends React.Component {
                 <img src="/assets/pools/mint.png" alt=""/>
             </a>
             <button className={"pools-buttons pools-buttons-game"}>
-                <Link to={'/game'}><img src="/assets/pools/game.png" alt=""/></Link>
+                <a className={"pools-buttons pools-buttons-mint"}
+                   href="https://mint.fun/base/0x3C312F3c5997472A4203E8E1269385e604e36949"
+                   rel="noreferrer"
+                   target="_blank">
+                    <img src="/assets/pools/10-games-pass.png"/>
+                </a>
             </button>
             <Popup open={this.state.open}>
                 <div className={`pools-popup`} onClick={this.closeModal}>

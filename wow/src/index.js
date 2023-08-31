@@ -20,7 +20,6 @@ import {wowArtGalleriesRoutes} from "./WowArtGalleries/routes";
 import {summerPoolsRoutes} from "./Pools/routes";
 import {wowCryptoCityRoutes} from "./WowCryptoCity/routes";
 import {wowLuckyCoinRoutes} from "./WowLuckyCoin/routes";
-import {wowArtGalleryRoutes} from "./WowArtGallery/routes";
 
 
 const wow = [
@@ -63,9 +62,6 @@ function resolveRoutesForDomain() {
     parts.pop();
     parts.pop();
     const subdomain = parts.join('.');
-    if (subdomain.endsWith('.wow-art-gallery')) {
-        return wowArtGalleryRoutes;
-    }
     if (subdomain === "summer-pools") {
         return summerPoolsRoutes;
     }

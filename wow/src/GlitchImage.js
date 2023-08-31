@@ -18,7 +18,7 @@ class GlitchImage extends React.Component {
     }
 
     render() {
-        let img = this.props.imgFull ? this.props.imgFull : Img.path(this.img, this.props.type);
+        let img = Img.path(this.props.img, this.props.type);
         return <div ref={this.container}
                     className={`just-glitch-img-container just-glitch-preset-${this.preset} ${this.props.class}`}>
             <img

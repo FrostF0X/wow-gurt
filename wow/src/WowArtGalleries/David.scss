@@ -1,0 +1,187 @@
+@import "Site";
+
+.wow-art-galleries-david {
+  margin-left: 100px;
+  height: 800px;
+  width: 800px;
+  position: relative;
+  overflow-y: hidden;
+
+  &-background {
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+  }
+
+  &-item {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-back-1 {
+    position: absolute;
+    z-index: 10;
+    width: 5%;
+    height: 5%;
+    left: 5%;
+    top: 20%;
+  }
+
+  &-back-2 {
+    position: absolute;
+    z-index: 10;
+    width: 15%;
+    height: 15%;
+    left: 5%;
+    top: 20%;
+  }
+
+  &-back-3 {
+    position: absolute;
+    z-index: 10;
+    width: 15%;
+    height: 50%;
+    left: 15%;
+    top: 26%;
+  }
+
+  &-back-4 {
+    position: absolute;
+    z-index: 10;
+    width: 50%;
+    height: 50%;
+    left: -25%;
+    top: 60%;
+    rotate: 90deg;
+  }
+
+  &-back-5 {
+    position: absolute;
+    z-index: 1;
+    width: 125%;
+    height: 125%;
+    left: -13%;
+    top: -13%;
+    opacity: 0.4;
+    animation: rotate-back5 2s infinite linear;
+  }
+
+  @keyframes rotate-back5 {
+    0% {
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &-back-6 {
+    position: absolute;
+    z-index: 10;
+    width: 25%;
+    height: 25%;
+    left: 75%;
+    top: 70%;
+  }
+
+  &-back-7 {
+    position: absolute;
+    z-index: 10;
+    width: 25%;
+    height: 25%;
+    transform: rotate(33deg);
+  }
+
+  &-face-lines-2 {
+    opacity: 0.2;
+    transform: translate(1%, 1%) rotate(10deg);
+  }
+
+  &-face-lines-3 {
+    opacity: 0.3;
+  }
+
+  &-face-shad1 {
+    //transform: translate(3%, 5%) rotate(10deg);
+  }
+
+  &-face-shad2 {
+    opacity: 0.5;
+    transform: translate(-7%, -1%) rotate(10deg);
+  }
+
+  &-face-2 {
+    transform: translate(-1%, -2%) rotate(-5deg);
+  }
+
+  &-face-3 {
+    transform: translate(1%, 1%) rotate(10deg);
+  }
+
+  &-face-lines {
+    transform: rotate(-10deg);
+  }
+
+  &-pidstavka-2 {
+    transform: translate(40px, 30px) rotate(15deg);
+  }
+
+  &-pidstavka-3 {
+    transform: translate(-35px, 20px) rotate(-10deg);
+  }
+
+  &-b1 {
+    left: 90%;
+
+    .wow-art-galleries-david-b-ds {
+      animation: dav 1s linear infinite;
+    }
+  }
+
+  &-b2 {
+    left: 80%;
+    border-left: solid #2affb4 2px;
+    border-right: solid #2affb4 2px;
+
+    .wow-art-galleries-david-b-ds {
+      animation: dav1 1s linear infinite;
+    }
+  }
+
+  &-b {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 10%;
+    height: 110%;
+
+    &-ds {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    &-d {
+      width: 100%;
+      height: 10%;
+    }
+  }
+
+  @keyframes dav {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: translateY(-10%);
+    }
+  }
+  @keyframes dav1 {
+    0% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}

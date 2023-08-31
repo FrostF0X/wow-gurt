@@ -7,3 +7,6 @@ opensea-images-downloader:
 	git clone https://github.com/makevoid/opensea-images-downloader.git
 
 https://api.opensea.io/api/v1/assets?order_direction=desc&limit=50&collection=boredapeyachtclub&offset=50
+
+mint:
+	node mint.cjs

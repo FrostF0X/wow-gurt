@@ -7,7 +7,7 @@ const initGA = (id) => {
         return;
     }
     ReactGA4.initialize(`${id}`);
-    ReactGA4.send({hitType: "pageview", page: window.location.href, title: window.location.href});
+    ReactGA4.send({hitType: "pageview", page: window.location.pathname, title: window.location.pathname});
 };
 
 const track = (

@@ -13,7 +13,7 @@ contract TestToken is ERC721 {
         _tokenIds.increment();
     }
 
-    function mint(address recipient, string memory tokenUri) public payable returns (uint256) {
+    function mint(address recipient) public payable returns (uint256) {
         uint256 tokenId = _tokenIds.current();
         _tokenIds.increment();
         _mint(recipient, tokenId);

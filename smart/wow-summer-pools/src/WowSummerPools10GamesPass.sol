@@ -64,7 +64,7 @@ contract WowSummerPools10GamesPass is ERC721 {
         require(success, "Withdrawal failed");
     }
 
-    function mint(string memory name) public payable {
+    function mint(uint256 quantity) public payable {
         require(quantity > 0, "Cannot mint less then 1");
         require(totalSupply() + quantity <= MAX_SUPPLY, "ERC721: Exceeds maximum supply");
         require(msg.value >= PRICE * quantity, "ERC721: Insufficient payment");
@@ -72,27 +72,5 @@ contract WowSummerPools10GamesPass is ERC721 {
             _mint(msg.sender, _tokenIds.current());
             _tokenIds.increment();
         }
-    }
-
-    function validName(string str) public pure returns (bool){
-        bytes memory b = bytes(str);
-        if (b.length > 30) return false;
-
-        for (uint i; i < b.length; i++) {
-            bytes1 char = b[i];
-
-            if (
-                !(char >= 0x30 && char <= 0x39) && //9-0
-            !(char >= 0x61 && char <= 0x7A) && //a-z
-            !(char == 0x96) //.
-            )
-                return false;
-        }
-
-        return true;
-    }
-
-    function getPrice(uint256 currentId) public pure returns (uint256) {
-        return 0.01 * (2 ^ currentId % 100) * 1e18;
     }
 }

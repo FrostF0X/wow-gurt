@@ -3,7 +3,6 @@ pragma solidity ^0.8.13;
 
 import {Test, console2} from "forge-std/Test.sol";
 import "../src/WowSummerPool.sol";
-import "../src/TestToken.sol";
 import "../src/WowSummerPools10GamesPass.sol";
 import "./TestToken.sol";
 
@@ -44,7 +43,7 @@ contract WowSummerPools10GamesPassTest is Test {
         TestToken t = new TestToken();
 
         h.startMeasuringGas('mint');
-        t.mint{value: 0.005 ether}(owner, '1');
+        t.mint{value: 0.005 ether}(owner);
         console2.log(h.stopMeasuringGas());
 
         h.startMeasuringGas('mint');
