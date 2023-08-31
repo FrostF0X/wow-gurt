@@ -1,4 +1,4 @@
-.ape-lucky-coin-site {
+.wow-art-galleries-site {
   font-family: 'GT America Regular', 'Roboto Light', 'Roboto', sans-serif;
   --scene-width: 1dvw;
   --scene-height: 1dvh;
@@ -19,5 +19,5 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 @function h($base) {
-  @return calc($base * var(--scene-width));
+  @return calc($base * var(--scene-height));
 }

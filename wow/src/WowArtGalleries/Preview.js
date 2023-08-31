@@ -20,7 +20,7 @@ export default class Preview extends React.Component {
                 </div>
                 <div className={`wow-art-galleries-preview-iwant-my-gallery`}>
                     <a href="#">
-                        <GlitchImage img={`wow-art-galleries/i-want-my-gallery`} preset={2}/>
+                        <GlitchImage img={`wow-art-galleries/i-want-my-gallery`}/>
                     </a>
                 </div>
                 <a href="https://medium.com/@alina_17943/gurt-agency-who-we-are-d882db89c674"
