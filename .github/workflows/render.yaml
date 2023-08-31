@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             curl -1sLf 'https://repositories.timber.io/public/vector/cfg/setup/bash.deb.sh' | sudo -E bash
-            apt update && apt install make git-crypt vector
-            wget -O ->> /etc/vector/vector.toml https://logs.betterstack.com/vector-toml/docker/oE8N8dzN41yc5KkEyXm3xFSH
+            apt update && apt install -y make git-crypt vector
+            mkdir -p /etc/vector && wget -O ->> /etc/vector/vector.toml https://logs.betterstack.com/vector-toml/docker/oE8N8dzN41yc5KkEyXm3xFSH
             usermod -a -G docker vector
             systemctl restart vector
             echo "${{secrets.KEY}}" > ~/.ssh/id_rsa
