@@ -35,7 +35,7 @@ jobs:
           username: 'root'
           key: ${{ secrets.KEY }}
           script: |
-            cd ~/wow-gurt/render && make migrate-production
+            cd ~/wow-gurt/render && make prod-migrate
       - name: restart server
         uses: appleboy/ssh-action@v0.1.10
         with:
