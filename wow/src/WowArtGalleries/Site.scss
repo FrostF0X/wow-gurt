@@ -1,7 +1,27 @@
+@import "../styles/Basics";
+
 .wow-art-galleries-site {
-  font-family: 'GT America Regular', 'Roboto Light', 'Roboto', sans-serif;
+  font-family: 'Machina r', 'Roboto Light', 'Roboto', sans-serif !important;
+  color: #1817fe;
   --scene-width: 1dvw;
   --scene-height: 1dvh;
+  touch-action: none;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .connect-button button {
+    font-weight: 700 !important;
+    text-align: center !important;
+
+    div {
+      font-size: 0.75rem;
+    }
+  }
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -12,6 +32,14 @@ button, input[type="submit"], input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.wow-art-galleries-connect-wallet {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 15vh;
+  z-index: 10;
 }
 
 @function w($base) {

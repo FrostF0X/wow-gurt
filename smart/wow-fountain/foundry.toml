@@ -1,0 +1,11 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+
+[rpc_endpoints]
+goelry = "test"
+
+[etherscan]
+goerli = { key = "${ETHERSCAN_API_KEY}" }

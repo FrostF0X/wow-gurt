@@ -1,9 +1,8 @@
 @import "Site";
 
-.wow-art-galleries-preview {
-  height: h(100);
+.wow-art-gallery {
+  height: 100%;
   position: relative;
-  overflow-y: hidden;
 
   &-background {
     height: 100%;
@@ -20,6 +19,13 @@
 
     img {
       width: 100%;
+    }
+
+    &-popup-buttons {
+      display: flex;
+      margin: 2em;
+      flex-direction: row;
+      justify-content: space-around;
     }
   }
 

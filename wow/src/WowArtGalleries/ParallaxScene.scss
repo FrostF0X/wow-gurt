@@ -1,0 +1,12 @@
+.parallax-scene {
+  position: relative;
+  background-color: black;
+  height: 100dvh;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+}

@@ -16,6 +16,11 @@ $textHighlight1: $highlightPink;
 $textHighlight2: $highlightGreen;
 $borderWidth: 1px;
 $imagesCount: 6;
+$marblePink: #ffe9ef;
+$marbleBlue: #ebf4ff;
+$marbleAccentBlue: #1817fe;
+$marbleGradient: linear-gradient(90deg, $marblePink, $marbleBlue);
+$marbleGradientTransparent: linear-gradient(90deg, #ffe9efde, #ebf4ffde);
 
 $zIndexOverlay: 10000;
 $zIndexMatrix: 1000;

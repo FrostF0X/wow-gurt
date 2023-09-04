@@ -1,0 +1,75 @@
+@import "Site";
+
+.scroll-speed-wrapper {
+  position: relative;
+  perspective: 1px;
+  height: 100dvh;
+
+}
+
+.scroll-speed-wrapper-inner {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  transform: translateZ(-1px) scale(2);
+}
+
+.scroll-speed-wrapper-scroll {
+  z-index: 1;
+  position: absolute;
+  width: 5*423dvh;
+  height: 100vh;
+  transform: translateZ(0);
+}
+
+.wow-art-test {
+  position: relative;
+  height: 100dvh;
+  width: 423dvh;
+  display: flex;
+  flex-direction: row;
+
+  &-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-section {
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+  }
+
+  #section1 {
+    left: 0;
+  }
+
+  #section2 {
+    left: 48dvh;
+  }
+
+  #section3 {
+    left: 109dvh;
+  }
+
+  #section4 {
+    left: 170dvh;
+  }
+
+  #section5 {
+    left: 247dvh;
+  }
+
+  #section6 {
+    left: 308dvh;
+  }
+
+  #section7 {
+    left: 369dvh;
+  }
+
+}
