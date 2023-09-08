@@ -8,6 +8,7 @@
   overflow-y: hidden;
   overscroll-behavior: contain;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -26,22 +27,28 @@
     top: 0;
     position: absolute;
 
+
     img {
+      position: absolute;
       height: 100%;
     }
   }
 
   &-end {
     right: 0;
+
     img {
-      transform: translateX(50%);
+      right: 0;
+      transform: translateX(39%);
     }
   }
 
   &-start {
     left: 0;
+
     img {
-      transform: translateX(-50%);
+      left: 0;
+      transform: translateX(-39%);
     }
   }
 }

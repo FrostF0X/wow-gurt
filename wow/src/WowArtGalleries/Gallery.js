@@ -1,8 +1,10 @@
 import React, {createRef} from "react";
 import "./Gallery.scss";
 import Art from "./Gallery/Art";
+import {ScreenContext} from "./ScreenC";
 
 export default class Gallery extends React.Component {
+    static contextType = ScreenContext;
     config = [
         {'id': 1, 'image': '1'},
         {'id': 2, 'image': '2'},
@@ -13,15 +15,42 @@ export default class Gallery extends React.Component {
         {'id': 7, 'image': '2'},
         {'id': 8, 'image': '3'},
         {'id': 9, 'image': '4'},
-        {'id': 10, 'image': '5'},
     ];
 
+
+    constructor(props, context) {
+        super(props, context);
+        this.ref = createRef();
+        this.ceil = createRef();
+    }
+
+    componentDidMount = () => {
+        const animation = this.ceil.current.animate([
+            {transform: 'translateX(-25%)'},
+            {transform: 'translateX(25%)'}
+        ], {
+            duration: 1000,  // 1 second
+            fill: 'forwards'
+        });
+        animation.pause();
+        this.context.timeline.listen((value) => animation.currentTime = value * animation.effect.getTiming().duration);
+    };
+
     render() {
-        return <div className="gallery">
+        return <div className="gallery" ref={this.ref}>
             <img className="gallery-background" src={"assets/wow-art-galleries/gallery/background.png"} alt=""/>
+            <div className={'gallery-section gallery-section-start'} data-section-id={'start'}></div>
             {this.config.map(i => <div className={`gallery-section gallery-section-${i.id}`} data-section-id={i.id}>
                 <Art image={i.image}/>
             </div>)}
+            <div className={'gallery-section gallery-section-finish'} data-section-id={'finish'}></div>
+            <div className={"gallery-ceil"} ref={this.ceil}>
+                <div>
+                    {Array.range(1, 40).map(_ => <img className={"gallery-ceil-light"}
+                                                      src={"assets/wow-art-galleries/gallery/lights/1.png"} alt=""/>)}
+
+                </div>
+            </div>
         </div>;
     }
 }

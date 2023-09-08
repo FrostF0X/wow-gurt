@@ -14,47 +14,72 @@
     width: 100dvw;
     height: 100%;
     top: 0;
+    transform: translateX(-50%);
 
-    &-#{1} {
+    &-start {
       left: 0;
     }
 
+    &-finish {
+      right: 0;
+      transform: translateX(50%);
+    }
+
+    &-#{1} {
+      left: 7.5%;
+    }
+
     &-#{2} {
-      left: 71dvh;
+      left: 17.5%;
     }
 
     &-#{3} {
-      left: 132dvh;
+      left: 27.5%;
     }
 
     &-#{4} {
-      left: 193dvh;
+      left: 40.5%;
     }
 
     &-#{5} {
-      left: 270dvh;
+      left: 50.25%;
     }
 
     &-#{6} {
-      left: 331dvh;
+      left: 60%;
     }
 
     &-#{7} {
-      left: 392dvh;
+      left: 72.5%;
     }
 
     &-#{8} {
-      left: 450dvh;
+      left: 82.75%;
     }
 
     &-#{9} {
-      left: 500dvh;
-    }
-
-    &-#{10} {
-      left: 550dvh;
+      left: 93%;
     }
   }
 
+  &-ceil {
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 
+    > div {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-light {
+      top: 0;
+      height: 15%;
+      margin-left: 2.5%;
+    }
+  }
 }

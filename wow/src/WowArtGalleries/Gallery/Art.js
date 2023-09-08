@@ -1,5 +1,6 @@
 import React from "react";
 import "./Art.scss";
+import Random from "../../Random";
 
 export default class Art extends React.Component {
 
@@ -22,7 +23,7 @@ export default class Art extends React.Component {
                 </div>
             </div>
             <div className={"art-scene-frame"}>
-                <img src={"assets/wow-art-galleries/frames/1.png"} alt=""/>
+                <img src={`assets/wow-art-galleries/frames/${Random.fresh().number(1, 3)}.png`} alt=""/>
             </div>
         </div>
 

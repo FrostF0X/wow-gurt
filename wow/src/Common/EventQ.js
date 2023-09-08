@@ -9,8 +9,8 @@ export default class EventQ {
         return new EventQ();
     }
 
-    emmit = () => {
-        this.listeners.forEach(l => l());
+    emmit = (value) => {
+        this.listeners.forEach(l => l(value));
     };
 
     listen = listener => {
