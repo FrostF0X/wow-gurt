@@ -1,48 +1,45 @@
-import Window from "./Window";
-import GlitchImage from "../GlitchImage";
-import GalleryPopup, {PopupController} from "./GalleryPopup";
-import GalleryButton from "./GalleryButton";
-import React from "react";
+import React, {createRef} from "react";
 import "./Gallery.scss";
+import Art from "./Gallery/Art";
+import Hammer from "hammerjs";
 
 export default class Gallery extends React.Component {
+    sections = [];
+    config = [
+        {'id': 1, 'image': '1'},
+        {'id': 2, 'image': '2'},
+        {'id': 3, 'image': '3'},
+        {'id': 4, 'image': '4'},
+        {'id': 5, 'image': '5'},
+        {'id': 6, 'image': '1'},
+        {'id': 7, 'image': '2'},
+        {'id': 8, 'image': '3'},
+        {'id': 9, 'image': '4'},
+        {'id': 10, 'image': '5'},
+    ];
 
     constructor(props, context) {
         super(props, context);
-        this.popup = PopupController.n();
+        this.ref = createRef();
+    }
+
+    addSection = section => {
+        this.sections.push(section);
+    };
+
+    componentDidMount() {
+        this.props.sections(this.sections);
+        this.props.registerSwipe(this.ref.current, 'sections', Hammer.DIRECTION_HORIZONTAL);
     }
 
     render() {
-        return <div className={`wow-art-gallery`}>
-            <div className={`wow-art-gallery-background`}>
-                <GlitchImage img={`wow-art-galleries/mobile`} preset={'hue'}/>
-            </div>
-            <div className={`wow-art-gallery-iwant-my-gallery`}>
-                <Window click={this.popup.open}>
-                    <h2>I want my own gallery!</h2>
-                    <GalleryPopup controller={this.popup}>
-                        <div className="wow-art-gallery-iwant-my-gallery-popup-text">
-                            Buying gallery gives you opportunity to exhibit art in the CITY.
-                            Your gallery is piece of generative art minted as NFT.
-                            In future direct selling and auction option will be available for our nft collectors.
-                        </div>
-                        <div className={'wow-art-gallery-iwant-my-gallery-popup-buttons'}>
-                            <GalleryButton label={"Close!"} click={this.popup.close}/> <GalleryButton
-                            label={"Mint!"}/>
-                        </div>
-                    </GalleryPopup>
-                </Window>
-            </div>
-            <a href="https://medium.com/@alina_17943/gurt-agency-who-we-are-d882db89c674"
-               target={'_blank'}
-               className="wow-art-gallery-medium">
-                <img src="/assets/wow-art-galleries/medium.png" alt=""/>
-            </a>
-            <a href="https://twitter.com/gurt_agency"
-               target={'_blank'}
-               className="wow-art-gallery-twitter">
-                <img src="/assets/wow-art-galleries/twitter.png" alt=""/>
-            </a>
-        </div>
+        return <div ref={this.ref} className="gallery">
+            <img className="gallery-background" src={"assets/wow-art-galleries/gallery/background.png"} alt=""/>
+            <img className="separator-start" src={"assets/wow-art-galleries/separator.png"} alt=""/>
+            <img className="separator-finish" src={"assets/wow-art-galleries/separator.png"} alt=""/>
+            {this.config.map(i => <div className={`gallery-section gallery-section-${i.id}`} ref={this.addSection}>
+                <Art image={i.image}/>
+            </div>)}
+        </div>;
     }
 }

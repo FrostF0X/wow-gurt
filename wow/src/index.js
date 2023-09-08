@@ -61,7 +61,10 @@ function resolveRoutesForDomain() {
     let parts = window.location.host.split(".");
     parts.pop();
     parts.pop();
-    const subdomain = parts.join('.');
+    let subdomain = parts.join('.');
+    if (process.env.REACT_APP_DEVELOPMENT_MODE_DOMAIN) {
+        subdomain = process.env.REACT_APP_DEVELOPMENT_MODE_DOMAIN;
+    }
     if (subdomain === "summer-pools") {
         return summerPoolsRoutes;
     }

@@ -1,55 +1,59 @@
 @import "Site";
 
-.wow-art-gallery {
+.gallery {
   height: 100%;
   position: relative;
+  width: max-content;
 
   &-background {
     height: 100%;
-    width: h(434);
   }
 
-  &-iwant-my-gallery {
+  &-section {
     position: absolute;
-    top: h(69);
-    left: h(6);
-    width: h(30);
-    height: h(7);
-    z-index: 10;
-
-    img {
-      width: 100%;
+    width: 100dvw;
+    height: 100%;
+    top: 0;
+    &-#{1} {
+      left: 0;
     }
 
-    &-popup-buttons {
-      display: flex;
-      margin: 2em;
-      flex-direction: row;
-      justify-content: space-around;
+    &-#{2} {
+      left: 71dvh;
+    }
+
+    &-#{3} {
+      left: 132dvh;
+    }
+
+    &-#{4} {
+      left: 193dvh;
+    }
+
+    &-#{5} {
+      left: 270dvh;
+    }
+
+    &-#{6} {
+      left: 331dvh;
+    }
+
+    &-#{7} {
+      left: 392dvh;
+    }
+
+    &-#{8} {
+      left: 450dvh;
+    }
+
+    &-#{9} {
+      left: 500dvh;
+    }
+
+    &-#{10} {
+      left: 550dvh;
     }
   }
 
-  &-twitter {
-    position: absolute;
-    top: 54%;
-    left: 18vh;
-    width: 7vh;
-    z-index: 10;
 
-    img {
-      width: 100%;
-    }
-  }
-
-  &-medium {
-    position: absolute;
-    top: 54%;
-    left: 27vh;
-    width: 7vh;
-    z-index: 10;
-
-    img {
-      width: 100%;
-    }
-  }
 }

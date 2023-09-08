@@ -1,75 +1,48 @@
 @import "Site";
 
-.scroll-speed-wrapper {
-  position: relative;
-  perspective: 1px;
-  height: 100dvh;
 
-}
-
-.scroll-speed-wrapper-inner {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0;
-  transform: translateZ(-1px) scale(2);
-}
-
-.scroll-speed-wrapper-scroll {
-  z-index: 1;
-  position: absolute;
-  width: 5*423dvh;
-  height: 100vh;
-  transform: translateZ(0);
-}
-
-.wow-art-test {
-  position: relative;
-  height: 100dvh;
-  width: 423dvh;
-  display: flex;
-  flex-direction: row;
-
-  &-background {
+.wow-art-gallery {
+  &-iwant-my-gallery {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: h(69);
+    left: h(6);
+    width: h(30);
+    height: h(7);
+    z-index: 10;
+
+    img {
+      width: 100%;
+    }
+
+    &-popup-buttons {
+      display: flex;
+      margin: 2em;
+      flex-direction: row;
+      justify-content: space-around;
+    }
   }
 
-  &-section {
+  &-twitter {
     position: absolute;
-    height: 100dvh;
-    width: 100dvw;
+    top: 54%;
+    left: 18vh;
+    width: 7vh;
+    z-index: 10;
+
+    img {
+      width: 100%;
+    }
   }
 
-  #section1 {
-    left: 0;
-  }
+  &-medium {
+    position: absolute;
+    top: 54%;
+    left: 27vh;
+    width: 7vh;
+    z-index: 10;
 
-  #section2 {
-    left: 48dvh;
+    img {
+      width: 100%;
+    }
   }
-
-  #section3 {
-    left: 109dvh;
-  }
-
-  #section4 {
-    left: 170dvh;
-  }
-
-  #section5 {
-    left: 247dvh;
-  }
-
-  #section6 {
-    left: 308dvh;
-  }
-
-  #section7 {
-    left: 369dvh;
-  }
-
 }

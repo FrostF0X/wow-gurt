@@ -55,6 +55,7 @@
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.4.5",
     "nanoid": "^4.0.2",
+    "pepjs": "^0.5.3",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -104,6 +105,7 @@
     "start-goerli": "env-cmd -f .env-goerli node scripts/start.js",
     "start-mainnet": "env-cmd -f .env-mainnet node scripts/start.js",
     "build-goerli": "env-cmd -f .env-goerli node scripts/build.js",
+    "start-development-galleries": "export REACT_APP_DEVELOPMENT_MODE_DOMAIN=wow-art-galleries && env-cmd -f .env-development node scripts/start.js",
     "build-mainnet": "env-cmd -f .env-mainnet node scripts/build.js",
     "test": "node scripts/test.js"
   },

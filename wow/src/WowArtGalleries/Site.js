@@ -9,7 +9,7 @@ export default class Site extends React.Component {
             <div className={`wow-art-galleries-site`}>
                 <GA id={'G-Q6C959KG3L'}/>
                 <Basics>{this.props.children}</Basics>
-                <div id={"popup-root"}></div>
+                {/*<div id={"popup-root"}></div>*/}
             </div>
         );
     }
