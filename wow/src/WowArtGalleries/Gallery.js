@@ -21,20 +21,7 @@ export default class Gallery extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.ref = createRef();
-        this.ceil = createRef();
     }
-
-    componentDidMount = () => {
-        const animation = this.ceil.current.animate([
-            {transform: 'translateX(-25%)'},
-            {transform: 'translateX(25%)'}
-        ], {
-            duration: 1000,  // 1 second
-            fill: 'forwards'
-        });
-        animation.pause();
-        this.context.timeline.listen((value) => animation.currentTime = value * animation.effect.getTiming().duration);
-    };
 
     render() {
         return <div className="gallery" ref={this.ref}>
@@ -44,13 +31,6 @@ export default class Gallery extends React.Component {
                 <Art image={i.image}/>
             </div>)}
             <div className={'gallery-section gallery-section-finish'} data-section-id={'finish'}></div>
-            <div className={"gallery-ceil"} ref={this.ceil}>
-                <div>
-                    {Array.range(1, 40).map(_ => <img className={"gallery-ceil-light"}
-                                                      src={"assets/wow-art-galleries/gallery/lights/1.png"} alt=""/>)}
-
-                </div>
-            </div>
         </div>;
     }
 }
