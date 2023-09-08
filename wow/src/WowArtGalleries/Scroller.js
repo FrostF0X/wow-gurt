@@ -44,12 +44,12 @@ export default class Scroller extends React.Component {
     };
     left1 = () => {
         this.queue.push([
-            () => this.scroll(0.15, LEFT),
+            () => this.scroll(0.25, LEFT),
         ]);
     }
     right1 = () => {
         this.queue.push([
-            () => this.scroll(0.15, RIGHT),
+            () => this.scroll(0.25, RIGHT),
         ]);
     }
     scroll = async (time = 0.35, direction) => {
