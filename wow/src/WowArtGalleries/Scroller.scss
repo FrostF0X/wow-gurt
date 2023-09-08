@@ -17,16 +17,4 @@
   width: max-content;
 }
 
-.screen {
-  position: relative;
-  height: 100dvh;
-  width: 100dvw;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
-  &::-webkit-scrollbar{
-    display: none;
-  }
-}
 

@@ -5,28 +5,20 @@ import Hammer from "hammerjs";
 import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 import {Observer} from "gsap/Observer";
 import "./Scroller.scss";
-import Screens, {Screen, Section} from "./Screens";
-import Explainer from "./Explainer";
+import {ActiveScreens} from "./Screens";
+import Fountain from "./Fountain";
 import 'pepjs';
+import ScreenC from "./ScreenC";
+
 export default class Scroller extends React.Component {
     constructor(props) {
         super(props);
         this.queue = new AnimationQueue();
-        this.screenSections = [];
-        this.screenRefs = []
+        this.screens = new ActiveScreens();
         this.scroller = createRef();
     }
 
-    addScreenSections = (sections) => {
-        this.screenSections.push(sections);
-    }
-    addScreenRef = (ref) => {
-        this.screenRefs.push(ref);
-    }
-
     componentDidMount = () => {
-        console.log(this.screenRefs.map((ref, i) => new Screen(this.screenSections[i].map(s => new Section(s)), ref)));
-        this.screens = new Screens(this.screenRefs.map((ref, i) => new Screen(this.screenSections[i].map(s => new Section(s)), ref)));
         gsap.to(window, {ease: "none", duration: 0.2, scrollTo: {x: 0, y: 0}});
         gsap.registerPlugin(Observer, ScrollToPlugin);
     };
@@ -44,6 +36,7 @@ export default class Scroller extends React.Component {
         manager.on('swipe', (e) => {
             const width = (window.innerWidth > 0) ? window.innerWidth : window.screen.width;
             const percentsDelta = e.deltaX * 100 / width;
+            console.log(1);
             if (Math.abs(percentsDelta) > 2) {
                 percentsDelta > 0 ? this.left1() : this.right1();
             }
@@ -64,7 +57,7 @@ export default class Scroller extends React.Component {
         if (section) {
             return await new Promise((res) =>
                 gsap
-                    .to(this.screens.activeScreen.reference, {duration: time, scrollTo: section.reference})
+                    .to(this.screens.getActiveScreen().reference, {duration: time, scrollTo: section.reference})
                     .eventCallback('onComplete', res)
             );
         }
@@ -87,18 +80,26 @@ export default class Scroller extends React.Component {
     render() {
         return <div className="scroll-container" ref={this.scroller}>
             <div className={"scroller"}>
-                <div ref={this.addScreenRef} className="screen"><Explainer sections={this.addScreenSections}
-                                                                           registerSwipe={this.registerSwipe}/>
-                </div>
-                <div ref={this.addScreenRef} className="screen"><Gallery sections={this.addScreenSections}
-                                                                         registerSwipe={this.registerSwipe}/>
-                </div>
-                <div ref={this.addScreenRef} className="screen"><Explainer sections={this.addScreenSections}
-                                                                           registerSwipe={this.registerSwipe}/>
-                </div>
-                <div ref={this.addScreenRef} className="screen"><Gallery sections={this.addScreenSections}
-                                                                         registerSwipe={this.registerSwipe}/>
-                </div>
+                <ScreenC type={'scroll'}
+                         activeScreens={this.screens}
+                         registerSwipe={this.registerSwipe}>
+                    <Fountain/>
+                </ScreenC>
+                <ScreenC type={'sections'}
+                         activeScreens={this.screens}
+                         registerSwipe={this.registerSwipe}>
+                    <Gallery/>
+                </ScreenC>
+                <ScreenC type={'scroll'}
+                         activeScreens={this.screens}
+                         registerSwipe={this.registerSwipe}>
+                    <Fountain/>
+                </ScreenC>
+                <ScreenC type={'sections'}
+                         activeScreens={this.screens}
+                         registerSwipe={this.registerSwipe}>
+                    <Gallery/>
+                </ScreenC>
             </div>
         </div>
     }
