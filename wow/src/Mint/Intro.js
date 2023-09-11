@@ -21,7 +21,7 @@ export default class Intro extends React.Component {
                     alignItems: "center",
                 }}>
                     <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
-                        <JustFrame>
+                        <JustFrame color={'black'}>
                             <div className="gurt">
                                 <img src="/gurt.svg" alt="gurt"/>
                             </div>

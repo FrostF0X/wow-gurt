@@ -31,7 +31,7 @@ class Preview extends React.Component {
                 <div className="preview-content">
                     <div className={"preview-description"}>
                         <a href="https://gurt.agency" target={"_blank"} rel="noreferrer">
-                            <JustFrame>
+                            <JustFrame color={'black'}>
                                 <div className="gurt">
                                     <img src="/gurt.svg" alt="gurt"/>
                                 </div>
