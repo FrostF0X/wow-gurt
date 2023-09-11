@@ -82,7 +82,7 @@
     bottom: 0;
     right: 0;
     transform: scaleX(-1) translate(-40%, 8%);
-    height: 45vh;
+    height: 35vh;
   }
 
   .just-preview {
@@ -136,14 +136,14 @@
   .pointer-wow-refresh-container {
     position: absolute;
     left: -1em;
-    top: 80%;
-    width: 3em;
+    top: 50%;
+    width: 3.5em;
     transform: translate(-100%, -50%);
     z-index: 10000000;
 
     .pointer-wow {
-      padding: 0.5em;
-      width: 100%;
+      padding: 0.4em;
+      width: 80%;
     }
   }
 

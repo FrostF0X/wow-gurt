@@ -11,3 +11,79 @@
     transform: translateX(-385px);
   }
 }
+
+
+.section__header .section__header-item, .services__item {
+  font-family: Machina ub;
+  font-size: 35px;
+  text-transform: uppercase
+}
+
+.section__header {
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  height: 69px;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.section__header .marquee {
+  width: 100%;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden
+}
+.section__header .marquee .marq {
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  will-change: transform;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row
+}
+
+.section__header .marq {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.section__header .section__header-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  color: #0a0a0a;
+  padding-right: 40px;
+  line-height: .8
+}
+
+.section__header .section__header-item::before {
+  content: url(./diez.svg);
+  width: auto;
+  height: 100%;
+  display: block;
+  margin-right: 10px
+}
+
+.section__header {
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+.section__header .section__header-item {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff;
+}
