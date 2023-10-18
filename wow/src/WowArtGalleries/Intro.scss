@@ -1,0 +1,10 @@
+.intro {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+
+  &-description {
+    width: 1000px;
+    height: 100%;
+  }
+}

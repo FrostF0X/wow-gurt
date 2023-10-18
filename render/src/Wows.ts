@@ -1,7 +1,5 @@
 import {Pool} from 'pg';
 import Db from "./Utils/Db";
-
-
 export interface Wow {
     tokenId: string;
     tokenUrl: string;

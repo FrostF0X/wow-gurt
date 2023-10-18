@@ -8,6 +8,7 @@
   overflow-y: hidden;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
     display: none;
@@ -19,6 +20,7 @@
     position: relative;
     width: max-content;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   &-controls {

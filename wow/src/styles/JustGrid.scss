@@ -2,7 +2,7 @@
 @import "./Basics";
 @import "JustGridBorders";
 
-$cellCount: 9;
+$cellCount: 17;
 .just-grid {
   display: grid;
   --cell-size: var(--image-size);
@@ -15,7 +15,15 @@ $cellCount: 9;
           [cell-6] var(--cell-size)
           [cell-7] var(--cell-size)
           [cell-8] var(--cell-size)
-          [cell-9] var(--cell-size);
+          [cell-9] var(--cell-size)
+          [cell-10] var(--cell-size)
+          [cell-11] var(--cell-size)
+          [cell-12] var(--cell-size)
+          [cell-13] var(--cell-size)
+          [cell-14] var(--cell-size)
+          [cell-15] var(--cell-size)
+          [cell-16] var(--cell-size)
+          [cell-17] var(--cell-size);
 
   grid-template-rows:
           [cell-1] var(--cell-size)
@@ -26,7 +34,15 @@ $cellCount: 9;
           [cell-6] var(--cell-size)
           [cell-7] var(--cell-size)
           [cell-8] var(--cell-size)
-          [cell-9] var(--cell-size);
+          [cell-9] var(--cell-size)
+          [cell-10] var(--cell-size)
+          [cell-11] var(--cell-size)
+          [cell-12] var(--cell-size)
+          [cell-13] var(--cell-size)
+          [cell-14] var(--cell-size)
+          [cell-15] var(--cell-size)
+          [cell-16] var(--cell-size)
+          [cell-17] var(--cell-size);
 }
 
 .just-grid-cell {

@@ -3,6 +3,7 @@ import Hammer from "hammerjs";
 import {Screen, Section} from "./Screens";
 import "./Screen.scss";
 import EventQ from "../Common/EventQ";
+import {gsap} from "gsap";
 
 
 export const ScreenContext = React.createContext({
@@ -19,17 +20,22 @@ export default class ScreenC extends React.Component {
         this.timeline = new EventQ();
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         if (this.props.type === 'sections') {
             this.props.activeScreens.add(new Screen(
                 [...this.ref.current.querySelectorAll('[data-section-id]')].map(i => new Section(i)),
                 this.ref.current)
             );
             this.props.registerSwipe(this.ref.current, 'sections', Hammer.DIRECTION_HORIZONTAL);
-        } else {
+        } else if (this.props.type === 'scroll') {
             this.props.activeScreens.add(new Screen([new Section(this.ref.current)], this.ref.current));
             this.props.registerSwipe(this.start.current, 'scroll', Hammer.DIRECTION_RIGHT);
             this.props.registerSwipe(this.end.current, 'scroll', Hammer.DIRECTION_LEFT);
+        } else if (this.props.type === 'autoscroll') {
+            this.props.activeScreens.add(new Screen([new Section(this.ref.current)], this.ref.current));
+            this.props.registerSwipe(this.start.current, 'scroll', Hammer.DIRECTION_RIGHT);
+            this.props.registerSwipe(this.end.current, 'scroll', Hammer.DIRECTION_LEFT);
+            gsap.to(this.ref.current, {duration: 10, scrollTo: {x: 6250, y: 0}, ease: "linear"})
         }
     }
 

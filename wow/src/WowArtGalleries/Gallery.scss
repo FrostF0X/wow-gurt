@@ -4,9 +4,40 @@
   height: 100%;
   position: relative;
   width: max-content;
+  display: flex;
 
   &-background {
+    &-#{1} {
+
+    }
+
+    &-#{2} {
+      margin-left: -2%;
+    }
+
+    &-#{3} {
+      margin-left: -2%;
+    }
+
     height: 100%;
+  }
+
+  &-objects {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+  }
+
+  &-object {
+    width: 100px;
+    height: 100px;
+
+    img {
+      max-height: 200%;
+    }
   }
 
   &-section {

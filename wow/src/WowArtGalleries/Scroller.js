@@ -9,6 +9,7 @@ import {ActiveScreens} from "./Screens";
 import Fountain from "./Fountain";
 import 'pepjs';
 import ScreenC from "./ScreenC";
+import Intro from "./Intro";
 
 export default class Scroller extends React.Component {
     constructor(props) {
@@ -36,7 +37,6 @@ export default class Scroller extends React.Component {
         manager.on('swipe', (e) => {
             const width = (window.innerWidth > 0) ? window.innerWidth : window.screen.width;
             const percentsDelta = e.deltaX * 100 / width;
-            console.log(1);
             if (Math.abs(percentsDelta) > 2) {
                 percentsDelta > 0 ? this.left1() : this.right1();
             }
@@ -80,6 +80,11 @@ export default class Scroller extends React.Component {
     render() {
         return <div className="scroll-container" ref={this.scroller}>
             <div className={"scroller"}>
+                <ScreenC type={'autoscroll'}
+                         activeScreens={this.screens}
+                         registerSwipe={this.registerSwipe}>
+                    <Intro></Intro>
+                </ScreenC>
                 <ScreenC type={'scroll'}
                          activeScreens={this.screens}
                          registerSwipe={this.registerSwipe}>
@@ -89,11 +94,6 @@ export default class Scroller extends React.Component {
                          activeScreens={this.screens}
                          registerSwipe={this.registerSwipe}>
                     <Gallery/>
-                </ScreenC>
-                <ScreenC type={'scroll'}
-                         activeScreens={this.screens}
-                         registerSwipe={this.registerSwipe}>
-                    <Fountain/>
                 </ScreenC>
                 <ScreenC type={'sections'}
                          activeScreens={this.screens}

@@ -14,12 +14,12 @@
   --animation-delay-multiplier: 5;
 }
 
-$cellCount: 8;
+$cellCount: 16;
 .wow-scene-grid {
   overflow: hidden;
   display: grid;
-  --cell-size: calc(var(--wow-scene-size) / 8 - #{$borderWidth});
-  --image-size: calc(var(--wow-scene-size) / 8);
+  --cell-size: calc(var(--wow-scene-size) / 16 - #{$borderWidth});
+  --image-size: calc(var(--wow-scene-size) / 16);
   width: var(--wow-scene-size);
   height: var(--wow-scene-size);
   grid-template-columns:
@@ -30,7 +30,15 @@ $cellCount: 8;
           [cell-5] var(--cell-size)
           [cell-6] var(--cell-size)
           [cell-7] var(--cell-size)
-          [cell-8] var(--cell-size);
+          [cell-8] var(--cell-size)
+          [cell-9] var(--cell-size)
+          [cell-10] var(--cell-size)
+          [cell-11] var(--cell-size)
+          [cell-12] var(--cell-size)
+          [cell-13] var(--cell-size)
+          [cell-14] var(--cell-size)
+          [cell-15] var(--cell-size)
+          [cell-16] var(--cell-size);
   grid-template-rows:
           [cell-1] var(--cell-size)
           [cell-2] var(--cell-size)
@@ -39,7 +47,15 @@ $cellCount: 8;
           [cell-5] var(--cell-size)
           [cell-6] var(--cell-size)
           [cell-7] var(--cell-size)
-          [cell-8] var(--cell-size);
+          [cell-8] var(--cell-size)
+          [cell-9] var(--cell-size)
+          [cell-10] var(--cell-size)
+          [cell-11] var(--cell-size)
+          [cell-12] var(--cell-size)
+          [cell-13] var(--cell-size)
+          [cell-14] var(--cell-size)
+          [cell-15] var(--cell-size)
+          [cell-16] var(--cell-size);
   grid-gap: #{$borderWidth};
   background: $accent;
   position: relative;
