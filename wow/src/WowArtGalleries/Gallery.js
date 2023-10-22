@@ -21,10 +21,22 @@ export default class Gallery extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.ref = createRef();
-        this.objects = Array.range(1, 400).map(_ => ({
+        this.state = {
+            'objects': this.genWallObjects()
+        };
+    }
+    componentDidMount = () => {
+        // setInterval(() => {
+        //     this.setState({'objects': this.genWallObjects()});
+        // }, 500);
+    };
+
+    genWallObjects() {
+        let number = Number.random(1, 6);
+        return Array.range(1, 400).map(_ => ({
             'rotate': Number.random(1, 360),
-            'object': Number.random(1, 6),
-        }))
+            'object': number,
+        }));
     }
 
     render() {
@@ -35,7 +47,7 @@ export default class Gallery extends React.Component {
                  src={"assets/wow-art-galleries/gallery/background.png"} alt=""/>
             <img className="gallery-background gallery-background-3"
                  src={"assets/wow-art-galleries/gallery/background.png"} alt=""/>
-            <div className="gallery-objects">{this.objects.map(this.object)}</div>
+            <div className="gallery-objects">{this.state.objects.map(this.object)}</div>
             <div className={'gallery-section gallery-section-start'} data-section-id={'start'}></div>
             {this.config.map(i => <div className={`gallery-section gallery-section-${i.id}`} data-section-id={i.id}>
                 <Art image={i.image}/>
@@ -45,9 +57,9 @@ export default class Gallery extends React.Component {
     }
 
     object(o) {
-        return <div className={`gallery-object gallery-object-${o.pos}`}
-                    style={{transform: `rotate(${o.rotate}deg)`}}>
-            <img className="" src={`assets/wow-art-galleries/gallery/objects/${o.object}.png`} alt=""/>
+        return <div className={`gallery-object`}>
+            <img className="" style={{transform: `rotate(${o.rotate}deg) translate(-50%, -50%)`}}
+                 src={`assets/wow-art-galleries/gallery/objects/${o.object}.png`} alt=""/>
         </div>;
     }
 }
