@@ -1,6 +1,5 @@
 import React from "react";
 import "./Art.scss";
-import Random from "../../Random";
 
 export default class Art extends React.Component {
 
