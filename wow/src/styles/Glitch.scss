@@ -32,7 +32,7 @@
   }
 }
 
-@for $i from 1 to 17 {
+@for $i from 1 to 8 {
   $r: random(1000);
   .animation-delayed-start-#{$i} {
     animation-delay: calc(#{$i} / 8 * var(--animation-phase) * var(--animation-delay-multiplier) * -1) !important;
