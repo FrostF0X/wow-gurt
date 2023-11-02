@@ -6,10 +6,10 @@ import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 import {Observer} from "gsap/Observer";
 import "./Scroller.scss";
 import {ActiveScreens} from "./Screens";
-import Fountain from "./Fountain";
 import 'pepjs';
 import ScreenC from "./ScreenC";
 import Intro from "./Intro";
+import Window from "./Globals/Window";
 
 export default class Scroller extends React.Component {
     constructor(props) {
@@ -55,10 +55,13 @@ export default class Scroller extends React.Component {
     scroll = async (time = 0.35, direction) => {
         const section = this.screens.moveSection(direction);
         if (section) {
-            return await new Promise((res) =>
-                gsap
-                    .to(this.screens.getActiveScreen().reference, {duration: time, scrollTo: section.reference})
-                    .eventCallback('onComplete', res)
+            return await new Promise((res) => {
+                    console.log(section.reference.offsetLeft);
+                    this.screens.getActiveScreen().content.style.setProperty('--slide-time', '250ms');
+                    this.screens.getActiveScreen().content.style.setProperty('--slide-to', `-${section.reference.offsetLeft - Window.width() / 2}px`);
+                    this.screens.getActiveScreen().content.classList.add('screen-content-slide');
+                    setTimeout(res, 250);
+                }
             );
         }
         const screen = this.screens.moveScreen(direction);
@@ -85,11 +88,11 @@ export default class Scroller extends React.Component {
                          registerSwipe={this.registerSwipe}>
                     <Intro></Intro>
                 </ScreenC>
-                <ScreenC type={'scroll'}
-                         activeScreens={this.screens}
-                         registerSwipe={this.registerSwipe}>
-                    <Fountain/>
-                </ScreenC>
+                {/*<ScreenC type={'scroll'}*/}
+                {/*         activeScreens={this.screens}*/}
+                {/*         registerSwipe={this.registerSwipe}>*/}
+                {/*    <Fountain/>*/}
+                {/*</ScreenC>*/}
                 <ScreenC type={'sections'}
                          activeScreens={this.screens}
                          registerSwipe={this.registerSwipe}>

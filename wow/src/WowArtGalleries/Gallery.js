@@ -2,6 +2,7 @@ import React, {createRef} from "react";
 import "./Gallery.scss";
 import Art from "./Gallery/Art";
 import {ScreenContext} from "./ScreenC";
+import Random from "../Random";
 
 export default class Gallery extends React.Component {
     static contextType = ScreenContext;
@@ -28,14 +29,15 @@ export default class Gallery extends React.Component {
     componentDidMount = () => {
         // setInterval(() => {
         //     this.setState({'objects': this.genWallObjects()});
-        // }, 500);
+        // }, 1000);
     };
 
     genWallObjects() {
-        let number = Number.random(1, 6);
-        return Array.range(1, 400).map(_ => ({
+        let object1 = Random.fresh().randomItems(Array.range(30, 50), 2);
+        return Array.range(1, 2000).map(_ => ({
             'rotate': Number.random(1, 360),
-            'object': number,
+            'skew': Number.random(1, 10),
+            'object': Random.fresh().randomItem(object1),
         }));
     }
 
@@ -58,7 +60,7 @@ export default class Gallery extends React.Component {
 
     object(o) {
         return <div className={`gallery-object`}>
-            <img className="" style={{transform: `rotate(${o.rotate}deg) translate(-50%, -50%)`}}
+            <img className="" style={{transform: `rotate(${o.rotate}deg) skew(${o.skew}deg, ${o.skew}deg) translate(-50%, -50%)`}}
                  src={`assets/wow-art-galleries/gallery/objects/${o.object}.png`} alt=""/>
         </div>;
     }

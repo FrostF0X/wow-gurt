@@ -151,7 +151,7 @@ export default class Screens implements ScreensIterator {
 
 export class Screen {
 
-    constructor(private sections: Section[], public reference: any) {
+    constructor(private sections: Section[], public reference: any, public content: any) {
     }
 
     first() {

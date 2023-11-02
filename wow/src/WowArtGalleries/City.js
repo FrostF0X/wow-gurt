@@ -1,7 +1,7 @@
 import './City.scss';
 import React from "react";
 import BrowserOrientation from "../BrowserOrientation";
-import Window from "./Window";
+import AppWindow from "./AppWindow";
 import ConnectButton from "../Chains/ConnectButton";
 import Gallery from "./Gallery";
 import {ParallaxProvider} from "react-scroll-parallax";
@@ -19,10 +19,10 @@ export default class City extends React.Component {
         return <ParallaxProvider scrollAxis="horizontal">
             <div className={"wow-art-city"}>
                 <div className={`wow-art-galleries-connect-wallet`}>
-                    <Window>
+                    <AppWindow>
                         <ConnectButton label={"CONNECT"} showBalance={false} chainStatus={"none"}
                                        accountStatus={"address"}/>
-                    </Window>
+                    </AppWindow>
                 </div>
                 <Gallery/>
                 <Gallery/>

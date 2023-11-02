@@ -1,6 +1,6 @@
 import React from "react";
 import "./Popup.scss";
-import Window from "./Window";
+import AppWindow from "./AppWindow";
 import Popup from "reactjs-popup";
 import EventQ from "../Common/EventQ";
 
@@ -31,11 +31,11 @@ export default class GalleryPopup extends React.Component {
                 <div className="wow-art-galleries-popup-background" onClick={this.closeModal}>
                 </div>
                 <div className="wow-art-galleries-popup">
-                    <Window close={this.closeModal}>
+                    <AppWindow close={this.closeModal}>
                         <div className="wow-art-galleries-popup-content">
                             {this.props.children}
                         </div>
-                    </Window>
+                    </AppWindow>
                 </div>
             </div>
         </Popup>

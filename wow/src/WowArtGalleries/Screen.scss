@@ -1,14 +1,16 @@
 @import "../styles/Basics";
 
+body {
+  overscroll-behavior: none;
+}
 
 .screen {
   height: 100dvh;
   width: 100dvw;
   overflow-x: scroll;
   overflow-y: hidden;
-  overscroll-behavior: contain;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
 
   &::-webkit-scrollbar {
     display: none;
@@ -21,6 +23,11 @@
     width: max-content;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
+
+    &-slide {
+      transition: var(--slide-time) linear;
+      transform: translateX(var(--slide-to));
+    }
   }
 
   &-controls {

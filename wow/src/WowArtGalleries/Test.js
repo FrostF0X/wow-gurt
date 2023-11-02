@@ -1,7 +1,7 @@
 import "./Test.scss";
 import React from "react";
 import GlitchImage from "../GlitchImage";
-import Window from "./Window";
+import AppWindow from "./AppWindow";
 import GalleryPopup, {PopupController} from "./GalleryPopup";
 import GalleryButton from "./GalleryButton";
 
@@ -18,7 +18,7 @@ export default class Test extends React.Component {
                 <GlitchImage img={`wow-art-galleries/mobile`} preset={'hue'}/>
             </div>
             <div className={`wow-art-gallery-iwant-my-gallery`}>
-                <Window click={this.popup.open}>
+                <AppWindow click={this.popup.open}>
                     <h2>I want my own gallery!</h2>
                     <GalleryPopup controller={this.popup}>
                         <div className="wow-art-gallery-iwant-my-gallery-popup-text">
@@ -31,7 +31,7 @@ export default class Test extends React.Component {
                             label={"Mint!"}/>
                         </div>
                     </GalleryPopup>
-                </Window>
+                </AppWindow>
             </div>
             <a href="https://medium.com/@alina_17943/gurt-agency-who-we-are-d882db89c674"
                target={'_blank'}
